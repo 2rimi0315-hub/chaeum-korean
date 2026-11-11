@@ -210,3 +210,19 @@ def pick(q, opts):
     """정답 없는 고르기(내 선택·자기 점검)."""
     btns = ''.join(f'<button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">{o}</button>' for o in opts)
     return f'<div class="rv"><p class="q">{q}</p><div class="faces" style="flex-wrap:wrap;">{btns}</div></div>'
+
+def update_index(site, book_id, unit_n, unit_title, lessons):
+    """index.html의 해당 책(book42ga 등) 안 u{n} 섹션을 새 차시 목록으로 바꾼다."""
+    p = os.path.join(site, 'index.html'); s = open(p, encoding='utf-8').read()
+    a = s.find(f'<div id="{book_id}"'); assert a >= 0, book_id
+    a = s.find(f'<section class="u{unit_n}">', a); assert a >= 0, unit_n
+    b = s.find('</section>', a) + len('</section>')
+    items = ''.join(f'''
+      <a class="lesson" href="{i}.html" data-id="{i}">
+        <span class="order">{n}</span>
+        <span class="info"><b>{t}</b><small>{m}</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-{i}.html">🃏 낱말 카드 8장</a></div>''' for n, (i, t, m) in enumerate(lessons, 1))
+    new = f'<section class="u{unit_n}">\n      <div class="unit"><span class="n">{unit_n}</span><h2>{unit_title}</h2></div>' + items + '\n    </section>'
+    open(p, 'w', encoding='utf-8').write(s[:a] + new + s[b:])

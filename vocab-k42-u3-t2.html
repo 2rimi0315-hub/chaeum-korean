@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 의견 모아 실천</title>
+<title>&lt;em&gt;문제 해결 토의&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 3단원 토의하여 문제를 해결해요 · 어휘 카드 8장</p>
-    <h1><em>실천</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 3단원 의견을 모아서 · 문제 해결을 위한 토의 · 어휘 카드 8장</p>
+    <h1><em>문제 해결 토의</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🏃", "w": "실천", "m": "실제로 행동에 옮김", "x": "다짐을 실천해요."},
-  {"e": "🗺️", "w": "계획", "m": "미리 세우는 생각", "x": "실천 계획을 세워요."},
-  {"e": "🤝", "w": "협력", "m": "힘을 모아 함께함", "x": "협력해 실천해요."},
-  {"e": "✅", "w": "결정", "m": "어떻게 할지 정함", "x": "의견을 모아 결정해요."},
-  {"e": "🔄", "w": "돌아보기", "m": "지난 일을 되짚어 봄", "x": "실천을 돌아봐요."},
-  {"e": "🤞", "w": "다짐", "m": "마음을 굳게 정함", "x": "실천을 다짐했어요."},
-  {"e": "📆", "w": "꾸준히", "m": "끊임없이 계속", "x": "꾸준히 실천해요."},
-  {"e": "📥", "w": "모으다", "m": "한데 합치다", "x": "의견을 모아요."}
+  {"e": "🧤", "w": "분실물", "m": "잃어버린 물건", "x": "분실물 상자를 확인해요."},
+  {"e": "✅", "w": "적절하다", "m": "꼭 알맞다", "x": "적절한 이유를 들어요."},
+  {"e": "⚠️", "w": "단점", "m": "모자라거나 나쁜 점", "x": "의견의 단점도 생각해요."},
+  {"e": "⭐", "w": "장점", "m": "좋은 점", "x": "이 의견은 장점이 많아요."},
+  {"e": "🧩", "w": "보완하다", "m": "모자란 것을 채워 완전하게 하다", "x": "단점을 보완했어요."},
+  {"e": "📌", "w": "게시판", "m": "알릴 내용을 붙이는 판", "x": "게시판에 사진을 붙여요."},
+  {"e": "🔍", "w": "해결", "m": "문제를 잘 풀어냄", "x": "문제를 해결했어요."},
+  {"e": "📝", "w": "의견판", "m": "의견과 이유를 적은 판", "x": "책상 위에 의견판을 세워요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
