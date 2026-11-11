@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 작품에서 느낀 재미나 감동 표현하기 (국어 3-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .say b{font-weight:800;}
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);}
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);}
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:120px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+  .structbox{border:2px solid var(--ink); border-radius:14px; overflow:hidden; margin-bottom:12px;}
+  .structbox h3{font-size:15px; font-weight:800; padding:10px 14px; color:#fff;}
+  .structbox.s1 h3{background:var(--teal);}
+  .structbox.s2 h3{background:var(--purple);}
+  .structbox.s3 h3{background:var(--tangerine);}
+  .structbox .body{padding:14px; font-size:14.5px; line-height:1.7;}
+  .structbox .body b{color:var(--ink);}
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+  .flowlist{margin-top:8px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowrow .fixed b{color:var(--tangerine-dark);}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 3-1 · 3단원 짜임새 있는 글, 재미와 감동이 있는 글</p>
+    <h1>작품에서 느낀 <em>재미와 감동</em>을 표현해요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div></header>
+  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>단원을 시작해요</h2></div>
+    <div class="box"><div class="say">🔔 지난 시간에는 <b>문단</b>을 배웠어요. 오늘은 시와 이야기에서 재미와 감동을 찾아 표현해요!</div>
+      <div class="rv"><p class="q">문단의 내용을 대표하는 문장은?</p><div class="rvgroup" data-ranswer="중심 문장"><button data-v="중심 문장">중심 문장</button><button data-v="뒷받침 문장">뒷받침 문장</button></div></div>
+      <div class="rv"><p class="q">마음이 크게 움직이는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="감동"><button data-v="감동">감동</button><button data-v="재미">재미</button></div></div>
+    </div></section>
+  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>가족마다 비밀번호 누르는 소리가 다르대요. 우리 집은 어떨까요?</small></p><div class="cowrap"><img src="comics/k31-u3-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k31-u3-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">3. 재미와 감동이 있는 글</small>작품에서 느낀 재미나 감동을 다양하게 표현하기</span></label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>작품을 읽고 웃음이 나거나 즐거운 마음을 무엇이라 할까요?</p></div><textarea class="writeline" rows="1" placeholder="..... (이)라고 해요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>재미나 감동을 어떻게 표현할 수 있을까요?</p></div><textarea class="writeline" rows="1" placeholder="말·그림·몸짓·낭송 등 ..... 하게 표현해요."></textarea></div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">시와 이야기를 읽고 <b>재미나 감동</b>을 느낀 부분을 찾아 <b>까닭</b>과 함께 말하고, 그림·몸짓·낭송 등 <b>다양하게</b> 표현할 수 있어요.</p></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>재미와 감동을 찾는 방법을 알아봐요</h2></div>
+    <div class="box"><div class="say">📋 이렇게 작품을 감상해요. 소리 내어 읽어 봐요.</div><div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed"><b>장면 상상하기</b> — 작품을 읽으며 떠오르는 장면을 그려 봐요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">2</span><div class="fixed"><b>내 경험 떠올리기</b> — 작품 내용과 비슷한 나의 경험을 떠올려요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">3</span><div class="fixed"><b>까닭과 함께 말하기</b> — 재미있거나 감동적인 부분을 까닭과 함께 나눠요.</div></div></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>감상</b> 작품을 즐기며 느낌 · <b>장면</b> 한 모습 · <b>경험</b> 실제로 겪은 일 · <b>낭송</b> 시를 소리 내어 읽음</div></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이 상자에는 저작권 때문에 본문을 미리 담아 둘 수 없었어요. <b>개인 소장용으로 직접 넣는 방법</b>: 이 파일을 메모장으로 열어 <b>PASTE-HERE</b>를 찾은 뒤, 그 아래 &lt;p&gt;…&lt;/p&gt; 자리에 교과서 본문을 문단마다 &lt;p&gt;문단&lt;/p&gt; 형태로 붙여 넣고 저장하세요. 붙여 넣으면 형광펜 기능이 자동으로 작동해요.</p></div>
+      <div class="say">👀 붙여 넣은 글에서 <b>인상 깊은 부분은 노랑</b>, <b>중요한 내용은 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 인상 깊은 부분</button><button id="btn-env" onclick="setMode('env')">🩵 중요한 내용</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
+      <p class="ptitle"><small>시·이야기</small>비밀번호 · 수상한 선글라스<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">교과서 3-1 가 120~135쪽 본문을 직접 붙여 넣는 자리예요</span></p>
+      <div class="passage" id="passage">
+<p><!--PASTE-HERE 아래 줄부터 문단을 붙여 넣으세요--> 📌 아직 본문이 없어요. 활동지 파일을 메모장으로 열어 PASTE-HERE 자리에 교과서 본문을 붙여 넣으면 여기에 글이 나타나요.</p>
+      </div>
+      <div class="legendline"><span><i style="background:#FAE28A"></i>인상 깊은 부분</span><span><i style="background:#BFE3F7"></i>중요한 내용</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: 붙여 넣은 글의 어려운 낱말은 수업에서 함께 찾아봐요</div></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>교과서 작품을 읽고 확인해요</h2></div>
+    <div class="box"><div class="say">📖 <b>교과서 가 120~135쪽</b>의 시 「비밀번호」(문현식)와 이야기 「수상한 선글라스」(고수산나)를 읽고, 답을 골라 누르세요. 「비밀번호」는 가족마다 다른 비밀번호 누르는 소리로 그리움을 노래한 시예요.</div>
+      <div class="rv"><p class="q">① 「비밀번호」에서 '나'는 비밀번호 누르는 소리로 무엇을 알 수 있나요?</p><div class="rvgroup" data-ranswer="누가 왔는지"><button data-v="누가 왔는지">누가 왔는지</button><button data-v="몇 시인지">몇 시인지</button></div></div>
+      <div class="rv"><p class="q">② 「비밀번호」에서 '나'가 보고 싶어 하는 사람은?</p><div class="rvgroup" data-ranswer="할머니"><button data-v="할머니">할머니</button><button data-v="옆집 아저씨">옆집 아저씨</button></div></div>
+      <div class="rv"><p class="q">③ 「수상한 선글라스」에서 은솔이와 한솔이가 간 곳은?</p><div class="rvgroup" data-ranswer="공원 알뜰 장터"><button data-v="공원 알뜰 장터">공원 알뜰 장터</button><button data-v="놀이공원">놀이공원</button></div></div>
+      <div class="rv"><p class="q">④ 알뜰 장터 현수막에 쓰인 말은?</p><div class="rvgroup" data-ranswer="나눠 쓰고 아껴 쓰면 우리도 지구도 행복해요"><button data-v="나눠 쓰고 아껴 쓰면 우리도 지구도 행복해요">나눠 쓰고 아껴 쓰면 우리도 지구도 행복해요</button><button data-v="많이 사면 좋아요">많이 사면 좋아요</button></div></div>
+    </div></section>
+  <section class="s-main"><div class="stage"><span class="badge">전개 3</span><h2>재미와 감동을 정리해요</h2></div>
+    <div class="box"><div class="say">📝 교과서에서 읽은 작품의 느낌을 정리해 봐요.</div><table><thead><tr><th style="width:130px;">항목</th><th>내가 쓴 내용</th></tr></thead><tbody><tr><td class="word">재미있던 부분</td><td><input type="text" placeholder="예) ..... 장면이 재미있었다"></td></tr><tr><td class="word">감동받은 부분</td><td><input type="text" placeholder="예) ..... 부분에서 뭉클했다"></td></tr><tr><td class="word">그 까닭</td><td><input type="text" placeholder="예) 왜냐하면 나도 ..... 경험이 있어서"></td></tr><tr><td class="word">비슷한 내 경험</td><td><input type="text" placeholder="예) 나도 ..... 한 적이 있다"></td></tr></tbody></table>
+      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>작품에서 느낀 재미나 감동을 어떻게 표현하고 싶은지 써 보세요.</p></div><textarea class="writeline" rows="2" placeholder="예) 나는 그 장면을 그림으로 그리고 싶다. / 몸짓으로 ....."></textarea></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>감상하는 태도를 골라요</h2></div>
+    <div class="box"><div class="say">🔎 바른 태도이면 ⭕, 아니면 ❌를 골라 누르세요.</div><div class="rv"><p class="q">① 장면을 상상하며 읽는다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">② 내 경험을 떠올리며 읽는다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">③ 친구가 느낀 감동을 놀린다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">④ 까닭과 함께 느낌을 말한다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div></section>
+  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box"><div class="selfcheck"><p>💪 작품에서 재미·감동을 느낀 부분을 찾을 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+      <div class="selfcheck"><p>💪 느낌을 까닭과 함께 표현할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
+    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">작품을 읽고 마음이 크게 움직이는 것을 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:130px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="12" aria-label="빈칸"> (이)라고 한다.</p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 감동</p></div>
+    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 작품을 감상하는 방법으로 <u>알맞은</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="3"><button>① 제목만 읽는다</button><button>② 아무 생각 없이 넘긴다</button><button>③ 장면을 상상하고 경험을 떠올린다</button><button>④ 남의 느낌을 따라 한다</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">작품에서 <b>재미</b>있거나 <b>감동</b>받은 부분을 찾고, <b>까닭</b>과 함께 말하며, 그림·몸짓·낭송 등 <b>다양하게</b> 표현해요.</div><div class="mc" data-q="q3" data-answer="4"><button>① 재미있는 부분을 찾는다.</button><button>② 비슷한 경험을 떠올린다.</button><button>③ 까닭과 함께 말한다.</button><button>④ 느낌은 마음속에만 숨긴다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">그리운 사람이 있나요? 「비밀번호」의 '나'처럼 그리운 마음을 한 문장으로 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 나는 ..... 이(가) 보고 싶다. ..... 소리를 들으면 생각난다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">집에서 시 한 편을 읽고, 재미나 감동을 느낀 부분과 까닭을 써 오세요.</p><textarea class="writeline" rows="2" placeholder="시 제목: ..... / 느낀 부분: ..... / 까닭: ....."></textarea></div></section>
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 글을 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

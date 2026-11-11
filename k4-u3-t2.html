@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 필기도구가 일하는 방식 (국어 4-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-1 · 3단원 자세하게 살펴요</p>
+    <h1>낱말 사이의 관계를 파악하며 <em>글을 읽어요</em></h1>
+    <div class="idrow">
+      <span>이름 <input type="text"></span>
+      <span>날짜 <input type="text" placeholder="    월    일"></span>
+    </div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 낱말 사이의 세 가지 관계를 배웠어요.</div>
+      <div class="rv"><p class="q">'덥다'와 '춥다'는 어떤 관계인가요?</p><div class="rvgroup" data-ranswer="뜻이 반대인 관계"><button data-v="뜻이 반대인 관계">뜻이 반대인 관계</button><button data-v="뜻이 비슷한 관계">뜻이 비슷한 관계</button></div></div>
+      <div class="rv"><p class="q">'과일'과 '사과'는 어떤 관계인가요?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="뜻을 포함하거나 뜻에 포함되는 관계"><button data-v="뜻을 포함하거나 뜻에 포함되는 관계">뜻을 포함하거나 뜻에 포함되는 관계</button><button data-v="뜻이 반대인 관계">뜻이 반대인 관계</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k4-u3-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k4-u3-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">3. 자세하게 살펴요</small>2) 낱말 사이의 관계를 파악하며 글 읽기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>내 필통 속에는 어떤 필기도구가 있나요? 모두 써 보세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="연필, ....."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>연필 글씨는 지우개로 지워지는데, 볼펜 글씨는 왜 안 지워질까요? <small>짐작해서 써 보세요. 답은 글 속에 있어요!</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="볼펜은 ..... 때문인 것 같아요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">낱말 사이의 관계(비슷한 말, 반대말, 포함 관계)를 생각하며 읽으면 글의 내용을 더 깊이 이해할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>낱말의 관계를 생각하며 글을 읽어요</h2></div>
+    <div class="box">
+      <div class="say">👀 먼저 눈으로 읽어요. 그다음 <b>필기도구 이름은 파랑</b>, <b>서로 반대인 낱말 짝은 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 필기도구 이름</button>
+        <button id="btn-important" onclick="setMode('important')">💛 반대인 낱말 짝</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>오늘의 읽기</small>「필기도구가 일하는 방식」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 4-1 가 122~123쪽</span></p>
+      <div class="passage" id="passage">
+        <p>여러분의 필통 속에는 어떤 필기도구가 있나요? 연필, 볼펜, 지우개, 샤프……. 우리는 학교에서 공부할 때 다양한 필기도구를 사용합니다. 필기도구는 어떤 방식으로 우리가 글씨를 쓰고 지울 수 있도록 해 줄까요?</p>
+        <p>먼저 글씨를 쓸 때 사용하는 필기도구에 대해 알아봅시다. 연필은 글씨를 쓸 때 사용하는 대표적인 필기도구입니다. 우리가 글씨를 쓸 때 연필심은 검은 가루가 되어 종이 위로 떨어집니다. 그리고 이 검은 가루가 종이의 겉 사이사이에 붙어 우리 눈에 선으로 보이는 것입니다.</p>
+        <p>볼펜도 글씨를 쓰는 데 자주 사용됩니다. 그렇지만 볼펜이 글씨를 쓰는 원리는 연필과 다릅니다. 연필의 중심에는 연필심이 있지만 볼펜의 가운데에는 잉크가 있습니다. 볼펜에서 흘러나온 잉크는 종이의 속으로 스며들어 자국을 남깁니다.</p>
+        <p>다음으로 글씨를 지울 때 사용하는 필기도구에 대해 알아봅시다. 연필로 쓴 글씨는 지우개로 지울 수 있습니다. 지우개를 문지르면 지우개 가루가 생깁니다. 이 지우개 가루는 종이에 붙어 있는 연필심의 검은 가루와 뭉치면서 검은 가루를 종이에서 떨어지게 합니다. 그렇지만 지우개는 종이의 안을 파고들 수 없기 때문에 볼펜으로 쓴 글씨를 지울 수 없습니다.</p>
+        <p>볼펜으로 쓴 글씨는 수정액으로 지웁니다. 수정액은 수정하는 액체라는 뜻으로, 하얀 가루와 가루를 녹이고 굳히는 물질로 이루어져 있습니다. 볼펜으로 잘못 쓴 글씨가 있는 종이 위에 수정액을 사용하면 하얀 가루가 녹아 흘러나온 뒤 빠르게 굳습니다. 지우개가 검게 보이는 대상을 없애는 것과 달리 수정액은 검은 자국이 보이지 않도록 덮는 것이지요.</p>
+        <p>즉 연필은 검은 가루를 종이 겉에 붙게 해 글씨를 남기고, 볼펜은 종이 속에 잉크를 스며들게 해 글씨를 남깁니다. 지우개는 연필의 검은 가루를 종이에서 떼어 내서 글씨를 지우고, 수정액은 잉크 자국을 덮어 보이지 않게 합니다. 우리가 자주 사용하는 필기도구에 이렇게 재미있는 원리가 숨어 있습니다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>필기도구 이름</span>
+        <span><i style="background:var(--mark-important)"></i>반대인 낱말 짝</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>필기도구</b> 글씨를 쓰거나 지울 때 쓰는 도구 · <b>원리</b> 어떤 일이 일어나는 기본 이치 · <b>스며들다</b> 속으로 배어들다 · <b>수정</b> 잘못된 것을 바로잡음</div>
+    </div>
+    <div class="box">
+      <div class="say">💬 글을 잘 읽었나요? 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 이 글에서 '필기도구'의 뜻에 포함되는 낱말들</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="연필, 볼펜, 지우개, 수정액"><button data-v="연필, 볼펜, 지우개, 수정액">연필, 볼펜, 지우개, 수정액</button><button data-v="책상, 의자, 칠판">책상, 의자, 칠판</button></div></div>
+      <div class="rv"><p class="q">② 이 글은 글씨를 '쓸' 때와 '지울' 때로 나누어 설명했어요. 두 낱말의 관계는?</p><div class="rvgroup" data-ranswer="뜻이 반대인 관계"><button data-v="뜻이 반대인 관계">뜻이 반대인 관계</button><button data-v="뜻이 비슷한 관계">뜻이 비슷한 관계</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>글 속 낱말들의 관계를 찾아요</h2></div>
+    <div class="box">
+      <div class="say">🔍 글에 나온 낱말 짝의 관계를 골라 누르세요. (교과서 122~123쪽 날개 참고)</div>
+      <div class="rv"><p class="q">① '겉'과 '속' — 연필과 볼펜의 다른 점을 알 수 있어요.</p><div class="rvgroup" data-ranswer="반대인 관계"><button data-v="비슷한 관계">비슷한 관계</button><button data-v="반대인 관계">반대인 관계</button><button data-v="포함 관계">포함 관계</button></div></div>
+      <div class="rv"><p class="q">② '중심'과 '가운데' — 연필과 볼펜을 비교할 수 있어요.</p><div class="rvgroup" data-ranswer="비슷한 관계"><button data-v="비슷한 관계">비슷한 관계</button><button data-v="반대인 관계">반대인 관계</button><button data-v="포함 관계">포함 관계</button></div></div>
+      <div class="rv"><p class="q">③ '붙다'와 '떨어지다' — 지우개의 원리를 이해할 수 있어요.</p><div class="rvgroup" data-ranswer="반대인 관계"><button data-v="비슷한 관계">비슷한 관계</button><button data-v="반대인 관계">반대인 관계</button><button data-v="포함 관계">포함 관계</button></div></div>
+      <div class="rv"><p class="q">④ '녹다'와 '굳다' — 수정액이 변하는 과정을 떠올릴 수 있어요.</p><div class="rvgroup" data-ranswer="반대인 관계"><button data-v="비슷한 관계">비슷한 관계</button><button data-v="반대인 관계">반대인 관계</button><button data-v="포함 관계">포함 관계</button></div></div>
+      <div class="rv"><p class="q">⑤ '필기도구'와 '연필'</p><div class="rvgroup" data-ranswer="포함 관계"><button data-v="비슷한 관계">비슷한 관계</button><button data-v="반대인 관계">반대인 관계</button><button data-v="포함 관계">포함 관계</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>필기도구가 일하는 방식을 정리해요</h2></div>
+    <div class="box">
+      <div class="say">📝 마지막 문단을 다시 읽고, 노란 칸을 참고해 빈칸을 채워요.</div>
+      <table>
+        <thead><tr><th style="width:90px;">필기도구</th><th>일하는 방식</th></tr></thead>
+        <tbody>
+          <tr><td class="word">연필</td><td style="background:#FBF3DC;">검은 가루를 종이 겉에 붙게 해 글씨를 남긴다.</td></tr>
+          <tr><td class="word">볼펜</td><td><input type="text" placeholder="종이 속에 잉크를 ....."></td></tr>
+          <tr><td class="word">지우개</td><td style="background:#FBF3DC;">연필의 검은 가루를 종이에서 떼어 내서 글씨를 지운다.</td></tr>
+          <tr><td class="word">수정액</td><td><input type="text" placeholder="잉크 자국을 ....."></td></tr>
+        </tbody>
+      </table>
+      <div class="say" style="margin-top:16px;">🗣️ 표를 보면서 필기도구의 원리를 설명해 보고 → 보지 않고도 설명해 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>글을 잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 설명에 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 글씨를 쓸 때 연필심은 무엇이 되어 종이에 떨어지나요?</p><div class="rvgroup" data-ranswer="검은 가루"><button data-v="검은 가루">검은 가루</button><button data-v="물방울">물방울</button></div></div>
+      <div class="rv"><p class="q">② 볼펜의 가운데에 있는 것</p><div class="rvgroup" data-ranswer="잉크"><button data-v="잉크">잉크</button><button data-v="연필심">연필심</button></div></div>
+      <div class="rv"><p class="q">③ 지우개로 볼펜 글씨를 지울 수 있나요?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="없어요 — 지우개는 종이의 안을 파고들 수 없어요"><button data-v="없어요 — 지우개는 종이의 안을 파고들 수 없어요">없어요 — 지우개는 종이의 안을 파고들 수 없어요</button><button data-v="있어요 — 무엇이든 지울 수 있어요">있어요 — 무엇이든 지울 수 있어요</button></div></div>
+      <div class="rv"><p class="q">④ 수정액은 어떻게 글씨를 안 보이게 하나요?</p><div class="rvgroup" data-ranswer="검은 자국을 덮어요"><button data-v="검은 자국을 덮어요">검은 자국을 덮어요</button><button data-v="종이에 구멍을 뚫어요">종이에 구멍을 뚫어요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck">
+        <p>💪 글에서 반대말, 비슷한말, 포함 관계 낱말을 찾을 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+      <div class="selfcheck">
+        <p>💪 필기도구가 일하는 방식을 설명할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글의 내용과 <u>일치하는</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><p style="font-size:15.5px; font-weight:800; margin-top:6px; color:#5F5E5A;">1) 연필이 글씨를 남기는 방식은?</p><div class="mc" data-q="f0" data-answer="1"><button>① 검은 가루가 종이 겉에 붙는다.</button><button>② 잉크가 종이 속으로 스며든다.</button><button>③ 하얀 가루가 굳는다.</button><button>④ 종이를 태운다.</button></div><p style="font-size:15.5px; font-weight:800; margin-top:14px; color:#5F5E5A;">2) 수정액을 이루고 있는 것은?</p><div class="mc" data-q="f1" data-answer="2"><button>① 검은 가루와 잉크</button><button>② 하얀 가루와 가루를 녹이고 굳히는 물질</button><button>③ 지우개 가루와 물</button><button>④ 연필심과 종이</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">지우개 가루는 종이에 붙어 있는 검은 가루와 뭉치면서 검은 가루를 종이에서 떨어지게 해요. 그렇지만 지우개는 종이의 안을 파고들 수 없어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 연필 글씨는 종이 겉에 있어서 지우개로 지워진다.</button><button>② 볼펜 잉크는 종이 속에 있어서 지우개로 못 지운다.</button><button>③ 지우개는 볼펜 글씨도 지울 수 있다.</button><button>④ '붙다'와 '떨어지다'는 반대말이다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div>
+      </div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">지우개가 볼펜으로 쓴 글씨를 지울 수 없는 까닭을 글에서 찾아 쓰세요.</p><textarea class="writeline" rows="1" placeholder="지우개는 종이의 ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">연필로 글씨를 쓰고 지우개로 지워 보세요. 정말 지우개 가루에 검은 가루가 붙어 나오는지 관찰하고, 본 것을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="관찰한 것: ....."></textarea>
+    </div>
+  </section>
+
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

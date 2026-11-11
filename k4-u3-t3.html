@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 보고하는 글 (색깔이 변하는 사과) (국어 4-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-1 · 3단원 자세하게 살펴요</p>
+    <h1><em>보고하는 글</em>을 알아봐요</h1>
+    <div class="idrow">
+      <span>이름 <input type="text"></span>
+      <span>날짜 <input type="text" placeholder="    월    일"></span>
+    </div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 「필기도구가 일하는 방식」을 낱말 관계를 생각하며 읽었어요. 오늘부터는 관찰한 내용을 보고하는 글을 알아봐요.</div>
+      <div class="rv"><p class="q">'붙다'와 '떨어지다'는 어떤 관계였나요?</p><div class="rvgroup" data-ranswer="반대인 관계"><button data-v="반대인 관계">반대인 관계</button><button data-v="비슷한 관계">비슷한 관계</button></div></div>
+      <div class="rv"><p class="q">볼펜 글씨를 지우는 필기도구는?</p><div class="rvgroup" data-ranswer="수정액"><button data-v="수정액">수정액</button><button data-v="지우개">지우개</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k4-u3-t3.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k4-u3-t3.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">3. 자세하게 살펴요</small>보고하는 글에 대해 알기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>무언가를 자세히 관찰해 본 적이 있나요? (예: 콩나물이 자라는 모습, 얼음이 녹는 모습)</p></div>
+      <textarea class="writeline" rows="1" placeholder="나는 ..... 을 관찰한 적이 있어요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>깎아 놓은 사과를 오래 두면 색깔이 어떻게 변할까요? <small>본 적이 있으면 떠올려서 써 보세요.</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="사과가 ..... 색으로 변해요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">어떤 주제에 대해 관찰, 조사, 실험한 과정과 결과를 체계적으로 정리한 글을 '보고하는 글'이라고 해요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>보고하는 글을 읽어요</h2></div>
+    <div class="box">
+      <div class="say">👀 하은이가 쓴 보고하는 글이에요. 먼저 눈으로 읽어요. 그다음 <b>관찰한 결과는 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 관찰한 대상</button>
+        <button id="btn-important" onclick="setMode('important')">💛 관찰한 결과</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>오늘의 읽기</small>「색깔이 변하는 사과」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">글: 하은 · 국어 4-1 가 126~127쪽</span></p>
+      <div class="passage" id="passage">
+        <p>어제 아침을 먹고 나서 엄마께서 과일을 준비해 주셨다. 엄마께서는 접시에 방울토마토와 딸기, 사과를 한입 크기로 담아 주셨다. 나는 과일을 반만 먹고 나머지는 오후에 먹으려고 남겨 두었다. 그런데 오후에 과일을 먹으려고 보니 사과의 색깔이 변해 있었다. 방울토마토와 딸기는 그대로인데 사과는 왜 변했을까? 사과의 색깔을 변하지 않게 하려면 어떻게 해야 할까?</p>
+        <p>이러한 궁금함을 해결하려고 사과가 변하는 과정을 관찰해 보기로 마음먹었다. 관찰한 과정을 기록해 친구들에게도 이 신기한 사실을 자세히 알려 주고 싶었다. 그래서 껍질을 깎은 사과 조각을 관찰 대상으로 정하고, 20○○년 ○○월 ○○일 오후 3시부터 6시까지 한 시간마다 사과의 변화를 관찰하기로 했다.</p>
+        <p>먼저 껍질을 깎은 사과 조각을 접시 위에 올려놓았다. 그리고 한 시간마다 색깔의 변화를 돋보기로 관찰했다. 사과의 겉면도 만져 보고 냄새도 맡아 보았다. 관찰할 때마다 사과의 모습을 사진으로 찍고, 관찰한 내용을 정리했다.</p>
+        <p>오후 3시부터 6시까지 한 시간마다 사과를 관찰해 보니 사과의 색깔과 촉감에서 뚜렷한 변화가 보였다. 한 시간 뒤의 사과는 처음과 다르게 군데군데 연한 갈색으로 변해 있었다. 촉감과 향에서는 큰 변화가 발견되지 않았다. 두 시간 뒤의 사과는 연한 갈색으로 변한 부분이 많았다. 껍질을 깎자마자 사과에서 만져지던 물기도 좀 마른 듯했다. 세 시간 뒤의 사과는 전체적으로 갈색으로 변해 있었다. 겉면은 땅이 갈라진 모양처럼 보였고, 바짝 말라 있었다. 향도 잘 느껴지지 않았다.</p>
+        <p>사과의 색깔이 변하는 까닭을 『어린이 과학』 잡지(20○○년 제○호)에서 찾아보니 사과에 들어 있는 어떤 성분이 공기와 만나 사과의 색을 변하게 한다는 것을 알았다. 방울토마토와 딸기에는 이러한 성분이 없어서 색깔이 변하지 않는다는 것도 알게 되었다.</p>
+        <p>이번 관찰을 통해 껍질을 깎은 사과는 시간이 지날수록 겉면이 갈색으로 변하고 마른다는 사실을 알았다. 앞으로 껍질을 깎은 사과를 보관할 때에는 공기와 만나지 않도록 해야겠다고 생각했다. 다음에도 궁금한 일이 생기면 또 관찰해 보고 싶다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>관찰한 대상</span>
+        <span><i style="background:var(--mark-important)"></i>관찰한 결과</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>관찰</b> 자세히 살펴보는 것 · <b>동기</b> 어떤 일을 하게 된 까닭 · <b>촉감</b> 손으로 만졌을 때의 느낌 · <b>성분</b> 물질을 이루는 바탕이 되는 것 · <b>근거</b> 어떤 생각의 바탕이 되는 까닭</div>
+    </div>
+    <div class="box">
+      <div class="say">💬 글을 잘 읽었나요? 알맞은 답을 골라 누르세요. (교과서 128쪽)</div>
+      <div class="rv"><p class="q">① 하은이가 사과를 관찰하게 된 동기(까닭)</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="사과만 색깔이 변한 것이 궁금해서"><button data-v="사과만 색깔이 변한 것이 궁금해서">사과만 색깔이 변한 것이 궁금해서</button><button data-v="사과가 맛있어서">사과가 맛있어서</button></div></div>
+      <div class="rv"><p class="q">② 하은이가 관찰한 대상</p><div class="rvgroup" data-ranswer="껍질을 깎은 사과 조각"><button data-v="껍질을 깎은 사과 조각">껍질을 깎은 사과 조각</button><button data-v="딸기와 방울토마토">딸기와 방울토마토</button></div></div>
+      <div class="rv"><p class="q">③ 사과 색깔이 변하는 까닭 (『어린이 과학』에서 알게 된 것)</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="사과 속 성분이 공기와 만나서"><button data-v="사과 속 성분이 공기와 만나서">사과 속 성분이 공기와 만나서</button><button data-v="사과가 늙어서">사과가 늙어서</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>관찰 결과를 시간 순서대로 정리해요</h2></div>
+    <div class="box">
+      <div class="say">📊 하은이가 한 시간마다 관찰한 사과의 변화예요. 빈칸을 채워 보세요.</div>
+      <table>
+        <thead><tr><th style="width:100px;">관찰 시간</th><th>사과의 모습</th></tr></thead>
+        <tbody>
+          <tr><td class="word">한 시간 뒤</td><td style="background:#FBF3DC;">군데군데 연한 갈색으로 변함. 촉감과 향은 큰 변화 없음.</td></tr>
+          <tr><td class="word">두 시간 뒤</td><td><input type="text" placeholder="연한 갈색으로 변한 부분이 ....."></td></tr>
+          <tr><td class="word">세 시간 뒤</td><td><input type="text" placeholder="전체적으로 갈색으로 변하고 ....."></td></tr>
+        </tbody>
+      </table>
+      <div class="task" style="margin-top:20px;"><span class="no">✓</span><p>하은이가 관찰을 통해 알게 된 사실을 골라 누르세요.</p></div>
+      <div class="rv"><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="껍질 깎은 사과는 시간이 지날수록 갈색으로 변하고 마른다"><button data-v="껍질 깎은 사과는 시간이 지날수록 갈색으로 변하고 마른다">껍질 깎은 사과는 시간이 지날수록 갈색으로 변하고 마른다</button><button data-v="사과는 시간이 지나면 빨개진다">사과는 시간이 지나면 빨개진다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>보고하는 글의 특징을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">📋 이 글에는 보고하는 글의 특징이 들어 있어요. 친구들의 말을 보고, 이 글에 들어 있으면 ⭕, 없으면 ❌를 골라요. (교과서 128쪽)</div>
+      <div class="rv"><p class="q">① 관찰한 대상과 관찰하게 된 동기를 썼나요?</p><div class="rvgroup" data-ranswer="⭕ 있어요"><button data-v="⭕ 있어요">⭕ 있어요</button><button data-v="❌ 없어요">❌ 없어요</button></div></div>
+      <div class="rv"><p class="q">② 관찰한 내용을 사진으로 찍어 남겼나요?</p><div class="rvgroup" data-ranswer="⭕ 있어요"><button data-v="⭕ 있어요">⭕ 있어요</button><button data-v="❌ 없어요">❌ 없어요</button></div></div>
+      <div class="rv"><p class="q">③ 관찰한 내용과 결과를 사실에 근거해 썼나요?</p><div class="rvgroup" data-ranswer="⭕ 있어요"><button data-v="⭕ 있어요">⭕ 있어요</button><button data-v="❌ 없어요">❌ 없어요</button></div></div>
+      <div class="rv"><p class="q">④ 관찰한 뒤에 느낀 점을 썼나요?</p><div class="rvgroup" data-ranswer="⭕ 있어요"><button data-v="⭕ 있어요">⭕ 있어요</button><button data-v="❌ 없어요">❌ 없어요</button></div></div>
+      <div class="say" style="margin-top:14px;">💡 보고하는 글은 <b>있는 그대로의 사실</b>을 써야 해요. 지어내거나 부풀리면 안 돼요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 설명에 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 하은이는 몇 시부터 몇 시까지 관찰했나요?</p><div class="rvgroup" data-ranswer="오후 3시부터 6시까지"><button data-v="오후 3시부터 6시까지">오후 3시부터 6시까지</button><button data-v="아침 내내">아침 내내</button></div></div>
+      <div class="rv"><p class="q">② 관찰할 때 사용한 도구</p><div class="rvgroup" data-ranswer="돋보기"><button data-v="돋보기">돋보기</button><button data-v="망원경">망원경</button></div></div>
+      <div class="rv"><p class="q">③ 색깔이 변하지 않은 과일</p><div class="rvgroup" data-ranswer="방울토마토와 딸기"><button data-v="방울토마토와 딸기">방울토마토와 딸기</button><button data-v="사과">사과</button></div></div>
+      <div class="rv"><p class="q">④ 하은이가 앞으로 사과를 보관할 때 하려는 것</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="공기와 만나지 않도록 하기"><button data-v="공기와 만나지 않도록 하기">공기와 만나지 않도록 하기</button><button data-v="햇볕에 말리기">햇볕에 말리기</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck">
+        <p>💪 보고하는 글이 무엇인지 말할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+      <div class="selfcheck">
+        <p>💪 보고하는 글의 특징을 찾을 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">
+        어떤 주제에 대해 관찰, 조사, 실험한 과정과
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="4" aria-label="빈칸">
+        를 정리한 글을
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:130px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="7" aria-label="빈칸">
+        글이라고 한다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 결과 · 보고하는</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글의 내용과 <u>일치하는</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><p style="font-size:15.5px; font-weight:800; margin-top:6px; color:#5F5E5A;">1) 세 시간 뒤 사과의 모습으로 알맞은 것은?</p><div class="mc" data-q="f0" data-answer="2"><button>① 처음과 똑같았다.</button><button>② 전체적으로 갈색으로 변하고 바짝 말라 있었다.</button><button>③ 더 빨갛고 싱싱해졌다.</button><button>④ 물기가 더 많아졌다.</button></div><p style="font-size:15.5px; font-weight:800; margin-top:14px; color:#5F5E5A;">2) 사과 색깔이 변하는 까닭은?</p><div class="mc" data-q="f1" data-answer="3"><button>① 접시가 더러워서</button><button>② 딸기 옆에 두어서</button><button>③ 사과 속 성분이 공기와 만나서</button><button>④ 햇빛을 못 봐서</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">하은이는 관찰한 내용을 사진으로 찍고, 『어린이 과학』 잡지에서 찾은 자료를 근거로 글을 썼어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 보고하는 글은 사실에 근거해서 쓴다.</button><button>② 사진 자료는 관찰 내용을 더 잘 보여 준다.</button><button>③ 보고하는 글은 지어내서 재미있게 써도 된다.</button><button>④ 믿을 만한 자료를 근거로 쓰면 좋다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div>
+      </div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">하은이가 관찰을 통해 알게 된 사실과, 앞으로 하려고 다짐한 것을 쓰세요.</p><textarea class="writeline" rows="1" placeholder="알게 된 사실: ..... / 다짐한 것: ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">깎은 사과나 바나나를 접시에 두고 시간이 지나며 어떻게 변하는지 관찰해 보세요. 무엇이 어떻게 변했는지 써 오세요. (다음 시간에 보고하는 글을 쓸 거예요!)</p>
+      <textarea class="writeline" rows="1" placeholder="관찰한 것: ....."></textarea>
+    </div>
+  </section>
+
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

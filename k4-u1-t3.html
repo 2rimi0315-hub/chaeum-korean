@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 우리의 그릇, 옹기 (국어 4-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-1 · 1단원 깊이 있게 읽어요</p>
+    <h1>질문을 만들며 <em>글의 내용을 짐작</em>해요</h1>
+    <div class="idrow">
+      <span>이름 <input type="text"></span>
+      <span>날짜 <input type="text" placeholder="    월    일"></span>
+    </div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 「목 짧은 기린 지피」를 읽고 인물들의 관계를 파악했어요.</div>
+      <div class="rv"><p class="q">인물들의 관계에는 '도와주는 관계'와 '갈등하는 관계' 등이 있어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">지피와 엄마 미야는 어떤 관계였나요?</p><div class="rvgroup" data-ranswer="도와주는 관계"><button data-v="도와주는 관계">도와주는 관계</button><button data-v="갈등하는 관계">갈등하는 관계</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k4-u1-t3.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k4-u1-t3.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 깊이 있게 읽어요</small>2) 글의 내용 짐작하기 — 질문을 만드는 방법 알기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>글의 제목이 「우리의 그릇, 옹기」예요. 어떤 내용이 나올까요? <small>(교과서 58쪽) 내 생각을 자유롭게 써 보세요.</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="옹기라는 그릇에 대해 ..... 내용이 나올 것 같아요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>옹기(항아리)를 본 적이 있나요? 어디에서 봤는지, 무엇을 담았을지 써 보세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="할머니 댁 마당에서 ....."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">글을 읽으며 질문을 만들고 답하면 글의 내용을 짐작할 수 있어요. 낱말의 앞뒤 문장을 살펴보면 낱말의 뜻도 짐작할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>질문을 떠올리며 글을 읽어요</h2></div>
+    <div class="box">
+      <div class="say">👀 먼저 눈으로 읽어요. 그다음 <b>옹기의 좋은 점은 파랑</b>, <b>중요한 낱말은 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 옹기의 좋은 점</button>
+        <button id="btn-important" onclick="setMode('important')">💛 중요한 낱말</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>오늘의 읽기</small>「우리의 그릇, 옹기」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 4-1 가 59~60쪽</span></p>
+      <div class="passage" id="passage">
+        <p>옹기는 흙으로 만든 우리나라 고유의 그릇입니다. 여러분이 알고 있는 항아리가 대표적인 옹기입니다. 우리 조상들은 아주 오래전부터 음식을 보관하는 데 옹기를 사용해 왔습니다. 옹기가 음식을 보관하기에 좋은 까닭은 무엇일까요?</p>
+        <p>먼저, 옹기는 숨을 쉬는 그릇입니다. 현미경으로 옹기를 들여다보면 아주 작은 구멍들이 보입니다. 옹기는 흙으로 만드는데, 흙에 있는 모래 알갱이들이 작은 숨 구멍을 만들어서 공기가 잘 통하게 해 줍니다. 그래서 옹기에 음식을 보관하면 음식이 쉽게 상하지 않고, 씨앗을 넣어 두어도 다음 해까지 씨앗이 썩지 않습니다.</p>
+        <p>또 허리가 불룩한 옹기의 모양도 음식을 오래 보관하는 데 도움을 줍니다. 이러한 모양 때문에 장독대에 여러 개의 옹기들을 모아 두면 옹기들 사이에 공간이 생깁니다. 그러면 그 공간으로 바람이 잘 통해 옹기들이 하루 종일 햇볕을 받아도 옹기의 위에서 아래까지 비슷한 온도를 유지할 수 있습니다. 그래서 된장, 간장, 김치와 같은 발효 음식을 옹기에 보관하면 음식이 알맞게 익어 좋은 맛을 냅니다.</p>
+        <p>이러한 옹기를 만드는 곳을 '옹기소'라고 하고, 옹기를 만드는 기술자를 '옹기장'이라고 합니다. 옛날에는 옹기를 많이 사용했지만, 오늘날에는 옹기를 많이 사용하지 않으면서 주변에서 '옹기장'을 찾아보기 어렵습니다. 그래서 우리나라에서는 옹기의 전통을 지켜 나가기 위해 '옹기장'을 무형유산으로 지정했습니다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>옹기의 좋은 점</span>
+        <span><i style="background:var(--mark-important)"></i>중요한 낱말</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>무형유산</b> 여러 세대에 걸쳐 전해지는 전통 공연이나 전통 기술, 생활 관습 따위의 국가유산</div>
+    </div>
+    <div class="box">
+      <div class="say">💬 하윤이처럼 질문에 답하며 읽어요. 낱말의 <b>앞뒤 문장</b>을 살펴보면 뜻을 짐작할 수 있어요!</div>
+      <div class="rv"><p class="q">① '발효'의 뜻은 무엇일까? <i>(힌트: "발효 음식을 옹기에 보관하면 음식이 알맞게 익어 좋은 맛을 냅니다.")</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="된장, 김치처럼 음식이 알맞게 익는 것"><button data-v="된장, 김치처럼 음식이 알맞게 익는 것">된장, 김치처럼 음식이 알맞게 익는 것</button><button data-v="음식을 차갑게 얼리는 것">음식을 차갑게 얼리는 것</button></div></div>
+      <div class="rv"><p class="q">② 옹기가 '숨을 쉬는 그릇'이라는 것은 무슨 뜻일까? <i>(힌트: 앞뒤 문장을 읽어 보세요.)</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="작은 구멍으로 공기가 잘 통한다는 뜻"><button data-v="작은 구멍으로 공기가 잘 통한다는 뜻">작은 구멍으로 공기가 잘 통한다는 뜻</button><button data-v="옹기가 살아서 숨을 쉰다는 뜻">옹기가 살아서 숨을 쉰다는 뜻</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>낱말의 뜻을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">🔍 낱말의 뜻을 보고, 문장에 알맞은 낱말을 골라 누르세요. <b>(보기: 유지하다 · 지정하다 · 보관하다)</b> (교과서 60쪽)</div>
+      <div class="rv"><p class="q">① [간직하고 관리하다] → 음식을 옹기에 (　　).</p><div class="rvgroup" data-ranswer="보관하다"><button data-v="유지하다">유지하다</button><button data-v="지정하다">지정하다</button><button data-v="보관하다">보관하다</button></div></div>
+      <div class="rv"><p class="q">② [어떤 것에 자격을 주다] → 문화유산으로 (　　).</p><div class="rvgroup" data-ranswer="지정하다"><button data-v="유지하다">유지하다</button><button data-v="지정하다">지정하다</button><button data-v="보관하다">보관하다</button></div></div>
+      <div class="rv"><p class="q">③ [어떤 상태나 상황을 변함이 없게 하다] → 비슷한 온도를 (　　).</p><div class="rvgroup" data-ranswer="유지하다"><button data-v="유지하다">유지하다</button><button data-v="지정하다">지정하다</button><button data-v="보관하다">보관하다</button></div></div>
+      <div class="task" style="margin-top:26px;"><span class="no">🔍</span><p>사전 찾기 도전! <small>먼저 내가 생각한 뜻을 쓰고, 국어사전에서 찾아 진짜 뜻을 써 보세요.</small></p></div>
+      <table>
+        <thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead>
+        <tbody><tr><td class="word">옹기</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">발효</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">무형<br>유산</td><td><input type="text"></td><td><input type="text"></td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>질문을 만드는 방법을 알아봐요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>하윤이가 떠올린 질문은 어떤 방법으로 만든 질문일까요? <small>알맞은 방법을 골라 누르세요. (교과서 61쪽)</small></p></div>
+      <div class="rv"><p class="q">① <i>"우리 조상들은 옹기에 음식을 보관했는데, 외국 사람들은 어디에 음식을 보관했을까?"</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="글의 내용과 관련해 더 궁금한 점을 질문하기"><button data-v="낱말의 뜻을 짐작하는 질문 하기">낱말의 뜻을 짐작하는 질문 하기</button><button data-v="이어질 내용을 짐작하는 질문 하기">이어질 내용을 짐작하는 질문 하기</button><button data-v="자신의 경험과 관련지어 질문하기">자신의 경험과 관련지어 질문하기</button><button data-v="글의 내용과 관련해 더 궁금한 점을 질문하기">글의 내용과 관련해 더 궁금한 점을 질문하기</button></div></div>
+      <div class="rv"><p class="q">② <i>"옹기의 모양이 음식을 오래 보관하는 데 도움을 주는 까닭은 무엇일까?"</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="이어질 내용을 짐작하는 질문 하기"><button data-v="낱말의 뜻을 짐작하는 질문 하기">낱말의 뜻을 짐작하는 질문 하기</button><button data-v="이어질 내용을 짐작하는 질문 하기">이어질 내용을 짐작하는 질문 하기</button><button data-v="자신의 경험과 관련지어 질문하기">자신의 경험과 관련지어 질문하기</button><button data-v="글의 내용과 관련해 더 궁금한 점을 질문하기">글의 내용과 관련해 더 궁금한 점을 질문하기</button></div></div>
+      <div class="rv"><p class="q">③ <i>"'발효'의 뜻은 무엇일까?"</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="낱말의 뜻을 짐작하는 질문 하기"><button data-v="낱말의 뜻을 짐작하는 질문 하기">낱말의 뜻을 짐작하는 질문 하기</button><button data-v="이어질 내용을 짐작하는 질문 하기">이어질 내용을 짐작하는 질문 하기</button><button data-v="자신의 경험과 관련지어 질문하기">자신의 경험과 관련지어 질문하기</button><button data-v="글의 내용과 관련해 더 궁금한 점을 질문하기">글의 내용과 관련해 더 궁금한 점을 질문하기</button></div></div>
+      <div class="rv"><p class="q">④ <i>"도자기를 굽는 가마를 본 적이 있는데, 옹기소에도 비슷한 시설이 있을까?"</i></p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="자신의 경험과 관련지어 질문하기"><button data-v="낱말의 뜻을 짐작하는 질문 하기">낱말의 뜻을 짐작하는 질문 하기</button><button data-v="이어질 내용을 짐작하는 질문 하기">이어질 내용을 짐작하는 질문 하기</button><button data-v="자신의 경험과 관련지어 질문하기">자신의 경험과 관련지어 질문하기</button><button data-v="글의 내용과 관련해 더 궁금한 점을 질문하기">글의 내용과 관련해 더 궁금한 점을 질문하기</button></div></div>
+      <div class="task" style="margin-top:26px;"><span class="no">2</span><p>이번에는 내가 질문을 만들어요! <small>글을 다시 읽고, 떠오른 질문과 만든 방법을 써 보세요. (교과서 61쪽)</small></p></div>
+      <table>
+        <thead><tr><th>내가 떠올린 질문</th><th style="width:240px;">질문을 만든 방법</th></tr></thead>
+        <tbody>
+          <tr><td><input type="text" placeholder="예) 옹기를 숨을 쉬는 그릇이라고 표현한 까닭은 무엇일까?"></td><td><input type="text" placeholder="예) 이어질 내용을 짐작하는 질문 하기"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td></tr>
+        </tbody>
+      </table>
+      <div class="say" style="margin-top:16px;">🗣️ 만든 질문을 선생님과 서로 묻고 답해 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>글을 잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 설명에 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 옹기를 만드는 재료</p><div class="rvgroup" data-ranswer="흙"><button data-v="흙">흙</button><button data-v="플라스틱">플라스틱</button></div></div>
+      <div class="rv"><p class="q">② 옹기에 씨앗을 넣어 두면</p><div class="rvgroup" data-ranswer="다음 해까지 썩지 않아요"><button data-v="다음 해까지 썩지 않아요">다음 해까지 썩지 않아요</button><button data-v="바로 썩어요">바로 썩어요</button></div></div>
+      <div class="rv"><p class="q">③ 옹기를 만드는 기술자</p><div class="rvgroup" data-ranswer="옹기장"><button data-v="옹기장">옹기장</button><button data-v="옹기소">옹기소</button></div></div>
+      <div class="rv"><p class="q">④ 나라에서 '옹기장'을 무엇으로 지정했나요?</p><div class="rvgroup" data-ranswer="무형유산"><button data-v="무형유산">무형유산</button><button data-v="천연기념물">천연기념물</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck">
+        <p>💪 글을 읽으며 여러 가지 방법으로 질문을 만들 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+      <div class="selfcheck">
+        <p>💪 낱말의 앞뒤 문장을 보고 낱말의 뜻을 짐작할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">
+        ◦ 글을 읽으며
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="4" aria-label="빈칸">
+        을 만들고 답하면 글의 내용을 짐작할 수 있다.<br>
+        ◦ 낱말의
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="4" aria-label="빈칸">
+        문장을 살펴보면 낱말의 뜻을 짐작할 수 있다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 질문 · 앞뒤</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글의 내용과 <u>일치하는</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><p style="font-size:15.5px; font-weight:800; margin-top:6px; color:#5F5E5A;">1) 옹기가 '숨을 쉬는 그릇'인 까닭은?</p><div class="mc" data-q="f0" data-answer="2"><button>① 옹기가 살아 있는 생물이어서</button><button>② 흙 속 모래 알갱이가 만든 작은 구멍으로 공기가 통해서</button><button>③ 옹기 뚜껑을 열어 두어서</button><button>④ 옹기가 물속에 있어서</button></div><p style="font-size:15.5px; font-weight:800; margin-top:14px; color:#5F5E5A;">2) 허리가 불룩한 옹기 모양의 좋은 점은?</p><div class="mc" data-q="f1" data-answer="3"><button>① 옹기가 더 무거워진다.</button><button>② 옹기가 예뻐 보인다.</button><button>③ 옹기들 사이에 공간이 생겨 바람이 잘 통하고 비슷한 온도를 유지한다.</button><button>④ 음식을 더 많이 담을 수 있다.</button></div><p style="font-size:15.5px; font-weight:800; margin-top:14px; color:#5F5E5A;">3) 오늘날 '옹기장'을 찾아보기 어려운 까닭은?</p><div class="mc" data-q="f2" data-answer="1"><button>① 옹기를 많이 사용하지 않게 되어서</button><button>② 옹기 만들기가 법으로 금지되어서</button><button>③ 흙이 없어져서</button><button>④ 옹기가 너무 비싸서</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 문장에 알맞은 낱말을 골라 누르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">낱말</span></p><p style="font-size:15px;">① 우리 조상들은 음식을 옹기에 (　　)했다.</p><div class="choicepair" data-q="q10" data-answer="보관"><button>보관</button><button>지정</button></div><p style="font-size:15px;">② 된장, 간장, 김치는 (　　) 음식이다.</p><div class="choicepair" data-q="q11" data-answer="발효"><button>발효</button><button>냉동</button></div><p style="font-size:15px;">③ 여러 세대에 걸쳐 전해지는 전통 기술 등을 (　　)이라고 한다.</p><div class="choicepair" data-q="q12" data-answer="무형유산"><button>무형유산</button><button>옹기소</button></div></div>
+      <div class="quiz"><p class="qtitle">3. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">옹기에 음식을 보관하면 음식이 쉽게 상하지 않고, 씨앗을 넣어 두어도 다음 해까지 씨앗이 썩지 않습니다.</div><div class="mc" data-q="q3" data-answer="3"><button>① 옹기는 음식을 보관하기에 좋은 그릇이다.</button><button>② 옹기 속은 공기가 잘 통한다.</button><button>③ 옹기에 넣어 둔 음식은 금방 상한다.</button><button>④ 옹기에는 조상들의 지혜가 담겨 있다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요. <small>어디가 틀렸는지 찾아 알맞은 말로 바꾸면 돼요.</small></p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div>
+      </div>
+      <div class="quiz"><p class="qtitle">4. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">① 옹기를 '숨을 쉬는 그릇'이라고 표현한 까닭은 무엇일까요?</p><textarea class="writeline" rows="1" placeholder="옹기에 작은 구멍이 있어서 ....."></textarea><p style="font-size:15px; margin-top:14px;">② 글을 읽으며 만든 질문 중 가장 마음에 드는 질문을 쓰고, 어떤 방법으로 만들었는지 쓰세요.</p><textarea class="writeline" rows="1" placeholder="질문: ..... / 방법: ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">집이나 할머니 댁에서 옹기(항아리)를 찾아보거나 어른께 여쭤 보세요. 옹기에 무엇을 담았는지 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="우리 집 옹기에는 ....."></textarea>
+    </div>
+  </section>
+
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

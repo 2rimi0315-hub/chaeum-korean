@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --skyblue:#2E86C1;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .say b{font-weight:800;}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+  .flowlist{margin-top:8px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowrow .fixed b{color:var(--tangerine-dark);}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
+  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
+  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
+  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:#F4C0D1;}
+  .passage .w.important{background:#FAE28A;}
+  .passage .w.env{background:#BFE3F7;}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 6-2 · 4단원 바람직하게 매체를 사용해요</p><h1>매체를 <em>바르게</em> 사용해요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div></header>
+  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>단원을 시작해요</h2></div>
+    <div class="box"><div class="say">🔔 지난 시간에는 매체의 <b>특성</b>을 알았어요. 오늘은 매체를 <b>바람직하게</b> 이용하는 법을 배워요!</div>
+      <div class="rv"><p class="q">정보를 전하는 도구를 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="매체"><button data-v="매체">매체</button><button data-v="제목">제목</button></div></div>
+      <div class="rv"><p class="q">영상과 화면으로 전하는 매체를?</p><div class="rvgroup" data-ranswer="영상 매체"><button data-v="영상 매체">영상 매체</button><button data-v="인쇄 매체">인쇄 매체</button></div></div></div></section>
+  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>매체를 쓸 때 무엇을 지켜야 할까요?</small></p><div class="cowrap"><img src="comics/k62-u4-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k62-u4-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">4. 바람직하게 매체를 사용해요</small>매체를 바람직하게 이용하기</span></label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>매체의 정보는 모두 사실일까요?</p></div><textarea class="writeline" rows="1" placeholder="아니에요. 사실인지 ..... 봐야 해요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>매체를 쓸 때 지켜야 할 예절은 무엇일까요?</p></div><textarea class="writeline" rows="1" placeholder="남을 ..... 하는 말은 쓰지 않아요."></textarea></div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">매체 정보는 <b>사실인지 확인</b>하고, <b>예절</b>을 지키며, 다른 사람의 <b>저작물</b>을 함부로 쓰지 않아야 바람직하게 이용할 수 있어요.</p></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>매체를 바르게 쓰는 방법을 알아봐요</h2></div>
+    <div class="box"><div class="say">📋 매체를 이렇게 바르게 써요. 소리 내어 읽어 봐요.</div><div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed"><b>믿을 수 있는지 확인</b> — 정보가 사실인지, 누가 만들었는지 살펴요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">2</span><div class="fixed"><b>예절 지키기</b> — 남을 헐뜯거나 상처 주는 말을 쓰지 않아요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">3</span><div class="fixed"><b>저작권 존중</b> — 다른 사람의 글·그림·사진을 함부로 가져다 쓰지 않아요.</div></div></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>확인</b> 사실인지 살핌 · <b>예절</b> 지켜야 할 바른 태도 · <b>저작권</b> 만든 사람의 권리 · <b>존중</b> 소중히 여김</div></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 바람직한 매체 이용 계획 예시예요.</p></div>
+      <div class="say">👀 <b>실천 약속은(는) 노랑</b>, <b>계획은(는) 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 실천 약속</button><button id="btn-env" onclick="setMode('env')">🩵 계획</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
+      <p class="ptitle"><small>실천 계획 (예시)</small>우리 가족 매체 이용 약속<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예시예요</span></p>
+      <div class="passage" id="passage">
+<p>우리 가족은 함께 매체 이용 약속을 만들었다.</p>
+<p>하나, 식사 시간에는 휴대 전화를 보지 않는다. 둘, 밤 9시 이후에는 영상 시청을 멈춘다. 셋, 자료를 나눌 때는 출처를 확인하고 저작권을 지킨다.</p>
+<p>약속을 지키기 어려울 때를 대비해, 거실에 휴대 전화 보관함을 두기로 했다.</p>
+<p>한 달 뒤 가족회의에서 잘 지켜졌는지 함께 돌아보기로 했다. 매체는 스스로 조절하며 바람직하게 이용해야 한다.</p>
+      </div>
+      <div class="legendline"><span><i style="background:#FAE28A"></i>실천 약속</span><span><i style="background:#BFE3F7"></i>계획</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>보관함</b> 넣어 두는 통 · <b>조절</b> 알맞게 맞춤 · <b>저작권</b> 만든 사람의 권리</div></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>바른 매체 이용을 판단해요</h2></div>
+    <div class="box"><div class="say">📝 상황을 읽고, 바르게 고치는 방법을 써 봐요.</div><table><thead><tr><th style="width:130px;">상황</th><th>내가 쓴 내용</th></tr></thead><tbody><tr><td class="word">사실이 아닌 글</td><td><input type="text" placeholder="..... 인지 먼저 확인한다"></td></tr><tr><td class="word">남을 흉보는 댓글</td><td><input type="text" placeholder="..... 을(를) 지켜 쓴다"></td></tr><tr><td class="word">남의 사진을 그냥 씀</td><td><input type="text" placeholder="..... 을(를) 존중해 허락을 받는다"></td></tr></tbody></table>
+      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>매체를 바르게 쓰겠다는 다짐을 한 문장으로 써 보세요.</p></div><textarea class="writeline" rows="2" placeholder="나는 매체를 쓸 때 ..... 을(를) 지키겠다."></textarea></div></section>
+  <section class="s-main"><div class="stage"><span class="badge">교과서</span><h2>바람직한 매체 이용을 확인해요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 <b>교과서 6-2 나 4단원</b>에서 바람직한 매체 이용을 실천하는 방법을 배웠어요.</p></div>
+      <div class="rv"><p class="q">① 바람직한 매체 이용 계획에 들어갈 것은?</p><div class="rvgroup" data-ranswer="이용 시간과 목적 정하기"><button data-v="이용 시간과 목적 정하기">이용 시간과 목적 정하기</button><button data-v="무제한 사용">무제한 사용</button></div></div>
+      <div class="rv"><p class="q">② 매체로 만든 자료를 나눌 때는?</p><div class="rvgroup" data-ranswer="저작권과 예절을 지킨다"><button data-v="저작권과 예절을 지킨다">저작권과 예절을 지킨다</button><button data-v="마음대로 퍼뜨린다">마음대로 퍼뜨린다</button></div></div>
+      <div class="rv"><p class="q">③ 매체 이용 습관은?</p><div class="rvgroup" data-ranswer="스스로 점검하고 고쳐 나간다"><button data-v="스스로 점검하고 고쳐 나간다">스스로 점검하고 고쳐 나간다</button><button data-v="점검하지 않는다">점검하지 않는다</button></div></div>
+    </div></section>
+  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>바른 매체 태도를 골라요</h2></div>
+    <div class="box"><div class="say">🔎 바른 태도이면 ⭕, 아니면 ❌를 골라 누르세요.</div><div class="rv"><p class="q">① 정보가 사실인지 확인한다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">② 예절을 지켜 댓글을 쓴다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">③ 남의 사진을 마음대로 가져다 쓴다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">④ 만든 사람의 저작권을 존중한다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div></section>
+  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box"><div class="selfcheck"><p>💪 매체 정보를 확인할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+      <div class="selfcheck"><p>💪 매체 예절과 저작권을 지킬 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
+    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">만든 사람의 권리를 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:130px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="12" aria-label="빈칸"> (이)라고 한다.</p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 저작권</p></div>
+    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 매체를 바르게 쓰는 태도로 <u>알맞은</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="x9408" data-answer="2"><button>① 확인 없이 퍼뜨린다</button><button>② 사실인지 확인한다</button><button>③ 남을 흉본다</button><button>④ 남의 것을 몰래 쓴다</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">매체를 쓸 때는 정보가 <b>사실인지 확인</b>하고, <b>예절</b>을 지키며, 남의 <b>저작권</b>을 존중해야 해요.</div><div class="mc" data-q="q3" data-answer="2"><button>① 사실인지 확인한다.</button><button>② 예절은 지키지 않아도 된다.</button><button>③ 저작권을 존중한다.</button><button>④ 믿을 만한지 살핀다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">매체를 쓸 때 꼭 지키고 싶은 약속을 한 문장으로 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 나는 ..... 을(를) 꼭 지키겠다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">누리집에서 정보를 찾을 때 지켜야 할 예절 두 가지를 써 오세요.</p><textarea class="writeline" rows="2" placeholder="예절 1: ..... / 예절 2: ....."></textarea></div></section>
+</div>
+</body>
+<script>
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+document.querySelectorAll('.mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = String(btns.indexOf(picked)+1);
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = btns[Number(ans)-1];
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+<script>
+(function(){
+var mode=null;
+var passage=document.getElementById('passage');
+if(passage && !passage.dataset.ready){
+passage.dataset.ready=1;
+passage.querySelectorAll('p').forEach(function(p){
+  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
+});
+passage.addEventListener('click',function(e){
+  if(!e.target.classList.contains('w')||!mode)return;
+  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
+  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
+  e.target.classList.toggle(mode);
+});
+}
+window.setMode=function(m){
+  mode=(mode===m)?null:m;
+  ['unknown','important','env','erase'].forEach(function(x){
+    var b=document.getElementById('btn-'+x);
+    if(b)b.classList.toggle('active-'+x,mode===x);
+  });
+};
+})();
+</script>
+</html>

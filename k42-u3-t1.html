@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --skyblue:#2E86C1;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .say b{font-weight:800;}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+  .flowlist{margin-top:8px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowrow .fixed b{color:var(--tangerine-dark);}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
+  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
+  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
+  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:#F4C0D1;}
+  .passage .w.important{background:#FAE28A;}
+  .passage .w.env{background:#BFE3F7;}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+  .verbtns{display:flex; gap:8px; margin-bottom:10px;}
+  .verbtns button{font-family:inherit; font-size:14px; font-weight:800; cursor:pointer; padding:9px 18px; border-radius:999px; border:2px solid #2E2B26; background:#fff;}
+  .verbtns button.on{background:#2E2B26; color:#fff;}
+  .passage p.vfull{display:none;}
+  .passage.showfull p.vfull{display:block;}
+  .passage.showfull p.vshort{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-2 · 3단원 토의하여 문제를 해결해요</p>
+    <h1><em>토의</em>로 문제를 해결해요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
+    <div class="box">
+      <div class="say">🔔 3단원에서는 <b>토의</b>하여 문제를 해결해요. 오늘은 토의의 뜻과 차례를 배워요!</div>
+      <div class="rv"><p class="q">2단원 복습! 조사한 내용을 정리해 알리는 글을?</p><div class="rvgroup" data-ranswer="보고하는 글"><button data-v="보고하는 글">보고하는 글</button><button data-v="토의"></button></div></div>
+      <div class="rv"><p class="q">여러 사람이 의견을 나누어 문제를 해결하는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="토의"><button data-v="토의">토의</button><button data-v="발표">발표</button></div></div>
+    </div>
+  </section>
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>학교에서 함께 해결하고 싶은 문제가 있나요?</small></p><div class="cowrap"><img src="comics/k42-u3-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u3-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">3. 토의하여 문제를 해결해요</small>토의로 문제 해결하기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>토의는 왜 할까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="함께 ..... 을(를) 해결하려고요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>토의할 때 가장 중요한 태도는?</p></div>
+      <textarea class="writeline" rows="1" placeholder="상대의 의견을 ..... 하는 태도"></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);"><b>토의</b>는 여러 사람이 의견을 나누어 함께 <b>문제를 해결</b>하는 거예요. 서로 존중하며 의견을 모아요.</p></div>
+  </section>
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>토의하는 차례를 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">📋 토의는 순서대로 해요. 소리 내어 읽어 봐요.</div>
+      <div class="flowlist">
+        <div class="flowrow"><span class="fno">1</span><div class="fixed"><b>주제 정하기</b> — 함께 해결할 문제를 정해요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">2</span><div class="fixed"><b>의견 내기</b> — 까닭을 들어 의견을 말해요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">3</span><div class="fixed"><b>의견 모으기</b> — 좋은 점·걱정되는 점을 살펴봐요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">4</span><div class="fixed"><b>결정하기</b> — 가장 알맞은 방법을 함께 정해요.</div></div>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>토의</b> 의견을 나누어 문제 해결 · <b>주제</b> 이야기할 중심 문제 · <b>의견</b> 자기 생각 · <b>결정</b> 어떻게 할지 정함</div>
+    </div>
+  </section>
+  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이 글은 <b>교과서 4-2 가 114쪽</b> 다솜이의 의견 글을 간추린 것이에요.</p></div>
+      <div class="say">👀 <b>의견은 노랑</b>, <b>까닭은 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="verbtns"><button id="vb-s" class="on" onclick="setVer(0)">📄 간추린 글</button><button id="vb-f" onclick="setVer(1)">📖 전체 글</button></div>
+      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 의견</button><button id="btn-env" onclick="setMode('env')">🩵 까닭</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
+      <p class="ptitle"><small>의견을 담은 글</small>휴대 전화, 필요할 때만 사용합시다 (간추린 글)<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 4-2 가 · 3단원 · 114쪽을 간추린 글</span></p>
+      <div class="passage" id="passage">
+        <p class="vshort">다솜이가 학교 친구들에게 의견을 냈어요.</p>
+        <p class="vshort">휴대 전화를 너무 많이 쓰면 대화가 줄고 사고가 날 수 있어요.</p>
+        <p class="vshort">"꼭 필요할 때만 휴대 전화를 사용합시다!" 하고 제안했어요.</p>
+        <p class="vfull">○○초등학교 학생 여러분, 안녕하세요? 저는 4학년 임다솜이라고 합니다.</p>
+        <p class="vfull">요즘 친구들과 함께 있을 때나 등하굣길에 휴대 전화를 사용하는 친구가 많습니다. 그런데 휴대 전화를 너무 많이 사용하면 친구들끼리 이야기하는 시간이 줄고, 주변을 신경 쓰지 못해 사고가 날 수 있습니다.</p>
+        <p class="vfull">규칙을 정해서 꼭 필요할 때만 휴대 전화를 사용합시다! 그러면 휴대 전화 화면을 보는 대신에 친구와 대화할 수 있고, 걸을 때도 주변을 살피며 안전하게 이동할 수 있습니다.</p>
+        <p class="vfull">더 즐겁고 안전한 학교생활을 위해 함께 노력하면 좋겠습니다. 감사합니다.</p>
+      </div>
+      <div class="legendline"><span><i style="background:#FAE28A"></i>의견</span><span><i style="background:#BFE3F7"></i>까닭</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>제안</b> 의견을 내놓음 · <b>규칙</b> 지키기로 정한 약속 · <b>등하굣길</b> 학교를 오가는 길 · <b>안전</b> 위험이 없음</div></div></section>
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>토의 주제로 의견을 나눠요</h2></div>
+    <div class="box">
+      <div class="say">📝 토의 주제: <b>"우리 반을 깨끗하게 하려면 어떻게 할까?"</b> 내 의견을 정리해 봐요.</div>
+      <table>
+        <thead><tr><th style="width:130px;">항목</th><th>내가 정리한 내용</th></tr></thead>
+        <tbody>
+          <tr><td class="word">내 의견</td><td><input type="text" placeholder="어떻게 하면 좋을까요?"></td></tr>
+          <tr><td class="word">그 까닭</td><td><input type="text" placeholder="왜냐하면 ....."></td></tr>
+          <tr><td class="word">좋은 점</td><td><input type="text" placeholder="어떤 점이 좋나요?"></td></tr>
+        </tbody>
+      </table>
+      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>친구와 의견을 모아, 우리 모둠의 결정을 한 문장으로 써 보세요.</p></div>
+      <textarea class="writeline" rows="2" placeholder="우리 모둠은 ..... 하기로 정했다. 왜냐하면 ....."></textarea>
+    </div>
+  </section>
+  <section class="s-main"><div class="stage"><span class="badge">교과서</span><h2>교과서 토의로 확인해요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 <b>교과서 4-2 가 3단원</b> 「우현이네 학급 토의 시간」을 읽고 답을 골라 누르세요. 다솜이는 "규칙을 정해 꼭 필요할 때만 휴대 전화를 사용하자"고 의견을 냈어요.</p></div>
+      <div class="rv"><p class="q">① 토의는 무엇을 하는 말하기인가요?</p><div class="rvgroup" data-ranswer="함께 의논해 문제를 해결하는 것"><button data-v="함께 의논해 문제를 해결하는 것">함께 의논해 문제를 해결하는 것</button><button data-v="서로 이기려고 싸우는 것">서로 이기려고 싸우는 것</button></div></div>
+      <div class="rv"><p class="q">② 다솜이가 낸 의견은?</p><div class="rvgroup" data-ranswer="필요할 때만 휴대 전화를 사용하자"><button data-v="필요할 때만 휴대 전화를 사용하자">필요할 때만 휴대 전화를 사용하자</button><button data-v="휴대 전화를 마음껏 쓰자">휴대 전화를 마음껏 쓰자</button></div></div>
+      <div class="rv"><p class="q">③ 의견을 말할 때 함께 말해야 하는 것은?</p><div class="rvgroup" data-ranswer="알맞은 이유"><button data-v="알맞은 이유">알맞은 이유</button><button data-v="목소리 크기">목소리 크기</button></div></div>
+      <div class="rv"><p class="q">④ 토의 절차에서 먼저 할 일은?</p><div class="rvgroup" data-ranswer="주제 정하기"><button data-v="주제 정하기">주제 정하기</button><button data-v="바로 결정하기">바로 결정하기</button></div></div>
+    </div></section>
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>토의하는 바른 태도를 골라요</h2></div>
+    <div class="box">
+      <div class="say">🔎 바른 토의 태도이면 ⭕, 아니면 ❌를 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 까닭을 들어 의견을 말한다.</p><div class="rvgroup" data-ranswer="⭕ 바른 태도"><button data-v="⭕ 바른 태도">⭕ 바른 태도</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 친구가 말할 때 끼어들어 방해한다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 바른 태도">⭕ 바른 태도</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 다른 의견도 끝까지 듣는다.</p><div class="rvgroup" data-ranswer="⭕ 바른 태도"><button data-v="⭕ 바른 태도">⭕ 바른 태도</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">④ 내 의견만 옳다고 우긴다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 바른 태도">⭕ 바른 태도</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 토의하는 차례를 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+      <div class="selfcheck"><p>💪 까닭을 들어 의견을 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">여러 사람이 의견을 나누어 문제를 해결하는 것을
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸"> (이)라고 한다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 토의</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 토의하는 차례로 <u>알맞은</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="1"><button>① 주제 정하기 → 의견 내기 → 의견 모으기 → 결정하기</button><button>② 결정하기 → 주제 정하기</button><button>③ 의견 내기 → 결정하기 → 주제 정하기</button><button>④ 결정하기 → 의견 내기</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">토의는 여러 사람이 의견을 나누어 함께 문제를 해결해요. 서로의 의견을 <b>존중</b>하고 까닭을 들어 말할 때 좋은 결정을 내릴 수 있어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 토의는 문제를 해결한다.</button><button>② 까닭을 들어 말한다.</button><button>③ 내 의견만 옳으니 남은 무시한다.</button><button>④ 서로의 의견을 존중한다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">우리 반에서 토의로 해결하고 싶은 문제를 하나 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) ..... 문제를 해결하고 싶다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족과 함께 정할 문제를 토의하고, 어떻게 정했는지 써 오세요.</p>
+      <textarea class="writeline" rows="2" placeholder="주제: ..... / 결정: ....."></textarea>
+    </div>
+  </section>
+</div>
+</body>
+<script>
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+document.querySelectorAll('.mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = String(btns.indexOf(picked)+1);
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = btns[Number(ans)-1];
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+<script>
+(function(){
+var mode=null;
+var passage=document.getElementById('passage');
+if(passage && !passage.dataset.ready){
+passage.dataset.ready=1;
+passage.querySelectorAll('p').forEach(function(p){
+  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
+});
+passage.addEventListener('click',function(e){
+  if(!e.target.classList.contains('w')||!mode)return;
+  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
+  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
+  e.target.classList.toggle(mode);
+});
+}
+window.setMode=function(m){
+  mode=(mode===m)?null:m;
+  ['unknown','important','env','erase'].forEach(function(x){
+    var b=document.getElementById('btn-'+x);
+    if(b)b.classList.toggle('active-'+x,mode===x);
+  });
+};
+})();
+</script>
+<script>
+window.setVer=function(f){
+  var p=document.getElementById('passage');
+  p.classList.toggle('showfull', !!f);
+  document.getElementById('vb-s').classList.toggle('on', !f);
+  document.getElementById('vb-f').classList.toggle('on', !!f);
+};
+</script>
+</html>

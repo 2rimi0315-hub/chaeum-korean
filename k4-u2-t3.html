@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 하나면 충분합니다 (국어 4-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-1 · 2단원 서로 다른 의견</p>
+    <h1><em>글쓴이의 의견</em>을 파악하며 읽어요</h1>
+    <div class="idrow">
+      <span>이름 <input type="text"></span>
+      <span>날짜 <input type="text" placeholder="    월    일"></span>
+    </div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 절차에 따라 토의를 했어요. 오늘부터는 글쓴이의 의견을 파악하며 글을 읽어요.</div>
+      <div class="rv"><p class="q">토의에서 가장 먼저 하는 일은 무엇이었나요?</p><div class="rvgroup" data-ranswer="토의 주제 정하기"><button data-v="토의 주제 정하기">토의 주제 정하기</button><button data-v="의견 결정하기">의견 결정하기</button></div></div>
+      <div class="rv"><p class="q">어떤 일이나 대상에 대해 가지는 생각을 무엇이라고 하나요?</p><div class="rvgroup" data-ranswer="의견"><button data-v="의견">의견</button><button data-v="사실">사실</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k4-u2-t3.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k4-u2-t3.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 서로 다른 의견</small>3) 글쓴이의 의견을 파악해야 하는 까닭 알기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>"통컵은 하나면 충분합니다."는 무슨 뜻일까요? <small>짐작해서 써 보세요. (교과서 90쪽 · 통컵은 '텀블러'를 우리말로 다듬은 말이에요.)</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="통컵을 여러 개 사지 말고 ....."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>통컵(텀블러)을 써 본 적이 있나요? 우리 집에 몇 개나 있을까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="우리 집에는 ....."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">글쓴이의 의견을 파악하면 글의 내용을 더 잘 이해할 수 있고, 내 의견과 비교할 수 있고, 글쓴이의 의견을 평가할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>글쓴이의 의견을 찾으며 글을 읽어요</h2></div>
+    <div class="box">
+      <div class="say">👀 먼저 눈으로 읽어요. 그다음 <b>글쓴이의 의견이 담긴 문장은 파랑</b>, <b>중요한 낱말은 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 글쓴이의 의견</button>
+        <button id="btn-important" onclick="setMode('important')">💛 중요한 낱말</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>오늘의 읽기</small>「하나면 충분합니다」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 4-1 가 91쪽</span></p>
+      <div class="passage" id="passage">
+        <p>환경을 보호하기 위해 우리는 일회용품을 적게 쓰고 통컵, 친환경 가방처럼 여러 번 사용할 수 있는 다회용 제품을 쓰기도 합니다. 그런데 다회용 제품을 쓴다고 해서 무조건 환경을 보호할 수 있는 것은 아닙니다. 다회용 제품을 구입하여 자주 사용하지 않고 그냥 두거나 여러 개의 다회용 제품을 사용하면 오히려 환경 오염의 원인이 될 수 있기 때문입니다.</p>
+        <p>기후변화행동연구소의 2019년 자료에 따르면, 통컵을 하루만 사용하면 플라스틱 컵을 하루에 한 번 사용할 때보다 오히려 환경에 나쁜 영향을 끼친다고 합니다. 같은 수의 컵을 생산한다면, 다회용 제품을 만들고 폐기하는 과정에서 일회용품을 만들고 폐기할 때보다 더 많은 온실가스가 배출되기 때문입니다. 하루에 한 번 컵을 사용한다고 가정할 때, 적어도 2주 넘게 통컵을 사용해야 플라스틱 컵을 사용할 때보다 온실가스를 줄이는 효과가 나타납니다.</p>
+        <p>환경을 보호하기 위해서는 다회용 제품을 올바르게 사용해야 합니다. 한번 구입한 다회용 제품을 오랜 기간 꾸준히 사용하는 습관이 필요합니다. 하나면 충분합니다. 지구를 위한 작은 실천을 시작합시다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>글쓴이의 의견</span>
+        <span><i style="background:var(--mark-important)"></i>중요한 낱말</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>통컵</b> '텀블러'를 우리말로 다듬은 말 · <b>다회용 제품</b> 여러 번 사용할 수 있는 물건 · <b>일회용품</b> 한 번 쓰고 버리는 물건 · <b>온실가스</b> 지구를 뜨겁게 만드는 기체 · <b>폐기</b> 못 쓰게 되어 버리는 것</div>
+      <div class="say" style="margin-top:8px;">📊 글에 있는 그래프도 살펴봐요! 통컵을 <b>오래 쓸수록</b> 플라스틱 컵보다 온실가스가 훨씬 적어져요. (1년 쓰면 플라스틱 컵이 21배, 2년 쓰면 33.5배 많아요!)</div>
+    </div>
+    <div class="box">
+      <div class="say">💬 글을 잘 읽었나요? 알맞은 답을 골라 누르세요. (교과서 92쪽)</div>
+      <div class="rv"><p class="q">① 사람들이 다회용 제품을 사용하는 까닭</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="환경을 보호하기 위해서"><button data-v="환경을 보호하기 위해서">환경을 보호하기 위해서</button><button data-v="멋있어 보이려고">멋있어 보이려고</button></div></div>
+      <div class="rv"><p class="q">② 다회용 제품이 오히려 환경 오염의 원인이 되는 경우</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="사서 쓰지 않고 그냥 두거나 여러 개를 사용할 때"><button data-v="사서 쓰지 않고 그냥 두거나 여러 개를 사용할 때">사서 쓰지 않고 그냥 두거나 여러 개를 사용할 때</button><button data-v="하나를 오래 꾸준히 쓸 때">하나를 오래 꾸준히 쓸 때</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>사실과 의견을 구분해요</h2></div>
+    <div class="box">
+      <div class="say">⚖️ <b>사실</b>은 실제 있었던 일로 참과 거짓을 판단할 수 있어요. <b>의견</b>은 어떤 일이나 대상에 대해 가지는 생각이에요. 문장을 읽고 사실인지 의견인지 골라 누르세요. (교과서 92쪽)</div>
+      <div class="rv"><p class="q">① "환경을 보호하기 위해 우리는 일회용품을 적게 쓰고 통컵, 친환경 가방처럼 여러 번 사용할 수 있는 다회용 제품을 쓰기도 합니다."</p><div class="rvgroup" data-ranswer="사실"><button data-v="사실">사실</button><button data-v="의견">의견</button></div></div>
+      <div class="rv"><p class="q">② "하루에 한 번 컵을 사용한다고 가정할 때, 적어도 2주 넘게 통컵을 사용해야 플라스틱 컵을 사용할 때보다 온실가스를 줄이는 효과가 나타납니다."</p><div class="rvgroup" data-ranswer="사실"><button data-v="사실">사실</button><button data-v="의견">의견</button></div></div>
+      <div class="rv"><p class="q">③ "한번 구입한 다회용 제품을 오랜 기간 꾸준히 사용하는 습관이 필요합니다."</p><div class="rvgroup" data-ranswer="의견"><button data-v="사실">사실</button><button data-v="의견">의견</button></div></div>
+      <div class="say" style="margin-top:14px;">🗣️ 왜 그렇게 생각했는지 선생님께 설명해 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>글쓴이의 의견을 파악하는 방법을 알아봐요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>빈칸에 알맞은 말을 골라 누르세요. <small>(보기: 목적 · 생각 · 제목 · 표현) (교과서 93쪽)</small></p></div>
+      <div class="rv"><p class="q">① 글쓴이의 (　　)을 담고 있는 중요한 낱말이나 문장을 찾아보자.</p><div class="rvgroup" data-ranswer="생각"><button data-v="목적">목적</button><button data-v="생각">생각</button><button data-v="제목">제목</button><button data-v="표현">표현</button></div></div>
+      <div class="rv"><p class="q">② 반복되는 (　　)을 찾아보자.</p><div class="rvgroup" data-ranswer="표현"><button data-v="목적">목적</button><button data-v="생각">생각</button><button data-v="제목">제목</button><button data-v="표현">표현</button></div></div>
+      <div class="rv"><p class="q">③ '하나면 충분합니다'라는 (　　)에서도 글쓴이의 생각을 알 수 있어.</p><div class="rvgroup" data-ranswer="제목"><button data-v="목적">목적</button><button data-v="생각">생각</button><button data-v="제목">제목</button><button data-v="표현">표현</button></div></div>
+      <div class="rv"><p class="q">④ 글쓴이가 이 글을 쓴 (　　)이나 의도를 생각해 보는 것도 좋아.</p><div class="rvgroup" data-ranswer="목적"><button data-v="목적">목적</button><button data-v="생각">생각</button><button data-v="제목">제목</button><button data-v="표현">표현</button></div></div>
+      <div class="say">💡 사진이나 그림 자료, 그래프 등을 살피는 것도 도움이 돼요!</div>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>글쓴이의 의견을 파악해야 하는 까닭이에요. 알맞은 말을 골라 누르세요. <small>(교과서 93쪽)</small></p></div>
+      <div class="rv"><p class="q">① 글의 내용을 더 잘 (　　)할 수 있다.</p><div class="rvgroup" data-ranswer="이해"><button data-v="이해">이해</button><button data-v="암기">암기</button></div></div>
+      <div class="rv"><p class="q">② 글쓴이의 의견과 자신의 의견을 (　　)할 수 있다.</p><div class="rvgroup" data-ranswer="비교"><button data-v="비교">비교</button><button data-v="자랑">자랑</button></div></div>
+      <div class="rv"><p class="q">③ 글쓴이의 의견을 (　　)할 수 있다.</p><div class="rvgroup" data-ranswer="평가"><button data-v="평가">평가</button><button data-v="복사">복사</button></div></div>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>이 글에서 글쓴이의 의견은 무엇인가요? 정리해서 써 보세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="다회용 제품을 하나만 사서 ....."></textarea>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>글을 잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 설명에 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① '통컵'은 무엇을 우리말로 다듬은 말인가요?</p><div class="rvgroup" data-ranswer="텀블러"><button data-v="텀블러">텀블러</button><button data-v="컴퓨터">컴퓨터</button></div></div>
+      <div class="rv"><p class="q">② 통컵을 얼마나 써야 플라스틱 컵보다 온실가스를 줄일 수 있나요?</p><div class="rvgroup" data-ranswer="적어도 2주 넘게"><button data-v="적어도 2주 넘게">적어도 2주 넘게</button><button data-v="딱 하루만">딱 하루만</button></div></div>
+      <div class="rv"><p class="q">③ 그래프에서 오래 쓸수록 환경에 좋은 것</p><div class="rvgroup" data-ranswer="통컵"><button data-v="통컵">통컵</button><button data-v="플라스틱 컵">플라스틱 컵</button></div></div>
+      <div class="rv"><p class="q">④ 글쓴이가 하고 싶은 말</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="다회용 제품 하나를 오래 꾸준히 쓰자"><button data-v="다회용 제품 하나를 오래 꾸준히 쓰자">다회용 제품 하나를 오래 꾸준히 쓰자</button><button data-v="다회용 제품을 많이 사 모으자">다회용 제품을 많이 사 모으자</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck">
+        <p>💪 글에서 글쓴이의 의견을 찾을 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+      <div class="selfcheck">
+        <p>💪 사실과 의견을 구분할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">
+        ◦ 실제 있었던 일로 참과 거짓을 판단할 수 있는 것은
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="4" aria-label="빈칸">
+        이다.<br>
+        ◦ 어떤 일이나 대상에 대해 가지는 생각은
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="4" aria-label="빈칸">
+        이다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 사실 · 의견</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글의 내용과 <u>일치하는</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><p style="font-size:15.5px; font-weight:800; margin-top:6px; color:#5F5E5A;">1) 다회용 제품의 예로 알맞은 것은?</p><div class="mc" data-q="f0" data-answer="2"><button>① 종이컵, 비닐봉지</button><button>② 통컵, 친환경 가방</button><button>③ 나무젓가락, 빨대</button><button>④ 물티슈, 종이 접시</button></div><p style="font-size:15.5px; font-weight:800; margin-top:14px; color:#5F5E5A;">2) 다회용 제품을 만들고 폐기할 때는?</p><div class="mc" data-q="f1" data-answer="3"><button>① 온실가스가 전혀 나오지 않는다.</button><button>② 일회용품보다 온실가스가 적게 나온다.</button><button>③ 일회용품보다 온실가스가 더 많이 나온다.</button><button>④ 온실가스와 관계가 없다.</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">그래프를 보면, 통컵을 1년 사용하면 플라스틱 컵에서 나오는 온실가스가 통컵의 21배, 2년 사용하면 33.5배나 돼요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 통컵은 오래 쓸수록 환경에 도움이 된다.</button><button>② 통컵을 산 뒤 금방 버리면 환경에 좋지 않다.</button><button>③ 통컵은 하루만 써도 무조건 환경에 좋다.</button><button>④ 그래프는 글쓴이의 의견을 뒷받침해 준다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div>
+      </div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">글쓴이의 의견에 대한 나의 생각을 쓰세요. (같은 생각인가요, 다른 생각인가요? 그 까닭은?)</p><textarea class="writeline" rows="1" placeholder="나는 글쓴이의 의견에 ..... 왜냐하면 ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">우리 집에 있는 다회용 제품(통컵, 장바구니 등)을 찾아 세어 보세요. 몇 개나 있는지, 자주 쓰는지 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="우리 집 다회용 제품: ....."></textarea>
+    </div>
+  </section>
+
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

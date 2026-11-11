@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --skyblue:#2E86C1;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .say b{font-weight:800;}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+  .flowlist{margin-top:8px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowrow .fixed b{color:var(--tangerine-dark);}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
+  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
+  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
+  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:#F4C0D1;}
+  .passage .w.important{background:#FAE28A;}
+  .passage .w.env{background:#BFE3F7;}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 6-1 · 5단원 자신의 글쓰기 과정을 살펴봐요</p>
+    <h1><em>글쓰기 과정</em>을 점검하며 주장하는 글을 써요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 <b>근거</b>와 <b>인용 출처</b>를 배웠어요. 오늘은 <b>글쓰기 과정</b>을 점검하며 주장하는 글을 완성해요!</div>
+      <div class="rv"><p class="q">남의 말이나 글이 나온 곳을?</p><div class="rvgroup" data-ranswer="출처"><button data-v="출처">출처</button><button data-v="주장"></button></div></div>
+      <div class="rv"><p class="q">글을 다 쓴 뒤 잘 썼는지 살펴보는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="점검"><button data-v="점검">점검</button><button data-v="인용">인용</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k6-u5-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k6-u5-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">5. 자신의 글쓰기 과정을 살펴봐요</small>글쓰기 과정을 점검하며 주장하는 글 쓰기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>글을 쓸 때 가장 먼저 하는 일은 무엇일까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="무엇을 쓸지 ..... 을(를) 세워요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>글쓰기 과정을 점검하면 어떤 점이 좋을까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="내 생각을 잘 ..... 했는지 확인할 수 있어요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">글쓰기는 <b>계획 → 내용 마련 → 조직 → 표현 → 고쳐쓰기</b> 과정을 거쳐요. 과정을 점검하면 더 좋은 글을 쓸 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>글쓰기 과정을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">📋 글은 순서대로 써요. 아래 과정을 소리 내어 읽어 봐요.</div>
+      <div class="flowlist">
+        <div class="flowrow"><span class="fno">1</span><div class="fixed"><b>계획하기</b> — 무엇을, 누구에게, 왜 쓸지 정해요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">2</span><div class="fixed"><b>내용 마련</b> — 주장과 근거, 인용할 자료를 모아요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">3</span><div class="fixed"><b>조직하기</b> — 처음·가운데·끝으로 짜임을 정해요.</div></div>
+        <div class="flowarrow">▼</div>
+        <div class="flowrow"><span class="fno">4</span><div class="fixed"><b>표현·고쳐쓰기</b> — 글로 쓰고, 점검하며 바르게 고쳐요.</div></div>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>계획</b> 미리 세우는 생각 · <b>조직</b> 짜임새 있게 엮음 · <b>표현</b> 생각을 글로 나타냄 · <b>점검</b> 빠짐없이 살펴 확인함</div>
+    </div>
+  </section>
+
+  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 서론-본론-결론을 갖춘 주장하는 글 예시예요.</p></div>
+      <div class="say">👀 <b>서론과 결론은 하늘색</b>, <b>본론의 근거는 노랑</b>, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="marktools"><button id="btn-env" onclick="setMode('env')">🩵 서론·결론</button><button id="btn-important" onclick="setMode('important')">💛 본론의 근거</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
+      <p class="ptitle"><small>주장하는 글 (예시)</small>학교 도서관 이용 시간을 늘립시다<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예시 글이에요</span></p>
+      <div class="passage" id="passage">
+<p>(서론) 우리 학교 도서관은 방과 후 한 시간만 문을 엽니다. 나는 도서관 이용 시간을 늘려야 한다고 주장합니다.</p>
+<p>(본론 1) 첫째, 책을 빌리고 싶어도 시간이 맞지 않아 못 빌리는 학생이 많습니다. 방과 후 수업이 끝나면 도서관은 이미 닫혀 있습니다.</p>
+<p>(본론 2) 둘째, 도서관은 조용히 공부하고 책을 읽을 수 있는 소중한 공간입니다. 이용 시간이 늘면 독서 습관을 기르는 학생도 늘어날 것입니다.</p>
+<p>(결론) 도서관 이용 시간을 늘려서 누구나 책과 가까워지는 학교를 만듭시다.</p>
+      </div>
+      <div class="legendline"><span><i style="background:#BFE3F7"></i>서론·결론</span><span><i style="background:#FAE28A"></i>본론의 근거</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>서론</b> 글의 처음 · <b>본론</b> 글의 가운데 · <b>결론</b> 글의 끝 · <b>습관</b> 몸에 밴 버릇</div></div></section>
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>주장하는 글을 계획하고 점검해요</h2></div>
+    <div class="box">
+      <div class="say">📝 주제: <b>"우리 반이 더 나아지려면?"</b> 과정에 맞게 계획을 세우고, 다 쓴 뒤 점검해 봐요.</div>
+      <table>
+        <thead><tr><th style="width:130px;">과정</th><th>내가 정리한 내용</th></tr></thead>
+        <tbody>
+          <tr><td class="word">계획(주제·읽을 사람)</td><td><input type="text" placeholder="누구에게, 무엇을 주장할까?"></td></tr>
+          <tr><td class="word">주장</td><td><input type="text" placeholder="내 주장 한 문장"></td></tr>
+          <tr><td class="word">근거</td><td><input type="text" placeholder="주장을 뒷받침하는 까닭"></td></tr>
+          <tr><td class="word">짜임</td><td><input type="text" placeholder="처음 → 가운데 → 끝"></td></tr>
+        </tbody>
+      </table>
+      <table style="margin-top:16px;">
+        <thead><tr><th style="width:190px;">점검 (다 쓴 뒤)</th><th>확인</th></tr></thead>
+        <tbody>
+          <tr><td class="word">주장과 근거가 어울리나요?</td><td><input type="text" placeholder="⭕ / △"></td></tr>
+          <tr><td class="word">인용 출처를 밝혔나요?</td><td><input type="text" placeholder="⭕ / △"></td></tr>
+          <tr><td class="word">문장·맞춤법은 바른가요?</td><td><input type="text" placeholder="⭕ / △"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>글쓰기 과정을 순서대로 골라요</h2></div>
+    <div class="box">
+      <div class="say">🔎 글쓰기 과정에 대한 설명이 맞으면 ⭕, 아니면 ❌를 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 가장 먼저 계획을 세운다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 고쳐쓰기는 할 필요가 없다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 내용을 마련한 뒤 짜임을 정한다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">④ 다 쓴 뒤 점검하면 더 좋은 글이 된다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 글쓰기 과정을 순서대로 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+      <div class="selfcheck"><p>💪 내 글을 점검하며 고칠 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">글을 다 쓴 뒤 잘 썼는지 빠짐없이 살펴 확인하는 것을
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸">
+        (이)라고 한다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 점검</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글쓰기 과정의 <u>가장 처음</u> 단계를 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="1"><button>① 계획하기</button><button>② 고쳐쓰기</button><button>③ 표현하기</button><button>④ 점검하기</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">글쓰기는 계획 → 내용 마련 → 조직 → 표현 → 고쳐쓰기 과정을 거쳐요. 각 과정을 <b>점검</b>하면 내 생각을 잘 표현했는지, 짜임에 맞게 썼는지 확인할 수 있어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 글쓰기는 여러 과정을 거친다.</button><button>② 점검하면 짜임을 확인할 수 있다.</button><button>③ 계획 없이 바로 끝내는 것이 좋다.</button><button>④ 고쳐쓰기로 글을 다듬는다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">'우리 반이 더 나아지려면?'을 주제로, 내 주장과 근거를 한 문장으로 쓰세요.</p><textarea class="writeline" rows="2" placeholder="나는 ..... 하면 좋겠다. 왜냐하면 ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">주장하는 글을 한 편 쓰고, 오늘 배운 점검표로 스스로 점검해 오세요.</p>
+      <textarea class="writeline" rows="3" placeholder="계획 → 주장·근거 → 짜임 → 점검"></textarea>
+    </div>
+  </section>
+</div>
+</body>
+<script>
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+document.querySelectorAll('.mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = String(btns.indexOf(picked)+1);
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = btns[Number(ans)-1];
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+<script>
+(function(){
+var mode=null;
+var passage=document.getElementById('passage');
+if(passage && !passage.dataset.ready){
+passage.dataset.ready=1;
+passage.querySelectorAll('p').forEach(function(p){
+  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
+});
+passage.addEventListener('click',function(e){
+  if(!e.target.classList.contains('w')||!mode)return;
+  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
+  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
+  e.target.classList.toggle(mode);
+});
+}
+window.setMode=function(m){
+  mode=(mode===m)?null:m;
+  ['unknown','important','env','erase'].forEach(function(x){
+    var b=document.getElementById('btn-'+x);
+    if(b)b.classList.toggle('active-'+x,mode===x);
+  });
+};
+})();
+</script>
+</html>

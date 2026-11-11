@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --skyblue:#2E86C1;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .say b{font-weight:800;}
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+  .flowlist{margin-top:8px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowrow .fixed b{color:var(--tangerine-dark);}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+  .verbtns{display:flex; gap:8px; margin-bottom:10px;}
+  .verbtns button{font-family:inherit; font-size:14px; font-weight:800; cursor:pointer; padding:9px 18px; border-radius:999px; border:2px solid #2E2B26; background:#fff;}
+  .verbtns button.on{background:#2E2B26; color:#fff;}
+  .passage p.vfull{display:none;}
+  .passage.showfull p.vfull{display:block;}
+  .passage.showfull p.vshort{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 3-2 · 3단원 자료의 출처를 확인하며 읽어요</p>
+    <h1>자료의 <em>출처</em>를 확인하며 글을 읽어요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
+    <div class="box">
+      <div class="say">🔔 3단원에서는 <b>자료의 출처</b>를 확인하며 글을 읽어요. 오늘은 글에 쓰인 자료가 믿을 만한지 살펴봐요!</div>
+      <div class="rv"><p class="q">2단원 복습! 여러 사람 앞에서 내용을 소개하는 것을?</p><div class="rvgroup" data-ranswer="발표"><button data-v="발표">발표</button><button data-v="출처"></button></div></div>
+      <div class="rv"><p class="q">자료가 나온 곳을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="출처"><button data-v="출처">출처</button><button data-v="제목">제목</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k3-u3-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k3-u3-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">3. 자료의 출처를 확인하며 읽어요</small>자료의 출처를 확인하며 글 읽기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>글에 쓰인 자료의 출처를 확인하면 어떤 점이 좋을까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="자료를 ..... 수 있는지 알 수 있어요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>자전거를 탈 때 왜 안전모를 써야 할까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="넘어질 때 ..... 를 보호해요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">글에 쓰인 자료의 <b>출처</b>(어디에서 왔는지)를 확인하면, 그 자료를 <b>믿을 수 있는지</b> 알 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>「자전거 안전모를 써요」를 읽어요</h2></div>
+    <div class="box">
+      <div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 아래 글은 <b style="color:#7A3A0E;">「자전거 안전모를 써요」</b>의 내용을 간추린 것이에요. 읽으며 <b style="color:#7A3A0E;">어떤 자료에 출처가 있는지</b> 찾아봐요. (교과서 3-2 가 114~117쪽)</p></div>
+      <div class="say">👀 <b>출처가 있는 자료는 노랑</b>으로, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="verbtns"><button id="vb-s" class="on" onclick="setVer(0)">📄 간추린 글</button><button id="vb-f" onclick="setVer(1)">📖 전체 글</button></div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 중요한 내용</button>
+        <button id="btn-important" onclick="setMode('important')">💛 출처가 있는 자료</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>오늘의 읽기</small>자전거 안전모를 써요<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 3-2 가 · 3단원 · 내용을 간추린 글</span></p>
+      <div class="passage" id="passage">
+        <p class="vshort">자전거를 탈 때는 꼭 안전모를 써야 해요.</p>
+        <p class="vshort">넘어지면 머리를 다치기 쉬운데, 안전모가 머리를 지켜 줘요.</p>
+        <p class="vshort">안전모는 2-4-1 법칙으로 바르게 써요. 눈썹 위 손가락 두 개, 귀 아래 끈 정리, 턱 끈은 손가락 하나 여유!</p>
+        <p class="vfull">여러분은 자전거를 탈 때 안전모를 착용하나요? 요즘 자전거를 타는 어린이는 많지만 안전모를 바르게 착용하는 어린이는 적습니다. 한 기관의 조사에 따르면, 자전거를 탈 때 안전모를 쓰는 사람은 다섯 명 가운데 한 명밖에 되지 않는다고 합니다. 자전거를 탈 때에는 꼭 안전모를 착용해야 합니다.</p>
+        <p class="vfull">자전거를 탈 때 왜 안전모를 써야 할까요? 자전거를 타다가 넘어지면 바닥에 머리를 먼저 부딪치는 일이 많아 머리를 다치기 쉽기 때문입니다. 안전모는 머리와 얼굴을 보호해 주어 큰 부상을 막을 수 있습니다.</p>
+        <p class="vfull">2023년 질병관리청의 자료에 따르면, 자전거를 탈 때 안전모를 쓰면 두 명 가운데 한 명은 머리 다치는 것을 예방할 수 있다고 합니다. 특히 비가 오거나 눈이 오는 날, 흙길처럼 미끄러운 길에서는 효과가 더 큽니다.</p>
+        <p class="vfull">안전모는 올바르게 쓰는 것이 중요합니다. 이를 위해 쉽게 기억할 수 있는 '2-4-1 법칙'이 있습니다. 먼저, 2 법칙! 눈썹 위에 손가락 두 개가 들어갈 만큼만 여유를 두고, 이마가 잘 덮이도록 안전모를 씁니다. 다음, 4 법칙! 귀 아래에서 양쪽 손가락 두 개씩을 펼쳐 끈이 그 사이에 오도록 합니다. 마지막으로, 1 법칙! 턱 끈은 손가락 한 개가 들어갈 만큼만 여유를 두고 조입니다.</p>
+        <p class="vfull">(출처: 「2-4-1 법칙」, 서울특별시 자전거 누리 소통망)</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>중요한 내용</span><span><i style="background:var(--mark-important)"></i>출처가 있는 자료</span><span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>안전모</b> 머리를 지키는 모자 · <b>부상</b> 몸을 다침 · <b>출처</b> 자료가 나온 곳 · <b>질병관리청</b> 국민 건강을 돌보는 나라 기관 · <b>습관</b> 몸에 밴 행동</div>
+    </div>
+    <div class="box">
+      <div class="say">💬 자료와 출처를 살펴봐요. 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 안전모를 써야 하는 까닭은?</p><div class="rvgroup" data-ranswer="머리를 보호하려고"><button data-v="머리를 보호하려고">머리를 보호하려고</button><button data-v="멋있어 보이려고"></button></div></div>
+      <div class="rv"><p class="q">② 글에서 출처를 밝힌 자료는?</p><div class="rvgroup" data-ranswer="질병관리청의 자료"><button data-v="질병관리청의 자료">질병관리청의 자료</button><button data-v="내 생각">내 생각</button></div></div>
+      <div class="rv"><p class="q">③ 출처가 있는 자료는 어떤 점이 좋나요?</p><div class="rvgroup" data-ranswer="믿을 수 있어요"><button data-v="믿을 수 있어요">믿을 수 있어요</button><button data-v="재미있어요"></button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>자료와 출처를 정리해요</h2></div>
+    <div class="box">
+      <div class="say">📝 글에 쓰인 내용과 그 출처를 정리해 봐요.</div>
+      <table>
+        <thead><tr><th style="width:110px;">내용</th><th>출처가 있나요?</th></tr></thead>
+        <tbody>
+          <tr><td class="word">머리 다침을 줄일 수 있다</td><td><input type="text" placeholder="예) 질병관리청 자료 → 있음"></td></tr>
+          <tr><td class="word">이마를 덮어 쓴다</td><td><input type="text" placeholder="출처가 있나요?"></td></tr>
+          <tr><td class="word">안전하게 타자</td><td><input type="text" placeholder="글쓴이의 의견"></td></tr>
+        </tbody>
+      </table>
+      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>출처가 있는 자료가 왜 믿을 만한지 한 문장으로 써 보세요.</p></div>
+      <textarea class="writeline" rows="2" placeholder="출처가 있으면 ..... 때문에 믿을 수 있다."></textarea>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>믿을 만한 자료를 골라요</h2></div>
+    <div class="box">
+      <div class="say">🔎 출처가 있어 믿을 만하면 ⭕, 아니면 ❌를 골라 누르세요.</div>
+      <div class="rv"><p class="q">① "질병관리청 자료에 따르면 ~"</p><div class="rvgroup" data-ranswer="⭕ 믿을 만해요"><button data-v="⭕ 믿을 만해요">⭕ 믿을 만해요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② "그냥 내 생각인데 안전모는 필요 없어."</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 믿을 만해요">⭕ 믿을 만해요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ "병원 누리집에서 알려 준 내용이야."</p><div class="rvgroup" data-ranswer="⭕ 믿을 만해요"><button data-v="⭕ 믿을 만해요">⭕ 믿을 만해요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">④ "어디서 봤는지 모르지만 그렇대."</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 믿을 만해요">⭕ 믿을 만해요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 글에서 출처가 있는 자료를 찾을 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+      <div class="selfcheck"><p>💪 출처가 있으면 왜 좋은지 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
+      <p style="font-size:16px; line-height:2.6;">자료가 나온 곳을
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸">
+        (이)라고 한다.
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 출처</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 글의 내용과 <u>일치하는</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="2"><button>① 안전모는 쓸 필요가 없다.</button><button>② 안전모는 머리를 보호해 준다.</button><button>③ 안전모는 발에 쓴다.</button><button>④ 안전모는 비 오는 날엔 필요 없다.</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">글에 쓰인 자료의 <b>출처</b>를 확인하면 그 자료를 믿을 수 있는지 알 수 있어요. '질병관리청 자료'처럼 출처가 분명하면 더 믿을 만해요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 출처를 확인하면 좋다.</button><button>② 출처가 분명하면 믿을 만하다.</button><button>③ 출처는 확인할 필요가 없다.</button><button>④ 출처로 자료를 판단할 수 있다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">안전하게 자전거를 타는 방법을 한 가지 더 생각해 한 문장으로 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 자전거를 탈 때 ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">책이나 인터넷에서 알게 된 사실 하나를, 출처와 함께 써 오세요.</p>
+      <textarea class="writeline" rows="2" placeholder="알게 된 사실: ..... / 출처: ....."></textarea>
+    </div>
+  </section>
+</div>
+</body>
+<script>
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+document.querySelectorAll('.mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = String(btns.indexOf(picked)+1);
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = btns[Number(ans)-1];
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+<script>
+window.setVer=function(f){
+  var p=document.getElementById('passage');
+  p.classList.toggle('showfull', !!f);
+  document.getElementById('vb-s').classList.toggle('on', !f);
+  document.getElementById('vb-f').classList.toggle('on', !!f);
+};
+</script>
+</html>

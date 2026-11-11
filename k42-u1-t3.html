@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 언제나 다정 죽집 ② (국어 4-2)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-2 · 1단원 비교하며 읽어요</p>
+    <h1>이야기 세계와 현실 세계를 <em>비교하며</em> 감상해요 (2)</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 부엌 친구들이 힘을 모아 고양이빵을 만든 이야기를 읽었어요.</div>
+      <div class="rv"><p class="q">부엌 친구들을 움직이게 한 것은?</p><div class="rvgroup" data-ranswer="팥냥이의 꾹꾹이"><button data-v="팥냥이의 꾹꾹이">팥냥이의 꾹꾹이</button><button data-v="할머니의 노래">할머니의 노래</button></div></div>
+      <div class="rv"><p class="q">할머니의 팥죽에 넣지 않는 것은?</p><div class="rvgroup" data-ranswer="설탕과 소금"><button data-v="설탕과 소금">설탕과 소금</button><button data-v="팥">팥</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k42-u1-t3.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u1-t3.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 비교하며 읽어요</small>2) 이야기의 세계와 현실 세계를 비교하며 이야기 감상하기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>마지막 장사 날, 다정 죽집에는 어떤 손님이 찾아올까요? <small>짐작해서 써 보세요.</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="..... 이/가 찾아올 것 같아요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>누군가 정성껏 만들어 준 음식을 먹어 본 적이 있나요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="..... 이/가 만들어 준 ..... 을/를 먹었어요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">이야기에 나타난 모습과 현실의 모습을 비교하고 인물의 말과 행동을 살피면, 글쓴이가 전하려는 생각(주제)을 짐작할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>표시하며 이야기를 읽어요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 먼저 <b>교과서 50~57쪽</b>을 펴서 「언제나 다정 죽집」의 뒷부분을 읽어요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 뒷부분을 간추린 글이에요. <b>등장인물은 파랑</b>, <b>할머니의 마음이 드러난 부분은 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 등장인물</button>
+        <button id="btn-important" onclick="setMode('important')">💛 할머니의 마음</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>이야기 간추리기</small>「언제나 다정 죽집」 뒷부분<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 간추린 글 · 원문은 국어 4-2 가 50~57쪽</span></p>
+      <div class="passage" id="passage">
+        <p>첫 손님은 과일 가게 아저씨였어요. 며칠 전 할머니가 준 고양이빵을 입덧하는 아내가 맛있게 먹어서, 그 빵을 다시 구하고 싶다고 했어요.</p>
+        <p>눈치 빠른 인두가 숨겨 두었던 고양이빵 상자를 몰래 탁자에 올려놓았어요. 할머니는 빵 요정이 다녀갔다며 반가워했어요.</p>
+        <p>할머니는 빵값을 받지 않았어요. 그리고 식구가 셋이니 든든히 먹어야 한다며 팥죽 두 그릇과 빵 두 개를 봉투에 담아 주었어요.</p>
+        <p>다음에는 건물 주인 베레모 아저씨와, 가게를 이어받을 키다리 아저씨가 찾아왔어요. 할머니는 정성껏 끓인 팥죽을 두 사람에게 대접했어요.</p>
+        <p>팥죽을 맛본 키다리 아저씨는 깜짝 놀라 맛의 비결을 물었어요. 할머니는 그저 팥죽을 팥죽답게 끓였을 뿐이라고 대답했어요.</p>
+        <p>할머니는 평생 아플 때마다 팥죽으로 기운을 차렸다고 했어요. 그래서 좋은 재료만 쓰고, 언제나 넉넉하게 끓여 여러 사람과 나누어 먹으려 했다고 말했어요.</p>
+        <p>키다리 아저씨는 고개를 끄덕였어요. 누군가의 몸과 마음을 돌보려는 할머니의 다정함이 바로 팥죽 맛의 비밀이었던 거예요.</p>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>입덧</b> 아기를 가진 엄마가 속이 메스꺼워 음식을 잘 못 먹는 일 · <b>비결</b> 남이 잘 모르는 자기만의 좋은 방법 · <b>대접하다</b> 음식을 차려 손님을 모시다 · <b>넉넉하다</b> 모자라지 않고 남을 만큼 많다</div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>등장인물</span>
+        <span><i style="background:var(--mark-important)"></i>할머니의 마음</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 이야기를 잘 읽었나요? 알맞은 답을 골라 누르세요. (교과서 58쪽)</div>
+      <div class="rv"><p class="q">① 과일 가게 아저씨가 죽집에 온 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="아내가 좋아한 고양이빵을 구하고 싶어서"><button data-v="아내가 좋아한 고양이빵을 구하고 싶어서">아내가 좋아한 고양이빵을 구하고 싶어서</button><button data-v="과일을 팔려고">과일을 팔려고</button></div></div>
+      <div class="rv"><p class="q">② 할머니가 빵을 두 개 준 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="곧 아기가 태어나 식구가 셋이라서"><button data-v="빵이 남아서">빵이 남아서</button><button data-v="곧 아기가 태어나 식구가 셋이라서">곧 아기가 태어나 식구가 셋이라서</button></div></div>
+      <div class="rv"><p class="q">③ 다정 죽집 팥죽 맛의 비밀은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="누군가를 돌보려는 할머니의 다정함"><button data-v="누군가를 돌보려는 할머니의 다정함">누군가를 돌보려는 할머니의 다정함</button><button data-v="특별한 설탕">특별한 설탕</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>낱말의 뜻을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">🔍 교과서 58쪽 '낱말 알기'에 나온 낱말이에요. 먼저 <b>내가 생각한 뜻</b>을 쓰고, <b>국어사전</b>에서 찾아 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">인수하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">민망하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">감지하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">매정하다</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>문장으로 익혀요! <small>낱말이 들어갈 알맞은 자리를 생각하며 문장을 완성해 보세요.</small></p></div>
+      <div class="combine"><div class="chip"><small>넣어서 말해 봐요</small><b>민망하다</b><input type="text" placeholder="..... 해서 민망했다."></div><div class="chip"><small>넣어서 말해 봐요</small><b>감지하다</b><input type="text" placeholder="..... 을 감지했다."></div><div class="chip"><small>반대말은?</small><b>매정하다</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>비슷한 말은?</small><b>인수하다</b><input type="text" placeholder="쓰기"></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>인물의 성격을 짐작하고, 현실과 비교해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>인물의 말이나 행동을 보고 성격을 짐작해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 59쪽)</small></p></div>
+      <table><thead><tr><th style="width:100px;">인물</th><th>말이나 행동</th><th style="width:150px;">성격</th></tr></thead><tbody><tr><td class="word">할머니</td><td style="background:#FBF3DC;">몸을 돌보려고 먹는 죽이니 설탕을 함부로 넣을 수 없다고 했다.</td><td style="background:#FBF3DC;">정직하다, 성실하다</td></tr><tr><td class="word">할머니</td><td style="background:#FBF3DC;">빵값을 받지 않고 팥죽과 빵을 넉넉히 담아 주었다.</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">부엌 친구들</td><td style="background:#FBF3DC;">각자 맡은 일을 열심히 하며 빵을 만들었다.</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">키다리 아저씨</td><td><input type="text" placeholder="가게를 밀어내는 것 같아 ....."></td><td style="background:#FBF3DC;">남의 마음을 헤아린다</td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>이야기에 나타난 모습과 현실의 모습을 비교해요. <small>(교과서 60쪽)</small></p></div>
+      <table><thead><tr><th style="width:100px;">구분</th><th>이야기에 나타난 모습</th><th>현실의 모습</th></tr></thead><tbody><tr><td class="word">비슷한 점</td><td style="background:#FBF3DC;">할머니가 정성껏 음식을 만들어 이웃과 나눈다.</td><td><input type="text" placeholder="우리 동네에서도 ....."></td></tr><tr><td class="word">다른 점</td><td style="background:#FBF3DC;">부엌 도구와 고양이가 말을 하고 움직인다.</td><td><input type="text" placeholder="현실에서는 ....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>글쓴이가 전하려는 생각(주제)은 무엇일까요? <small>골라 누르고, 내 생각도 써 보세요.</small></p></div>
+      <div class="rv"><p class="q">이 이야기의 주제로 알맞은 것은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="다정한 마음으로 함께 나누면 서로에게 힘이 된다"><button data-v="다정한 마음으로 함께 나누면 서로에게 힘이 된다">다정한 마음으로 함께 나누면 서로에게 힘이 된다</button><button data-v="가게는 빨리 문을 닫는 것이 좋다">가게는 빨리 문을 닫는 것이 좋다</button></div></div>
+      <textarea class="writeline" rows="1" placeholder="내가 생각한 주제: ....."></textarea>
+      <div class="say" style="margin-top:16px;">🗣️ 표를 <b>보면서</b> 할머니가 어떤 사람인지 설명해 보고 → <b>보지 않고</b> 설명해 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>이야기를 잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 할머니가 팥죽을 넉넉하게 끓인 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="여러 사람과 나누어 먹어야 참맛이 나서"><button data-v="여러 사람과 나누어 먹어야 참맛이 나서">여러 사람과 나누어 먹어야 참맛이 나서</button><button data-v="많이 팔아 돈을 벌려고">많이 팔아 돈을 벌려고</button></div></div>
+      <div class="rv"><p class="q">② 인두가 고양이빵 상자를 몰래 꺼낸 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="손님인 과일 가게 아저씨에게 빵을 주려고"><button data-v="손님인 과일 가게 아저씨에게 빵을 주려고">손님인 과일 가게 아저씨에게 빵을 주려고</button><button data-v="할머니를 놀래 주려고">할머니를 놀래 주려고</button></div></div>
+      <div class="rv"><p class="q">③ 키다리 아저씨가 깨달은 것은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="할머니의 다정함이 팥죽 맛의 비밀이다"><button data-v="팥죽에 비밀 재료가 들어 있다">팥죽에 비밀 재료가 들어 있다</button><button data-v="할머니의 다정함이 팥죽 맛의 비밀이다">할머니의 다정함이 팥죽 맛의 비밀이다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 인물의 말과 행동으로 성격을 짐작할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 이야기와 현실의 비슷한 점, 다른 점을 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 할머니의 성격으로 알맞지 <u>않은</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="3"><button>① 다정하다</button><button>② 정직하다</button><button>③ 욕심이 많다</button><button>④ 인정이 많다</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 밑줄 친 낱말의 뜻이 바르게 짝지어진 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">낱말</span></p><div class="mc" data-q="q2" data-answer="1"><button>① 가게를 <u>인수하다</u> - 물건이나 권리를 넘겨받다</button><button>② 분위기를 <u>감지하다</u> - 크게 소리치다</button><button>③ 얼굴이 <u>민망하다</u> - 아주 자랑스럽다</button><button>④ <u>매정하다</u> - 인정이 많고 따뜻하다</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">할머니처럼 내 주변에서 도움이 필요한 사람을 떠올리고, 도와줄 방법을 써 보세요. (교과서 61쪽)</p><textarea class="writeline" rows="1" placeholder="도움이 필요한 사람: ..... / 도와줄 방법: ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족 중 한 사람에게 「언제나 다정 죽집」 이야기를 들려주고, 듣는 사람이 가장 좋아한 장면을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="가족이 좋아한 장면: ....."></textarea>
+    </div>
+  </section>
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

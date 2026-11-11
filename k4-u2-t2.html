@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 절차에 따라 토의하기 (국어 4-1)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 4-1 · 2단원 서로 다른 의견</p>
+    <h1><em>절차</em>에 따라 토의해요</h1>
+    <div class="idrow">
+      <span>이름 <input type="text"></span>
+      <span>날짜 <input type="text" placeholder="    월    일"></span>
+    </div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 토의 주제에 알맞은 의견을 마련하는 방법을 배웠어요.</div>
+      <div class="rv"><p class="q">의견을 말할 때에는 무엇을 함께 말해야 하나요?</p><div class="rvgroup" data-ranswer="이유"><button data-v="이유">이유</button><button data-v="노래">노래</button></div></div>
+      <div class="rv"><p class="q">토의 주제는 어떤 것으로 정해야 하나요?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="우리 모두와 관련 있고 여러 의견이 나올 수 있는 것"><button data-v="우리 모두와 관련 있고 여러 의견이 나올 수 있는 것">우리 모두와 관련 있고 여러 의견이 나올 수 있는 것</button><button data-v="한 사람만 관련 있는 것">한 사람만 관련 있는 것</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k4-u2-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k4-u2-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 서로 다른 의견</small>2) 절차에 따라 토의하기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>'절차'는 무슨 뜻일까요? <small>짐작해서 써 보세요.</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="일을 하는 ..... 인 것 같아요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>우리 교실(또는 우리 집)에서 일어나는 일 중, 친구·가족과 토의하고 싶은 것이 있나요? <small>(교과서 85쪽)</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="예) 교실 책 정리함이 어질러져 있어요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">토의는 절차에 따라 해요. 토의 주제 정하기 → 의견 마련하기 → 의견 모으기 → 의견 결정하기!</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>토의 절차를 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">📋 토의는 이런 순서로 진행돼요. 소리 내어 읽어 보세요. (교과서 84쪽)</div>
+      <div class="flowlist">
+        <div class="flowrow"><span class="fno">1</span><div class="fixed"><b>토의 주제 정하기</b> — "토의 주제는 무엇으로 정하면 좋을까요?" 요즘 우리 반에 어떤 일이 있는지 떠올려요.</div></div>
+        <p class="flowarrow">▼</p>
+        <div class="flowrow"><span class="fno">2</span><div class="fixed"><b>의견 마련하기</b> — "어떤 의견이 좋을까?" 주제에 알맞은 나의 의견과 이유를 생각해요.</div></div>
+        <p class="flowarrow">▼</p>
+        <div class="flowrow"><span class="fno">3</span><div class="fixed"><b>의견 모으기</b> — "저는 모둠별로 색칠 도구를 사용하면 좋겠습니다. 왜냐하면……." 모둠에서 의견을 나누어요.</div></div>
+        <p class="flowarrow">▼</p>
+        <div class="flowrow"><span class="fno">4</span><div class="fixed"><b>의견 결정하기</b> — "우리 모둠에서 결정한 의견은……." 가장 알맞은 의견을 함께 정해요.</div></div>
+      </div>
+      <div class="task" style="margin-top:22px;"><span class="no">✓</span><p>순서를 잘 기억했나요? 알맞은 답을 골라 누르세요.</p></div>
+      <div class="rv"><p class="q">① 토의에서 가장 먼저 하는 일</p><div class="rvgroup" data-ranswer="토의 주제 정하기"><button data-v="토의 주제 정하기">토의 주제 정하기</button><button data-v="의견 결정하기">의견 결정하기</button></div></div>
+      <div class="rv"><p class="q">② 모둠 친구들과 의견을 나누는 절차</p><div class="rvgroup" data-ranswer="의견 모으기"><button data-v="의견 모으기">의견 모으기</button><button data-v="의견 마련하기">의견 마련하기</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
+    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 절차를 지킨 토의 장면 예시예요.</p></div>
+      <div class="say">👀 <b>절차를 나타내는 말은(는) 노랑</b>, <b>의견은(는) 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 절차를 나타내는 말</button><button id="btn-env" onclick="setMode('env')">🩵 의견</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
+      <p class="ptitle"><small>토의 (예시)</small>현장 학습 장소 정하기 토의<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예시예요</span></p>
+      <div class="passage" id="passage">
+<p>사회자: 지금부터 현장 학습 장소를 정하는 토의를 시작하겠습니다. 먼저 주제를 확인하고, 의견 말하기, 의견 모으기, 결정하기 차례로 진행하겠습니다.</p>
+<p>의견 말하기: 수아는 "과학관에 가면 체험할 것이 많습니다"라고 했고, 진호는 "동물원에 가면 생명의 소중함을 배울 수 있습니다"라고 말했습니다.</p>
+<p>의견 모으기: 친구들은 두 의견의 좋은 점과 아쉬운 점을 살펴보았습니다.</p>
+<p>결정하기: 손을 들어 뜻을 모은 결과 과학관으로 정해졌습니다. 절차를 지키니 토의가 질서 있게 끝났습니다.</p>
+      </div>
+      <div class="legendline"><span><i style="background:#FAE28A"></i>절차를 나타내는 말</span><span><i style="background:#BFE3F7"></i>의견</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>절차</b> 일을 하는 차례 · <b>사회자</b> 토의를 이끄는 사람 · <b>결정</b> 의논해 정함</div></div></section>
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>토의 계획을 세워요</h2></div>
+    <div class="box">
+      <div class="say">📝 토의 주제를 정할 때 생각할 점 세 가지를 떠올리며 계획을 세워요 — <b>① 우리 모두와 관련 있나요? ② 여러 가지 의견이 나올 수 있나요? ③ 우리가 해결 방법을 찾을 수 있나요?</b> (교과서 85~86쪽)</div>
+      <table>
+        <colgroup><col style="width:150px"><col></colgroup>
+        <tbody>
+          <tr><td class="word">토의하고<br>싶은 주제</td><td><input type="text" placeholder="예) 교실 책 정리함을 깨끗하게 쓰려면 어떻게 해야 할까?"></td></tr>
+          <tr><td class="word">토의가<br>필요한 까닭</td><td><input type="text" placeholder="예) 책이 아무렇게나 꽂혀 있어서 찾기 힘들어요."></td></tr>
+          <tr><td class="word">나의 의견</td><td><input type="text" placeholder="예) ..... 하면 좋겠습니다."></td></tr>
+          <tr><td class="word">이유</td><td><input type="text" placeholder="왜냐하면 ..... 때문입니다."></td></tr>
+        </tbody>
+      </table>
+      <div class="task" style="margin-top:20px;"><span class="no">✓</span><p>내가 쓴 의견을 스스로 점검해요. <small>맞으면 네모에 표시하세요. (교과서 86쪽)</small></p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:15px; background:#FBFAF5; border-radius:10px; padding:10px 14px; margin-bottom:8px;"><input type="checkbox" style="width:20px; height:20px;">토의 주제에 알맞은 의견인가요?</label>
+      <label style="display:flex; align-items:center; gap:10px; font-size:15px; background:#FBFAF5; border-radius:10px; padding:10px 14px; margin-bottom:8px;"><input type="checkbox" style="width:20px; height:20px;">우리 모두가 실천할 수 있는 의견인가요?</label>
+      <label style="display:flex; align-items:center; gap:10px; font-size:15px; background:#FBFAF5; border-radius:10px; padding:10px 14px; margin-bottom:8px;"><input type="checkbox" style="width:20px; height:20px;">의견을 뒷받침하는 이유가 적절한가요?</label>
+      <label style="display:flex; align-items:center; gap:10px; font-size:15px; background:#FBFAF5; border-radius:10px; padding:10px 14px;"><input type="checkbox" style="width:20px; height:20px;">의견의 단점에 대해서도 생각해 보았나요?</label>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>의견을 모으고 결정해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>선생님(또는 가족)과 의견을 모아요. <small>서로의 의견과 이유를 정리해 보세요. (교과서 87쪽)</small></p></div>
+      <table>
+        <thead><tr><th style="width:90px;">이름</th><th>의견</th><th>이유</th></tr></thead>
+        <tbody>
+          <tr><td><input type="text" placeholder="나"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text" placeholder="선생님"></td><td><input type="text"></td><td><input type="text"></td></tr>
+          <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+        </tbody>
+      </table>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>토의할 때 지켜야 할 예절이에요. 알맞은 답을 골라 누르세요.</p></div>
+      <div class="rv"><p class="q">① 친구가 말할 때는?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="끼어들지 않고 끝까지 들어요"><button data-v="끼어들지 않고 끝까지 들어요">끼어들지 않고 끝까지 들어요</button><button data-v="중간에 끼어들어 크게 말해요">중간에 끼어들어 크게 말해요</button></div></div>
+      <div class="rv"><p class="q">② 의견을 말하고 싶을 때는?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="사회자에게 말할 기회를 얻어요"><button data-v="사회자에게 말할 기회를 얻어요">사회자에게 말할 기회를 얻어요</button><button data-v="아무 때나 소리쳐요">아무 때나 소리쳐요</button></div></div>
+      <div class="rv"><p class="q">③ 내 생각과 다른 의견이 나오면?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="내 의견만 고집하지 않고 존중하며 들어요"><button data-v="내 의견만 고집하지 않고 존중하며 들어요">내 의견만 고집하지 않고 존중하며 들어요</button><button data-v="틀렸다고 화를 내요">틀렸다고 화를 내요</button></div></div>
+      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>우리가 결정한 의견을 쓰세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="우리가 결정한 의견: ....."></textarea>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>잘 이해했는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 설명에 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 토의의 마지막 절차</p><div class="rvgroup" data-ranswer="의견 결정하기"><button data-v="의견 결정하기">의견 결정하기</button><button data-v="주제 정하기">주제 정하기</button></div></div>
+      <div class="rv"><p class="q">② 의견을 결정할 때 살펴볼 것</p><div class="rvgroup" data-ranswer="모두가 실천할 수 있는지"><button data-v="모두가 실천할 수 있는지">모두가 실천할 수 있는지</button><button data-v="글씨가 예쁜지">글씨가 예쁜지</button></div></div>
+      <div class="rv"><p class="q">③ 토의가 끝난 뒤에는?</p><div class="rvgroup" data-ranswer="결정한 의견을 함께 실천해요"><button data-v="결정한 의견을 함께 실천해요">결정한 의견을 함께 실천해요</button><button data-v="바로 잊어버려요">바로 잊어버려요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck">
+        <p>💪 토의 절차 네 가지를 차례대로 말할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+      <div class="selfcheck">
+        <p>💪 예절을 지키며 토의에 참여할 수 있나요?</p>
+        <div class="faces">
+          <button onclick="pickFace(this)">⭕<small>잘해요</small></button>
+          <button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button>
+          <button onclick="pickFace(this)">❌<small>어려워요</small></button>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요. <small>토의 절차를 차례대로 써 보세요.</small></p></div>
+      <p style="font-size:16px; line-height:2.6;">
+        토의
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:90px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="5" aria-label="빈칸">
+        정하기 → 의견
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:100px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="5" aria-label="빈칸">
+        → 의견 모으기 → 의견
+        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:100px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="5" aria-label="빈칸">
+      </p>
+      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 주제 · 마련하기 · 결정하기</p>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 토의 절차로 알맞은 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="2"><button>① 의견 결정하기 → 주제 정하기 → 의견 모으기 → 의견 마련하기</button><button>② 주제 정하기 → 의견 마련하기 → 의견 모으기 → 의견 결정하기</button><button>③ 의견 모으기 → 의견 결정하기 → 주제 정하기 → 의견 마련하기</button><button>④ 의견 마련하기 → 주제 정하기 → 의견 결정하기 → 의견 모으기</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">모둠 토의 시간에 한 친구가 다른 친구의 말이 끝나기도 전에 자꾸 끼어들며 자기 의견만 옳다고 말했어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 이 친구는 토의 예절을 지키지 않았다.</button><button>② 친구의 말은 끝까지 들어야 한다.</button><button>③ 내 의견만 고집하는 것이 토의를 잘하는 방법이다.</button><button>④ 말할 기회는 사회자에게 얻어야 한다.</button></div>
+      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div>
+      </div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">오늘 세운 토의 계획을 정리해서 쓰세요. (주제 → 나의 의견 → 이유)</p><textarea class="writeline" rows="1" placeholder="주제: ..... / 의견: ..... / 이유: ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족과 함께 절차에 따라 토의를 해 보세요. (주제 정하기 → 의견 마련하기 → 의견 모으기 → 의견 결정하기) 결정된 의견을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="우리 가족이 결정한 의견: ....."></textarea>
+    </div>
+  </section>
+
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>

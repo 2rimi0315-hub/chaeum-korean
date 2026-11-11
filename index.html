@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>채움 국어 교실 — 초등 국어</title>
+<style>
+  :root{
+    --ink:#2E2B26; --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --skyblue:#2E86C1; --skyblue-bg:#E4F0FA; --skyblue-dark:#1B4F72;
+    --line:#E3DDD0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:36px 18px 80px;}
+  .wrap{max-width:760px; margin:0 auto;}
+
+  header{border-bottom:3px solid var(--ink); padding-bottom:20px;}
+  .eyebrow{font-size:13px; letter-spacing:0.16em; color:#9A937F; margin-bottom:6px;}
+  h1{font-size:32px; font-weight:800; letter-spacing:-0.02em; line-height:1.3;}
+  h1 em{font-style:normal; color:var(--purple);}
+  header p.sub{font-size:15px; color:#6B6858; margin-top:8px;}
+
+  /* ── 학년 선택 탭 ── */
+  .gradetabs{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:24px 0 4px;}
+  .gradetabs button{font-family:inherit; cursor:pointer; border:2px solid var(--line);
+    border-radius:14px; background:#fff; padding:12px 8px; text-align:center;}
+  .gradetabs button b{display:block; font-size:17px; font-weight:800;}
+  .gradetabs button small{font-size:12px; color:#8A8271;}
+  .gradetabs button.on{border-color:var(--ink); background:#FBFAF5;}
+  .gradetabs button.on b::after{content:" ✔"; color:var(--teal); font-size:13px;}
+  .comingpanel{margin-top:24px; background:#F7F4EC; border:2px dashed var(--line);
+    border-radius:16px; padding:28px 24px; text-align:center;}
+  .comingpanel .big{font-size:34px;}
+  .comingpanel h2{font-size:19px; font-weight:800; margin:8px 0 6px;}
+  .comingpanel p{font-size:14px; color:#6B6858;}
+  .semtabs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0 8px;}
+  .semtabs button{
+    font-family:inherit; cursor:pointer; text-align:left;
+    border:2px solid var(--line); border-radius:16px; background:#fff; padding:16px 18px;
+  }
+  .semtabs button b{display:block; font-size:19px; font-weight:800;}
+  .semtabs button small{font-size:13px; color:#8A8271;}
+  .semtabs button.on{border-color:var(--ink); background:#FBFAF5;}
+  .semtabs button.on b::after{content:" ✔"; color:var(--teal);}
+
+  /* ── 책(가/나) 선택 탭 ── */
+  .booktabs{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:18px 0 6px;}
+  .booktabs button{font-family:inherit; cursor:pointer; text-align:center;
+    border:2px solid var(--line); border-radius:999px; background:#fff; padding:10px 14px;}
+  .booktabs button b{display:block; font-size:16px; font-weight:800;}
+  .booktabs button small{font-size:12px; color:#8A8271;}
+  .booktabs button.on{border-color:var(--purple); background:var(--purple-bg); color:var(--purple-dark);}
+  .booktabs button.on small{color:var(--purple-dark);}
+
+  .progress{display:flex; align-items:center; gap:12px; margin:20px 0 6px;}
+  .progress .bar{flex:1; height:10px; background:#F1EDE2; border-radius:5px; overflow:hidden;}
+  .progress .bar i{display:block; height:100%; width:0%; background:var(--teal); transition:width .3s;}
+  .progress span{font-size:14px; font-weight:800; color:var(--teal-dark); min-width:52px; text-align:right;}
+
+  section{margin-top:40px;}
+  .unit{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .unit .n{width:34px; height:34px; border-radius:10px; color:#fff; font-weight:800; font-size:17px;
+    display:flex; align-items:center; justify-content:center;}
+  .unit h2{font-size:20px; font-weight:800;}
+  .unit small{font-size:13px; color:#9A937F; font-weight:400;}
+  .u1 .n{background:var(--purple);} .u2 .n{background:var(--teal);} .u3 .n{background:var(--tangerine);} .u4 .n{background:var(--skyblue);}
+
+  .lesson{display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--ink);
+    background:#fff; border:2px solid var(--ink); border-radius:16px;
+    padding:16px 18px; margin-bottom:10px; transition:transform .12s;}
+  .lesson:hover{transform:translateX(4px);}
+  .lesson .order{flex:none; width:40px; height:40px; border-radius:50%; font-size:17px; font-weight:800;
+    display:flex; align-items:center; justify-content:center;}
+  .u1 .order{background:var(--purple-bg); color:var(--purple-dark);}
+  .u2 .order{background:var(--teal-bg); color:var(--teal-dark);}
+  .u3 .order{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .u4 .order{background:var(--skyblue-bg); color:var(--skyblue-dark);}
+  .lesson .info{flex:1;}
+  .lesson .info b{font-size:17px; display:block;}
+  .lesson .info small{font-size:13px; color:#8A8271;}
+  .lesson .done{flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--line);
+    background:#fff; font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .lesson .done.on{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .lesson .go{flex:none; font-size:20px; color:#B4AE9D;}
+  .vrow{display:flex; justify-content:flex-end; margin:-4px 0 10px;}
+  .vrow a{font-size:13px; font-weight:700; text-decoration:none; color:#8A8271;
+    border:1.5px dashed var(--line); border-radius:999px; padding:5px 14px;}
+  .vrow a:hover{color:var(--ink); border-color:var(--ink);}
+
+  /* ── 준비 중 ── */
+  .soon{display:flex; align-items:center; gap:14px; background:#F7F4EC;
+    border:2px dashed var(--line); border-radius:16px; padding:16px 18px; margin-bottom:10px; color:#8A8271;}
+  .soon .order{flex:none; width:40px; height:40px; border-radius:50%; background:#EDEAE1;
+    font-size:17px; font-weight:800; display:flex; align-items:center; justify-content:center; color:#B4AE9D;}
+  .soon b{font-size:17px; display:block; color:#6B6858;}
+  .soon .badge{margin-left:auto; flex:none; font-size:12px; font-weight:800; color:#9A937F;
+    border:1.5px solid var(--line); border-radius:999px; padding:4px 12px; background:#fff;}
+
+  .howto{margin-top:44px; background:#F5F2E9; border-radius:16px; padding:20px 22px;}
+  .howto h3{font-size:16px; font-weight:800; margin-bottom:8px;}
+  .howto p{font-size:14px; color:#5F5E5A; margin-bottom:4px;}
+
+  footer{margin-top:40px; font-size:13px; color:#B4AE9D; text-align:center;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">초등 국어</p>
+    <h1>한 줄 한 줄 재미있게, <em>국어 교실</em> 📖</h1>
+    <p class="sub">학년과 학기를 고르고, 번호 순서대로 공부해요. 끝낸 수업은 ✔ 표시!</p>
+  </header>
+
+  <div class="gradetabs">
+    <button id="g3" onclick="showGrade(3)"><b>3학년</b></button>
+    <button id="g4" onclick="showGrade(4)"><b>4학년</b></button>
+    <button id="g5" onclick="showGrade(5)"><b>5학년</b></button>
+    <button id="g6" onclick="showGrade(6)"><b>6학년</b></button>
+  </div>
+
+  <div id="grade3" style="display:none;">
+    <div class="semtabs">
+      <button id="tab31" onclick="showSem(3,1)"><b>3학년 1학기</b><small>가 · 나</small></button>
+      <button id="tab32" onclick="showSem(3,2)"><b>3학년 2학기</b><small>가 · 나</small></button>
+    </div>
+    <div id="sem31" style="display:none;">
+    <div class="booktabs">
+      <button id="book31ga-tab" onclick="showBook31('ga')"><b>📙 국어 3-1 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book31na-tab" onclick="showBook31('na')"><b>📗 국어 3-1 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book31ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>생생하게 표현해요</h2></div>
+      <a class="lesson" href="k31-u1-t1.html" data-id="k31-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>감각적 표현의 재미를 느끼며 시를 감상해요 — 웃음 참는 나무 · 줄넘기</b><small>감각적 표현 · 행과 연 · 낭송 (교과서 36~45쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u1-t2.html" data-id="k31-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>표정과 몸짓, 목소리나 말투로 표현해요 — 레오의 특별한 꿈</b><small>상황 · 말투 · 실감 (교과서 46~57쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>분명하고 유창하게</h2></div>
+      <a class="lesson" href="k31-u2-t1.html" data-id="k31-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>문장의 짜임을 알고 바르게 읽어요 — 지호와 나비 · 단오</b><small>누가+어찌하다 · 어떠하다 (교과서 70~81쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u2-t2.html" data-id="k31-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>알맞게 띄어 유창하게 읽어요 — 발표 예절 · 김치, 치즈, 카프카</b><small>띄어 읽기(∨) · 실감 나게 (교과서 82~95쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>짜임새 있는 글, 재미와 감동이 있는 글</h2></div>
+      <a class="lesson" href="k31-u3-t1.html" data-id="k31-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>중심 문장과 뒷받침 문장을 알아요 — 플라스틱의 두 얼굴</b><small>문단 · 중심 문장 (교과서 110~119쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u3-t2.html" data-id="k31-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>작품에서 느낀 재미와 감동을 표현해요 — 비밀번호 · 수상한 선글라스</b><small>감상 · 경험 떠올리기 (교과서 120~135쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book31na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>중요한 내용을 찾아요</h2></div>
+      <a class="lesson" href="k31-u4-t1.html" data-id="k31-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>설명하는 글의 중요한 내용을 파악해요 — 된장을 만드는 방법</b><small>차례의 말 · 중요한 내용 (교과서 186~189쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u4-t2.html" data-id="k31-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>이야기를 읽고 일어난 일을 파악해요 — 내 감자가 생겼어요</b><small>사건 · 차례대로 정리 (교과서 190~209쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>인물에게 마음을 전해요</h2></div>
+      <a class="lesson" href="k31-u5-t1.html" data-id="k31-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>인물의 성격을 파악하며 읽어요 — 까망이와 까미 · 까먹어도 될까요</b><small>성격 · 말과 행동 (교과서 214~243쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u5-t2.html" data-id="k31-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>마음을 전하는 글을 써요</b><small>읽을 사람 · 있었던 일 · 마음 표현 (교과서 244~253쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>자신 있게 읽고 써요</h2></div>
+      <a class="lesson" href="k31-u6-t1.html" data-id="k31-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>사실과 의견을 구분하며 읽어요 — 소금 이야기 · 로봇과 함께하는 미래</b><small>사실 · 의견 (교과서 258~267쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k31-u6-t2.html" data-id="k31-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>쓰기 과정을 알고 계획을 세워 글을 써요 — 마음 쓰기</b><small>계획 · 고쳐쓰기 (교과서 268쪽~)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k31-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+    <div id="sem32" style="display:none;">
+    <div class="booktabs">
+      <button id="book32ga-tab" onclick="showBook3('ga')"><b>📙 국어 3-2 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book32na-tab" onclick="showBook3('na')"><b>📗 국어 3-2 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book32ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>작품을 감상하고 간추려요</h2></div>
+      <a class="lesson" href="k3-u1-t1.html" data-id="k3-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>경험을 떠올리며 작품을 감상해요 — 은행잎 편지 · 벽 부수기</b><small>경험 · 감상 · 시 (교과서 34~55쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u1-t2.html" data-id="k3-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>중요한 내용을 간추려요 — 우리 고장의 자랑거리</b><small>간추리기 · 중요한 내용 (교과서 46~61쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>유창하게 읽고 발표해요</h2></div>
+      <a class="lesson" href="k3-u2-t1.html" data-id="k3-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>글을 유창하게 소리 내어 읽어요 — 박에스더</b><small>유창하게 · 장면 · 분위기 (교과서 66~87쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u2-t2.html" data-id="k3-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>글과 그림을 활용하여 표현해요</b><small>발표 · 자료 · 표현 (교과서 88~111쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>자료의 출처를 확인하며 읽어요</h2></div>
+      <a class="lesson" href="k3-u3-t1.html" data-id="k3-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>자료의 출처를 확인하며 글을 읽어요 — 자전거 안전모를 써요</b><small>출처 · 자료 · 설명 (교과서 114~135쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u3-t2.html" data-id="k3-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>순서나 방법을 설명하는 글을 써요 — 전기 제품, 이렇게 쓰면 안전해요</b><small>첫째·둘째 · 출처 밝히기 (교과서 106~143쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book32na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>마음을 담아 글을 써요</h2></div>
+      <a class="lesson" href="k3-u4-t1.html" data-id="k3-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>상황에 맞는 높임 표현을 써요</b><small>높임말 · 예절 · 상황 (교과서 178~195쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u4-t2.html" data-id="k3-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>대화 예절을 지키며 대화해요 — 효진이와 소영이의 부탁</b><small>공손한 부탁 · 끝까지 듣기 (교과서 197~215쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>낱말을 정확하게 써요</h2></div>
+      <a class="lesson" href="k3-u5-t1.html" data-id="k3-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>낱말의 종류를 알아요</b><small>이름 · 움직임 · 성질을 나타내는 낱말 (교과서 218~237쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u5-t2.html" data-id="k3-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>국어사전에서 낱말을 찾아요</b><small>국어사전 · 차례 · 뜻 (교과서 238~253쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>작품을 보고 생각을 나눠요</h2></div>
+      <a class="lesson" href="k3-u6-t1.html" data-id="k3-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>감동과 의견을 나타내는 글을 알아요</b><small>감동 · 의견 · 작품 (교과서 256~273쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k3-u6-t2.html" data-id="k3-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>작품에 대한 의견을 쓰고 고쳐 써요</b><small>의견 · 까닭 · 고쳐쓰기 (교과서 274~285쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k3-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+  </div>
+
+  <div id="grade4" style="display:none;">
+    <div class="semtabs">
+      <button id="tab41" onclick="showSem(4,1)"><b>4학년 1학기</b><small>가 · 나 열림</small></button>
+      <button id="tab42" onclick="showSem(4,2)"><b>4학년 2학기</b><small>가 · 나</small></button>
+    </div>
+    <div id="sem41" style="display:none;">
+    <div class="booktabs">
+      <button id="book41ga-tab" onclick="showBook('ga')"><b>📙 국어 4-1 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book41na-tab" onclick="showBook('na')"><b>📗 국어 4-1 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book41ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>깊이 있게 읽어요</h2></div>
+      <a class="lesson" href="k4-u1-t1.html" data-id="k4-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>인물들의 관계와 이야기의 흐름을 파악해요 — 어머니의 시험</b><small>섣달 · 사립문 · 명필 · 한양 (교과서 42~47쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u1-t2.html" data-id="k4-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>인물들의 관계를 중심으로 흐름을 파악해요 — 목 짧은 기린 지피</b><small>밀렵꾼 · 보초 · 영웅 (교과서 48~57쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u1-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u1-t3.html" data-id="k4-u1-t3">
+        <span class="order">3</span>
+        <span class="info"><b>질문을 만들며 글의 내용을 짐작해요 — 우리의 그릇, 옹기</b><small>옹기 · 발효 · 무형유산 (교과서 58~61쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u1-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u1-t4.html" data-id="k4-u1-t4">
+        <span class="order">4</span>
+        <span class="info"><b>질문을 만들어 내용을 짐작하며 읽어요 — 씨앗을 부탁해</b><small>토종 · 계기 · 재배 + 단원 마무리 (교과서 62~67, 72쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u1-t4.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>서로 다른 의견</h2></div>
+      <a class="lesson" href="k4-u2-t1.html" data-id="k4-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>토의 주제에 알맞은 의견을 마련해요</b><small>토의 · 의견 · 이유 (교과서 78~83쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u2-t2.html" data-id="k4-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>절차에 따라 토의해요</b><small>절차 · 모둠 · 존중 (교과서 84~87쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u2-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u2-t3.html" data-id="k4-u2-t3">
+        <span class="order">3</span>
+        <span class="info"><b>글쓴이의 의견을 파악하며 읽어요 — 하나면 충분합니다</b><small>사실과 의견 · 통컵 (교과서 90~93쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u2-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u2-t4.html" data-id="k4-u2-t4">
+        <span class="order">4</span>
+        <span class="info"><b>글쓴이의 의견과 내 의견을 비교해요 — 동물 없는 동물원</b><small>가상 현실 · 증강 현실 · 권리 (교과서 94~99쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u2-t4.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u2-t5.html" data-id="k4-u2-t5">
+        <span class="order">5</span>
+        <span class="info"><b>글쓴이의 의견을 평가해요 — 문화유산을 개방해야 합니다</b><small>문화유산 · 출처 · 평가 (교과서 100~101쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u2-t5.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>자세하게 살펴요</h2></div>
+      <a class="lesson" href="k4-u3-t1.html" data-id="k4-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>낱말 사이의 관계를 알아봐요</b><small>비슷한 말 · 반대말 · 포함 관계 (교과서 118~120쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u3-t2.html" data-id="k4-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>낱말의 관계를 파악하며 읽어요 — 필기도구가 일하는 방식</b><small>연필심 · 잉크 · 수정액 (교과서 122~123쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u3-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u3-t3.html" data-id="k4-u3-t3">
+        <span class="order">3</span>
+        <span class="info"><b>보고하는 글을 알아봐요 — 색깔이 변하는 사과</b><small>관찰 · 동기 · 근거 (교과서 126~128쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u3-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u3-t4.html" data-id="k4-u3-t4">
+        <span class="order">4</span>
+        <span class="info"><b>관찰하고 보고하는 글을 써요</b><small>관찰 계획 · 자료 수집 · 출처 (교과서 129~133쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u3-t4.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book41na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>뜻을 파악하며 읽어요</h2></div>
+      <a class="lesson" href="k4-u4-t1.html" data-id="k4-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>여러 가지로 해석되는 낱말을 구분해요</b><small>동형이의어 · 다의어 (교과서 182~187쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u4-t2.html" data-id="k4-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>국어사전을 활용해 낱말을 구분하며 읽어요 — 시장 구경</b><small>먹다 · 배 (교과서 188~191쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u4-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u4-t3.html" data-id="k4-u4-t3">
+        <span class="order">3</span>
+        <span class="info"><b>이야기의 중심 생각을 파악하며 읽어요 — 감기 친구는 싫어</b><small>가리키는 말 · 중심 생각 (교과서 194~201쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u4-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u4-t4.html" data-id="k4-u4-t4">
+        <span class="order">4</span>
+        <span class="info"><b>주장하는 글의 중심 생각을 파악해요 — 기억하기 위한 좋은 습관, 메모</b><small>메모 · 요점 · 습관 (교과서 202~204쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u4-t4.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u1">
+      <div class="unit"><span class="n">5</span><h2>생각과 느낌을 나누어요</h2></div>
+      <a class="lesson" href="k4-u5-t1.html" data-id="k4-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>자신 있게 발표하는 방법을 알아봐요 — 발표하기 무서워요!</b><small>발표 · 자신감 (교과서 218~224쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u5-t2.html" data-id="k4-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>친구들 앞에서 자신 있게 발표해요</b><small>시작·설명·끝맺는 말 (교과서 230~233쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u5-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u5-t3.html" data-id="k4-u5-t3">
+        <span class="order">3</span>
+        <span class="info"><b>독서 감상문 쓰는 방법을 알아봐요 — 나도 발표가 무서워!</b><small>독서 감상문 (교과서 236~237쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u5-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u5-t4.html" data-id="k4-u5-t4">
+        <span class="order">4</span>
+        <span class="info"><b>책을 읽고 독서 감상문을 써요</b><small>제목·까닭·장면·느낌 (교과서 240~241쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u5-t4.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">6</span><h2>생생하게 표현해요</h2></div>
+      <a class="lesson" href="k4-u6-t1.html" data-id="k4-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>원인과 결과를 생각하며 경험을 말해요 — 지민이의 모자</b><small>원인 · 결과 · 그래서 (교과서 258~262쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u6-t2.html" data-id="k4-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>경험을 원인과 결과로 정리해서 말해요</b><small>경험 정리 (교과서 264~266쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u6-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u6-t3.html" data-id="k4-u6-t3">
+        <span class="order">3</span>
+        <span class="info"><b>감각적 표현을 살려 시를 읽어요 — 방울토마토는 일곱 살</b><small>감각적 표현 (교과서 268~269쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u6-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k4-u6-t4.html" data-id="k4-u6-t4">
+        <span class="order">4</span>
+        <span class="info"><b>감각적 표현으로 경험을 시·글로 써요</b><small>오감 · 흉내 내는 말 (교과서 264~271쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k4-u6-t4.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+    <div id="sem42" style="display:none;">
+    <div class="booktabs">
+      <button id="book42ga-tab" onclick="showBook42('ga')"><b>📙 국어 4-2 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book42na-tab" onclick="showBook42('na')"><b>📗 국어 4-2 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book42ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>비교하며 읽어요</h2></div>
+      <a class="lesson" href="k42-u1-t1.html" data-id="k42-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>작품에서 현실 세계를 어떻게 나타내는지 알아요 — 스펀지 교실</b><small>현실 · 상상 · 말하는 이 (교과서 36~43쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u1-t2.html" data-id="k42-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>이야기 세계와 현실 세계를 비교하며 읽어요 (1) — 언제나 다정 죽집</b><small>동지 · 사발 · 홍두깨 (교과서 44~50쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u1-t2.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u1-t3.html" data-id="k42-u1-t3">
+        <span class="order">3</span>
+        <span class="info"><b>이야기 세계와 현실 세계를 비교하며 감상해요 (2) — 언제나 다정 죽집</b><small>인수 · 민망 · 주제 (교과서 50~61쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u1-t3.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u1-t4.html" data-id="k42-u1-t4">
+        <span class="order">4</span>
+        <span class="info"><b>서로 다른 글쓴이의 의견을 파악해요 — 한복 이야기</b><small>의견 · 이유 · 존중 (교과서 62~67쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u1-t4.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u1-t5.html" data-id="k42-u1-t5">
+        <span class="order">5</span>
+        <span class="info"><b>글쓴이의 의견을 비교하고 평가해요 — 무인 안내기</b><small>평가 · 타당 + 단원 마무리 (교과서 68~79쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u1-t5.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>우리말과 우리글</h2></div>
+      <a class="lesson" href="k42-u2-t1.html" data-id="k42-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>문자가 필요한 까닭과 한글의 특성을 알아요 — 문자 이야기</b><small>우리말 · 외국어 · 줄임말 (교과서 92~105쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u2-t2.html" data-id="k42-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>우리말 사용을 조사해 보고하는 글을 써요</b><small>보고하는 글 · 조사 · 정리 (교과서 106~121쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>토의하여 문제를 해결해요</h2></div>
+      <a class="lesson" href="k42-u3-t1.html" data-id="k42-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>관점을 파악하고 신뢰성 있는 뉴스를 만들어요</b><small>토의 · 주제 · 의견 (교과서 124~139쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u3-t2.html" data-id="k42-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>의견을 모아 실천해요</b><small>의견 모으기 · 결정 · 실천 (교과서 140~160쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book42na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>생각과 느낌을 나누어요</h2></div>
+      <a class="lesson" href="k42-u4-t1.html" data-id="k42-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>시와 이야기를 읽고 생각이나 느낌을 나눠요 — 기뻐의 비밀</b><small>예측 · 점검 · 정리 (교과서 182~199쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u4-t2.html" data-id="k42-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>읽기 과정을 되돌아보며 글을 읽어요</b><small>저작권 · 간추리기 (교과서 200~215쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>마음을 담아 편지를 써요</h2></div>
+      <a class="lesson" href="k42-u5-t1.html" data-id="k42-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>예절을 지키며 온라인 대화를 해요</b><small>편지 · 짜임 · 형식 (교과서 218~235쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u5-t2.html" data-id="k42-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>읽는 이를 생각하며 마음을 전하는 편지를 써요</b><small>마음 · 진심 · 예의 (교과서 236~249쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>원인과 결과를 생각하며 읽어요</h2></div>
+      <a class="lesson" href="k42-u6-t1.html" data-id="k42-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>원인과 결과를 생각하며 읽어요</b><small>원인 · 결과 · 흐름 (교과서 252~269쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k42-u6-t2.html" data-id="k42-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>이어질 내용을 상상해 써요 — 랑랑별 때때롱</b><small>상상 · 뒷이야기 · 흐름 (교과서 270~285쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k42-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+  </div>
+
+  <div id="grade5" style="display:none;">
+    <div class="semtabs">
+      <button id="tab51" onclick="showSem(5,1)"><b>5학년 1학기</b><small>가 · 나</small></button>
+      <button id="tab52" onclick="showSem(5,2)"><b>5학년 2학기</b><small>가 · 나</small></button>
+    </div>
+    <div id="sem51" style="display:none;">
+    <div class="booktabs">
+      <button id="book51ga-tab" onclick="showBook5('ga')"><b>📙 국어 5-1 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book51na-tab" onclick="showBook5('na')"><b>📗 국어 5-1 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book51ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>대화를 나누어요</h2></div>
+      <a class="lesson" href="k5-u1-t1.html" data-id="k5-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>상대의 마음을 배려하며 대화해요</b><small>배려 · 공감 · 경청 (교과서 36~43쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u1-t2.html" data-id="k5-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>대화에서 생략된 내용을 짐작해요</b><small>생략 · 짐작 · 상황 (교과서 44~49쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>체험한 일을 글로 써요</h2></div>
+      <a class="lesson" href="k5-u2-t1.html" data-id="k5-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>시간 표현을 활용해 글을 써요 — 물고기를 향해 멀리 넓게</b><small>시간 표현 (교과서 72~85쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u2-t2.html" data-id="k5-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>기행문을 알고 써요 — 다채로운 모습의 설악산</b><small>여정 · 견문 · 감상 (교과서 86~105쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>발표하고 질문해요</h2></div>
+      <a class="lesson" href="k5-u3-t1.html" data-id="k5-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>자료를 선별하여 발표해요</b><small>자료 · 매체 · 검토 (교과서 108~123쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u3-t2.html" data-id="k5-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>궁금한 내용을 질문하며 들어요</b><small>질문 · 의도 · 대안 (교과서 124~131쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book51na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>대상을 설명해요</h2></div>
+      <a class="lesson" href="k5-u4-t1.html" data-id="k5-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>설명하는 글의 구조를 알고 요약해요 — 십장생</b><small>열거 · 요약 · 구조 (교과서 190~197쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u4-t2.html" data-id="k5-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>설명하는 글을 읽고 요약해요 — 자연재해, 알고 대처해요</b><small>자연재해 · 대처 · 요약 (교과서 198~205쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>의논하며 토의해요</h2></div>
+      <a class="lesson" href="k5-u5-t1.html" data-id="k5-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>다양한 관점의 글을 읽어요 — 세계 문화 행사</b><small>관점 · 존중 · 비판 (교과서 226~233쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u5-t2.html" data-id="k5-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>협력하며 토의해요</b><small>토의 · 협력 · 근거 (교과서 234~245쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>작품을 즐겨요</h2></div>
+      <a class="lesson" href="k5-u6-t1.html" data-id="k5-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>비유적 표현을 알고 시를 낭송해요 — 딱지</b><small>비유 · 직유 · 은유 (교과서 262~271쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k5-u6-t2.html" data-id="k5-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>인상적인 부분을 중심으로 감상해요 — 난 지금 열두 살</b><small>인상적 · 감상 · 까닭 (교과서 272~283쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k5-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+    <div id="sem52" style="display:none;">
+    <div class="booktabs">
+      <button id="book52ga-tab" onclick="showBook52('ga')"><b>📙 국어 5-2 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book52na-tab" onclick="showBook52('na')"><b>📗 국어 5-2 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book52ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>작품을 감상하며 의견을 나눠요</h2></div>
+      <a class="lesson" href="k52-u1-t1.html" data-id="k52-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>작품을 감상하고 의견을 나눠요 — 뻥튀기 먹는 법</b><small>감상 · 의견 · 시 (교과서 34~55쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u1-t2.html" data-id="k52-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>이야기의 인상적인 부분에 대한 의견을 나눠요 — 유관순</b><small>독서 감상문 · 인상적인 부분 (교과서 56~87쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>올바른 문장으로 글을 써요</h2></div>
+      <a class="lesson" href="k52-u2-t1.html" data-id="k52-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>올바른 문장을 구성해 글을 써요 — 문장의 호응</b><small>매체 · 특성 · 전자우편 (교과서 90~105쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u2-t2.html" data-id="k52-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>매체를 고려해 글을 써요</b><small>매체 선택 · 예의 · 표현 (교과서 106~119쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>표준어와 방언을 알아봐요</h2></div>
+      <a class="lesson" href="k52-u3-t1.html" data-id="k52-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>표준어와 방언을 알아요</b><small>표준어 · 방언 · 상황 (교과서 122~137쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u3-t2.html" data-id="k52-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>방언의 가치를 알고 작품 속 방언을 읽어요 — 제주도 여행을 다녀와서</b><small>비슷한 말 · 반대말 · 뜻 (교과서 138~160쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book52na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>판단하며 이용해요</h2></div>
+      <a class="lesson" href="k52-u4-t1.html" data-id="k52-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>매체 자료의 신뢰성을 판단해요</b><small>토의 · 조정 · 근거 (교과서 182~199쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u4-t2.html" data-id="k52-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>토의로 문제를 해결해요</b><small>의견 모으기 · 실천 (교과서 200~207쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>의견을 조정해요</h2></div>
+      <a class="lesson" href="k52-u5-t1.html" data-id="k52-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>의견을 조정하는 방법을 알아요</b><small>지식 · 경험 · 추론 (교과서 210~229쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u5-t2.html" data-id="k52-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>의견을 조정하며 토의해요</b><small>함축 · 추론 · 뜻 (교과서 230~251쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>추론하며 읽어요</h2></div>
+      <a class="lesson" href="k52-u6-t1.html" data-id="k52-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>지식이나 경험을 활용해 추론하며 읽어요</b><small>극본 · 해설 · 대사 · 지문 (교과서 254~281쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k52-u6-t2.html" data-id="k52-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>함축된 표현의 뜻을 추론하며 작품을 읽어요</b><small>연극 · 배역 · 공연 (교과서 282~301쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k52-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+  </div>
+  <div id="grade6" style="display:none;">
+    <div class="semtabs">
+      <button id="tab61" onclick="showSem(6,1)"><b>6학년 1학기</b><small>가 · 나</small></button>
+      <button id="tab62" onclick="showSem(6,2)"><b>6학년 2학기</b><small>가 · 나</small></button>
+    </div>
+    <div id="sem61" style="display:none;">
+    <div class="booktabs">
+      <button id="book61ga-tab" onclick="showBook6('ga')"><b>📙 국어 6-1 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book61na-tab" onclick="showBook6('na')"><b>📗 국어 6-1 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book61ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>자신의 삶과 관련지어 읽어요</h2></div>
+      <a class="lesson" href="k6-u1-t1.html" data-id="k6-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>인물이 추구하는 가치를 파악해요 — 의병장 윤희순</b><small>전기문 · 가치 · 인물 (교과서 38~55쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u1-t2.html" data-id="k6-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>가치를 자신과 관련지어 독서 감상문을 써요</b><small>독서 감상문 · 관련짓기 (교과서 56~87쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>바르게 고쳐 써요</h2></div>
+      <a class="lesson" href="k6-u2-t1.html" data-id="k6-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>글을 바르게 고쳐 쓰는 방법을 알아요 — 의자병을 극복하자</b><small>고쳐쓰기 · 교정 · 띄어쓰기 (교과서 89~99쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u2-t2.html" data-id="k6-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>올바른 문장으로 쓰고 함께 나눠요</b><small>주어 · 서술어 · 공유 (교과서 100~119쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>절차를 지키며 토론해요</h2></div>
+      <a class="lesson" href="k6-u3-t1.html" data-id="k6-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>토론의 절차를 알고 토론해요 — 마을 뒷산 터널 공사</b><small>토론 · 주장 · 근거 (교과서 122~135쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u3-t2.html" data-id="k6-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>타당한 근거로 문제를 정해 토론해요</b><small>타당한 근거 · 자료 · 설득 (교과서 136~155쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book61na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>상황에 맞게 표현해요</h2></div>
+      <a class="lesson" href="k6-u4-t1.html" data-id="k6-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>관용 표현을 이해하고 대화해요</b><small>관용어 · 속담 · 상황 (교과서 188~205쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u4-t2.html" data-id="k6-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>관용 표현을 활용해 견학 기록문을 써요</b><small>견학 기록문 · 짜임 (교과서 206~223쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>자신의 글쓰기 과정을 살펴봐요</h2></div>
+      <a class="lesson" href="k6-u5-t1.html" data-id="k6-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>적절한 근거를 들고 인용의 출처를 밝혀요</b><small>근거 · 인용 · 출처 (교과서 228~245쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u5-t2.html" data-id="k6-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>글쓰기 과정을 점검하며 주장하는 글을 써요</b><small>계획 · 조직 · 점검 (교과서 246~265쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>비판적으로 읽어요</h2></div>
+      <a class="lesson" href="k6-u6-t1.html" data-id="k6-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>글을 비판적으로 읽어요 — 스마트폰을 과다하게 쓰지 말자</b><small>비판적 · 타당성 · 출처 (교과서 270~283쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k6-u6-t2.html" data-id="k6-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>뉴스와 광고를 비판적으로 읽어요</b><small>광고 · 과장 · 판단 (교과서 284~299쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k6-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+    <div id="sem62" style="display:none;">
+    <div class="booktabs">
+      <button id="book62ga-tab" onclick="showBook62('ga')"><b>📙 국어 6-2 가</b><small>1 · 2 · 3단원</small></button>
+      <button id="book62na-tab" onclick="showBook62('na')"><b>📗 국어 6-2 나</b><small>4 · 5 · 6단원</small></button>
+    </div>
+    <div id="book62ga" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u1">
+      <div class="unit"><span class="n">1</span><h2>깊이 있게 감상해요</h2></div>
+      <a class="lesson" href="k62-u1-t1.html" data-id="k62-u1-t1">
+        <span class="order">1</span>
+        <span class="info"><b>이야기를 읽고 인물을 이해해요 — 원숭이 꽃신</b><small>인물 · 이야기 구조 · 주제 (교과서 40~63쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u1-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u1-t2.html" data-id="k62-u1-t2">
+        <span class="order">2</span>
+        <span class="info"><b>인물의 삶을 내 삶과 관련지어요 — 필립 이야기</b><small>가치 · 관련짓기 · 감상 (교과서 64~89쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u1-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u2">
+      <div class="unit"><span class="n">2</span><h2>매체를 고려하여 면담해요</h2></div>
+      <a class="lesson" href="k62-u2-t1.html" data-id="k62-u2-t1">
+        <span class="order">1</span>
+        <span class="info"><b>면담 방법과 매체를 알아요</b><small>면담 · 대면 · 비대면 (교과서 92~105쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u2-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u2-t2.html" data-id="k62-u2-t2">
+        <span class="order">2</span>
+        <span class="info"><b>면담하고 내용을 정리해요</b><small>질문 · 정리 · 예의 (교과서 106~119쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u2-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u3">
+      <div class="unit"><span class="n">3</span><h2>보거나 듣고 판단해요</h2></div>
+      <a class="lesson" href="k62-u3-t1.html" data-id="k62-u3-t1">
+        <span class="order">1</span>
+        <span class="info"><b>주장과 근거를 파악해요</b><small>주장 · 이유 · 근거 (교과서 122~137쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u3-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u3-t2.html" data-id="k62-u3-t2">
+        <span class="order">2</span>
+        <span class="info"><b>타당한 근거로 주장하는 글을 써요</b><small>논설문 · 타당성 · 설득 (교과서 138~160쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u3-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    <div id="book62na" class="progpane" style="display:none;">
+    <div class="progress"><div class="bar"><i></i></div><span>0 / 1</span></div>
+    <section class="u4">
+      <div class="unit"><span class="n">4</span><h2>매체 이용 습관을 돌아봐요</h2></div>
+      <a class="lesson" href="k62-u4-t1.html" data-id="k62-u4-t1">
+        <span class="order">1</span>
+        <span class="info"><b>바람직한 매체 사용을 알아요</b><small>매체 · 예절 · 시간 (교과서 164~181쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u4-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u4-t2.html" data-id="k62-u4-t2">
+        <span class="order">2</span>
+        <span class="info"><b>매체 자료를 만들어 알려요</b><small>매체 자료 · 알림 · 표현 (교과서 174~181쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u4-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u5">
+      <div class="unit"><span class="n">5</span><h2>소중한 우리말</h2></div>
+      <a class="lesson" href="k62-u5-t1.html" data-id="k62-u5-t1">
+        <span class="order">1</span>
+        <span class="info"><b>표준어와 방언을 알아요 — 시골말 캐기</b><small>표준어 · 방언 · 우리말 (교과서 200~213쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u5-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u5-t2.html" data-id="k62-u5-t2">
+        <span class="order">2</span>
+        <span class="info"><b>우리말을 바르게 써요</b><small>바른 말 · 우리말 사랑 (교과서 214~229쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u5-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    <section class="u6">
+      <div class="unit"><span class="n">6</span><h2>언어와 소통</h2></div>
+      <a class="lesson" href="k62-u6-t1.html" data-id="k62-u6-t1">
+        <span class="order">1</span>
+        <span class="info"><b>독자를 고려해 글 쓰는 방법을 알아요</b><small>독자 · 목적 · 고려 (교과서 232~247쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u6-t1.html">🃏 낱말 카드 8장</a></div>
+      <a class="lesson" href="k62-u6-t2.html" data-id="k62-u6-t2">
+        <span class="order">2</span>
+        <span class="info"><b>독자를 고려하며 글을 써요</b><small>독자 · 표현 · 고쳐쓰기 (교과서 248~261쪽)</small></span>
+        <button class="done" aria-label="완료 표시">✔</button><span class="go">›</span>
+      </a>
+      <div class="vrow"><a href="vocab-k62-u6-t2.html">🃏 낱말 카드 8장</a></div>
+    </section>
+    </div>
+    </div>
+  </div>
+
+  <div class="howto">
+    <h3>📝 이렇게 공부해요</h3>
+    <p>1. 수업 카드를 눌러 활동지를 열어요. 복습 → 도입 → 전개 → 정리 순서로 진행해요.</p>
+    <p>2. 활동지가 끝나면 🃏 낱말 카드로 오늘 배운 낱말을 다시 익혀요.</p>
+    <p>3. 다 끝낸 수업은 카드 오른쪽 ✔ 버튼을 눌러 완료 표시!</p>
+  </div>
+
+  <footer>채움언어학습연구소 · 느린학습자 1:1 국어 수업 활동지</footer>
+</div>
+
+<script>
+function showGrade(g){
+  [3,4,5,6].forEach(x=>{
+    document.getElementById('grade'+x).style.display = (x===g) ? '' : 'none';
+    document.getElementById('g'+x).classList.toggle('on', x===g);
+  });
+  try{ localStorage.setItem('kugo-grade', g); }catch(e){}
+}
+function showSem(g,n){
+  const s1 = document.getElementById('sem'+g+'1'), s2 = document.getElementById('sem'+g+'2');
+  if(!s1) return;
+  s1.style.display = n===1 ? '' : 'none';
+  s2.style.display = n===2 ? '' : 'none';
+  document.getElementById('tab'+g+'1').classList.toggle('on', n===1);
+  document.getElementById('tab'+g+'2').classList.toggle('on', n===2);
+  try{ localStorage.setItem('kugo-sem'+g, n); }catch(e){}
+}
+function showBook62(bk){
+  const ga = document.getElementById('book62ga'), na = document.getElementById('book62na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book62ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book62na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book62', bk); }catch(e){}
+}
+function showBook52(bk){
+  const ga = document.getElementById('book52ga'), na = document.getElementById('book52na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book52ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book52na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book52', bk); }catch(e){}
+}
+function showBook42(bk){
+  const ga = document.getElementById('book42ga'), na = document.getElementById('book42na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book42ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book42na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book42', bk); }catch(e){}
+}
+function showBook(bk){
+  const ga = document.getElementById('book41ga'), na = document.getElementById('book41na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book41ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book41na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book41', bk); }catch(e){}
+}
+function showBook5(bk){
+  const ga = document.getElementById('book51ga'), na = document.getElementById('book51na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book51ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book51na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book51', bk); }catch(e){}
+}
+function showBook31(bk){
+  const ga = document.getElementById('book31ga'), na = document.getElementById('book31na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book31ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book31na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book31', bk); }catch(e){}
+}
+function showBook3(bk){
+  const ga = document.getElementById('book32ga'), na = document.getElementById('book32na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book32ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book32na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book32', bk); }catch(e){}
+}
+function showBook6(bk){
+  const ga = document.getElementById('book61ga'), na = document.getElementById('book61na');
+  if(!ga) return;
+  ga.style.display = bk==='ga' ? '' : 'none';
+  na.style.display = bk==='na' ? '' : 'none';
+  document.getElementById('book61ga-tab').classList.toggle('on', bk==='ga');
+  document.getElementById('book61na-tab').classList.toggle('on', bk==='na');
+  try{ localStorage.setItem('kugo-book61', bk); }catch(e){}
+}
+let grade = 4;
+try{ grade = Number(localStorage.getItem('kugo-grade')) || 4; }catch(e){}
+[4].forEach(g=>{
+  let s = 1;
+  try{ s = Number(localStorage.getItem('kugo-sem'+g)) || 1; }catch(e){}
+  showSem(g, s);
+});
+let book41 = 'ga';
+try{ book41 = localStorage.getItem('kugo-book41') || 'ga'; }catch(e){}
+showBook(book41);
+let book42 = 'ga';
+try{ book42 = localStorage.getItem('kugo-book42') || 'ga'; }catch(e){}
+showBook42(book42);
+let book52 = 'ga';
+try{ book52 = localStorage.getItem('kugo-book52') || 'ga'; }catch(e){}
+showBook52(book52);
+let book62 = 'ga';
+try{ book62 = localStorage.getItem('kugo-book62') || 'ga'; }catch(e){}
+showBook62(book62);
+[3,5,6].forEach(g=>{ let s=1; try{ s=Number(localStorage.getItem('kugo-sem'+g))||1; }catch(e){} showSem(g, s); });
+let book31 = 'ga';
+try{ book31 = localStorage.getItem('kugo-book31') || 'ga'; }catch(e){}
+showBook31(book31);
+let book32 = 'ga';
+try{ book32 = localStorage.getItem('kugo-book32') || 'ga'; }catch(e){}
+showBook3(book32);
+let book51 = 'ga';
+try{ book51 = localStorage.getItem('kugo-book51') || 'ga'; }catch(e){}
+showBook5(book51);
+let book61 = 'ga';
+try{ book61 = localStorage.getItem('kugo-book61') || 'ga'; }catch(e){}
+showBook6(book61);
+showGrade(grade);
+
+/* 완료 체크 */
+const KEY = 'kugo-done';
+let done = {};
+try{ done = JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ done = {}; }
+function refresh(){
+  document.querySelectorAll('.progpane').forEach(sem=>{
+    const ls = sem.querySelectorAll('.lesson');
+    if(!ls.length) return;
+    let c = 0;
+    ls.forEach(l=>{
+      const on = !!done[l.dataset.id];
+      l.querySelector('.done').classList.toggle('on', on);
+      if(on) c++;
+    });
+    const bar = sem.querySelector('.progress .bar i'), txt = sem.querySelector('.progress span');
+    if(bar) bar.style.width = Math.round(c/ls.length*100)+'%';
+    if(txt) txt.textContent = c+' / '+ls.length;
+  });
+}
+document.querySelectorAll('.lesson').forEach(l=>{
+  const btn = l.querySelector('.done');
+  if(!btn) return;
+  btn.addEventListener('click', e=>{
+    e.preventDefault(); e.stopPropagation();
+    done[l.dataset.id] = !done[l.dataset.id];
+    try{ localStorage.setItem(KEY, JSON.stringify(done)); }catch(e){}
+    refresh();
+  });
+});
+refresh();
+</script>
+</body>
+</html>
