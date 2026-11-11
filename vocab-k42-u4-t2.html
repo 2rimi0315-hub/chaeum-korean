@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 저작권</title>
+<title>&lt;em&gt;솔직히 말해&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 4단원 글을 읽고 내용을 간추려요 · 어휘 카드 8장</p>
-    <h1><em>저작권</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 4단원 책 속의 길을 따라 · 네 생각을 솔직히 말해 · 어휘 카드 8장</p>
+    <h1><em>솔직히 말해</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "©️", "w": "저작권", "m": "창작물을 만든 사람의 권리", "x": "저작권을 지켜요."},
-  {"e": "🎨", "w": "창작물", "m": "새로 만든 작품", "x": "소중한 창작물이에요."},
-  {"e": "🧑‍🎨", "w": "창작자", "m": "작품을 만든 사람", "x": "창작자를 존중해요."},
-  {"e": "✅", "w": "허락", "m": "해도 좋다고 함", "x": "허락을 받고 써요."},
-  {"e": "🛡️", "w": "보호", "m": "지켜 줌", "x": "권리를 보호해요."},
-  {"e": "⚖️", "w": "권리", "m": "마땅히 누리는 힘", "x": "창작자의 권리예요."},
-  {"e": "✂️", "w": "간추리기", "m": "중요한 내용만 정리", "x": "글을 간추려요."},
-  {"e": "😊", "w": "정직", "m": "바르고 곧음", "x": "정직한 사회를 만들어요."}
+  {"e": "🗨️", "w": "솔직하다", "m": "거짓이나 꾸밈이 없이 바르다", "x": "솔직하게 말해요."},
+  {"e": "🔦", "w": "추궁", "m": "잘못을 엄하게 따져서 밝힘", "x": "추궁에 아무 말도 못 했어요."},
+  {"e": "👂", "w": "경청하다", "m": "귀를 기울여 듣다", "x": "친구의 말을 경청해요."},
+  {"e": "💪", "w": "기세등등하다", "m": "기세가 매우 높고 힘차다", "x": "기세등등하게 외쳤어요."},
+  {"e": "📐", "w": "교정하다", "m": "가르쳐서 바르게 하다", "x": "자세를 교정했어요."},
+  {"e": "🤝", "w": "양보하다", "m": "자리나 물건을 남에게 내주다", "x": "자리를 양보했어요."},
+  {"e": "😰", "w": "우물쭈물", "m": "말이나 행동을 망설이는 모양", "x": "우물쭈물 대답했어요."},
+  {"e": "🎭", "w": "역할놀이", "m": "인물을 맡아 연기하는 놀이", "x": "역할놀이를 했어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

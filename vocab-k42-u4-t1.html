@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 읽기 방법</title>
+<title>&lt;em&gt;기뻐의 비밀&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 4단원 글을 읽고 내용을 간추려요 · 어휘 카드 8장</p>
-    <h1><em>읽기 방법</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 4단원 책 속의 길을 따라 · 기뻐의 비밀 · 어휘 카드 8장</p>
+    <h1><em>기뻐의 비밀</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🔮", "w": "예측", "m": "미리 짐작함", "x": "제목으로 내용을 예측해요."},
-  {"e": "🔍", "w": "점검", "m": "살펴 확인함", "x": "읽으며 점검해요."},
-  {"e": "🗂️", "w": "정리", "m": "가지런히 간추림", "x": "중요한 내용을 정리해요."},
-  {"e": "📄", "w": "내용", "m": "글에 담긴 것", "x": "내용을 파악해요."},
-  {"e": "🏷️", "w": "제목", "m": "글의 이름", "x": "제목을 살펴요."},
-  {"e": "💭", "w": "짐작", "m": "어림잡아 생각함", "x": "내용을 짐작해요."},
-  {"e": "🧭", "w": "방법", "m": "일을 해 나가는 길", "x": "읽기 방법을 익혀요."},
-  {"e": "💡", "w": "이해", "m": "뜻을 알아들음", "x": "글을 이해해요."}
+  {"e": "😊", "w": "기쁘다", "m": "마음이 즐겁고 흐뭇하다", "x": "상을 받아서 기뻤어요."},
+  {"e": "😏", "w": "뻐기다", "m": "얄밉게 뽐내다", "x": "너무 뻐기면 친구가 싫어해요."},
+  {"e": "↔️", "w": "늘이다", "m": "본디보다 더 길게 하다", "x": "고무줄을 늘였어요."},
+  {"e": "➕", "w": "늘리다", "m": "수나 양을 많게 하다", "x": "책을 더 늘렸어요."},
+  {"e": "🪢", "w": "고무줄", "m": "잘 늘어나는 고무 끈", "x": "고무줄놀이를 해요."},
+  {"e": "🔗", "w": "빗대다", "m": "다른 것에 견주어 나타내다", "x": "마음을 고무줄에 빗대었어요."},
+  {"e": "💧", "w": "찔끔", "m": "눈물이 조금 나오는 모양", "x": "눈물이 찔끔 났어요."},
+  {"e": "🚪", "w": "대문책", "m": "대문처럼 열고 닫는 책", "x": "대문책을 만들었어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
