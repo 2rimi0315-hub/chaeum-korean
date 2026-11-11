@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 올바른 우리말</title>
+<title>&lt;em&gt;문자&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 2단원 우리말을 바르게 사용해요 · 어휘 카드 8장</p>
-    <h1><em>우리말</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 2단원 우리말 우리글 · 문자가 필요한 까닭 · 어휘 카드 8장</p>
+    <h1><em>문자</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🇰🇷", "w": "우리말", "m": "우리나라의 말", "x": "우리말을 바르게 써요."},
-  {"e": "🌐", "w": "외국어", "m": "다른 나라의 말", "x": "지나친 외국어를 줄여요."},
-  {"e": "✂️", "w": "줄임말", "m": "줄여서 쓴 말", "x": "줄임말을 풀어 써요."},
-  {"e": "🆕", "w": "신조어", "m": "새로 만든 말", "x": "신조어는 뜻이 어려워요."},
-  {"e": "🚫", "w": "비속어", "m": "거칠고 낮은 말", "x": "비속어를 쓰지 않아요."},
-  {"e": "✅", "w": "바르다", "m": "옳고 곧다", "x": "바른 말을 써요."},
-  {"e": "💡", "w": "뜻", "m": "말이 나타내는 내용", "x": "뜻이 잘 통해요."},
-  {"e": "🗣️", "w": "소통", "m": "서로 뜻이 통함", "x": "바른 말로 소통해요."}
+  {"e": "🔤", "w": "문자", "m": "말을 적는 약속된 기호, 글자", "x": "한글은 우리나라의 문자예요."},
+  {"e": "🪨", "w": "암각화", "m": "바위나 동굴 벽에 새기거나 그린 그림", "x": "반구대 암각화에는 고래가 있어요."},
+  {"e": "📝", "w": "기록하다", "m": "나중에 알 수 있게 적다", "x": "일기에 하루를 기록해요."},
+  {"e": "📮", "w": "전달하다", "m": "말이나 물건을 다른 사람에게 전하다", "x": "친구에게 소식을 전달했어요."},
+  {"e": "🖨️", "w": "인쇄", "m": "글이나 그림을 종이에 찍어 냄", "x": "책을 인쇄했어요."},
+  {"e": "🪢", "w": "매듭", "m": "끈을 묶어 맨 자리", "x": "줄에 매듭을 지었어요."},
+  {"e": "📒", "w": "알림장", "m": "알릴 내용을 적는 공책", "x": "알림장에 준비물을 적어요."},
+  {"e": "🏛️", "w": "과거", "m": "지나간 때", "x": "과거의 기록을 읽어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 보고하는 글</title>
+<title>&lt;em&gt;한글의 특성&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 2단원 우리말을 바르게 사용해요 · 어휘 카드 8장</p>
-    <h1><em>보고</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 2단원 우리말 우리글 · 한글이 과학적인 문자인 까닭 · 어휘 카드 8장</p>
+    <h1><em>한글의 특성</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📊", "w": "보고", "m": "알려서 전함", "x": "보고하는 글을 써요."},
-  {"e": "🔍", "w": "조사", "m": "자세히 살펴 알아봄", "x": "우리말을 조사했어요."},
-  {"e": "📈", "w": "결과", "m": "조사로 알게 된 것", "x": "조사 결과를 정리해요."},
-  {"e": "📝", "w": "설문", "m": "물어서 답을 얻음", "x": "설문으로 조사했어요."},
-  {"e": "🗂️", "w": "자료", "m": "뒷받침이 되는 정보", "x": "자료를 모았어요."},
-  {"e": "🎯", "w": "주제", "m": "조사할 중심 문제", "x": "조사 주제를 정해요."},
-  {"e": "📋", "w": "정리", "m": "가지런히 간추림", "x": "내용을 정리했어요."},
-  {"e": "💗", "w": "느낀 점", "m": "조사하며 든 생각", "x": "느낀 점을 썼어요."}
+  {"e": "📜", "w": "훈민정음", "m": "백성을 가르치는 바른 소리, 한글의 처음 이름", "x": "세종 대왕이 훈민정음을 만들었어요."},
+  {"e": "👑", "w": "백성", "m": "나라의 일반 국민을 옛날에 이르던 말", "x": "세종 대왕은 백성을 아꼈어요."},
+  {"e": "✂️", "w": "본뜨다", "m": "이미 있는 것을 그대로 따라 만들다", "x": "입 모양을 본떠 만들었어요."},
+  {"e": "↔️", "w": "확장하다", "m": "범위를 넓히다", "x": "공원을 확장했어요."},
+  {"e": "🔁", "w": "규칙적", "m": "일정한 규칙을 따르는", "x": "규칙적으로 운동해요."},
+  {"e": "🔬", "w": "과학적", "m": "이치에 맞고 체계적인", "x": "한글은 과학적인 문자예요."},
+  {"e": "🗣️", "w": "발음 기관", "m": "말소리를 내는 데 쓰는 몸의 부분", "x": "혀와 입술은 발음 기관이에요."},
+  {"e": "🈶", "w": "한자", "m": "중국에서 만든 뜻글자", "x": "옛날에는 한자를 빌려 썼어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
