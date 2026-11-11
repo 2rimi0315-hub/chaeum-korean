@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 이어질 이야기 상상</title>
+<title>&lt;em&gt;방 씨 규수&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 6단원 원인과 결과를 생각하며 읽어요 · 어휘 카드 8장</p>
-    <h1><em>상상</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 6단원 상상의 날개 · 방 씨 규수의 이야기 · 어휘 카드 8장</p>
+    <h1><em>방 씨 규수</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💭", "w": "상상", "m": "머릿속에 그려 봄", "x": "뒷이야기를 상상해요."},
-  {"e": "🎭", "w": "성격", "m": "인물의 됨됨이", "x": "인물의 성격을 생각해요."},
-  {"e": "🌊", "w": "흐름", "m": "이어지는 차례", "x": "흐름에 맞게 상상해요."},
-  {"e": "🍃", "w": "자연스럽다", "m": "어색하지 않다", "x": "자연스럽게 이어져요."},
-  {"e": "📜", "w": "뒷이야기", "m": "이어질 이야기", "x": "뒷이야기를 지었어요."},
-  {"e": "👤", "w": "인물", "m": "이야기 속 사람", "x": "인물이 되어 봐요."},
-  {"e": "🔗", "w": "이어지다", "m": "끊이지 않고 연결됨", "x": "사건이 이어져요."},
-  {"e": "✨", "w": "창작", "m": "새로 지어냄", "x": "이야기를 창작해요."}
+  {"e": "👧", "w": "규수", "m": "혼인하지 않은 남의 집 딸을 정중하게 이르는 말", "x": "방 씨 규수는 지혜로웠어요."},
+  {"e": "🏹", "w": "화살", "m": "활에 걸어 쏘는 가늘고 긴 막대", "x": "화살이 다 떨어졌어요."},
+  {"e": "🎋", "w": "대나무", "m": "마디가 있고 속이 빈 곧은 나무", "x": "대나무를 한 아름 안았어요."},
+  {"e": "🏠", "w": "대청마루", "m": "한옥에서 방 사이의 넓은 마루", "x": "대청마루에 앉았어요."},
+  {"e": "🧠", "w": "지혜롭다", "m": "사리를 밝게 알고 잘 처리하다", "x": "지혜롭게 문제를 풀었어요."},
+  {"e": "😌", "w": "침착하다", "m": "들뜨지 않고 차분하다", "x": "침착하게 행동해요."},
+  {"e": "🚨", "w": "위기", "m": "위험한 고비", "x": "위기를 잘 넘겼어요."},
+  {"e": "🫂", "w": "한 아름", "m": "두 팔을 벌려 껴안은 만큼", "x": "꽃을 한 아름 안았어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

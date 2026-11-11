@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 비유적 표현을 알고 시를 낭송해요 (국어 5-1)</title>
+<title>활동지 — 원인과 결과를 생각하며 듣기 (국어 4-2)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -22,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -29,178 +30,333 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
-  .refbox{background:#FBF3DC; border:2px solid #E8C56A; border-radius:14px; padding:16px 18px; margin:8px 0 14px; font-size:15px; line-height:1.7;}
-  .refbox b{color:var(--tangerine-dark);}
-  .bigex{border:2px dashed var(--purple); background:var(--purple-bg); border-radius:14px; padding:16px; text-align:center; margin:10px 0;}
-  .bigex .line{font-size:19px; font-weight:800; color:var(--purple-dark); line-height:1.9;}
-  .bigex .tag{font-size:13px; color:#6B6858; font-weight:700; margin-top:6px;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:150px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
-    .checkbtn, #result{display:none !important;}
+    .marktools, .checkbtn, #result{display:none !important;}
     section{break-inside:avoid; margin-top:24px;}
     .box{border-width:1.5px;}
     .writeline{border-bottom:1.5px dashed #999;}
   }
-  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
-  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
-  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
-  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
-  .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
-  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
-  .passage{font-size:17px; line-height:2.1;}
-  .passage p{margin-bottom:14px;}
-  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
-  .passage .w.unknown{background:#F4C0D1;}
-  .passage .w.important{background:#FAE28A;}
-  .passage .w.env{background:#BFE3F7;}
-  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
-  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header class="top">
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 6단원 원인과 결과를 생각하며 읽어요</p>
-    <h1><em>원인</em>과 <em>결과</em>를 생각하며 읽어요</h1>
+    <p class="eyebrow">국어 4-2 · 6단원 상상의 날개</p>
+    <h1><em>원인과 결과</em>를 생각하며 들어요</h1>
     <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
   </header>
-  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
-    <div class="box"><div class="say">🔔 6단원에서는 <b>원인과 결과</b>를 생각하며 이야기를 읽어요. 오늘은 원인과 결과를 찾아봐요!</div>
-      <div class="rv"><p class="q">5단원 복습! 마음을 적어 보내는 글을?</p><div class="rvgroup" data-ranswer="편지"><button data-v="편지">편지</button><button data-v="원인"></button></div></div>
-      <div class="rv"><p class="q">어떤 일이 일어나게 된 까닭을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div></div>
-  </section>
-  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
-    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>"비가 와서 소풍이 미뤄졌다" — 무엇이 원인이고 결과일까요?</small></p><div class="cowrap"><img src="comics/k42-u6-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u6-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
-      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">6. 원인과 결과를 생각하며 읽어요</small>원인과 결과를 생각하며 읽기</span></label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>이야기에서 원인과 결과를 찾으면 어떤 점이 좋을까요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="이야기의 ..... 을(를) 잘 이해할 수 있어요."></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>"넘어져서 무릎을 다쳤다"에서 결과는 무엇인가요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="무릎을 ....."></textarea></div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);"><b>원인</b>은 일이 일어난 <b>까닭</b>, <b>결과</b>는 그로 인해 <b>벌어진 일</b>이에요. 이야기를 원인과 결과로 이으면 흐름이 잘 보여요.</p></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>원인과 결과를 알아봐요</h2></div>
-    <div class="box"><div class="say">📚 원인과 결과를 알아봐요. 소리 내어 읽어요.</div>
-      <div class="structbox s1"><h3>① 원인</h3><div class="body">일이 <b>일어나게 된 까닭</b>이에요.<br>예) 비가 많이 왔다.</div></div>
-      <div class="structbox s2"><h3>② 결과</h3><div class="body">원인 때문에 <b>벌어진 일</b>이에요.<br>예) → 그래서 소풍이 미뤄졌다.</div></div>
-      <div class="structbox s3"><h3>③ 이어 주는 말</h3><div class="body"><b>'그래서, 때문에, ~해서'</b> 같은 말로 원인과 결과를 이어요.</div></div>
-      <div class="say" style="background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>원인</b> 일이 일어난 까닭 · <b>결과</b> 그로 인해 생긴 일 · <b>흐름</b> 이어지는 차례 · <b>까닭</b> 이유</div>
-      <div class="say" style="background:#FBF3DC; border:1.5px solid #E8C56A;">📖 교과서 4-2 나 「방 씨 규수의 이야기」(263쪽)를 읽고, 원인과 결과를 찾아보면 더 좋아요!</div></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이 글은 <b>교과서 4-2 나 6단원</b>의 "밤이면 푸르게 빛나는 바다" 사건처럼 원인과 결과를 살피는 글이에요.</p></div>
-      <div class="say">👀 <b>원인은 하늘색</b>, <b>결과는 노랑</b>, 모르는 낱말은 분홍으로 표시해요.</div>
-      <div class="marktools"><button id="btn-env" onclick="setMode('env')">🩵 원인</button><button id="btn-important" onclick="setMode('important')">💛 결과</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
-      <p class="ptitle"><small>설명하는 글</small>밤바다는 왜 푸르게 빛날까 (간추린 글)<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 4-2 나 · 6단원 내용과 이어지는 글</span></p>
-      <div class="passage" id="passage">
-<p>어느 바닷가에서는 밤이 되면 파도가 푸른 형광색으로 반짝입니다. 왜 이런 일이 일어날까요?</p>
-<p>바닷물 속에는 아주 작은 플랑크톤이 살고 있습니다. 이 플랑크톤은 파도에 부딪혀 몸이 흔들리면 스스로 빛을 냅니다. 이것이 바로 원인입니다.</p>
-<p>그래서 플랑크톤이 많이 모인 밤바다는 파도가 칠 때마다 푸른빛으로 반짝이게 됩니다. 이것이 결과입니다.</p>
-<p>이처럼 어떤 일이 일어난 까닭이 원인이고, 그 때문에 벌어진 일이 결과입니다. "왜냐하면"과 "그래서"로 이어 말할 수 있습니다.</p>
-      </div>
-      <div class="legendline"><span><i style="background:#BFE3F7"></i>원인</span><span><i style="background:#FAE28A"></i>결과</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>형광색</b> 스스로 빛나는 듯한 색 · <b>플랑크톤</b> 물에 떠다니는 아주 작은 생물 · <b>원인</b> 일이 일어난 까닭 · <b>결과</b> 그 때문에 벌어진 일</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>원인과 결과를 이어요</h2></div>
-    <div class="box"><div class="say">📝 아래 원인에 알맞은 결과를 이어 써 봐요.</div>
-      <table><thead><tr><th style="width:200px;">원인</th><th>결과(써 보기)</th></tr></thead><tbody>
-        <tr><td class="word">늦잠을 잤다.</td><td><input type="text" placeholder="그래서 ....."></td></tr>
-        <tr><td class="word">물을 안 주었다.</td><td><input type="text" placeholder="그래서 꽃이 ....."></td></tr>
-        <tr><td class="word">열심히 연습했다.</td><td><input type="text" placeholder="그래서 ....."></td></tr></tbody></table>
-      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>원인과 결과를 넣어 한 문장을 만들어 보세요.</p></div>
-      <textarea class="writeline" rows="2" placeholder="예) ..... 해서(원인) ..... 되었다(결과)."></textarea></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">교과서</span><h2>원인과 결과를 확인해요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 <b>교과서 4-2 나 6단원</b>에서 원인과 결과를 생각하며 듣고 봤어요. 밤이면 바다가 푸른 형광색으로 변하는 까닭도 원인과 결과로 설명할 수 있어요.</p></div>
-      <div class="rv"><p class="q">① 어떤 일이 일어난 까닭을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
-      <div class="rv"><p class="q">② 원인 때문에 벌어진 일을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="결과"><button data-v="결과">결과</button><button data-v="원인">원인</button></div></div>
-      <div class="rv"><p class="q">③ "비가 와서(원인) 땅이 젖었다"에서 결과는?</p><div class="rvgroup" data-ranswer="땅이 젖었다"><button data-v="땅이 젖었다">땅이 젖었다</button><button data-v="비가 왔다">비가 왔다</button></div></div>
-      <div class="rv"><p class="q">④ 원인과 결과를 이어 주는 말은?</p><div class="rvgroup" data-ranswer="그래서·왜냐하면"><button data-v="그래서·왜냐하면">그래서·왜냐하면</button><button data-v="그리고·또">그리고·또</button></div></div>
-    </div></section>
-  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>원인과 결과를 구분해요</h2></div>
-    <div class="box"><div class="say">🔎 밑줄 친 부분이 원인이면 '원인', 결과이면 '결과'를 골라 누르세요.</div>
-      <div class="rv"><p class="q">① <u>비가 와서</u> 우산을 썼다.</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
-      <div class="rv"><p class="q">② 배가 고파서 <u>밥을 먹었다.</u></p><div class="rvgroup" data-ranswer="결과"><button data-v="결과">결과</button><button data-v="원인">원인</button></div></div>
-      <div class="rv"><p class="q">③ <u>불을 껐더니</u> 방이 어두워졌다.</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
-      <div class="rv"><p class="q">④ 넘어져서 <u>무릎을 다쳤다.</u></p><div class="rvgroup" data-ranswer="결과"><button data-v="결과">결과</button><button data-v="원인">원인</button></div></div></div>
-  </section>
-  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
     <div class="box">
-      <div class="selfcheck"><p>💪 원인과 결과를 구분할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 원인과 결과를 이어 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
-    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">어떤 일이 일어나게 된 까닭을 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸"> (이)라고 한다.</p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 원인</p></div>
-    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. '비가 와서 길이 젖었다'에서 결과를 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="2"><button>① 비가 왔다</button><button>② 길이 젖었다</button><button>③ 우산을 샀다</button><button>④ 해가 떴다</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">원인은 일이 일어난 <b>까닭</b>, 결과는 그로 인해 <b>벌어진 일</b>이에요. 이야기를 원인과 결과로 이으면 흐름을 잘 이해할 수 있어요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 원인은 일이 일어난 까닭이다.</button><button>② 결과는 벌어진 일이다.</button><button>③ 원인과 결과는 관계가 없다.</button><button>④ 흐름을 이해하는 데 도움이 된다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">오늘 있었던 일을 원인과 결과로 한 문장 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) ..... 해서 ..... 되었다."></textarea></div>
-      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
-    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">이야기책 한 편을 읽고, 원인과 결과를 한 가지 찾아 써 오세요.</p><textarea class="writeline" rows="2" placeholder="원인: ..... / 결과: ....."></textarea></div>
+      <div class="say">🔔 6단원에서는 원인과 결과를 생각하며 듣고, 이어질 이야기를 상상해 써요! 4학년 1학기 6단원에서 배운 '원인과 결과'를 떠올려 보세요.</div>
+      <div class="rv"><p class="q">어떤 일이 일어나게 된 까닭을 무엇이라고 할까요?</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
+      <div class="rv"><p class="q">원인 때문에 생긴 일을 무엇이라고 할까요?</p><div class="rvgroup" data-ranswer="결과"><button data-v="결과">결과</button><button data-v="원인">원인</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k42-u6-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u6-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>단원 이름을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">6. 상상의 날개</small>1) 원인과 결과를 생각하며 영상 보기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>수영이는 "관광객이 많아서 바다가 빛난대."라고 잘못 전했어요. 무엇이 잘못되었을까요? <small>(교과서 254쪽 만화)</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="수영이는 ..... 을/를 원인이라고 잘못 말했어요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">원인과 결과를 생각하며 들으면 내용을 정확하게 이해하고 전할 수 있어요. 앞에 있었던 일(원인)을 보면 뒤에 일어날 일(결과)도 예상할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>원인과 결과를 찾으며 읽어요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 먼저 <b>교과서 254~259쪽</b>을 펴서 만화를 읽고, 선생님과 함께 영상 「소연이네 반에서 일어난 일」을 봐요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 수영이가 본 영상 내용을 간추린 글이에요. <b>원인은 파랑</b>, <b>결과는 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 원인</button>
+        <button id="btn-important" onclick="setMode('important')">💛 결과</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>내용 간추리기</small>밤이면 푸르게 빛나는 바다<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 쓴 글 · 교과서 254~255쪽 만화 내용과 관련</span></p>
+      <div class="passage" id="passage">
+        <p>어떤 바닷가는 밤이 되면 물결이 푸른 형광색으로 반짝여요.</p>
+        <p>그 까닭은 바닷속에 자극을 받으면 스스로 빛을 내는 아주 작은 생물이 살고 있기 때문이에요.</p>
+        <p>파도가 치거나 사람이 물을 휘저으면 이 생물들이 자극을 받아 빛을 내요.</p>
+        <p>그래서 밤바다가 푸르게 빛나는 신기한 모습이 나타나요.</p>
+        <p>이 모습을 보려고 찾아오는 관광객이 점점 많아지고 있어요.</p>
+        <p>관광객이 많아진 것은 바다가 빛나는 원인이 아니라, 바다가 빛나서 생긴 결과예요.</p>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>형광색</b> 빛을 받아 밝게 빛나는 색 · <b>자극</b> 몸이나 마음에 반응을 일으키는 작용 · <b>관광객</b> 구경하러 다니는 사람</div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>원인</span>
+        <span><i style="background:var(--mark-important)"></i>결과</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 잘 읽었나요? 알맞은 답을 골라 누르세요.</div>
+      <div class="rv"><p class="q">① 바다가 푸르게 빛나는 원인은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="빛을 내는 작은 생물이 자극을 받아서"><button data-v="빛을 내는 작은 생물이 자극을 받아서">빛을 내는 작은 생물이 자극을 받아서</button><button data-v="관광객이 많아서">관광객이 많아서</button></div></div>
+      <div class="rv"><p class="q">② 관광객이 많아진 것은 무엇일까요?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="바다가 빛나서 생긴 결과"><button data-v="바다가 빛나는 원인">바다가 빛나는 원인</button><button data-v="바다가 빛나서 생긴 결과">바다가 빛나서 생긴 결과</button></div></div>
+      <div class="rv"><p class="q">③ 영상에서 소연이네 반 친구들이 봄부터 옥상 텃밭에서 한 일은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="채소를 기르며 돌보았다"><button data-v="채소를 기르며 돌보았다">채소를 기르며 돌보았다</button><button data-v="공놀이를 했다">공놀이를 했다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>낱말의 뜻을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전을 찾아</b> 진짜 뜻을 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">원인</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">결과</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">예상하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">중심 사건</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>원인과 결과를 이어 주는 말! <small>알맞은 말로 두 문장을 이어 보세요.</small></p></div>
+      <div class="combine"><div class="chip"><small>이어 주는 말</small><b>비가 많이 왔다. (    ) 강물이 불었다.</b><input type="text" placeholder="그래서"></div><div class="chip"><small>이어 주는 말</small><b>배가 아팠다. (    ) 찬 것을 많이 먹었기 때문이다.</b><input type="text" placeholder="왜냐하면"></div><div class="chip"><small>이어 주는 말</small><b>늦잠을 잤다. (    ) 지각했다.</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>이어 주는 말</small><b>꽃이 시들었다. (    ) 물을 주지 않았기 때문이다.</b><input type="text" placeholder="쓰기"></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>중심 사건의 앞뒤를 예상해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>바다 이야기의 원인과 결과를 사슬로 정리해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 254쪽)</small></p></div>
+      <div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed">바닷속에 자극을 받으면 빛을 내는 생물이 산다.</div></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">2</span><textarea class="writeline" rows="1" placeholder="그래서 밤이면 바다가 ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">3</span><textarea class="writeline" rows="1" placeholder="그래서 이 모습을 보려는 ....."></textarea></div></div>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>중심 사건의 앞뒤로 어떤 일이 있었을지 예상해요. <small>"얼룩말이 사람들이 사는 주택가에 나타났다." (교과서 258쪽)</small></p></div>
+      <table><thead><tr><th style="width:180px;"></th><th>예상한 내용</th></tr></thead><tbody><tr><td class="word">이전에 있었던 일 (원인)</td><td><input type="text" placeholder="동물원 울타리가 ....."></td></tr><tr><td class="word">중심 사건</td><td style="background:#FBF3DC;">얼룩말이 사람들이 사는 주택가에 나타났다.</td></tr><tr><td class="word">뒤에 벌어진 일 (결과)</td><td><input type="text" placeholder="사람들이 깜짝 놀라 ....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>영상을 보고 내 예상과 비교해요. <small>(교과서 259쪽)</small></p></div>
+      <table><thead><tr><th style="width:110px;">구분</th><th>내용</th></tr></thead><tbody><tr><td class="word">같은 점</td><td><input type="text" placeholder=""></td></tr><tr><td class="word">다른 점</td><td><input type="text" placeholder=""></td></tr></tbody></table>
+      <div class="say" style="margin-top:16px;">🗣️ 사슬을 <b>보면서</b> 바다가 빛나는 까닭을 '그래서'를 넣어 설명해 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>원인과 결과를 구분해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 밑줄 친 부분은 원인일까요, 결과일까요?</div>
+      <div class="rv"><p class="q">① <u>날씨가 추운데 옷을 얇게 입고 놀아서</u> 감기에 걸렸다.</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
+      <div class="rv"><p class="q">② 감기에 걸려서 <u>병원에 갔다</u>.</p><div class="rvgroup" data-ranswer="결과"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
+      <div class="rv"><p class="q">③ <u>방울토마토가 사라져서</u> 친구들이 깜짝 놀랐다.</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과">결과</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 원인과 결과를 구분해 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 중심 사건의 앞뒤에 일어날 일을 예상할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 원인과 결과가 바르게 짝지어진 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="2"><button>① 원인: 넘어졌다 / 결과: 길이 미끄러웠다</button><button>② 원인: 물을 주지 않았다 / 결과: 화분이 시들었다</button><button>③ 원인: 지각했다 / 결과: 늦잠을 잤다</button><button>④ 원인: 상을 받았다 / 결과: 열심히 연습했다</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 원인과 결과를 생각하며 들으면 좋은 점으로 알맞은 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="mc" data-q="q2" data-answer="1"><button>① 내용을 정확하게 이해하고 전할 수 있다.</button><button>② 듣지 않아도 내용을 알 수 있다.</button><button>③ 이야기가 짧아진다.</button><button>④ 말을 빨리 할 수 있다.</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">오늘 나에게 일어난 일을 하나 골라 원인과 결과로 써 보세요.</p><textarea class="writeline" rows="1" placeholder="..... 해서 ..... 했다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">뉴스나 책에서 원인과 결과가 드러난 일을 하나 찾아 '그래서'를 넣어 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="..... 그래서 ....."></textarea>
+    </div>
   </section>
 </div>
 </body>
 <script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
-document.querySelectorAll('.mc').forEach(group=>{
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
       group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
@@ -208,6 +364,7 @@ document.querySelectorAll('.mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -217,19 +374,20 @@ function grade(){
     const btns = [...group.querySelectorAll('button')];
     btns.forEach(b=>b.classList.remove('correct','wrong'));
     if(!picked) return;
-    const val = String(btns.indexOf(picked)+1);
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
     if(val===ans){ picked.classList.add('correct'); ok++; }
     else{
       picked.classList.add('wrong');
-      const right = btns[Number(ans)-1];
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
       if(right) right.classList.add('correct');
     }
     picked.classList.remove('picked');
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -243,6 +401,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -251,33 +411,12 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });
-</script>
-<script>
-(function(){
-var mode=null;
-var passage=document.getElementById('passage');
-if(passage && !passage.dataset.ready){
-passage.dataset.ready=1;
-passage.querySelectorAll('p').forEach(function(p){
-  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
-});
-passage.addEventListener('click',function(e){
-  if(!e.target.classList.contains('w')||!mode)return;
-  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
-  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
-  e.target.classList.toggle(mode);
-});
-}
-window.setMode=function(m){
-  mode=(mode===m)?null:m;
-  ['unknown','important','env','erase'].forEach(function(x){
-    var b=document.getElementById('btn-'+x);
-    if(b)b.classList.toggle('active-'+x,mode===x);
-  });
-};
-})();
 </script>
 </html>

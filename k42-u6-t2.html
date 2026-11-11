@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<title>활동지 — 방 씨 규수의 이야기 (국어 4-2)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -11,7 +11,6 @@
     --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
     --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
     --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
-    --skyblue:#2E86C1;
     --line:#E3DDD0;
     --mark-unknown:#F4C0D1;
     --mark-env:#BFE3F7;
@@ -23,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -30,183 +30,336 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
-  .flowlist{margin-top:8px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
   .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
-  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
   .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
-  .flowrow .fixed b{color:var(--tangerine-dark);}
   .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
-    .checkbtn, #result{display:none !important;}
+    .marktools, .checkbtn, #result{display:none !important;}
     section{break-inside:avoid; margin-top:24px;}
     .box{border-width:1.5px;}
     .writeline{border-bottom:1.5px dashed #999;}
   }
-  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
-  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
-  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
-  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
-  .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
-  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
-  .passage{font-size:17px; line-height:2.1;}
-  .passage p{margin-bottom:14px;}
-  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
-  .passage .w.unknown{background:#F4C0D1;}
-  .passage .w.important{background:#FAE28A;}
-  .passage .w.env{background:#BFE3F7;}
-  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
-  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header class="top">
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 6단원 원인과 결과를 생각하며 읽어요</p>
-    <h1>이어질 <em>이야기</em>를 상상해요</h1>
+    <p class="eyebrow">국어 4-2 · 6단원 상상의 날개</p>
+    <h1>이야기를 듣고 <em>원인과 결과</em>로 정리해요</h1>
     <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
   </header>
-  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
-    <div class="box"><div class="say">🔔 지난 시간에는 <b>원인과 결과</b>를 배웠어요. 오늘은 이야기의 <b>뒷이야기</b>를 상상해 봐요!</div>
-      <div class="rv"><p class="q">일이 일어난 까닭을?</p><div class="rvgroup" data-ranswer="원인"><button data-v="원인">원인</button><button data-v="결과"></button></div></div>
-      <div class="rv"><p class="q">머릿속에 이야기를 그려 보는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="상상"><button data-v="상상">상상</button><button data-v="정리">정리</button></div></div></div>
-  </section>
-  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
-    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>이야기가 끝난 뒤 어떤 일이 이어질지 상상해 볼까요?</small></p><div class="cowrap"><img src="comics/k42-u6-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u6-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
-      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">6. 원인과 결과를 생각하며 읽어요</small>이어질 이야기 상상하기</span></label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>뒷이야기를 상상할 때 무엇을 생각하면 좋을까요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="인물의 ..... 과(와) 이야기의 흐름"></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>상상한 이야기가 자연스러우려면?</p></div>
-      <textarea class="writeline" rows="1" placeholder="앞 내용과 원인·결과가 ..... 이어져야 해요."></textarea></div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">뒷이야기는 <b>인물의 성격</b>과 <b>이야기의 흐름(원인과 결과)</b>을 생각하며 자연스럽게 상상해요.</p></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>상상하는 방법을 알아봐요</h2></div>
-    <div class="box"><div class="say">📋 뒷이야기를 상상하는 차례예요. 소리 내어 읽어 봐요.</div>
-      <div class="flowlist">
-        <div class="flowrow"><span class="fno">1</span><div class="fixed"><b>앞 내용 살펴보기</b> — 지금까지 어떤 일이 있었는지 정리해요.</div></div>
-        <div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">2</span><div class="fixed"><b>인물 성격 생각하기</b> — 인물이 어떻게 행동할지 생각해요.</div></div>
-        <div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">3</span><div class="fixed"><b>원인과 결과 잇기</b> — 자연스럽게 이어질 일을 상상해요.</div></div>
-        <div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">4</span><div class="fixed"><b>이야기 쓰기</b> — 상상한 뒷이야기를 글로 써요.</div></div>
-      </div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>상상</b> 머릿속에 그려 봄 · <b>성격</b> 인물의 됨됨이 · <b>흐름</b> 이어지는 차례 · <b>자연스럽다</b> 어색하지 않다</div></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이어질 내용을 상상할 짧은 이야기예요. <b>교과서 4-2 나 6단원</b>의 「랑랑별 때때롱」(권정생)도 꼭 읽어 봐요.</p></div>
-      <div class="say">👀 <b>일어난 일은 하늘색</b>, <b>이어질 내용의 단서는 노랑</b>, 모르는 낱말은 분홍으로 표시해요.</div>
-      <div class="marktools"><button id="btn-env" onclick="setMode('env')">🩵 일어난 일</button><button id="btn-important" onclick="setMode('important')">💛 이어질 단서</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
-      <p class="ptitle"><small>이야기 (예시)</small>뒷산의 반짝이는 문<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예시 이야기예요</span></p>
-      <div class="passage" id="passage">
-<p>호기심 많은 도현이는 학교가 끝나면 뒷산에서 곤충을 관찰하는 것을 좋아했습니다.</p>
-<p>어느 날, 오래된 참나무 뿌리 사이에서 은은하게 반짝이는 작은 문을 발견했습니다. 문에는 "용기 있는 사람만 여시오"라고 쓰여 있었습니다.</p>
-<p>도현이가 조심스럽게 문고리에 손을 대자, 문틈에서 따뜻한 바람과 함께 고소한 빵 냄새가 흘러나왔습니다. 그리고 어디선가 작은 목소리가 들렸습니다. "드디어 왔구나!"</p>
-<p>도현이는 심호흡을 하고 천천히 문을 열었습니다. 그 안에는…….</p>
-      </div>
-      <div class="legendline"><span><i style="background:#BFE3F7"></i>일어난 일</span><span><i style="background:#FAE28A"></i>이어질 단서</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>호기심</b> 궁금해하는 마음 · <b>은은하다</b> 겉으로 뚜렷하지 않고 부드럽다 · <b>심호흡</b> 깊게 숨을 쉼</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>뒷이야기를 상상해 써요</h2></div>
-    <div class="box"><div class="say">📝 좋아하는 이야기를 하나 떠올려, 뒷이야기를 상상해 봐요.</div>
-      <table><thead><tr><th style="width:130px;">항목</th><th>내가 상상한 내용</th></tr></thead><tbody>
-        <tr><td class="word">이야기 제목</td><td><input type="text" placeholder="어떤 이야기인가요?"></td></tr>
-        <tr><td class="word">인물의 성격</td><td><input type="text" placeholder="인물은 어떤 사람인가요?"></td></tr>
-        <tr><td class="word">이어질 일</td><td><input type="text" placeholder="그다음 어떤 일이 일어날까요?"></td></tr></tbody></table>
-      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>이어질 이야기를 두 문장으로 상상해 써 보세요.</p></div>
-      <textarea class="writeline" rows="3" placeholder="그래서 ..... / 마침내 ....."></textarea></div>
-  </section>
-  <section class="s-main"><div class="stage"><span class="badge">교과서</span><h2>교과서 이야기로 확인해요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 <b>교과서 4-2 나 6단원</b>의 「랑랑별 때때롱」(권정생)을 읽고 답을 골라 누르세요. 이야기의 흐름을 생각하며 이어질 내용을 상상해요.</p></div>
-      <div class="rv"><p class="q">① 이어질 내용을 상상할 때 살펴야 하는 것은?</p><div class="rvgroup" data-ranswer="앞 이야기의 흐름"><button data-v="앞 이야기의 흐름">앞 이야기의 흐름</button><button data-v="책 두께">책 두께</button></div></div>
-      <div class="rv"><p class="q">② 이어질 내용은 인물의 무엇과 어울려야 하나요?</p><div class="rvgroup" data-ranswer="성격과 지금까지의 일"><button data-v="성격과 지금까지의 일">성격과 지금까지의 일</button><button data-v="아무것도">아무것도</button></div></div>
-      <div class="rv"><p class="q">③ 상상해 쓴 이야기는 어떻게 나눌까요?</p><div class="rvgroup" data-ranswer="친구들과 읽고 이야기한다"><button data-v="친구들과 읽고 이야기한다">친구들과 읽고 이야기한다</button><button data-v="숨긴다">숨긴다</button></div></div>
-    </div></section>
-  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>자연스러운 상상을 골라요</h2></div>
-    <div class="box"><div class="say">🔎 자연스러운 뒷이야기 상상이면 ⭕, 아니면 ❌를 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 인물의 성격에 어울리게 상상했다.</p><div class="rvgroup" data-ranswer="⭕ 자연스러워요"><button data-v="⭕ 자연스러워요">⭕ 자연스러워요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">② 앞 내용과 전혀 관계없게 상상했다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 자연스러워요">⭕ 자연스러워요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">③ 원인과 결과가 자연스럽게 이어졌다.</p><div class="rvgroup" data-ranswer="⭕ 자연스러워요"><button data-v="⭕ 자연스러워요">⭕ 자연스러워요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">④ 갑자기 말이 안 되는 일이 일어났다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 자연스러워요">⭕ 자연스러워요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div>
-  </section>
-  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
     <div class="box">
-      <div class="selfcheck"><p>💪 인물의 성격을 생각하며 상상할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 자연스러운 뒷이야기를 쓸 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
-    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">머릿속에 이야기를 그려 보는 것을 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸"> (이)라고 한다.</p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 상상</p></div>
-    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. 뒷이야기를 상상할 때 생각할 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="2"><button>① 글씨 색깔</button><button>② 인물의 성격과 이야기 흐름</button><button>③ 종이 크기</button><button>④ 아무것도 안 봄</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">뒷이야기는 <b>인물의 성격</b>과 <b>이야기의 흐름</b>을 생각하며 상상해요. 앞 내용과 원인·결과가 자연스럽게 이어져야 해요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 인물의 성격을 생각한다.</button><button>② 이야기 흐름을 생각한다.</button><button>③ 앞 내용과 관계없이 상상한다.</button><button>④ 자연스럽게 이어지게 한다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">좋아하는 이야기의 뒷이야기를 한 문장으로 상상해 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 그다음 ....."></textarea></div>
-      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
-    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">읽은 이야기의 뒷이야기를 세 문장으로 상상해 써 오세요.</p><textarea class="writeline" rows="3" placeholder="앞 내용 → 이어질 일 → 마무리"></textarea></div>
+      <div class="say">🔔 지난 시간에는 원인과 결과를 생각하며 영상을 보았어요. 오늘은 옛이야기를 들어요.</div>
+      <div class="rv"><p class="q">바다가 빛나서 관광객이 많아졌다. 여기서 결과는?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="관광객이 많아졌다"><button data-v="관광객이 많아졌다">관광객이 많아졌다</button><button data-v="바다가 빛났다">바다가 빛났다</button></div></div>
+      <div class="rv"><p class="q">원인을 알면 뒤에 일어날 일을 예상할 수 있어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k42-u6-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k42-u6-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">6. 상상의 날개</small>1) 원인과 결과를 생각하며 이야기 듣기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>세린이는 추운 날 옷을 얇게 입고 나가서 놀았어요. 그 뒤에 어떤 일이 생겼을까요? <small>(교과서 260쪽 만화)</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="세린이는 ..... 그래서 ....."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">이야기를 들을 때는 중요한 내용을 메모하고, 일이 일어난 차례와 원인과 결과를 정리하면 내용을 잘 기억할 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>이야기를 듣고 원인과 결과를 표시해요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 261쪽</b>을 펴고, 선생님이 들려주는 「방 씨 규수의 이야기」를 잘 들으며 중요한 내용을 메모해요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 이야기를 간추린 글이에요. <b>원인은 파랑</b>, <b>결과는 노랑</b>으로 표시해요. 모르는 낱말은 분홍!</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 원인</button>
+        <button id="btn-important" onclick="setMode('important')">💛 결과</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>옛이야기 간추리기</small>「방 씨 규수의 이야기」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 간추린 글 · 교과서 261~263쪽 활동과 관련</span></p>
+      <div class="passage" id="passage">
+        <p>조선 시대에 활을 잘 쏘는 방진이라는 사람과, 영리한 딸 방 씨 규수가 살았어요.</p>
+        <p>어느 날 밤, 도둑들이 방진의 집을 털려고 몰려왔어요.</p>
+        <p>도둑들과 한편인 하인이 미리 방진의 화살을 몰래 훔쳐 없애 버려서, 집 안에는 화살이 거의 남아 있지 않았어요.</p>
+        <p>도둑들이 앞마당까지 쳐들어오자 방진은 활을 쏘며 막았지만, 곧 화살이 다 떨어졌어요.</p>
+        <p>그때 방 씨 규수는 대나무를 한 아름 안고 와서, 화살을 가져온 것처럼 소리치며 대청마루 위에 와르르 내던졌어요.</p>
+        <p>화살이 아직 많이 남은 줄 안 도둑들은 깜짝 놀라 달아났어요. 방 씨 규수는 뒷날 이순신 장군과 혼인했어요.</p>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>규수</b> 혼인하지 않은 남의 집 딸을 정중하게 이르는 말 · <b>한 아름</b> 두 팔을 벌려 껴안은 만큼 · <b>대청마루</b> 한옥에서 방 사이의 넓은 마루</div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>원인</span>
+        <span><i style="background:var(--mark-important)"></i>결과</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 잘 들었나요? 알맞은 답을 골라 누르세요. (교과서 261쪽)</div>
+      <div class="rv"><p class="q">① 도둑들이 하인을 시켜 화살을 미리 없앤 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="방진이 활을 쏘지 못하게 하려고"><button data-v="방진이 활을 쏘지 못하게 하려고">방진이 활을 쏘지 못하게 하려고</button><button data-v="화살을 팔려고">화살을 팔려고</button></div></div>
+      <div class="rv"><p class="q">② 방 씨 규수가 대나무를 대청마루에 던진 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="화살이 많이 남은 것처럼 도둑을 속이려고"><button data-v="대나무를 정리하려고">대나무를 정리하려고</button><button data-v="화살이 많이 남은 것처럼 도둑을 속이려고">화살이 많이 남은 것처럼 도둑을 속이려고</button></div></div>
+      <div class="rv"><p class="q">③ 방 씨 규수의 성격으로 알맞은 것은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="위기에서 침착하고 지혜롭다"><button data-v="위기에서 침착하고 지혜롭다">위기에서 침착하고 지혜롭다</button><button data-v="겁이 많아 숨는다">겁이 많아 숨는다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>낱말의 뜻을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전을 찾아</b> 진짜 뜻을 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">규수</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">지혜롭다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">침착하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">위기</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>반대말 짝! <small>반대되는 말을 써 보세요.</small></p></div>
+      <div class="combine"><div class="chip"><small>반대말은?</small><b>침착하다</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>반대말은?</small><b>지혜롭다</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>반대말은?</small><b>용감하다</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>비슷한 말은?</small><b>위기</b><input type="text" placeholder="쓰기"></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>일이 일어난 차례와 원인과 결과를 정리해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>일이 일어난 차례대로 정리해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 262쪽)</small></p></div>
+      <div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed">도둑들과 한편인 하인이 방진의 화살을 훔쳐 없앴다.</div></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">2</span><textarea class="writeline" rows="1" placeholder="도둑들이 방진의 집 ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">3</span><textarea class="writeline" rows="1" placeholder="방진의 화살이 떨어지자 방 씨 규수는 ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">4</span><textarea class="writeline" rows="1" placeholder="도둑들은 ....."></textarea></div></div>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>원인과 결과에 따라 정리해요. <small>(교과서 263쪽)</small></p></div>
+      <table><thead><tr><th>원인</th><th>결과</th></tr></thead><tbody><tr><td class="word">하인이 화살을 훔쳐 없애 버렸다.</td><td><input type="text" placeholder="집 안에는 화살이 ....."></td></tr><tr><td class="word">방 씨 규수가 대나무를 화살인 척 마루에 던졌다.</td><td><input type="text" placeholder="도둑들은 ....."></td></tr><tr><td><input type="text" placeholder="도둑들이 집 앞마당까지 ....."></td><td style="background:#FBF3DC;">방진이 활을 쏘며 막았다.</td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>내가 방 씨 규수라면 어떤 꾀를 냈을까요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="나라면 ..... 해서 도둑을 쫓았을 거예요."></textarea>
+      <div class="say" style="margin-top:16px;">🗣️ 차례표를 <b>보면서</b> 이야기를 들려주고 → <b>보지 않고</b> 들려주세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>이야기를 잘 들었는지 확인해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 맞으면 ⭕, 틀리면 ❌를 누르세요.</div>
+      <div class="rv"><p class="q">① 하인은 방진의 편이었다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 방진은 활을 잘 쏘는 사람이었다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 방 씨 규수는 진짜 화살을 많이 가져왔다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">④ 방 씨 규수는 뒷날 이순신 장군과 혼인했다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 이야기를 듣고 일이 일어난 차례를 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 이야기의 원인과 결과를 정리할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 도둑들이 달아난 원인을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="2"><button>① 방진이 잠을 자서</button><button>② 화살이 많이 남은 줄 알아서</button><button>③ 비가 와서</button><button>④ 하인이 도와주어서</button></div></div>
+      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;에서 알 수 있는 인물의 성격을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">방 씨 규수는 화살이 다 떨어진 위급한 순간에도 당황하지 않고, 대나무로 도둑들을 속일 방법을 생각해 냈어요.</div><div class="mc" data-q="q2" data-answer="2"><button>① 게으르다</button><button>② 지혜롭고 침착하다</button><button>③ 욕심이 많다</button><button>④ 겁이 많다</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">원인과 결과가 드러나는 다른 인물 이야기(예: 에디슨, 신사임당)를 하나 떠올려 써 보세요. (교과서 263쪽)</p><textarea class="writeline" rows="1" placeholder="..... 은/는 ..... 해서 ..... 했다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족에게 「방 씨 규수의 이야기」를 들려드리고, 원인과 결과를 넣어 한 줄로 정리해 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="..... 해서 ..... 했다."></textarea>
+    </div>
   </section>
 </div>
 </body>
 <script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
-document.querySelectorAll('.mc').forEach(group=>{
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
       group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
@@ -214,6 +367,7 @@ document.querySelectorAll('.mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -223,19 +377,20 @@ function grade(){
     const btns = [...group.querySelectorAll('button')];
     btns.forEach(b=>b.classList.remove('correct','wrong'));
     if(!picked) return;
-    const val = String(btns.indexOf(picked)+1);
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
     if(val===ans){ picked.classList.add('correct'); ok++; }
     else{
       picked.classList.add('wrong');
-      const right = btns[Number(ans)-1];
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
       if(right) right.classList.add('correct');
     }
     picked.classList.remove('picked');
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -249,6 +404,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -257,33 +414,12 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });
-</script>
-<script>
-(function(){
-var mode=null;
-var passage=document.getElementById('passage');
-if(passage && !passage.dataset.ready){
-passage.dataset.ready=1;
-passage.querySelectorAll('p').forEach(function(p){
-  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
-});
-passage.addEventListener('click',function(e){
-  if(!e.target.classList.contains('w')||!mode)return;
-  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
-  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
-  e.target.classList.toggle(mode);
-});
-}
-window.setMode=function(m){
-  mode=(mode===m)?null:m;
-  ['unknown','important','env','erase'].forEach(function(x){
-    var b=document.getElementById('btn-'+x);
-    if(b)b.classList.toggle('active-'+x,mode===x);
-  });
-};
-})();
 </script>
 </html>

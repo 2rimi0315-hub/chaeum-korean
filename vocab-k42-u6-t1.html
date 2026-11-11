@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 원인과 결과</title>
+<title>&lt;em&gt;원인과 결과&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 4-2 · 6단원 원인과 결과를 생각하며 읽어요 · 어휘 카드 8장</p>
-    <h1><em>원인·결과</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 4-2 · 6단원 상상의 날개 · 원인과 결과를 생각하며 듣기 · 어휘 카드 8장</p>
+    <h1><em>원인과 결과</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🌱", "w": "원인", "m": "일이 일어난 까닭", "x": "원인을 찾아요."},
-  {"e": "🍎", "w": "결과", "m": "그로 인해 생긴 일", "x": "결과를 살펴요."},
-  {"e": "❓", "w": "까닭", "m": "이유", "x": "까닭을 생각해요."},
-  {"e": "🌊", "w": "흐름", "m": "이어지는 차례", "x": "이야기 흐름을 봐요."},
-  {"e": "🔗", "w": "이어 주는 말", "m": "원인·결과를 잇는 말", "x": "'그래서'로 이어요."},
-  {"e": "🤝", "w": "관계", "m": "서로 이어진 사이", "x": "원인과 결과의 관계예요."},
-  {"e": "💡", "w": "이해", "m": "뜻을 알아들음", "x": "흐름을 이해해요."},
-  {"e": "📖", "w": "사건", "m": "이야기 속 일", "x": "사건을 정리해요."}
+  {"e": "🔎", "w": "원인", "m": "어떤 일이 일어나게 된 까닭", "x": "감기의 원인을 찾아요."},
+  {"e": "🎯", "w": "결과", "m": "어떤 원인으로 생긴 일", "x": "노력한 결과가 좋았어요."},
+  {"e": "🔮", "w": "예상하다", "m": "앞으로 있을 일을 미리 짐작하다", "x": "뒷이야기를 예상했어요."},
+  {"e": "⭐", "w": "중심 사건", "m": "이야기에서 가장 중요한 사건", "x": "중심 사건을 찾아요."},
+  {"e": "🌊", "w": "형광색", "m": "빛을 받아 밝게 빛나는 색", "x": "바다가 형광색으로 빛나요."},
+  {"e": "⚡", "w": "자극", "m": "반응을 일으키는 작용", "x": "자극을 받으면 빛을 내요."},
+  {"e": "🧳", "w": "관광객", "m": "구경하러 다니는 사람", "x": "관광객이 많이 왔어요."},
+  {"e": "🦓", "w": "주택가", "m": "집이 많이 모여 있는 곳", "x": "주택가에 얼룩말이 나타났어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
