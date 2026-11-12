@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 주장하는 글 쓰기</title>
+<title>&lt;em&gt;발표회&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 3단원 타당한 근거로 주장해요 · 어휘 카드 8장</p>
-    <h1><em>논설문</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 3단원 · 어린이 생각 발표회 · 어휘 카드 8장</p>
+    <h1><em>발표회</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📃", "w": "논설문", "m": "주장하는 글", "x": "논설문을 써요."},
-  {"e": "📖", "w": "서론", "m": "문제와 주장을 밝힘", "x": "서론을 써요."},
-  {"e": "📄", "w": "본론", "m": "근거를 드는 부분", "x": "본론에 근거를 써요."},
-  {"e": "🏁", "w": "결론", "m": "주장을 강조하는 부분", "x": "결론으로 마무리해요."},
-  {"e": "🎯", "w": "설득", "m": "마음을 움직임", "x": "읽는 사람을 설득해요."},
-  {"e": "⚖️", "w": "타당성", "m": "이치에 맞는 정도", "x": "근거의 타당성을 봐요."},
-  {"e": "🔍", "w": "점검", "m": "살펴 확인함", "x": "근거를 점검해요."},
-  {"e": "🗂️", "w": "자료", "m": "뒷받침이 되는 정보", "x": "자료를 모아요."}
+  {"e": "🍽️", "w": "섭취하다", "m": "몸속에 받아들이다", "x": "영양을 섭취해요."},
+  {"e": "🎁", "w": "제공하다", "m": "내주다", "x": "급식을 제공해요."},
+  {"e": "⚡", "w": "발생하다", "m": "생겨나다", "x": "문제가 발생해요."},
+  {"e": "🏎️", "w": "가속하다", "m": "점점 빠르게 하다", "x": "변화가 가속해요."},
+  {"e": "🛡️", "w": "대항하다", "m": "맞서서 버티다", "x": "병에 대항해요."},
+  {"e": "🥩", "w": "단백질", "m": "몸을 만드는 영양소", "x": "단백질이 필요해요."},
+  {"e": "🥦", "w": "채소", "m": "밭에서 기르는 먹거리", "x": "채소 위주 식사"},
+  {"e": "🌱", "w": "성장기", "m": "몸이 자라는 시기", "x": "성장기 어린이"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
