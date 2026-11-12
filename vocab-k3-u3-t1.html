@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 자료의 출처 확인</title>
+<title>&lt;em&gt;손 씻기&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 3단원 자료의 출처를 확인하며 읽어요 · 어휘 카드 8장</p>
-    <h1><em>출처</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 3단원 · 올바른 손 씻기 · 어휘 카드 8장</p>
+    <h1><em>손 씻기</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🔖", "w": "출처", "m": "자료가 나온 곳", "x": "출처를 확인했어요."},
-  {"e": "🗂️", "w": "자료", "m": "뒷받침이 되는 정보", "x": "자료를 살펴봤어요."},
-  {"e": "⛑️", "w": "안전모", "m": "머리를 지키는 모자", "x": "안전모를 썼어요."},
-  {"e": "🤕", "w": "부상", "m": "몸을 다침", "x": "부상을 막았어요."},
-  {"e": "🔁", "w": "습관", "m": "몸에 밴 행동", "x": "좋은 습관을 들여요."},
-  {"e": "✅", "w": "믿음", "m": "믿는 마음", "x": "출처가 있어 믿음이 가요."},
-  {"e": "📖", "w": "설명", "m": "알기 쉽게 풀어 말함", "x": "까닭을 설명했어요."},
-  {"e": "🔍", "w": "확인", "m": "틀림없이 알아봄", "x": "내용을 확인했어요."}
+  {"e": "🧼", "w": "비누", "m": "때를 씻는 물건", "x": "비누로 손을 씻어요."},
+  {"e": "📌", "w": "출처", "m": "자료가 나온 곳", "x": "출처를 밝혀요."},
+  {"e": "🏛️", "w": "기관", "m": "어떤 일을 맡아 하는 곳", "x": "나라의 기관"},
+  {"e": "🛡️", "w": "예방하다", "m": "미리 막다", "x": "감기를 예방해요."},
+  {"e": "✅", "w": "실천하다", "m": "실제로 해 나가다", "x": "약속을 실천해요."},
+  {"e": "🌐", "w": "누리집", "m": "인터넷 홈페이지", "x": "누리집에 들어가요."},
+  {"e": "🦠", "w": "전염병", "m": "옮는 병", "x": "전염병을 막아요."},
+  {"e": "💅", "w": "손톱", "m": "손가락 끝의 단단한 것", "x": "손톱 밑을 닦아요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
