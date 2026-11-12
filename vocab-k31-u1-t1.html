@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 감각적 표현과 시</title>
+<title>&lt;em&gt;감각적 표현&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 1단원 생생하게 표현해요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 3-1 · 1단원 · 감각적 표현 · 어휘 카드 8장</p>
     <h1><em>감각적 표현</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✨", "w": "감각적 표현", "m": "경험을 생생하게 표현한 것", "x": "감각적 표현을 찾아요."},
-  {"e": "🖐️", "w": "감각", "m": "보고 듣고 맛보고 느끼는 것", "x": "오감으로 느껴요."},
-  {"e": "📏", "w": "행", "m": "시의 한 줄", "x": "이 시는 행이 여덟 개예요."},
-  {"e": "📚", "w": "연", "m": "행이 모인 덩어리", "x": "연과 연 사이는 쉬어요."},
-  {"e": "🎤", "w": "낭송", "m": "시를 소리 내어 읽음", "x": "느낌을 살려 낭송해요."},
-  {"e": "🌸", "w": "꽃봉오리", "m": "아직 피지 않은 꽃", "x": "꽃봉오리가 봉긋봉긋해요."},
-  {"e": "🌈", "w": "생생하다", "m": "눈앞에 보이는 듯하다", "x": "생생하게 표현해요."},
-  {"e": "💭", "w": "상상", "m": "머릿속에 그려 봄", "x": "장면을 상상해요."}
+  {"e": "🌸", "w": "꽃봉오리", "m": "아직 피지 않은 꽃", "x": "꽃봉오리가 맺혔어요."},
+  {"e": "🫧", "w": "봉긋봉긋", "m": "여럿이 볼록하게 솟은 모양", "x": "꽃봉오리가 봉긋봉긋해요."},
+  {"e": "🤭", "w": "간질간질", "m": "살갗이 간지러운 느낌", "x": "깃털이 간질간질해요."},
+  {"e": "🌿", "w": "향기", "m": "좋은 냄새", "x": "꽃향기가 나요."},
+  {"e": "👁️", "w": "감각", "m": "보고 듣고 냄새 맡고 맛보고 만져서 느끼는 것", "x": "다섯 가지 감각이 있어요."},
+  {"e": "📏", "w": "행", "m": "시에서 한 줄", "x": "첫째 행을 읽어요."},
+  {"e": "📚", "w": "연", "m": "몇 개의 행이 모인 덩어리", "x": "2연을 읽어요."},
+  {"e": "😂", "w": "웃음보따리", "m": "웃음이 가득 담긴 것", "x": "웃음보따리가 터졌어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 문장의 짜임에 따라 바르게 읽고 쓰기 (국어 3-1)</title>
+<title>활동지 — 문장의 짜임 (국어 3-1)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -22,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -29,35 +30,63 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
+
   .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
   .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
   .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
   .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
   .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
   .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   .passage{font-size:17px; line-height:2.1;}
   .passage p{margin-bottom:14px;}
@@ -67,44 +96,100 @@
   .passage .w.env{background:var(--mark-env);}
   .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
   .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:120px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
-  .structbox{border:2px solid var(--ink); border-radius:14px; overflow:hidden; margin-bottom:12px;}
-  .structbox h3{font-size:15px; font-weight:800; padding:10px 14px; color:#fff;}
-  .structbox.s1 h3{background:var(--teal);}
-  .structbox.s2 h3{background:var(--purple);}
-  .structbox.s3 h3{background:var(--tangerine);}
-  .structbox .body{padding:14px; font-size:14.5px; line-height:1.7;}
-  .structbox .body b{color:var(--ink);}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
   .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
     .marktools, .checkbtn, #result{display:none !important;}
@@ -112,85 +197,134 @@
     .box{border-width:1.5px;}
     .writeline{border-bottom:1.5px dashed #999;}
   }
-  .flowlist{margin-top:8px;}
-  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
-  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
-  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
-  .flowrow .fixed b{color:var(--tangerine-dark);}
-  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
-  .verbtns{display:flex; gap:8px; margin-bottom:10px;}
-  .verbtns button{font-family:inherit; font-size:14px; font-weight:800; cursor:pointer; padding:9px 18px; border-radius:999px; border:2px solid #2E2B26; background:#fff;}
-  .verbtns button.on{background:#2E2B26; color:#fff;}
-  .passage p.vfull{display:none;}
-  .passage.showfull p.vfull{display:block;}
-  .passage.showfull p.vshort{display:none;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top"><img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 2단원 분명하고 유창하게</p>
-    <h1><em>문장의 짜임</em>을 알고 바르게 읽어요</h1>
-    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div></header>
-  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>단원을 시작해요</h2></div>
-    <div class="box"><div class="say">🔔 2단원에서는 <b>분명하고 유창하게</b> 읽어요. 오늘은 문장이 어떻게 짜여 있는지 알아봐요!</div>
-      <div class="rv"><p class="q">생각을 나타내는 한 마디의 글을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="문장"><button data-v="문장">문장</button><button data-v="낱말">낱말</button></div></div>
-      <div class="rv"><p class="q">문장이 이루어진 모양을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="문장의 짜임"><button data-v="문장의 짜임">문장의 짜임</button><button data-v="제목">제목</button></div></div>
-    </div></section>
-  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
-    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>"지호가 말합니다"는 누가 + 어찌하다로 나눌 수 있어요.</small></p><div class="cowrap"><img src="comics/k31-u2-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k31-u2-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
-      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 분명하고 유창하게</small>문장의 짜임에 따라 문장을 바르게 읽고 쓰기</span></label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>"노란 나비가 날아오릅니다"에서 '누가/무엇이'는 무엇일까요?</p></div><textarea class="writeline" rows="1" placeholder="..... 이에요. (힌트: 노란 나비)"></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>"햇볕이 따뜻합니다"에서 '따뜻합니다'는 무엇을 나타낼까요?</p></div><textarea class="writeline" rows="1" placeholder="성질이나 상태를 나타내요. (.....)"></textarea></div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">문장은 <b>누가/무엇이 + 어찌하다</b>(움직임), <b>누가/무엇이 + 어떠하다</b>(성질·상태), <b>누가/무엇이 + 무엇이다</b>의 짜임으로 나눌 수 있어요.</p></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>문장의 세 가지 짜임을 알아봐요</h2></div>
-    <div class="box"><div class="say">📋 교과서 70~71쪽 「지호와 나비」에 나온 문장이에요. 소리 내어 읽어 봐요.</div><div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed"><b>누가 + 어찌하다</b> — 지호가 <b>말합니다</b>. — '걷다, 날아오르다'처럼 움직임을 나타내요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">2</span><div class="fixed"><b>무엇이 + 어떠하다</b> — 햇볕이 <b>따뜻합니다</b>. — '많다, 파랗다'처럼 성질이나 상태를 나타내요.</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">3</span><div class="fixed"><b>무엇이 + 무엇이다</b> — 오늘은 <b>일요일입니다</b>. — 무엇인지 알려 줘요.</div></div></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>짜임</b> 이루어진 모양 · <b>어찌하다</b> 움직임을 나타내는 말 · <b>어떠하다</b> 성질·상태를 나타내는 말 · <b>풍습</b> 옛날부터 전해 오는 생활 습관</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>「단오」를 읽으며 문장의 짜임을 찾아요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이 글은 <b>교과서 가 74~75쪽 「단오」</b>를 간추린 것이에요. 교과서에서 전체 글을 꼭 읽어 봐요.</p></div>
-      <div class="say">👀 <b>어찌하다(움직임)는 하늘색</b>, <b>어떠하다(성질·상태)는 노랑</b>, 모르는 낱말은 분홍으로 표시해요.</div>
-      <div class="verbtns"><button id="vb-s" class="on" onclick="setVer(0)">📄 간추린 글</button><button id="vb-f" onclick="setVer(1)">📖 전체 글</button></div>
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 3-1 · 2단원</p>
+    <h1><em>문장의 짜임</em>을 알아요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
+    <div class="box">
+      <div class="say">🔔 2단원에서는 문장의 짜임을 알고, 글을 또박또박 유창하게 읽는 방법을 배워요!</div>
+      <div class="rv"><p class="q">"강아지가방으로들어갔다."를 바르게 띄어 읽으면?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="강아지가∨방으로∨들어갔다"><button data-v="강아지가∨방으로∨들어갔다">강아지가∨방으로∨들어갔다</button><button data-v="강아지∨가방으로∨들어갔다">강아지∨가방으로∨들어갔다</button></div></div>
+      <div class="rv"><p class="q">띄어 읽는 곳에 따라 뜻이 달라질 수 있어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k31-u2-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k31-u2-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>단원 이름을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 분명하고 유창하게</small>1) 문장의 짜임 이해하기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>지금 내가 하고 있는 일을 한 문장으로 써 보세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="나는 ....."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">문장은 '누가/무엇이 + 어찌하다', '누가/무엇이 + 어떠하다', '누가/무엇이 + 무엇이다'의 짜임으로 나눌 수 있어요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>문장의 짜임을 찾으며 읽어요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 70쪽</b>을 펴서 「지호와 나비」를 소리 내어 읽어요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 지호가 공원에 간 이야기를 간추린 글이에요. <b>'누가/무엇이'는 파랑</b>, <b>'어찌하다/어떠하다/무엇이다'는 노랑</b>으로 표시해요.</div>
       <div class="marktools">
-        <button id="btn-env" onclick="setMode('env')">🩵 어찌하다</button>
-        <button id="btn-important" onclick="setMode('important')">💛 어떠하다</button>
+        <button id="btn-env" onclick="setMode('env')">🩵 누가 / 무엇이</button>
+        <button id="btn-important" onclick="setMode('important')">💛 어찌하다 / 어떠하다 / 무엇이다</button>
         <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
-        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
-      <p class="ptitle"><small>설명하는 글</small>단오 (간추린 글)<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 3-1 가 · 2단원 · 74~75쪽을 간추린 글</span></p>
-      <div class="passage" id="passage">
-        <p class="vshort">단오는 음력 5월 5일이에요. 우리 조상들이 소중히 여긴 명절이에요.</p>
-        <p class="vshort">조상들은 더위를 이기려고 부채를 주고받았어요. 창포물에 머리도 감았어요.</p>
-        <p class="vshort">수리취떡과 앵두화채를 먹었어요. 남자는 씨름을 하고, 여자는 그네를 탔어요.</p>
-        <p class="vfull">우리 조상들은 단오를 매우 중요한 명절로 여겼습니다. 논에 모내기를 하고 난 뒤 벼가 잘 자라기를 바라는 마음으로 단오를 지냈기 때문입니다. 단옷날에는 사람들의 건강을 바라는 다양한 풍습이 있습니다.</p>
-        <p class="vfull">단오는 음력 5월 5일입니다. 이때부터 우리나라의 날씨는 점점 더워집니다. 조상들은 더위를 이겨 내려고 부채를 주고받았습니다. 창포를 삶은 물에 머리를 감기도 했습니다. 그러면 나쁜 기운을 없앨 수 있다고 믿었습니다.</p>
-        <p class="vfull">단옷날에 먹는 음식으로는 수리취떡과 앵두화채가 있습니다. 수리취떡은 수레바퀴 모양과 닮았습니다. 앵두화채는 수리취떡과 어울리는 음식입니다. 초여름에 잘 익은 앵두는 빨갛습니다. 사람들은 앵두로 시원한 화채를 만들어 먹었습니다. 시원한 앵두화채를 마시며 여름철 피로를 풀었습니다.</p>
-        <p class="vfull">우리 조상들은 단옷날에 다양한 놀이도 즐겼습니다. 남자들은 마당에 모여 씨름 대회를 열었습니다. 사람들은 씨름 대회 우승자를 천하장사라고 불렀습니다. 여자들은 그네를 타면서 즐겁게 보냈습니다.</p>
-        <p class="vfull">단옷날 풍습에는 더위를 이겨 내며 몸과 마음을 지키려는 우리 조상들의 지혜가 담겨 있습니다.</p>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
       </div>
-      <div class="legendline"><span><i style="background:var(--mark-env)"></i>어찌하다</span><span><i style="background:var(--mark-important)"></i>어떠하다</span><span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span><span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>단오</b> 음력 5월 5일 명절 · <b>음력</b> 달을 기준으로 만든 달력 · <b>창포</b> 단오에 머리 감을 때 쓰는 식물 · <b>수리취떡</b> 수리취잎을 넣은 떡 · <b>화채</b> 과일을 넣은 시원한 음료</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 3</span><h2>「단오」를 읽고 확인해요</h2></div>
-    <div class="box"><div class="say">💬 글을 읽고 답을 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 단오는 언제인가요?</p><div class="rvgroup" data-ranswer="음력 5월 5일"><button data-v="음력 5월 5일">음력 5월 5일</button><button data-v="12월 25일">12월 25일</button></div></div>
-      <div class="rv"><p class="q">② 조상들이 더위를 이겨 내려고 주고받은 것은?</p><div class="rvgroup" data-ranswer="부채"><button data-v="부채">부채</button><button data-v="장갑">장갑</button></div></div>
-      <div class="rv"><p class="q">③ "앵두는 빨갛습니다"의 짜임은?</p><div class="rvgroup" data-ranswer="무엇이 + 어떠하다"><button data-v="무엇이 + 어떠하다">무엇이 + 어떠하다</button><button data-v="누가 + 어찌하다">누가 + 어찌하다</button></div></div>
-      <div class="rv"><p class="q">④ "여자들은 그네를 탔습니다"의 짜임은?</p><div class="rvgroup" data-ranswer="누가 + 어찌하다"><button data-v="누가 + 어찌하다">누가 + 어찌하다</button><button data-v="무엇이 + 무엇이다">무엇이 + 무엇이다</button></div></div>
-    </div></section>
-  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>문장의 짜임을 바르게 알았는지 확인해요</h2></div>
-    <div class="box"><div class="say">🔎 바르게 이해했으면 ⭕, 아니면 ❌를 골라 누르세요.</div><div class="rv"><p class="q">① "지호가 걷습니다"는 누가+어찌하다이다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">② "하늘은 파랗습니다"는 무엇이+어떠하다이다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">③ "오늘은 일요일입니다"는 누가+어찌하다이다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">④ 짜임을 알면 문장을 바르게 읽고 쓸 수 있다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div></section>
-  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
-    <div class="box"><div class="selfcheck"><p>💪 문장을 짜임에 따라 나눌 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 세 가지 짜임으로 문장을 만들 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
-    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">문장이 이루어진 모양을 문장의 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:130px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="12" aria-label="빈칸"> (이)라고 한다.</p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 짜임</p></div>
-    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. "노란 나비가 파란 하늘로 날아오릅니다"의 짜임을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="1"><button>① 무엇이 + 어찌하다</button><button>② 무엇이 + 어떠하다</button><button>③ 무엇이 + 무엇이다</button><button>④ 짜임이 없다</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">문장은 <b>누가/무엇이+어찌하다</b>(움직임), <b>누가/무엇이+어떠하다</b>(성질·상태), <b>누가/무엇이+무엇이다</b>의 짜임으로 나눌 수 있어요.</div><div class="mc" data-q="q3" data-answer="4"><button>① 어찌하다는 움직임을 나타낸다.</button><button>② 어떠하다는 성질이나 상태를 나타낸다.</button><button>③ "바람은 시원합니다"는 어떠하다 짜임이다.</button><button>④ 문장의 짜임은 한 가지뿐이다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">세 가지 짜임 가운데 하나를 골라 우리 반 이야기를 문장으로 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 친구들이 운동장에서 달립니다."></textarea></div>
-      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
-    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">집에서 명절 음식 이야기를 나누고, 세 가지 짜임으로 문장을 하나씩 써 오세요.</p><textarea class="writeline" rows="2" placeholder="어찌하다: ..... / 어떠하다: ..... / 무엇이다: ....."></textarea></div></section>
+      <p class="ptitle"><small>이야기 간추리기</small>「지호와 나비」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 간추린 글 · 원문은 국어 3-1 가 70쪽</span></p>
+      <div class="passage" id="passage">
+        <p>오늘은 일요일입니다.</p>
+        <p>하늘은 파랗습니다. 바람은 시원합니다.</p>
+        <p>지호는 할아버지, 할머니와 공원을 걷습니다.</p>
+        <p>꽃밭에는 나비들이 날아다닙니다.</p>
+        <p>지호가 나비를 보며 손을 뻗습니다.</p>
+        <p>햇볕이 따뜻합니다. 지호는 행복합니다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>누가 / 무엇이</span>
+        <span><i style="background:var(--mark-important)"></i>어찌하다 / 어떠하다 / 무엇이다</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 알맞은 답을 골라 누르세요. (교과서 71쪽)</div>
+      <div class="rv"><p class="q">① "지호가 걷습니다."의 짜임은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="누가 + 어찌하다"><button data-v="누가 + 어찌하다">누가 + 어찌하다</button><button data-v="무엇이 + 무엇이다">무엇이 + 무엇이다</button></div></div>
+      <div class="rv"><p class="q">② "햇볕이 따뜻합니다."의 짜임은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="무엇이 + 어떠하다"><button data-v="누가 + 어찌하다">누가 + 어찌하다</button><button data-v="무엇이 + 어떠하다">무엇이 + 어떠하다</button></div></div>
+      <div class="rv"><p class="q">③ "오늘은 일요일입니다."의 짜임은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="무엇이 + 무엇이다"><button data-v="무엇이 + 무엇이다">무엇이 + 무엇이다</button><button data-v="무엇이 + 어떠하다">무엇이 + 어떠하다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>'어찌하다'와 '어떠하다'를 나누어요</h2></div>
+    <div class="box">
+      <div class="say">🔍 '어찌하다'는 걷다, 날아오르다처럼 <b>움직임</b>을, '어떠하다'는 많다, 파랗다처럼 <b>성질이나 상태</b>를 나타내요. (교과서 72쪽)</div>
+      <div class="rv"><p class="q">① 날아다닙니다</p><div class="rvgroup" data-ranswer="어찌하다(움직임)"><button data-v="어찌하다(움직임)">어찌하다(움직임)</button><button data-v="어떠하다(상태)">어떠하다(상태)</button></div></div>
+      <div class="rv"><p class="q">② 시원합니다</p><div class="rvgroup" data-ranswer="어떠하다(상태)"><button data-v="어찌하다(움직임)">어찌하다(움직임)</button><button data-v="어떠하다(상태)">어떠하다(상태)</button></div></div>
+      <div class="rv"><p class="q">③ 끄덕입니다</p><div class="rvgroup" data-ranswer="어찌하다(움직임)"><button data-v="어찌하다(움직임)">어찌하다(움직임)</button><button data-v="어떠하다(상태)">어떠하다(상태)</button></div></div>
+      <div class="rv"><p class="q">④ 행복합니다</p><div class="rvgroup" data-ranswer="어떠하다(상태)"><button data-v="어찌하다(움직임)">어찌하다(움직임)</button><button data-v="어떠하다(상태)">어떠하다(상태)</button></div></div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">짜임</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">움직임</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">상태</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">문장</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>세 가지 짜임으로 문장을 만들어요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>짜임에 맞게 빈칸을 채워 문장을 완성해요. <small>노란 칸은 예시예요.</small></p></div>
+      <table><thead><tr><th style="width:150px;">짜임</th><th>누가 / 무엇이</th><th>어찌하다 / 어떠하다 / 무엇이다</th></tr></thead><tbody><tr><td class="word">누가 + 어찌하다</td><td style="background:#FBF3DC;">나비가</td><td style="background:#FBF3DC;">날아오릅니다.</td></tr><tr><td class="word">누가 + 어찌하다</td><td style="background:#FBF3DC;">동생이</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">무엇이 + 어떠하다</td><td style="background:#FBF3DC;">하늘이</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">무엇이 + 어떠하다</td><td><input type="text" placeholder="....."></td><td style="background:#FBF3DC;">시원합니다.</td></tr><tr><td class="word">누가 + 무엇이다</td><td style="background:#FBF3DC;">나는</td><td><input type="text" placeholder="..... 입니다."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>우리 교실에서 볼 수 있는 것을 세 가지 짜임으로 써요.</p></div>
+      <div class="flowlist"><div class="flowrow"><span class="fno">1</span><textarea class="writeline" rows="1" placeholder="누가 + 어찌하다: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">2</span><textarea class="writeline" rows="1" placeholder="무엇이 + 어떠하다: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">3</span><textarea class="writeline" rows="1" placeholder="누가/무엇이 + 무엇이다: ....."></textarea></div></div>
+      <div class="say" style="margin-top:16px;">🗣️ 쓴 문장을 <b>또박또박</b> 소리 내어 읽어 보세요!</div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>짜임에 맞는 문장을 찾아요</h2></div>
+    <div class="box">
+      <div class="say">🔎 짜임에 맞게 바르게 쓴 문장이면 ⭕, 어색하면 ❌를 누르세요. (교과서 103쪽)</div>
+      <div class="rv"><p class="q">① 나비가 날아갑니다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 잘 익은 앵두는 뛰었습니다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 지호는 학생입니다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">④ 바람은 걸어갑니다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 문장의 세 가지 짜임을 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 '어찌하다'와 '어떠하다'를 구분할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. '누가 + 어찌하다' 짜임의 문장을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="2"><button>① 하늘이 파랗습니다.</button><button>② 지호가 웃습니다.</button><button>③ 오늘은 월요일입니다.</button><button>④ 바람이 시원합니다.</button></div></div>
+      <div class="quiz"><p class="qtitle">2. '어떠하다'에 해당하는 낱말을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">낱말</span></p><div class="mc" data-q="q2" data-answer="3"><button>① 먹다</button><button>② 달리다</button><button>③ 푸르다</button><button>④ 읽다</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">나를 소개하는 문장을 '누가 + 무엇이다' 짜임으로 써 보세요.</p><textarea class="writeline" rows="1" placeholder="나는 ..... 입니다."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족을 소개하는 문장을 세 가지 짜임으로 하나씩 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="예) 엄마는 요리를 합니다. / ....."></textarea>
+    </div>
+  </section>
 </div>
 </body>
 <script>
@@ -216,10 +350,12 @@ function setMode(m){
     if(b) b.classList.toggle('active-'+x, mode===x);
   });
 }
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
+
 document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
@@ -228,6 +364,7 @@ document.querySelectorAll('.choicepair, .mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -248,8 +385,9 @@ function grade(){
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 글을 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -263,6 +401,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -271,16 +411,12 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });
-</script>
-<script>
-window.setVer=function(f){
-  var p=document.getElementById('passage');
-  p.classList.toggle('showfull', !!f);
-  document.getElementById('vb-s').classList.toggle('on', !f);
-  document.getElementById('vb-f').classList.toggle('on', !!f);
-};
 </script>
 </html>

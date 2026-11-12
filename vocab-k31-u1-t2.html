@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 표정·몸짓·목소리</title>
+<title>&lt;em&gt;낭송&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 1단원 생생하게 표현해요 · 어휘 카드 8장</p>
-    <h1><em>표정</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-1 · 1단원 · 줄넘기 낭송 · 어휘 카드 8장</p>
+    <h1><em>낭송</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "😊", "w": "표정", "m": "얼굴에 드러난 마음", "x": "밝은 표정을 지어요."},
-  {"e": "🙆", "w": "몸짓", "m": "몸으로 나타냄", "x": "몸짓으로 표현해요."},
-  {"e": "🗣️", "w": "말투", "m": "말하는 태도", "x": "다정한 말투예요."},
-  {"e": "🔊", "w": "목소리", "m": "입으로 내는 소리", "x": "밝은 목소리로 말해요."},
-  {"e": "💗", "w": "마음", "m": "속으로 느끼는 생각", "x": "마음을 전해요."},
-  {"e": "🎭", "w": "실감", "m": "실제처럼 느낌", "x": "실감 나게 읽어요."},
-  {"e": "😲", "w": "놀람", "m": "뜻밖에 마음이 흔들림", "x": "놀란 표정이에요."},
-  {"e": "😢", "w": "슬픔", "m": "마음이 아픈 느낌", "x": "슬픔을 나타내요."}
+  {"e": "🎤", "w": "낭송", "m": "시를 소리 내어 읽거나 외움", "x": "시를 낭송해요."},
+  {"e": "🪶", "w": "사뿐사뿐", "m": "가볍게 발을 내딛는 모양", "x": "사뿐사뿐 걸어요."},
+  {"e": "🐸", "w": "폴짝폴짝", "m": "가볍게 자꾸 뛰는 모양", "x": "개구리가 폴짝폴짝 뛰어요."},
+  {"e": "🌀", "w": "빙글빙글", "m": "자꾸 도는 모양", "x": "팽이가 빙글빙글 돌아요."},
+  {"e": "🧘", "w": "조심조심", "m": "매우 조심하는 모양", "x": "조심조심 걸어요."},
+  {"e": "🎵", "w": "분위기", "m": "그 자리에 느껴지는 기분", "x": "즐거운 분위기예요."},
+  {"e": "🪢", "w": "줄넘기", "m": "줄을 돌려 넘는 놀이", "x": "줄넘기를 백 번 했어요."},
+  {"e": "📣", "w": "강조하다", "m": "힘주어 두드러지게 하다", "x": "이 부분을 강조해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
