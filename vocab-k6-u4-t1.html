@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 관용 표현</title>
+<title>&lt;em&gt;관용어&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 4단원 상황에 맞게 표현해요 · 어휘 카드 8장</p>
-    <h1><em>관용 표현</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-1 · 4단원 · 관용어 이해하기 · 어휘 카드 8장</p>
+    <h1><em>관용어</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💬", "w": "관용어", "m": "굳어져 새 뜻이 된 말", "x": "'손발이 맞다'는 관용어예요."},
-  {"e": "📜", "w": "속담", "m": "예부터 전해 오는 지혜로운 말", "x": "속담에는 조상의 지혜가 담겨요."},
-  {"e": "🗣️", "w": "관용 표현", "m": "관용어와 속담을 아울러", "x": "관용 표현을 대화에 썼어요."},
-  {"e": "🎬", "w": "상황", "m": "일이 벌어지는 형편", "x": "상황에 맞게 말했어요."},
-  {"e": "✨", "w": "표현", "m": "생각·느낌을 드러냄", "x": "실감 나게 표현했어요."},
-  {"e": "🦉", "w": "지혜", "m": "슬기롭게 아는 힘", "x": "속담에서 지혜를 배워요."},
-  {"e": "📢", "w": "소문", "m": "사람들 사이에 퍼진 말", "x": "소문이 빠르게 퍼졌어요."},
-  {"e": "👥", "w": "대화", "m": "서로 이야기를 주고받음", "x": "친구와 대화를 나눴어요."}
+  {"e": "🤝", "w": "손발이 맞다", "m": "마음이나 행동이 잘 맞다", "x": "우린 손발이 맞아."},
+  {"e": "🧠", "w": "머리를 맞대다", "m": "서로 마주 대하고 의논하다", "x": "머리를 맞대요."},
+  {"e": "👣", "w": "발이 넓다", "m": "사귀는 사람이 많다", "x": "발이 넓은 친구"},
+  {"e": "🏃", "w": "발 벗고 나서다", "m": "적극적으로 나서다", "x": "발 벗고 도와요."},
+  {"e": "🍲", "w": "손이 크다", "m": "씀씀이가 넉넉하다", "x": "엄마는 손이 커요."},
+  {"e": "👂", "w": "귀가 얇다", "m": "남의 말에 잘 넘어가다", "x": "귀가 얇아요."},
+  {"e": "🤐", "w": "입이 무겁다", "m": "말이 적고 비밀을 잘 지키다", "x": "입이 무거운 친구"},
+  {"e": "📖", "w": "관용어", "m": "새 뜻을 가진 굳은 말", "x": "관용어를 배워요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

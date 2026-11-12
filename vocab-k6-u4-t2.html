@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 견학 기록문 쓰기</title>
+<title>&lt;em&gt;속담&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 4단원 상황에 맞게 표현해요 · 어휘 카드 8장</p>
-    <h1><em>견학 기록문</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-1 · 4단원 · 속담 이해하기 · 어휘 카드 8장</p>
+    <h1><em>속담</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🏛️", "w": "견학", "m": "직접 찾아가 보고 배움", "x": "박물관으로 견학을 갔어요."},
-  {"e": "📝", "w": "기록문", "m": "있었던 일을 적은 글", "x": "견학 기록문을 썼어요."},
-  {"e": "💗", "w": "느낀 점", "m": "마음에 든 생각", "x": "느낀 점을 자세히 썼어요."},
-  {"e": "🌟", "w": "실감", "m": "진짜처럼 느껴짐", "x": "실감 나게 표현했어요."},
-  {"e": "🧩", "w": "짜임", "m": "글이 이루어진 순서", "x": "글의 짜임을 지켰어요."},
-  {"e": "👀", "w": "관람", "m": "전시나 공연을 봄", "x": "전시를 관람했어요."},
-  {"e": "💫", "w": "인상", "m": "마음에 남은 느낌", "x": "인상 깊은 곳이었어요."},
-  {"e": "🙋", "w": "소개", "m": "알려서 보여 줌", "x": "친구에게 소개했어요."}
+  {"e": "🪔", "w": "등잔 밑이 어둡다", "m": "가까운 것을 잘 모른다", "x": "등잔 밑이 어둡네!"},
+  {"e": "🗼", "w": "공든 탑이 무너지랴", "m": "정성 들인 일은 헛되지 않다", "x": "공든 탑이 무너지랴."},
+  {"e": "🔟", "w": "하나를 보고 열을 안다", "m": "작은 일로 전체를 짐작한다", "x": "하나를 보고 열을 알아요."},
+  {"e": "🐦", "w": "낮말은 새가 듣고", "m": "말조심하라는 뜻", "x": "낮말은 새가 듣는다."},
+  {"e": "🪨", "w": "돌다리도 두들겨 보고", "m": "잘 아는 일도 조심하라", "x": "돌다리도 두들겨 봐요."},
+  {"e": "👶", "w": "세 살 버릇 여든까지", "m": "어릴 때 버릇은 고치기 어렵다", "x": "세 살 버릇 여든까지"},
+  {"e": "📚", "w": "속담", "m": "지혜를 담아 전해 오는 말", "x": "속담을 찾아요."},
+  {"e": "📕", "w": "속담 사전", "m": "속담을 모은 사전", "x": "속담 사전을 펴요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
