@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 매체 자료의 신뢰성</title>
+<title>&lt;em&gt;의견 조정&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 4단원 판단하며 이용해요 · 어휘 카드 8장</p>
-    <h1><em>신뢰성</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 4단원 · 의견을 조정하는 방법 · 어휘 카드 8장</p>
+    <h1><em>의견 조정</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🛡️", "w": "신뢰성", "m": "믿을 수 있는 정도", "x": "신뢰성을 판단해요."},
-  {"e": "⚠️", "w": "허위 정보", "m": "사실이 아닌 정보", "x": "허위 정보를 가려요."},
-  {"e": "🔖", "w": "출처", "m": "자료가 나온 곳", "x": "출처를 확인해요."},
-  {"e": "🎯", "w": "의도", "m": "하려는 속마음", "x": "만든 의도를 살펴요."},
-  {"e": "⚖️", "w": "판단", "m": "옳고 그름을 가림", "x": "판단하며 이용해요."},
-  {"e": "📡", "w": "매체 자료", "m": "정보를 전하는 자료", "x": "매체 자료를 살펴요."},
-  {"e": "🔍", "w": "확인", "m": "틀림없이 알아봄", "x": "사실을 확인해요."},
-  {"e": "📅", "w": "최신", "m": "가장 새로움", "x": "최신 정보인지 봐요."}
+  {"e": "⚖️", "w": "조정하다", "m": "알맞게 맞추다", "x": "의견을 조정해요."},
+  {"e": "🤝", "w": "합의점", "m": "서로 양보해 뜻이 모인 지점", "x": "합의점을 찾아요."},
+  {"e": "📏", "w": "검토 기준", "m": "따져 보는 잣대", "x": "검토 기준을 정해요."},
+  {"e": "✔️", "w": "타당하다", "m": "이치에 맞다", "x": "타당한 이유"},
+  {"e": "🗯️", "w": "언어폭력", "m": "말로 상처를 주는 것", "x": "언어폭력을 막아요."},
+  {"e": "📢", "w": "홍보", "m": "널리 알림", "x": "예방 홍보 활동"},
+  {"e": "📱", "w": "누리 소통망", "m": "인터넷으로 소통하는 서비스", "x": "누리 소통망 규칙"},
+  {"e": "🔍", "w": "검토하다", "m": "자세히 따져 보다", "x": "의견을 검토해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
