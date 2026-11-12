@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 기행문 쓰기</title>
+<title>&lt;em&gt;때를 나타내는 말&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 2단원 체험한 일을 글로 써요 · 어휘 카드 8장</p>
-    <h1><em>기행문 쓰기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 2단원 · 시간 표현 더 알아보기 · 어휘 카드 8장</p>
+    <h1><em>때를 나타내는 말</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🧳", "w": "기행문", "m": "여행하며 보고 듣고 느낀 것을 쓴 글", "x": "설악산 기행문을 읽어요."},
-  {"e": "🗺️", "w": "여정", "m": "여행한 과정이나 장소", "x": "외설악을 둘러보는 여정이에요."},
-  {"e": "👀", "w": "견문", "m": "여행하며 보고 들은 것", "x": "신흥사에 대한 견문을 썼어요."},
-  {"e": "💭", "w": "감상", "m": "여행하며 든 생각이나 느낌", "x": "산의 품에 대한 감상을 썼어요."},
-  {"e": "⛰️", "w": "설악산", "m": "강원도에 있는 아름다운 산", "x": "설악산은 계절마다 모습이 달라요."},
-  {"e": "🪨", "w": "흔들바위", "m": "혼자 흔들어도 흔들리는 큰 바위", "x": "흔들바위를 흔들어 보았어요."},
-  {"e": "⛩️", "w": "일주문", "m": "절에서 기둥을 한 줄로 배치한 문", "x": "일주문을 지나 절로 들어갔어요."},
-  {"e": "🙇", "w": "겸손", "m": "남을 높이고 자기를 낮추는 마음", "x": "산을 오르면 마음이 겸손해져요."}
+  {"e": "⏮️", "w": "아까", "m": "조금 전에", "x": "아까 만났어요."},
+  {"e": "⏭️", "w": "이따", "m": "조금 뒤에", "x": "이따 보자."},
+  {"e": "📆", "w": "그저께", "m": "어제의 전날", "x": "그저께 비가 왔어요."},
+  {"e": "📆", "w": "모레", "m": "내일의 다음 날", "x": "모레 소풍 가요."},
+  {"e": "📆", "w": "글피", "m": "모레의 다음 날", "x": "글피에 만나요."},
+  {"e": "3️⃣", "w": "사흘", "m": "세 날", "x": "사흘 동안"},
+  {"e": "4️⃣", "w": "나흘", "m": "네 날", "x": "나흘 걸렸어요."},
+  {"e": "7️⃣", "w": "이레", "m": "일곱 날", "x": "이레 동안 여행했어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

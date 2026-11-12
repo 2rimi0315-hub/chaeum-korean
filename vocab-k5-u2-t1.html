@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 시간 표현을 활용해 글 쓰기</title>
+<title>&lt;em&gt;시간 표현&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 2단원 체험한 일을 글로 써요 · 어휘 카드 8장</p>
-    <h1><em>시간 표현을 활용해 글 쓰기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 2단원 · 물고기를 향해 멀리 넓게 · 어휘 카드 8장</p>
+    <h1><em>시간 표현</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "⏰", "w": "시간 표현", "m": "'아침에, 지난 5월'처럼 때를 나타내는 말", "x": "시간 표현으로 차례를 나타내요."},
-  {"e": "✍️", "w": "체험", "m": "몸소 겪는 것", "x": "체험한 일을 글로 써요."},
-  {"e": "🦅", "w": "물수리", "m": "물고기를 잡아먹는 큰 새", "x": "물수리가 물고기를 잡아요."},
-  {"e": "🌊", "w": "해협", "m": "육지 사이에 낀 좁고 긴 바다", "x": "영국 해협을 건넜어요."},
-  {"e": "🏠", "w": "서식지", "m": "생물이 자리를 잡고 사는 곳", "x": "동물들과 서식지를 나눠요."},
-  {"e": "🌴", "w": "열대", "m": "매우 덥고 비가 많은 지역", "x": "열대 해안에서 겨울을 보내요."},
-  {"e": "🐣", "w": "둥지", "m": "새가 알을 낳고 사는 집", "x": "나뭇가지 둥지에서 태어났어요."},
-  {"e": "🔢", "w": "차례", "m": "일이 일어난 순서", "x": "시간 표현으로 차례를 알아요."}
+  {"e": "🦅", "w": "물수리", "m": "물고기를 잡아먹는 새", "x": "물수리가 날아요."},
+  {"e": "✊", "w": "움켜쥐다", "m": "꽉 쥐다", "x": "물고기를 움켜쥐었어요."},
+  {"e": "📅", "w": "이듬해", "m": "다음 해", "x": "이듬해 봄"},
+  {"e": "⏪", "w": "과거", "m": "이미 지나간 때", "x": "과거의 일"},
+  {"e": "▶️", "w": "현재", "m": "지금", "x": "현재 일어나는 일"},
+  {"e": "⏩", "w": "미래", "m": "앞으로 올 때", "x": "미래의 꿈"},
+  {"e": "🌳", "w": "바오바브나무", "m": "아프리카의 큰 나무", "x": "바오바브나무 위"},
+  {"e": "🪺", "w": "둥지", "m": "새가 사는 집", "x": "둥지에서 태어났어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
