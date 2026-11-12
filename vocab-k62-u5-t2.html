@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 바르고 고운 우리말</title>
+<title>&lt;em&gt;매체&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 5단원 우리말을 가꾸어요 · 어휘 카드 8장</p>
-    <h1><em>우리말</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 5단원 · 매체 자료의 표현 효과 · 어휘 카드 8장</p>
+    <h1><em>매체</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🇰🇷", "w": "표준어", "m": "두루 쓰기로 정한 말", "x": "표준어로 말해요."},
-  {"e": "🏞️", "w": "방언", "m": "한 지역에서 쓰는 말", "x": "방언을 살펴요."},
-  {"e": "🚫", "w": "비속어", "m": "거칠고 낮은 말", "x": "비속어를 쓰지 않아요."},
-  {"e": "✂️", "w": "줄임말", "m": "짧게 줄인 말", "x": "줄임말을 줄여요."},
-  {"e": "🌸", "w": "고운 말", "m": "따뜻하고 바른 말", "x": "고운 말을 써요."},
-  {"e": "🤲", "w": "배려", "m": "상대를 헤아려 아낌", "x": "배려하는 말이에요."},
-  {"e": "📖", "w": "우리말", "m": "우리나라 말", "x": "우리말을 가꾸어요."},
-  {"e": "🗣️", "w": "언어생활", "m": "말을 쓰는 생활", "x": "바른 언어생활을 해요."}
+  {"e": "📺", "w": "매체", "m": "정보를 전하는 수단", "x": "여러 가지 매체"},
+  {"e": "💬", "w": "자막", "m": "화면의 글자", "x": "자막을 읽어요."},
+  {"e": "📰", "w": "인쇄 매체", "m": "종이에 찍어 전하는 매체", "x": "신문은 인쇄 매체"},
+  {"e": "🤲", "w": "공익", "m": "모두의 이익", "x": "공익 광고"},
+  {"e": "🚸", "w": "보호 구역", "m": "특별히 보호하는 곳", "x": "어린이 보호 구역"},
+  {"e": "🚗", "w": "운전자", "m": "차를 모는 사람", "x": "운전자가 보호자"},
+  {"e": "🔊", "w": "효과음", "m": "분위기를 살리는 소리", "x": "브레이크 효과음"},
+  {"e": "🎯", "w": "강조하다", "m": "두드러지게 하다", "x": "색으로 강조해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
