@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 인물의 성격</title>
+<title>&lt;em&gt;성격&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 5단원 인물에게 마음을 전해요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 3-1 · 5단원 · 까망이와 까미 · 어휘 카드 8장</p>
     <h1><em>성격</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🌟", "w": "성격", "m": "남다른 성질이나 성품", "x": "인물의 성격을 파악해요."},
-  {"e": "🧍", "w": "인물", "m": "이야기 속 사람·동물", "x": "인물을 살펴요."},
-  {"e": "🗨️", "w": "말", "m": "입으로 하는 소리", "x": "인물의 말을 살펴요."},
-  {"e": "🏃", "w": "행동", "m": "몸으로 한 일", "x": "행동에서 성격이 보여요."},
-  {"e": "💪", "w": "끈기", "m": "쉽게 포기하지 않는 힘", "x": "까망이는 끈기 있어요."},
-  {"e": "🏳️", "w": "포기", "m": "하던 일을 그만둠", "x": "까미는 포기가 빨라요."},
-  {"e": "⚡", "w": "급하다", "m": "참을성 없이 서두르다", "x": "성질이 급해요."},
-  {"e": "💡", "w": "지혜롭다", "m": "슬기롭게 해결하다", "x": "지혜롭게 물을 마셨어요."}
+  {"e": "🧑", "w": "성격", "m": "사람이 가진 남다른 성질", "x": "친구의 성격이 밝아요."},
+  {"e": "🐢", "w": "끈기", "m": "쉽게 포기하지 않는 힘", "x": "끈기 있게 연습해요."},
+  {"e": "🏳️", "w": "포기하다", "m": "하던 일을 그만두다", "x": "포기하지 않을래요."},
+  {"e": "💨", "w": "무작정", "m": "앞뒤를 생각하지 않고", "x": "무작정 뛰어갔어요."},
+  {"e": "🐦‍⬛", "w": "까마귀", "m": "온몸이 까만 새", "x": "까마귀가 물병을 찾았어요."},
+  {"e": "🪨", "w": "돌멩이", "m": "작은 돌", "x": "돌멩이를 넣었어요."},
+  {"e": "🤔", "w": "곰곰이", "m": "깊이 생각하는 모양", "x": "곰곰이 생각했어요."},
+  {"e": "😩", "w": "실망하다", "m": "기대가 어긋나 마음이 상하다", "x": "실망하지 마."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

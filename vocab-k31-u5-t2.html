@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 마음을 전하는 편지</title>
+<title>&lt;em&gt;까먹어도 될까요&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 5단원 인물에게 마음을 전해요 · 어휘 카드 8장</p>
-    <h1><em>편지</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-1 · 5단원 · 까먹어도 될까요 · 어휘 카드 8장</p>
+    <h1><em>까먹어도 될까요</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✉️", "w": "편지", "m": "마음을 적어 보내는 글", "x": "편지를 써요."},
-  {"e": "🙋", "w": "받을 사람", "m": "편지를 받는 사람", "x": "받을 사람을 써요."},
-  {"e": "👋", "w": "첫인사", "m": "처음 하는 인사", "x": "첫인사를 해요."},
-  {"e": "🙏", "w": "끝인사", "m": "마무리 인사", "x": "끝인사를 해요."},
-  {"e": "❤️", "w": "마음", "m": "속으로 느끼는 생각", "x": "마음을 전해요."},
-  {"e": "🤗", "w": "안부", "m": "잘 지내는지 물음", "x": "안부를 물어요."},
-  {"e": "✒️", "w": "쓴 사람", "m": "편지를 쓴 사람", "x": "쓴 사람을 밝혀요."},
-  {"e": "💌", "w": "전하다", "m": "마음이나 뜻을 알림", "x": "마음을 전해요."}
+  {"e": "🐿️", "w": "다람쥐", "m": "도토리를 좋아하는 작은 동물", "x": "다람쥐가 도토리를 묻어요."},
+  {"e": "🌰", "w": "도토리", "m": "참나무 열매", "x": "도토리를 모아요."},
+  {"e": "😠", "w": "억울하다", "m": "잘못 없이 피해를 입어 분하다", "x": "억울한 일이 있었어요."},
+  {"e": "⚖️", "w": "불공평하다", "m": "한쪽으로 치우치다", "x": "불공평한 규칙이에요."},
+  {"e": "✊", "w": "결심하다", "m": "마음을 굳게 정하다", "x": "매일 운동하기로 결심했어요."},
+  {"e": "🏋️", "w": "훈련", "m": "되풀이해 익힘", "x": "훈련을 열심히 해요."},
+  {"e": "🌍", "w": "지진", "m": "땅이 흔들리는 일", "x": "지진이 났어요."},
+  {"e": "🌿", "w": "약초", "m": "약으로 쓰는 풀", "x": "약초를 말려요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
