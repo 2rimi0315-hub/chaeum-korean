@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 의견 쓰고 고쳐쓰기</title>
+<title>&lt;em&gt;건전지 엄마&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 6단원 작품을 보고 생각을 나눠요 · 어휘 카드 8장</p>
-    <h1><em>의견</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 6단원 · 건전지 엄마 · 어휘 카드 8장</p>
+    <h1><em>건전지 엄마</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💭", "w": "의견", "m": "자기 생각", "x": "의견을 썼어요."},
-  {"e": "❓", "w": "까닭", "m": "그렇게 생각한 이유", "x": "까닭을 밝혔어요."},
-  {"e": "✏️", "w": "고쳐쓰기", "m": "쓴 글을 바르게 다듬음", "x": "고쳐쓰기를 했어요."},
-  {"e": "🔍", "w": "점검", "m": "살펴 확인함", "x": "글을 점검했어요."},
-  {"e": "😵", "w": "어색하다", "m": "자연스럽지 않다", "x": "문장이 어색해요."},
-  {"e": "🧹", "w": "다듬다", "m": "고르고 매끄럽게 함", "x": "글을 다듬었어요."},
-  {"e": "🌊", "w": "자연스럽다", "m": "어색하지 않고 매끄럽다", "x": "문장이 자연스러워요."},
-  {"e": "🏆", "w": "완성", "m": "끝까지 다 이룸", "x": "글을 완성했어요."}
+  {"e": "🔋", "w": "건전지", "m": "전기를 담아 둔 작은 통", "x": "건전지를 갈아요."},
+  {"e": "🔊", "w": "효과음", "m": "장면을 실감 나게 하는 소리", "x": "효과음이 들려요."},
+  {"e": "🎵", "w": "배경 음악", "m": "장면 뒤에 흐르는 음악", "x": "배경 음악이 잔잔해요."},
+  {"e": "😰", "w": "다급하다", "m": "몹시 급하다", "x": "다급하게 달려요."},
+  {"e": "💡", "w": "교훈", "m": "앞으로 도움이 될 가르침", "x": "교훈을 얻었어요."},
+  {"e": "🦸", "w": "용기", "m": "씩씩하고 굳센 마음", "x": "용기를 내요."},
+  {"e": "🏫", "w": "유치원", "m": "어린아이가 다니는 곳", "x": "유치원에 가요."},
+  {"e": "😴", "w": "낮잠", "m": "낮에 자는 잠", "x": "낮잠을 자요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

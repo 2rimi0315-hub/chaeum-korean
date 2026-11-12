@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 감동과 의견</title>
+<title>&lt;em&gt;감상&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 6단원 작품을 보고 생각을 나눠요 · 어휘 카드 8장</p>
-    <h1><em>감동·의견</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 6단원 · 재미나 감동을 느낀 경험 · 어휘 카드 8장</p>
+    <h1><em>감상</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💗", "w": "감동", "m": "마음이 크게 움직임", "x": "영화에 감동했어요."},
-  {"e": "💭", "w": "의견", "m": "어떤 일에 대한 생각", "x": "내 의견을 말했어요."},
-  {"e": "❓", "w": "까닭", "m": "그렇게 생각한 이유", "x": "까닭을 들었어요."},
-  {"e": "📚", "w": "작품", "m": "시·이야기·영화 같은 것", "x": "작품을 감상했어요."},
-  {"e": "👍", "w": "추천", "m": "좋다고 권함", "x": "이 책을 추천해요."},
-  {"e": "😄", "w": "재미", "m": "즐겁고 흥겨운 느낌", "x": "재미를 느꼈어요."},
-  {"e": "🧠", "w": "생각", "m": "머릿속에 떠오른 것", "x": "생각을 정리했어요."},
-  {"e": "✨", "w": "표현", "m": "생각·느낌을 드러냄", "x": "감동을 표현했어요."}
+  {"e": "🎬", "w": "감상", "m": "작품을 보고 느끼고 즐김", "x": "영화를 감상해요."},
+  {"e": "🥹", "w": "감동", "m": "크게 느껴 마음이 움직임", "x": "감동을 받았어요."},
+  {"e": "😟", "w": "안쓰럽다", "m": "딱하고 가엾다", "x": "레오가 안쓰러워요."},
+  {"e": "🖼️", "w": "작품", "m": "만든 것", "x": "좋아하는 작품"},
+  {"e": "😂", "w": "재미", "m": "즐겁고 유쾌한 느낌", "x": "재미있게 봤어요."},
+  {"e": "🙊", "w": "놀림", "m": "흉보며 웃음거리로 만듦", "x": "놀림을 받았어요."},
+  {"e": "🌟", "w": "꿈", "m": "이루고 싶은 바람", "x": "꿈을 이뤄요."},
+  {"e": "🧙", "w": "마법사", "m": "마법을 부리는 사람", "x": "마법사가 나타났어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
