@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 문단과 중심 문장</title>
+<title>&lt;em&gt;문단&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 3단원 짜임새 있는 글, 재미와 감동이 있는 글 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 3-1 · 3단원 · 플라스틱의 두 얼굴 · 어휘 카드 8장</p>
     <h1><em>문단</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📑", "w": "문단", "m": "한 생각의 문장 덩어리", "x": "문단을 나눠요."},
-  {"e": "⭐", "w": "중심 문장", "m": "가장 중요한 문장", "x": "중심 문장을 찾아요."},
-  {"e": "🧩", "w": "뒷받침 문장", "m": "돕고 설명하는 문장", "x": "뒷받침 문장이에요."},
-  {"e": "📝", "w": "문장", "m": "생각을 나타낸 한 마디", "x": "문장을 써요."},
-  {"e": "🏗️", "w": "짜임", "m": "이루어진 모양", "x": "글의 짜임이에요."},
-  {"e": "💭", "w": "생각", "m": "마음에 떠오른 것", "x": "생각을 담아요."},
-  {"e": "📌", "w": "중요", "m": "꼭 알아야 함", "x": "중요한 내용이에요."},
-  {"e": "↩️", "w": "줄 바꾸기", "m": "문단마다 줄을 바꿈", "x": "줄을 바꿔 써요."}
+  {"e": "📄", "w": "문단", "m": "한 가지 생각을 나타내는 글의 덩어리", "x": "문단을 나누어 써요."},
+  {"e": "⭐", "w": "중심 문장", "m": "문단의 내용을 대표하는 문장", "x": "중심 문장을 찾아요."},
+  {"e": "🧩", "w": "뒷받침 문장", "m": "중심 문장을 설명하는 문장", "x": "뒷받침 문장을 더해요."},
+  {"e": "🧴", "w": "플라스틱", "m": "사람이 만든 가볍고 단단한 재료", "x": "플라스틱 병을 재활용해요."},
+  {"e": "🏭", "w": "인공", "m": "사람이 만든 것", "x": "인공 호수예요."},
+  {"e": "🌊", "w": "오염", "m": "더럽게 물듦", "x": "바다가 오염되었어요."},
+  {"e": "⏳", "w": "썩다", "m": "오래되어 상하다", "x": "플라스틱은 잘 썩지 않아요."},
+  {"e": "🧲", "w": "녹", "m": "쇠붙이에 생기는 붉은 물질", "x": "녹이 슬었어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
