@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 올바른 문장을 구성해 글 쓰기 (국어 5-2)</title>
+<title>활동지 — 주어와 서술어 (국어 5-2)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -22,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -29,35 +30,63 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
+
   .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
   .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
   .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
   .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
   .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
   .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   .passage{font-size:17px; line-height:2.1;}
   .passage p{margin-bottom:14px;}
@@ -67,44 +96,100 @@
   .passage .w.env{background:var(--mark-env);}
   .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
   .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:120px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
-  .structbox{border:2px solid var(--ink); border-radius:14px; overflow:hidden; margin-bottom:12px;}
-  .structbox h3{font-size:15px; font-weight:800; padding:10px 14px; color:#fff;}
-  .structbox.s1 h3{background:var(--teal);}
-  .structbox.s2 h3{background:var(--purple);}
-  .structbox.s3 h3{background:var(--tangerine);}
-  .structbox .body{padding:14px; font-size:14.5px; line-height:1.7;}
-  .structbox .body b{color:var(--ink);}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
   .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
     .marktools, .checkbtn, #result{display:none !important;}
@@ -112,73 +197,125 @@
     .box{border-width:1.5px;}
     .writeline{border-bottom:1.5px dashed #999;}
   }
-  .flowlist{margin-top:8px;}
-  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
-  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
-  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
-  .flowrow .fixed b{color:var(--tangerine-dark);}
-  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top"><img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 2단원 올바른 문장으로 글을 써요</p>
-    <h1><em>올바른 문장</em>을 구성해요</h1>
-    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div></header>
-  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>단원을 시작해요</h2></div>
-    <div class="box"><div class="say">🔔 2단원에서는 <b>올바른 문장으로</b> 글을 써요. 오늘은 문장 성분의 호응을 배워요!</div>
-      <div class="rv"><p class="q">문장에서 앞뒤 말이 서로 어울리는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="호응"><button data-v="호응">호응</button><button data-v="대답">대답</button></div></div>
-      <div class="rv"><p class="q">생각을 나타내는 한 마디 글은?</p><div class="rvgroup" data-ranswer="문장"><button data-v="문장">문장</button><button data-v="낱말">낱말</button></div></div>
-    </div></section>
-  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
-    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>"나는 어제 도서관에 갈 것이다"— 어딘가 이상하지 않나요?</small></p><div class="cowrap"><img src="comics/k52-u2-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k52-u2-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
-      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 올바른 문장으로 글을 써요</small>올바른 문장을 구성해 글 쓰기</span></label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>"어제"와 어울리는 말은?</p></div><textarea class="writeline" rows="1" placeholder="갔다처럼 ..... 을 나타내는 말이에요."></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>"결코"와 어울리는 말은?</p></div><textarea class="writeline" rows="1" placeholder=""결코 ..... 않다"처럼 부정하는 말이에요."></textarea></div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">문장은 <b>주어·서술어</b>가 어울리고, <b>시간을 나타내는 말</b>과 <b>호응</b>이 맞아야 뜻이 바르게 전해져요.</p></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>문장의 호응을 알아봐요</h2></div>
-    <div class="box"><div class="say">📋 이런 호응을 지켜요. 소리 내어 읽어 봐요.</div><div class="flowlist"><div class="flowrow"><span class="fno">1</span><div class="fixed"><b>시간 호응</b> — 어제 → 갔다 / 내일 → 갈 것이다</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">2</span><div class="fixed"><b>높임 호응</b> — 할머니께서 → 주무신다</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">3</span><div class="fixed"><b>꾸며 주는 말 호응</b> — 결코 ~않다 · 전혀 ~없다 · 만약 ~라면</div></div><div class="flowarrow">▼</div><div class="flowrow"><span class="fno">4</span><div class="fixed"><b>주어·서술어 호응</b> — 내 꿈은 의사가 되는 것이다 (○)</div></div></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>호응</b> 앞뒤 말이 어울림 · <b>주어</b> 누가/무엇이 · <b>서술어</b> 어찌하다/어떠하다 · <b>구성</b> 짜서 이룸</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 호응이 어긋난 문장이 섞인 글이에요. 찾아서 고쳐 봐요.</p></div>
-      <div class="say">👀 <b>어색한 문장은(는) 노랑</b>, <b>바른 문장은(는) 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
-      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 어색한 문장</button><button id="btn-env" onclick="setMode('env')">🩵 바른 문장</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
-      <p class="ptitle"><small>일기 (예시)</small>호응을 찾아라<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예시예요</span></p>
-      <div class="passage" id="passage">
-<p>나는 어제 가족과 캠핑을 갈 것이다. 아침 일찍 출발해서 강가에 도착했다.</p>
-<p>아빠와 텐트를 치는데 바람이 결코 세게 불었다. 그래도 힘을 모아 텐트를 완성했다.</p>
-<p>저녁에는 할머니가 끓여 주신 찌개를 먹었다. 만약 다음에 또 온다면 낚시도 해 보고 싶다.</p>
-<p>밤하늘의 별이 정말 아름다웠다. 즐거운 하루였다. (※ 어색한 문장 두 개를 찾아 고쳐 보세요!)</p>
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 5-2 · 2단원</p>
+    <h1>문장 성분 ① <em>주어</em>와 <em>서술어</em></h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
+    <div class="box">
+      <div class="say">🔔 2단원에서는 문장 성분을 알고 올바른 문장을 쓰며, 매체의 특성에 맞게 글을 써요!</div>
+      <div class="rv"><p class="q">"사자가 움직인다."에서 '누가'에 해당하는 말은?</p><div class="rvgroup" data-ranswer="사자가"><button data-v="사자가">사자가</button><button data-v="움직인다">움직인다</button></div></div>
+      <div class="rv"><p class="q">문장에서 동작이나 상태의 주체가 되는 말을 주어라고 해요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k52-u2-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k52-u2-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>단원 이름을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">2. 올바른 문장으로 글을 써요</small>1) 문장 성분 이해하기 — 주어와 서술어</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>빈칸을 채워 문장을 완성해 보세요.</p></div>
+      <textarea class="writeline" rows="1" placeholder="..... 이/가 움직인다. / 딸기가 ....."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);"><b>주어</b>: 문장에서 '누가', '무엇이'에 해당하는 말(지호가). <b>서술어</b>: 주어가 '어찌하다(웃는다)', '어떠하다(파랗다)', '무엇이다(5학년이다)'를 알려 주는 말.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>주어와 서술어를 찾아요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 72~73쪽</b>을 펴서 그림과 문장을 살펴봐요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래 문장에서 <b>주어는 파랑</b>, <b>서술어는 노랑</b>으로 표시해요.</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 주어</button>
+        <button id="btn-important" onclick="setMode('important')">💛 서술어</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
       </div>
-      <div class="legendline"><span><i style="background:#FAE28A"></i>어색한 문장</span><span><i style="background:#BFE3F7"></i>바른 문장</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>호응</b> 앞뒤 말이 어울림 · <b>결코</b> ~않다와 어울림 · <b>만약</b> ~라면과 어울림</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>올바른 문장을 골라요</h2></div>
-    <div class="box"><div class="say">📖 <b>교과서 5-2 가 68쪽</b>부터 올바른 문장 구성을 배웠어요. 호응이 맞는 문장을 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 시간 호응이 맞는 문장은?</p><div class="rvgroup" data-ranswer="나는 어제 도서관에 갔다"><button data-v="나는 어제 도서관에 갔다">나는 어제 도서관에 갔다</button><button data-v="나는 어제 도서관에 갈 것이다">나는 어제 도서관에 갈 것이다</button></div></div>
-      <div class="rv"><p class="q">② 높임 호응이 맞는 문장은?</p><div class="rvgroup" data-ranswer="할머니께서 진지를 잡수신다"><button data-v="할머니께서 진지를 잡수신다">할머니께서 진지를 잡수신다</button><button data-v="할머니가 밥을 먹는다">할머니가 밥을 먹는다</button></div></div>
-      <div class="rv"><p class="q">③ "결코"와 어울리는 문장은?</p><div class="rvgroup" data-ranswer="나는 결코 거짓말을 하지 않았다"><button data-v="나는 결코 거짓말을 하지 않았다">나는 결코 거짓말을 하지 않았다</button><button data-v="나는 결코 거짓말을 했다">나는 결코 거짓말을 했다</button></div></div>
-      <div class="rv"><p class="q">④ 주어와 서술어가 어울리는 문장은?</p><div class="rvgroup" data-ranswer="내 꿈은 의사가 되는 것이다"><button data-v="내 꿈은 의사가 되는 것이다">내 꿈은 의사가 되는 것이다</button><button data-v="내 꿈은 의사가 되고 싶다">내 꿈은 의사가 되고 싶다</button></div></div>
-    </div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 3</span><h2>틀린 문장을 고쳐요</h2></div>
-    <div class="box"><div class="say">📝 호응이 어긋난 문장을 바르게 고쳐 봐요.</div><table><thead><tr><th style="width:130px;">틀린 문장</th><th>바르게 고친 문장</th></tr></thead><tbody><tr><td class="word">내일 친구를 만났다</td><td><input type="text" placeholder="예) 내일 친구를 ..... "></td></tr><tr><td class="word">전혀 재미있었다</td><td><input type="text" placeholder="예) 전혀 재미가 ..... "></td></tr><tr><td class="word">선생님이 말했다</td><td><input type="text" placeholder="예) 선생님께서 ..... "></td></tr></tbody></table>
-      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>오늘 있었던 일을 호응에 맞는 한 문장으로 써 보세요.</p></div><textarea class="writeline" rows="2" placeholder="예) 나는 오늘 ..... 했다."></textarea></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>문장 호응을 확인해요</h2></div>
-    <div class="box"><div class="say">🔎 바르게 이해했으면 ⭕, 아니면 ❌를 골라 누르세요.</div><div class="rv"><p class="q">① "어제"는 과거를 나타내는 말과 어울린다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">② "만약"은 "~라면"과 호응한다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">③ 호응이 어긋나도 뜻은 똑같이 전해진다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div><div class="rv"><p class="q">④ 웃어른께는 높임 표현으로 호응을 맞춘다.</p><div class="rvgroup" data-ranswer="⭕ 맞아요"><button data-v="⭕ 맞아요">⭕ 맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div></section>
-  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
-    <div class="box"><div class="selfcheck"><p>💪 호응이 어긋난 문장을 찾을 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 올바른 문장으로 글을 쓸 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
-    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">문장에서 앞뒤 말이 서로 어울리는 것을 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:130px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="12" aria-label="빈칸"> (이)라고 한다.</p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 호응</p></div>
-    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. 호응이 <u>올바른</u> 문장을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="4"><button>① 나는 내일 영화를 봤다</button><button>② 결코 좋은 일이다</button><button>③ 할아버지가 밥을 먹었다</button><button>④ 만약 비가 온다면 집에 있겠다</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">올바른 문장은 <b>시간·높임·꾸며 주는 말·주어와 서술어</b>의 <b>호응</b>이 맞는 문장이에요.</div><div class="mc" data-q="q3" data-answer="1"><button>① 호응은 지키지 않아도 된다.</button><button>② "전혀"는 "~없다"와 어울린다.</button><button>③ "내일"은 미래를 나타내는 말과 어울린다.</button><button>④ 글을 쓴 뒤 호응을 점검한다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">"만약"을 넣어 호응이 맞는 문장을 하나 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 만약 ..... 라면 ..... 것이다."></textarea></div>
-      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
-    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">내가 쓴 일기에서 호응이 어긋난 문장을 찾아 고쳐 오세요.</p><textarea class="writeline" rows="2" placeholder="틀린 문장: ..... → 고친 문장: ....."></textarea></div></section>
+      <p class="ptitle"><small>문장 살펴보기</small>지호를 설명하는 문장<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 만든 예문 · 교과서 72~73쪽 관련</span></p>
+      <div class="passage" id="passage">
+        <p class="어찌하다">지호가 웃는다. 지호가 달린다.</p>
+        <p class="어떠하다">운동복이 파랗다. 운동화가 노랗다. 지호는 씩씩하다.</p>
+        <p class="무엇이다">지호는 5학년이다. 지호는 달리기 선수이다.</p>
+        <p>시곗바늘이 움직인다. 딸기가 달콤하다.</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>주어</span>
+        <span><i style="background:var(--mark-important)"></i>서술어</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 알맞은 답을 골라 누르세요. (교과서 72~73쪽)</div>
+      <div class="rv"><p class="q">① "운동복이 파랗다."의 서술어는?</p><div class="rvgroup" data-ranswer="파랗다"><button data-v="파랗다">파랗다</button><button data-v="운동복이">운동복이</button></div></div>
+      <div class="rv"><p class="q">② "파랗다"는 서술어의 어떤 종류인가요?</p><div class="rvgroup" data-ranswer="어떠하다"><button data-v="어떠하다">어떠하다</button><button data-v="어찌하다">어찌하다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>문장 성분 낱말</h2></div>
+    <div class="box">
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전</b>에서 찾아 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">문장 성분</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">주어</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">서술어</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">주체</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>서술어 바꾸기! <small>'우리 반'을 주어로 서술어 세 가지를 써 보세요.</small></p></div>
+      <div class="combine"><div class="chip"><small>어찌하다</small><b>우리 반이</b><input type="text" placeholder="....."></div><div class="chip"><small>어떠하다</small><b>우리 반은</b><input type="text" placeholder="....."></div><div class="chip"><small>무엇이다</small><b>우리 반은</b><input type="text" placeholder="....."></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>주어와 서술어를 표로 정리해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>문장을 주어와 서술어로 나누어요. <small>노란 칸을 읽고, 빈칸을 채워 보세요.</small></p></div>
+      <table><thead><tr><th>문장</th><th style="width:100px;">주어</th><th style="width:100px;">서술어</th><th style="width:120px;">서술어 종류</th></tr></thead><tbody><tr><td class="word">지호가 웃는다.</td><td style="background:#FBF3DC;">지호가</td><td style="background:#FBF3DC;">웃는다</td><td style="background:#FBF3DC;">어찌하다</td></tr><tr><td class="word">하늘이 맑다.</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">고래는 동물이다.</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">동생이 잔다.</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>표를 보면서 주어와 서술어를 말하고, 다음에는 표를 가리고 말해 보세요.</p></div>
+      <div class="rv"><p class="q">표를 보지 않고 말할 수 있었나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 다 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 해 볼래요</button></div></div>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>주어나 서술어가 빠지면 어떤 문제가 생길까요? <small>(교과서 72~73쪽)</small></p></div>
+      <textarea class="writeline" rows="1" placeholder="주어가 빠지면 ..... / 서술어가 빠지면 ....."></textarea>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>문장 성분 찾기</h2></div>
+    <div class="box">
+      <div class="say">🔎 파란색 말이 어떤 문장 성분인지 골라 누르세요.</div>
+      <div class="rv"><p class="q">① <b style="color:#1d6fb8">해가</b> 떠오른다.</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🙋 주어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🎯 목적어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🏃 서술어</button></div></div>
+      <div class="rv"><p class="q">② 바람이 <b style="color:#1d6fb8">선선하다</b>.</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🙋 주어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🎯 목적어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🏃 서술어</button></div></div>
+      <div class="rv"><p class="q">③ 나는 <b style="color:#1d6fb8">초등학생이다</b>.</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🙋 주어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🎯 목적어</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🏃 서술어</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 주어와 서술어가 무엇인지 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 문장에서 주어와 서술어를 찾을 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. "꽃이 예쁘다."의 주어를 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="1"><button>① 꽃이</button><button>② 예쁘다</button><button>③ 꽃</button><button>④ 없다</button></div></div>
+      <div class="quiz"><p class="qtitle">2. '무엇이다'에 해당하는 서술어를 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="mc" data-q="q2" data-answer="3"><button>① 달린다</button><button>② 파랗다</button><button>③ 선수이다</button><button>④ 웃는다</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">나를 소개하는 문장을 '어찌하다, 어떠하다, 무엇이다' 서술어로 하나씩 써 보세요.</p><textarea class="writeline" rows="1" placeholder="나는 ..... (어찌하다) / 나는 ..... (어떠하다) / 나는 ..... (무엇이다)"></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족을 소개하는 문장 세 개를 쓰고, 주어에 동그라미, 서술어에 밑줄을 쳐 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="....."></textarea>
+    </div>
+  </section>
 </div>
 </body>
 <script>
@@ -204,10 +341,12 @@ function setMode(m){
     if(b) b.classList.toggle('active-'+x, mode===x);
   });
 }
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
+
 document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
@@ -216,6 +355,7 @@ document.querySelectorAll('.choicepair, .mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -236,8 +376,9 @@ function grade(){
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 글을 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -251,6 +392,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -259,6 +402,10 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });

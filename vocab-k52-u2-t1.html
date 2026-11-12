@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 문장의 호응</title>
+<title>&lt;em&gt;문장 성분&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 2단원 올바른 문장으로 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>호응</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 2단원 · 주어와 서술어 · 어휘 카드 8장</p>
+    <h1><em>문장 성분</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🤝", "w": "호응", "m": "앞뒤 말이 서로 어울림", "x": "호응을 지켜 써요."},
-  {"e": "🧩", "w": "주어", "m": "누가/무엇이 부분", "x": "주어를 살펴요."},
-  {"e": "🔧", "w": "서술어", "m": "어찌하다/어떠하다 부분", "x": "서술어와 맞춰요."},
-  {"e": "⏰", "w": "시간을 나타내는 말", "m": "어제·오늘·내일 등", "x": "시간 호응을 맞춰요."},
-  {"e": "🙇", "w": "높임 표현", "m": "웃어른을 높이는 말", "x": "께서 주무신다."},
-  {"e": "🚫", "w": "결코", "m": "'~않다'와 어울리는 말", "x": "결코 늦지 않았다."},
-  {"e": "❓", "w": "만약", "m": "'~라면'과 어울리는 말", "x": "만약 비가 온다면."},
-  {"e": "✅", "w": "점검", "m": "살펴 확인함", "x": "문장을 점검해요."}
+  {"e": "🧱", "w": "문장 성분", "m": "문장을 이루는 부분", "x": "문장 성분을 찾아요."},
+  {"e": "🙋", "w": "주어", "m": "누가, 무엇이에 해당하는 말", "x": "사자가(주어)"},
+  {"e": "🏃", "w": "서술어", "m": "어찌하다, 어떠하다, 무엇이다", "x": "움직인다(서술어)"},
+  {"e": "👤", "w": "주체", "m": "동작을 하는 쪽", "x": "동작의 주체"},
+  {"e": "🍓", "w": "달콤하다", "m": "맛이 달다", "x": "딸기가 달콤해요."},
+  {"e": "⏰", "w": "시곗바늘", "m": "시각을 가리키는 바늘", "x": "시곗바늘이 움직여요."},
+  {"e": "👟", "w": "운동화", "m": "운동할 때 신는 신", "x": "운동화가 노래요."},
+  {"e": "💪", "w": "씩씩하다", "m": "굳세고 위엄스럽다", "x": "지호는 씩씩해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

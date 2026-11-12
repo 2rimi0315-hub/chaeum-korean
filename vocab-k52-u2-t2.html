@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 매체를 고려한 글쓰기</title>
+<title>&lt;em&gt;목적어&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 2단원 매체를 고려해 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>매체</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 2단원 · 목적어와 꼭 필요한 성분 · 어휘 카드 8장</p>
+    <h1><em>목적어</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📡", "w": "매체", "m": "내용을 전하는 수단", "x": "매체를 고려해요."},
-  {"e": "🤔", "w": "고려", "m": "이리저리 생각함", "x": "읽는 사람을 고려해요."},
-  {"e": "🎀", "w": "예의", "m": "지켜야 할 바른 태도", "x": "예의를 지켜요."},
-  {"e": "🎯", "w": "목적", "m": "하려는 까닭", "x": "목적을 정해요."},
-  {"e": "👤", "w": "읽는 사람", "m": "글을 볼 사람", "x": "읽는 사람을 생각해요."},
-  {"e": "✨", "w": "표현", "m": "생각을 나타냄", "x": "알맞게 표현해요."},
-  {"e": "📋", "w": "예절", "m": "지켜야 할 규범", "x": "누리집 예절을 지켜요."},
-  {"e": "🗣️", "w": "소통", "m": "서로 뜻이 통함", "x": "바르게 소통해요."}
+  {"e": "🎯", "w": "목적어", "m": "무엇을에 해당하는 말", "x": "가방을(목적어)"},
+  {"e": "📦", "w": "대상", "m": "행동이 미치는 것", "x": "동작의 대상"},
+  {"e": "✅", "w": "완전하다", "m": "모자람이 없다", "x": "완전한 문장"},
+  {"e": "📏", "w": "기준", "m": "판단의 바탕", "x": "서술어가 기준"},
+  {"e": "✉️", "w": "봉투", "m": "편지를 넣는 종이 주머니", "x": "편지를 봉투에 넣어요."},
+  {"e": "🎁", "w": "드리다", "m": "주다의 높임말", "x": "할머니께 드려요."},
+  {"e": "🌄", "w": "떠오르다", "m": "위로 솟아오르다", "x": "해가 떠올라요."},
+  {"e": "🎒", "w": "잃어버리다", "m": "가졌던 것을 없어지게 하다", "x": "가방을 잃어버렸어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
