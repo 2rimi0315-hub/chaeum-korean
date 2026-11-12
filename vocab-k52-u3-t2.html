@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 방언의 가치</title>
+<title>&lt;em&gt;방언 사용 상황&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 3단원 표준어와 방언을 알아봐요 · 어휘 카드 8장</p>
-    <h1><em>방언</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 3단원 · 할머니 댁에서 보낸 추석 · 어휘 카드 8장</p>
+    <h1><em>방언 사용 상황</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🏞️", "w": "방언", "m": "한 지역에서 쓰는 말", "x": "방언을 살펴요."},
-  {"e": "🇰🇷", "w": "표준어", "m": "함께 쓰기로 정한 말", "x": "표준어로 말해요."},
-  {"e": "💎", "w": "가치", "m": "소중한 정도", "x": "방언의 가치를 알아요."},
-  {"e": "🏛️", "w": "문화", "m": "삶의 방식", "x": "지역 문화가 담겨요."},
-  {"e": "💗", "w": "정겹다", "m": "따뜻한 정이 있다", "x": "정겨운 말이에요."},
-  {"e": "🎭", "w": "실감", "m": "실제처럼 느낌", "x": "실감 나는 표현이에요."},
-  {"e": "🗺️", "w": "지역", "m": "일정한 땅의 구역", "x": "지역마다 말이 달라요."},
-  {"e": "🛡️", "w": "보존", "m": "잘 지켜 남김", "x": "방언을 보존해요."}
+  {"e": "🎵", "w": "억양", "m": "말소리의 높낮이", "x": "억양이 달라요."},
+  {"e": "🥰", "w": "정겹다", "m": "정이 넘치게 따뜻하다", "x": "정겨운 목소리"},
+  {"e": "📋", "w": "공식적", "m": "정해진 틀을 갖춘", "x": "공식적인 자리"},
+  {"e": "🧩", "w": "상황", "m": "일이 되어 가는 형편", "x": "상황에 맞는 말"},
+  {"e": "🌕", "w": "추석", "m": "음력 8월 15일 명절", "x": "추석에 모여요."},
+  {"e": "🎲", "w": "윷놀이", "m": "윷을 던지는 놀이", "x": "윷놀이를 해요."},
+  {"e": "📺", "w": "뉴스", "m": "새 소식을 전하는 방송", "x": "뉴스는 표준어로"},
+  {"e": "🏡", "w": "고향", "m": "태어나 자란 곳", "x": "아빠의 고향"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
