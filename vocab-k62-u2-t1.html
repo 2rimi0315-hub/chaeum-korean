@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 면담 방법과 매체</title>
+<title>&lt;em&gt;면담&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 2단원 매체를 고려하여 면담해요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 6-2 · 2단원 · 면담의 특성 · 어휘 카드 8장</p>
     <h1><em>면담</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🎤", "w": "면담", "m": "직접 물어봄", "x": "면담을 준비해요."},
-  {"e": "🤝", "w": "대면", "m": "얼굴을 마주함", "x": "대면 면담을 해요."},
-  {"e": "📱", "w": "비대면", "m": "직접 만나지 않음", "x": "비대면으로 면담해요."},
-  {"e": "📡", "w": "매체", "m": "전하는 수단", "x": "매체를 고려해요."},
-  {"e": "🎯", "w": "목적", "m": "하려는 까닭", "x": "면담 목적을 정해요."},
-  {"e": "❓", "w": "질문", "m": "물어보는 말", "x": "질문을 준비해요."},
-  {"e": "🎒", "w": "준비", "m": "미리 마련함", "x": "면담을 준비해요."},
-  {"e": "🎬", "w": "상황", "m": "일이 벌어지는 형편", "x": "상황에 맞게 해요."}
+  {"e": "🎙️", "w": "면담", "m": "만나서 묻고 답하는 대화", "x": "면담을 해요."},
+  {"e": "🧑", "w": "대상자", "m": "면담에 응하는 사람", "x": "면담 대상자"},
+  {"e": "🙏", "w": "요청하다", "m": "해 달라고 부탁하다", "x": "면담을 요청해요."},
+  {"e": "🗃️", "w": "수집하다", "m": "모으다", "x": "정보를 수집해요."},
+  {"e": "🐶", "w": "유기 동물", "m": "주인이 버린 동물", "x": "유기 동물 보호"},
+  {"e": "📰", "w": "기사", "m": "신문에 실린 글", "x": "학교 신문 기사"},
+  {"e": "🎀", "w": "예의", "m": "공손한 태도", "x": "예의를 지켜요."},
+  {"e": "📋", "w": "준비", "m": "미리 갖춤", "x": "사전 준비"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
