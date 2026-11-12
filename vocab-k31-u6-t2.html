@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 쓰기 과정</title>
+<title>&lt;em&gt;소금&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 6단원 자신 있게 읽고 써요 · 어휘 카드 8장</p>
-    <h1><em>쓰기 과정</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-1 · 6단원 · 소금 이야기 · 어휘 카드 8장</p>
+    <h1><em>소금</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🗺️", "w": "과정", "m": "일이 되어 가는 차례", "x": "쓰기 과정을 알아요."},
-  {"e": "📝", "w": "계획", "m": "미리 정함", "x": "쓰기 계획을 세워요."},
-  {"e": "💡", "w": "떠올리다", "m": "생각해 내기", "x": "쓸 내용을 떠올려요."},
-  {"e": "🔧", "w": "고쳐쓰기", "m": "다시 읽고 다듬음", "x": "글을 고쳐 써요."},
-  {"e": "🔍", "w": "점검", "m": "빠짐없이 살펴봄", "x": "글을 점검해요."},
-  {"e": "💌", "w": "사과", "m": "잘못을 빌음", "x": "사과하는 글을 써요."},
-  {"e": "❤️", "w": "진심", "m": "참된 마음", "x": "진심을 담아 써요."},
-  {"e": "✏️", "w": "다듬다", "m": "매끄럽게 고치다", "x": "문장을 다듬어요."}
+  {"e": "🧂", "w": "소금", "m": "짠맛이 나는 하얀 가루", "x": "소금을 넣어요."},
+  {"e": "😋", "w": "간", "m": "음식의 짠 정도", "x": "간을 맞춰요."},
+  {"e": "🔁", "w": "흔하다", "m": "쉽게 보거나 얻을 수 있다", "x": "흔한 돌멩이예요."},
+  {"e": "🧩", "w": "역할", "m": "맡은 일", "x": "내 역할을 해요."},
+  {"e": "🫠", "w": "녹이다", "m": "굳은 것을 풀어지게 하다", "x": "눈을 녹여요."},
+  {"e": "💎", "w": "소중하다", "m": "매우 귀하다", "x": "소중한 친구예요."},
+  {"e": "🪥", "w": "치약", "m": "이를 닦을 때 쓰는 것", "x": "치약을 짜요."},
+  {"e": "❄️", "w": "눈길", "m": "눈이 쌓인 길", "x": "눈길이 미끄러워요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

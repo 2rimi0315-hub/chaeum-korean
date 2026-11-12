@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 사실과 의견</title>
+<title>&lt;em&gt;사실과 의견&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 6단원 자신 있게 읽고 써요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 3-1 · 6단원 · 사실과 의견 · 어휘 카드 8장</p>
     <h1><em>사실과 의견</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✅", "w": "사실", "m": "실제로 있었던 일", "x": "사실을 확인해요."},
-  {"e": "💭", "w": "의견", "m": "대상에 대한 생각", "x": "의견을 말해요."},
-  {"e": "🔀", "w": "구분", "m": "갈라 나눔", "x": "사실과 의견을 구분해요."},
-  {"e": "🔍", "w": "확인", "m": "틀림없이 알아봄", "x": "사실인지 확인해요."},
-  {"e": "🧂", "w": "소금", "m": "짠맛이 나는 하얀 알갱이", "x": "소금의 쓰임을 배워요."},
-  {"e": "🧪", "w": "성분", "m": "들어 있는 재료", "x": "소금 성분이 들어가요."},
-  {"e": "📰", "w": "기사", "m": "신문에 실린 글", "x": "기사를 읽어요."},
-  {"e": "🤖", "w": "협동 로봇", "m": "사람을 도와 일하는 로봇", "x": "협동 로봇 기사를 읽어요."}
+  {"e": "📋", "w": "사실", "m": "실제로 있었던 일", "x": "사실을 말해요."},
+  {"e": "💭", "w": "의견", "m": "어떤 것에 대한 생각", "x": "내 의견을 말해요."},
+  {"e": "🔍", "w": "확인하다", "m": "틀림없는지 알아보다", "x": "답을 확인해요."},
+  {"e": "↔️", "w": "구별하다", "m": "차이를 알아서 나누다", "x": "사실과 의견을 구별해요."},
+  {"e": "🦩", "w": "홍학", "m": "분홍색 깃털을 가진 새", "x": "홍학이 한쪽 다리로 서요."},
+  {"e": "🪶", "w": "깃털", "m": "새의 몸을 덮은 털", "x": "깃털이 부드러워요."},
+  {"e": "📔", "w": "일기", "m": "하루 일을 적은 글", "x": "일기를 써요."},
+  {"e": "🦁", "w": "동물원", "m": "동물을 기르며 보여 주는 곳", "x": "동물원에 갔어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
