@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 바르게 고쳐 쓰기</title>
+<title>&lt;em&gt;고쳐쓰기&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 2단원 바르게 고쳐 써요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 6-1 · 2단원 · 고쳐쓰기가 필요한 까닭 · 어휘 카드 8장</p>
     <h1><em>고쳐쓰기</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✏️", "w": "고쳐쓰기", "m": "쓴 글을 바르게 다듬음", "x": "글을 쓰고 고쳐쓰기를 했어요."},
-  {"e": "🎯", "w": "중심 생각", "m": "글에서 가장 하고 싶은 말", "x": "중심 생각을 먼저 찾아요."},
-  {"e": "🖍️", "w": "교정", "m": "틀린 곳을 바로잡음", "x": "교정 부호로 표시했어요."},
-  {"e": "↔️", "w": "띄어쓰기", "m": "낱말 사이를 알맞게 띄움", "x": "띄어쓰기를 바르게 고쳤어요."},
-  {"e": "📏", "w": "맞춤법", "m": "글자를 바르게 쓰는 규칙", "x": "맞춤법을 확인했어요."},
-  {"e": "📄", "w": "문장", "m": "생각을 나타내는 한 마디 글", "x": "문장을 자연스럽게 다듬어요."},
-  {"e": "✨", "w": "표현", "m": "생각·느낌을 드러냄", "x": "어색한 표현을 고쳤어요."},
-  {"e": "🧹", "w": "다듬다", "m": "고르고 매끄럽게 함", "x": "글을 여러 번 다듬었어요."}
+  {"e": "✏️", "w": "고쳐쓰기", "m": "쓴 글을 더 낫게 고침", "x": "글을 고쳐 써요."},
+  {"e": "🌊", "w": "흐름", "m": "내용이 이어지는 모양", "x": "글의 흐름"},
+  {"e": "🔍", "w": "명료하다", "m": "뚜렷하고 분명하다", "x": "명료한 문장"},
+  {"e": "📤", "w": "공유하다", "m": "함께 나누어 가지다", "x": "글을 공유해요."},
+  {"e": "🎯", "w": "중심 내용", "m": "가장 중요한 내용", "x": "중심 내용을 찾아요."},
+  {"e": "🤨", "w": "어색하다", "m": "자연스럽지 않다", "x": "어색한 문장"},
+  {"e": "🪑", "w": "의자병", "m": "오래 앉아 생기는 병", "x": "의자병을 조심해요."},
+  {"e": "🩸", "w": "혈액 순환", "m": "피가 몸을 도는 것", "x": "혈액 순환이 잘돼요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

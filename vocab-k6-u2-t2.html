@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 올바른 문장으로 쓰기</title>
+<title>&lt;em&gt;감상문&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 2단원 바르게 고쳐 써요 · 어휘 카드 8장</p>
-    <h1><em>올바른 문장</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-1 · 2단원 · 글 수준에서 고쳐 쓰기 · 어휘 카드 8장</p>
+    <h1><em>감상문</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🙋", "w": "주어", "m": "문장에서 '누가·무엇이'인 말", "x": "문장에는 주어가 필요해요."},
-  {"e": "🏁", "w": "서술어", "m": "'어찌하다·어떠하다'로 끝맺는 말", "x": "서술어를 알맞게 썼어요."},
-  {"e": "🤝", "w": "호응", "m": "앞뒤 말이 서로 어울림", "x": "주어와 서술어가 호응해요."},
-  {"e": "📤", "w": "공유", "m": "함께 나누어 가짐", "x": "친구와 글을 공유했어요."},
-  {"e": "🔍", "w": "점검", "m": "빠짐없이 살펴 확인함", "x": "고쳐쓰기를 점검했어요."},
-  {"e": "🌊", "w": "자연스럽다", "m": "어색하지 않고 매끄럽다", "x": "문장이 자연스러워요."},
-  {"e": "💡", "w": "의견", "m": "어떤 일에 대한 생각", "x": "친구의 의견을 들었어요."},
-  {"e": "🔄", "w": "나누다", "m": "서로 주고받음", "x": "글을 나누며 도왔어요."}
+  {"e": "🎬", "w": "감상문", "m": "보고 느낀 것을 쓴 글", "x": "영화 감상문"},
+  {"e": "🤲", "w": "배려", "m": "남을 도와주려는 마음", "x": "친구를 배려해요."},
+  {"e": "💞", "w": "공감", "m": "같은 느낌을 가짐", "x": "친구에게 공감해요."},
+  {"e": "🔢", "w": "차례", "m": "순서", "x": "문단의 차례"},
+  {"e": "🏷️", "w": "제목", "m": "글의 이름", "x": "제목을 바꿔요."},
+  {"e": "📄", "w": "줄거리", "m": "이야기의 큰 흐름", "x": "줄거리를 써요."},
+  {"e": "👫", "w": "단짝", "m": "늘 함께하는 친구", "x": "단짝 친구"},
+  {"e": "🎭", "w": "묘사", "m": "있는 그대로 그려 냄", "x": "장면을 묘사해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
