@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 협력하며 토의해요 (국어 5-1)</title>
+<title>활동지 — 똑, 똑 (국어 5-2)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -11,7 +11,6 @@
     --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
     --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
     --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
-    --skyblue:#2E86C1;
     --line:#E3DDD0;
     --mark-unknown:#F4C0D1;
     --mark-env:#BFE3F7;
@@ -23,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -30,169 +30,326 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:15px; text-align:center; background:#FBFAF5; width:130px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
-  .flowlist{margin-top:8px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
   .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
-  .flowrow .fno{flex:none; width:30px; height:30px; border-radius:50%; background:#2E86C1; color:#fff; font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
   .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
-  .flowrow .fixed b{color:var(--tangerine-dark);}
   .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
-    .checkbtn, #result{display:none !important;}
+    .marktools, .checkbtn, #result{display:none !important;}
     section{break-inside:avoid; margin-top:24px;}
     .box{border-width:1.5px;}
     .writeline{border-bottom:1.5px dashed #999;}
   }
-  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid #2E2B26; background:#fff; color:#2E2B26;}
-  .marktools button.active-unknown{background:#F4C0D1; border-color:#D4537E;}
-  .marktools button.active-important{background:#FAE28A; border-color:#BA7517;}
-  .marktools button.active-env{background:#BFE3F7; border-color:#2B7DB0;}
-  .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid #E3DDD0;}
-  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
-  .passage{font-size:17px; line-height:2.1;}
-  .passage p{margin-bottom:14px;}
-  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
-  .passage .w.unknown{background:#F4C0D1;}
-  .passage .w.important{background:#FAE28A;}
-  .passage .w.env{background:#BFE3F7;}
-  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
-  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header class="top"><img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 1단원 작품을 감상하며 의견을 나눠요</p>
-    <h1><em>독서 감상문</em>을 써요</h1>
-    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div></header>
-  <section class="s-review"><div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
-    <div class="box"><div class="say">🔔 지난 시간에는 작품을 <b>감상</b>하며 의견을 나눴어요. 오늘은 <b>독서 감상문</b>을 써 봐요!</div>
-      <div class="rv"><p class="q">작품을 읽고 느낀 마음을?</p><div class="rvgroup" data-ranswer="감상"><button data-v="감상">감상</button><button data-v="의견"></button></div></div>
-      <div class="rv"><p class="q">책을 읽고 든 생각·느낌을 쓴 글을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="독서 감상문"><button data-v="독서 감상문">독서 감상문</button><button data-v="편지">편지</button></div></div></div></section>
-  <section class="s-intro"><div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
-    <div class="box"><div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>읽은 책을 어떻게 소개하면 좋을까요?</small></p><div class="cowrap"><img src="comics/k52-u1-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k52-u1-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
-      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;"><input type="checkbox" style="width:22px; height:22px;"><span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 작품을 감상하며 의견을 나눠요</small>독서 감상문 쓰기</span></label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>독서 감상문에는 무엇을 쓸까요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="책 소개, 줄거리, 인상적인 부분, ..... 등"></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>인상적인 부분을 쓸 때 함께 쓰면 좋은 것은?</p></div>
-      <textarea class="writeline" rows="1" placeholder="그 부분이 인상적인 ....."></textarea></div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);"><b>독서 감상문</b>은 책 소개·줄거리·인상적인 부분·평가를 담아, 읽고 든 생각과 느낌을 쓰는 글이에요.</p></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 1</span><h2>독서 감상문의 짜임을 알아봐요</h2></div>
-    <div class="box"><div class="say">📋 독서 감상문은 이렇게 써요. 소리 내어 읽어 봐요.</div>
-      <div class="flowlist">
-        <div class="flowrow"><span class="fno">1</span><div class="fixed"><b>책 소개</b> — 제목, 지은이, 고른 까닭을 써요.</div></div><div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">2</span><div class="fixed"><b>줄거리</b> — 어떤 내용인지 간추려 써요.</div></div><div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">3</span><div class="fixed"><b>인상적인 부분과 까닭</b> — 마음에 남은 부분을 써요.</div></div><div class="flowarrow">▼</div>
-        <div class="flowrow"><span class="fno">4</span><div class="fixed"><b>책에 대한 평가·느낌</b> — 생각·느낌과 추천 여부를 써요.</div></div></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>독서 감상문</b> 읽고 든 생각을 쓴 글 · <b>줄거리</b> 이야기의 큰 내용 · <b>인상적</b> 마음에 남는 · <b>평가</b> 값을 매겨 판단함</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">읽기</span><h2>대표 글을 읽어요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 이 상자에는 저작권 때문에 본문을 미리 담아 둘 수 없었어요. <b>개인 소장용으로 직접 넣는 방법</b>: 이 파일을 메모장으로 열어 <b>PASTE-HERE</b>를 찾은 뒤, 그 아래 &lt;p&gt;…&lt;/p&gt; 자리에 교과서 본문을 문단마다 &lt;p&gt;문단&lt;/p&gt; 형태로 붙여 넣고 저장하세요. 붙여 넣으면 형광펜 기능이 자동으로 작동해요.</p></div>
-      <div class="say">👀 붙여 넣은 글에서 <b>인상 깊은 부분은 노랑</b>, <b>중요한 내용은 하늘색</b>, 모르는 낱말은 분홍으로 표시해요.</div>
-      <div class="marktools"><button id="btn-important" onclick="setMode('important')">💛 인상 깊은 부분</button><button id="btn-env" onclick="setMode('env')">🩵 중요한 내용</button><button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button><button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button></div>
-      <p class="ptitle"><small>전기문</small>유관순<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">교과서 5-2 가 1단원 본문을 직접 붙여 넣는 자리예요</span></p>
-      <div class="passage" id="passage">
-<p><!--PASTE-HERE 아래 줄부터 문단을 붙여 넣으세요--> 📌 아직 본문이 없어요. 활동지 파일을 메모장으로 열어 PASTE-HERE 자리에 교과서 본문을 붙여 넣으면 여기에 글이 나타나요.</p>
-      </div>
-      <div class="legendline"><span><i style="background:#FAE28A"></i>인상 깊은 부분</span><span><i style="background:#BFE3F7"></i>중요한 내용</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span><span><i style="background:#F4C0D1"></i>모르는 낱말</span></div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: 붙여 넣은 글의 어려운 낱말은 수업에서 함께 찾아봐요</div></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">전개 2</span><h2>독서 감상문을 준비해요</h2></div>
-    <div class="box"><div class="say">📝 최근에 읽은 책으로 독서 감상문을 준비해 봐요.</div>
-      <table><thead><tr><th style="width:130px;">짜임</th><th>내가 쓸 내용</th></tr></thead><tbody>
-        <tr><td class="word">책 소개</td><td><input type="text" placeholder="제목·지은이·고른 까닭"></td></tr>
-        <tr><td class="word">줄거리</td><td><input type="text" placeholder="어떤 내용인가요?"></td></tr>
-        <tr><td class="word">인상적인 부분</td><td><input type="text" placeholder="마음에 남은 부분과 까닭"></td></tr>
-        <tr><td class="word">평가·느낌</td><td><input type="text" placeholder="어떤 생각이 들었나요?"></td></tr></tbody></table>
-      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>위 표를 이어, 독서 감상문을 세 문장으로 써 보세요.</p></div>
-      <textarea class="writeline" rows="3" placeholder="나는 「..... 」을(를) 읽었다. ..... / 가장 인상적인 부분은 ....."></textarea></div></section>
-  <section class="s-main"><div class="stage"><span class="badge">교과서</span><h2>교과서 이야기로 확인해요</h2></div>
-    <div class="box"><div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 <b>교과서 5-2 가 1단원</b>의 「유관순」을 읽고 답을 골라 누르세요. 인상적인 부분에 대한 의견을 까닭과 함께 나눠 봐요.</p></div>
-      <div class="rv"><p class="q">① 「유관순」 같은 전기문에서 인상적인 부분을 찾을 때 살필 것은?</p><div class="rvgroup" data-ranswer="인물의 말과 행동"><button data-v="인물의 말과 행동">인물의 말과 행동</button><button data-v="책 표지">책 표지</button></div></div>
-      <div class="rv"><p class="q">② 의견을 나눌 때 함께 말해야 하는 것은?</p><div class="rvgroup" data-ranswer="그렇게 생각한 까닭"><button data-v="그렇게 생각한 까닭">그렇게 생각한 까닭</button><button data-v="점수">점수</button></div></div>
-      <div class="rv"><p class="q">③ 친구와 의견이 다를 때는?</p><div class="rvgroup" data-ranswer="서로 존중하며 듣는다"><button data-v="서로 존중하며 듣는다">서로 존중하며 듣는다</button><button data-v="틀렸다고 한다">틀렸다고 한다</button></div></div>
-    </div></section>
-  <section class="s-main"><div class="stage"><span class="badge">해 보기</span><h2>독서 감상문에 알맞은 내용을 골라요</h2></div>
-    <div class="box"><div class="say">🔎 독서 감상문에 알맞으면 ⭕, 아니면 ❌를 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 인상적인 부분과 그 까닭을 썼다.</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">② 책과 관계없는 게임 이야기만 썼다.</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">③ 줄거리를 간추려 썼다.</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">④ 책에 대한 생각·느낌을 썼다.</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div></div></section>
-  <section class="s-wrap"><div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 5-2 · 1단원</p>
+    <h1>시에 대한 <em>의견을 나누어요</em></h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
     <div class="box">
-      <div class="selfcheck"><p>💪 독서 감상문의 짜임을 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 인상적인 부분과 까닭을 쓸 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div></div>
-    <div class="box"><div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">책을 읽고 든 생각과 느낌을 쓴 글을 <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:150px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="10" aria-label="빈칸"> (이)라고 한다.</p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 독서 감상문</p></div>
-    <div class="box"><div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. 독서 감상문에 들어갈 내용이 <u>아닌</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="4"><button>① 책 소개</button><button>② 줄거리</button><button>③ 인상적인 부분</button><button>④ 옆 친구 험담</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">독서 감상문은 책 소개·줄거리·인상적인 부분·평가를 담아요. 인상적인 부분은 <b>까닭</b>과 함께 쓰면 좋아요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 책 소개를 쓴다.</button><button>② 줄거리를 간추린다.</button><button>③ 인상적인 부분은 까닭 없이 쓴다.</button><button>④ 책에 대한 평가를 쓴다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">최근에 읽은 책을 한 문장으로 추천하고 그 까닭을 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) ..... 을(를) 추천한다. 왜냐하면 ....."></textarea></div>
-      <button class="checkbtn" onclick="grade()">정답 확인하기</button><p id="result"></p></div>
-    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;"><p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p><p style="font-size:15px; margin-top:4px;">좋아하는 책으로 독서 감상문을 네 짜임에 맞게 써 오세요.</p><textarea class="writeline" rows="3" placeholder="책 소개 → 줄거리 → 인상적인 부분 → 평가"></textarea></div></section>
+      <div class="say">🔔 지난 시간에는 「말에도 색깔이 있지」에서 인상적인 부분을 찾았어요.</div>
+      <div class="rv"><p class="q">인상적인 부분을 말할 때 함께 말해야 하는 것은?</p><div class="rvgroup" data-ranswer="그 까닭"><button data-v="그 까닭">그 까닭</button><button data-v="시인의 나이">시인의 나이</button></div></div>
+      <div class="rv"><p class="q">같은 낱말도 시에서 여러 가지 소리나 뜻을 나타낼 수 있어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k52-u1-t2.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k52-u1-t2.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 작품에 대한 의견을 나누어요</small>1) 시에 대한 의견 나누기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>내 마음을 아무도 몰라줘서 속상했던 적이 있나요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="..... 때 내 마음을 몰라줘서 속상했어요."></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">시에 대한 의견을 나눌 때는 인상적인 부분과 까닭을 말하고, 친구의 의견과 비교해요. 인상적인 부분이 친구마다 다른 까닭은 경험, 생각, 중요하게 여기는 것이 다르기 때문이에요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>말하는 이의 마음 변화를 생각하며 읽어요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 42쪽, 46쪽</b>을 펴서 시 「똑, 똑」(김응)과 「월요일 아침」(현택훈)을 읽어요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 두 시의 내용을 풀어 쓴 글이에요. <b>말하는 이가 한 행동은 파랑</b>, <b>말하는 이의 마음은 노랑</b>으로 표시해요.</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 행동</button>
+        <button id="btn-important" onclick="setMode('important')">💛 마음</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>시 내용 풀어 쓰기</small>「똑, 똑」 · 「월요일 아침」은 이런 내용이에요<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 풀어 쓴 글 · 원문 시는 국어 5-2 가 42, 46쪽</span></p>
+      <div class="passage" id="passage">
+        <p class="가">「똑, 똑」의 말하는 이는 자기 마음을 누군가 몰라주어 눈물을 흘려요. 눈물이 떨어지는 소리가 '똑, 똑'이에요.</p>
+        <p class="가">책상에 엎드려 아무 상관 없는 샤프심만 부러뜨려요. 마음까지 부러지고 작아지는 것 같아요.</p>
+        <p class="가">마지막에는 "마음아, 괜찮니?" 하며 스스로 마음에 노크를 해요. 이때 '똑, 똑'은 노크 소리예요.</p>
+        <p class="나">「월요일 아침」의 말하는 이는 월요일이 오지 못하게 문을 잠그고 시계를 숨기지만, 결국 월요일 아침이 찾아와요.</p>
+      </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>애꿎다</b> 그 일과 아무 상관이 없다 · <b>노크</b> 들어가기 전에 문을 가볍게 두드림</div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>행동</span>
+        <span><i style="background:var(--mark-important)"></i>마음</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 알맞은 답을 골라 누르세요. (교과서 43쪽)</div>
+      <div class="rv"><p class="q">① 「똑, 똑」에서 '나'가 눈물이 난 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="누군가 내 마음을 몰라주어서"><button data-v="누군가 내 마음을 몰라주어서">누군가 내 마음을 몰라주어서</button><button data-v="샤프심이 없어서">샤프심이 없어서</button></div></div>
+      <div class="rv"><p class="q">② 마지막 연의 '똑, 똑'은 무슨 소리인가요?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="마음에 노크하는 소리"><button data-v="마음에 노크하는 소리">마음에 노크하는 소리</button><button data-v="비 오는 소리">비 오는 소리</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>낱말의 뜻을 알아봐요</h2></div>
+    <div class="box">
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전</b>에서 찾아 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">애꿎다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">노크</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">살금살금</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">의인화</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="say" style="margin-top:14px;">🔄 '애꿎다'가 어떤 뜻으로 쓰였는지 골라 누르세요. (교과서 43쪽)</div>
+      <div class="rv"><p class="q">"옆에 있다가 애꿎게 혼이 났다."</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="아무런 잘못 없이 억울하다"><button data-v="아무런 잘못 없이 억울하다">아무런 잘못 없이 억울하다</button><button data-v="그 일과 아무 상관이 없다">그 일과 아무 상관이 없다</button></div></div>
+      <div class="rv"><p class="q">"애꿎은 지우개만 만지작거렸다."</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="그 일과 아무 상관이 없다"><button data-v="그 일과 아무 상관이 없다">그 일과 아무 상관이 없다</button><button data-v="아무런 잘못 없이 억울하다">아무런 잘못 없이 억울하다</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>마음 변화를 정리하고 의견을 나누어요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>「똑, 똑」의 '똑, 똑'과 말하는 이의 마음을 정리해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 44쪽)</small></p></div>
+      <table><thead><tr><th style="width:70px;">연</th><th>'똑, 똑'이 표현하는 소리</th><th>말하는 이의 마음</th></tr></thead><tbody><tr><td class="word">1연</td><td style="background:#FBF3DC;">눈물이 떨어지는 소리</td><td style="background:#FBF3DC;">속상하고 서운하다.</td></tr><tr><td class="word">2연</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">4연</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>두 시에서 인상적인 부분과 까닭을 써요. <small>(교과서 45, 47쪽)</small></p></div>
+      <table><thead><tr><th style="width:110px;">시</th><th>인상적인 부분</th><th>그 까닭</th></tr></thead><tbody><tr><td class="word">똑, 똑</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">월요일 아침</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>표를 보면서 의견을 말하고, 다음에는 보지 않고 말해 보세요.</p></div>
+      <div class="rv"><p class="q">보지 않고 말할 수 있었나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 다 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 해 볼래요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>친구와 의견 비교하기</h2></div>
+    <div class="box">
+      <div class="say">🔎 인상적인 부분이 친구마다 다른 까닭으로 알맞으면 ⭕, 아니면 ❌를 누르세요. (교과서 48쪽)</div>
+      <div class="rv"><p class="q">① 사람마다 겪은 경험이 다르기 때문이다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 중요하게 생각하는 것이 다르기 때문이다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 한 사람만 정답을 맞혔기 때문이다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 시에 대한 의견을 까닭을 들어 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 친구의 의견과 내 의견을 비교할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 「똑, 똑」에서 말하는 이가 부러뜨린 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="2"><button>① 연필</button><button>② 샤프심</button><button>③ 자</button><button>④ 크레파스</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 「월요일 아침」에서 일요일과 월요일을 사람처럼 표현한 까닭으로 알맞은 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="mc" data-q="q2" data-answer="1"><button>① 월요일이 오지 않았으면 하는 마음을 재미있게 나타내려고</button><button>② 요일을 외우려고</button><button>③ 달력을 꾸미려고</button><button>④ 시계를 고치려고</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">속상할 때 내 마음에 노크하며 해 주고 싶은 말을 써 보세요.</p><textarea class="writeline" rows="1" placeholder="마음아, ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">「똑, 똑」을 말하는 이의 마음 변화를 살려 가족 앞에서 낭송하고, 들은 말을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="가족이 한 말: ....."></textarea>
+    </div>
+  </section>
 </div>
 </body>
 <script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
-document.querySelectorAll('.mc').forEach(group=>{
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
       group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
@@ -200,6 +357,7 @@ document.querySelectorAll('.mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -209,19 +367,20 @@ function grade(){
     const btns = [...group.querySelectorAll('button')];
     btns.forEach(b=>b.classList.remove('correct','wrong'));
     if(!picked) return;
-    const val = String(btns.indexOf(picked)+1);
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
     if(val===ans){ picked.classList.add('correct'); ok++; }
     else{
       picked.classList.add('wrong');
-      const right = btns[Number(ans)-1];
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
       if(right) right.classList.add('correct');
     }
     picked.classList.remove('picked');
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 다시 생각해 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -235,6 +394,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -243,33 +404,12 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });
-</script>
-<script>
-(function(){
-var mode=null;
-var passage=document.getElementById('passage');
-if(passage && !passage.dataset.ready){
-passage.dataset.ready=1;
-passage.querySelectorAll('p').forEach(function(p){
-  p.innerHTML = p.textContent.split(/(\s+)/).map(function(t){return t.trim()?'<span class="w">'+t+'</span>':t;}).join('');
-});
-passage.addEventListener('click',function(e){
-  if(!e.target.classList.contains('w')||!mode)return;
-  if(mode==='erase'){e.target.classList.remove('unknown','important','env');return;}
-  ['unknown','important','env'].forEach(function(c){if(c!==mode)e.target.classList.remove(c);});
-  e.target.classList.toggle(mode);
-});
-}
-window.setMode=function(m){
-  mode=(mode===m)?null:m;
-  ['unknown','important','env','erase'].forEach(function(x){
-    var b=document.getElementById('btn-'+x);
-    if(b)b.classList.toggle('active-'+x,mode===x);
-  });
-};
-})();
 </script>
 </html>
