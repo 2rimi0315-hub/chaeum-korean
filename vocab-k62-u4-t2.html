@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 바람직한 매체 이용</title>
+<title>&lt;em&gt;고유어&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 4단원 바람직하게 매체를 사용해요 · 어휘 카드 8장</p>
-    <h1><em>매체 예절</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 4단원 · 고유어의 가치 · 어휘 카드 8장</p>
+    <h1><em>고유어</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✅", "w": "확인", "m": "사실인지 살핌", "x": "사실을 확인해요."},
-  {"e": "🙇", "w": "예절", "m": "지켜야 할 바른 태도", "x": "예절을 지켜요."},
-  {"e": "©️", "w": "저작권", "m": "만든 사람의 권리", "x": "저작권을 지켜요."},
-  {"e": "💗", "w": "존중", "m": "소중히 여김", "x": "남을 존중해요."},
-  {"e": "🤝", "w": "신뢰", "m": "믿을 만함", "x": "신뢰가 가는 정보예요."},
-  {"e": "💬", "w": "댓글", "m": "글에 다는 짧은 답글", "x": "고운 댓글을 써요."},
-  {"e": "⚠️", "w": "거짓 정보", "m": "사실이 아닌 내용", "x": "거짓 정보를 가려내요."},
-  {"e": "📤", "w": "공유", "m": "함께 나눠 씀", "x": "바르게 공유해요."}
+  {"e": "🛤️", "w": "샛길", "m": "큰길에서 갈라진 작은 길", "x": "샛길로 가요."},
+  {"e": "❄️", "w": "함박눈", "m": "굵고 탐스러운 눈", "x": "함박눈이 내려요."},
+  {"e": "💧", "w": "도랑", "m": "좁은 물길", "x": "도랑에 물이 흘러요."},
+  {"e": "🎨", "w": "동아리", "m": "같은 뜻을 가진 모임", "x": "미술 동아리"},
+  {"e": "💬", "w": "댓글", "m": "글에 다는 짧은 글", "x": "댓글을 달아요."},
+  {"e": "🏃", "w": "이어달리기", "m": "이어서 달리는 경기", "x": "이어달리기 시합"},
+  {"e": "🏷️", "w": "붙임딱지", "m": "붙이는 종이", "x": "붙임딱지를 붙여요."},
+  {"e": "🕊️", "w": "날개 돋치다", "m": "빠르게 팔리다", "x": "날개 돋친 듯 팔려요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

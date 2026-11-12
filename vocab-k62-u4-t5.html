@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&lt;em&gt;바른 우리말&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
+<style>
+  :root{
+    --ink:#2E2B26; --paper:#FFFDF8;
+    --accent:#7F77DD; --accent-bg:#EEEDFE; --accent-dark:#3C3489;
+    --line:#E3DDD0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.6; padding:32px 20px;}
+  .wrap{max-width:820px; margin:0 auto;}
+  header{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:20px;}
+  .eyebrow{font-size:13px; letter-spacing:0.15em; color:#9A937F; margin-bottom:6px;}
+  h1{font-size:28px; font-weight:800; letter-spacing:-0.02em;}
+  h1 em{font-style:normal; color:var(--accent);}
+  .sub{font-size:14px; color:#6B6858; margin-top:6px;}
+  .toolbar{display:flex; gap:10px; margin:18px 0; flex-wrap:wrap;}
+  button{font-family:inherit; font-size:14px; font-weight:600; padding:10px 18px;
+    border-radius:8px; border:1.5px solid var(--ink); background:#fff; color:var(--ink); cursor:pointer;}
+  button:hover{background:var(--ink); color:#fff;}
+  button.primary{background:var(--ink); color:#fff;}
+  .hint{font-size:13px; color:#9A937F; margin-bottom:14px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:14px;}
+  .card{border:2px solid var(--ink); border-radius:16px; background:#fff; padding:16px 14px 16px;
+    min-height:300px; cursor:pointer; transition:transform .12s; display:flex; flex-direction:column; align-items:center;}
+  .card:hover{transform:translateY(-2px);}
+  .card .pic{flex:1; width:100%; min-height:236px; display:flex; align-items:center; justify-content:center;}
+  .card .pic img{width:230px; height:230px; object-fit:contain; display:block;}
+  .card .pic .emoji{font-size:64px; line-height:1;}
+  .card .word{text-align:center; font-size:23px; font-weight:800; margin-top:12px;}
+  .card .mean{display:none; width:100%; margin-top:10px; font-size:14px; line-height:1.6; text-align:center;
+    background:var(--accent-bg); color:var(--accent-dark); border-radius:8px; padding:8px 10px;}
+  .card .ex{display:none; width:100%; margin-top:8px; font-size:12.5px; color:#8A8271; text-align:center;}
+  .card.open{border-color:var(--accent);}
+  .card.open .mean, .card.open .ex{display:block;}
+  a.back{display:inline-block; margin-top:28px; font-size:14px; font-weight:700; color:var(--accent-dark); text-decoration:none;}
+  .answers{margin-top:44px; border-top:3px solid var(--ink); padding-top:22px;}
+  .answers h2{font-size:19px; font-weight:800; margin-bottom:12px;}
+  table{width:100%; border-collapse:collapse; font-size:14px;}
+  th{text-align:left; font-size:12px; letter-spacing:0.08em; color:#8A8271;
+    border-bottom:2px solid var(--ink); padding:8px 10px;}
+  td{border-bottom:1px solid var(--line); padding:9px 10px; vertical-align:top;}
+  td.w{font-weight:800; white-space:nowrap;}
+  @media print{
+    body{padding:0; background:#fff;}
+    .toolbar, .hint, a.back{display:none;}
+    .card{break-inside:avoid; min-height:120px;}
+    .card .mean, .card .ex{display:none !important;}
+    .card{border-color:var(--ink) !important;}
+    .answers{break-before:page;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 6-2 · 4단원 · 실천 다짐문 쓰기 · 어휘 카드 8장</p>
+    <h1><em>바른 우리말</em> 낱말 카드</h1>
+    <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
+  </header>
+  <div class="toolbar">
+    <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
+    <button onclick="revealAll(true)">뜻 모두 보기</button>
+    <button onclick="revealAll(false)">뜻 모두 숨기기</button>
+  </div>
+  <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
+  <div class="grid" id="grid"></div>
+  <section class="answers">
+    <h2>낱말 뜻 정리표</h2>
+    <table>
+      <thead><tr><th style="width:90px">낱말</th><th>뜻</th><th>이렇게 써요</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </section>
+  <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
+</div>
+<script>
+const WORDS = [
+  {"e": "✋", "w": "다짐", "m": "마음을 굳게 정함", "x": "다짐을 해요."},
+  {"e": "🔎", "w": "실태", "m": "있는 그대로의 상태", "x": "언어생활 실태"},
+  {"e": "✂️", "w": "줄임말", "m": "줄여서 쓰는 말", "x": "줄임말을 줄여요."},
+  {"e": "🌀", "w": "무분별하다", "m": "함부로 하다", "x": "무분별한 외래어"},
+  {"e": "😊", "w": "방그레", "m": "소리 없이 보드랍게 웃는 모양", "x": "방그레 웃어요."},
+  {"e": "🌱", "w": "길섶", "m": "길의 가장자리", "x": "길섶의 풀"},
+  {"e": "☀️", "w": "따습다", "m": "알맞게 따뜻하다", "x": "따스운 옷"},
+  {"e": "🍂", "w": "바삭바삭", "m": "마른 것이 부서지는 소리", "x": "낙엽이 바삭바삭"}
+];
+const grid = document.getElementById('grid');
+const tbody = document.getElementById('tbody');
+WORDS.forEach(w=>{
+  const el = document.createElement('div');
+  el.className = 'card';
+  const base = 'cards/' + encodeURIComponent(w.w);
+  el.innerHTML = '<div class="pic"><img src="'+base+'.png" alt="'+w.w+'" loading="lazy" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace(\'.png\',\'.jpg\');}else{this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';}">'
+    + '<span class="emoji" style="display:none">'+w.e+'</span></div>'
+    + '<div class="word">'+w.w+'</div>'
+    + '<div class="mean">'+w.m+'</div><div class="ex">예) '+w.x+'</div>';
+  el.onclick = ()=> el.classList.toggle('open');
+  grid.appendChild(el);
+  const tr = document.createElement('tr');
+  tr.innerHTML = '<td class="w">'+w.e+' '+w.w+'</td><td>'+w.m+'</td><td>'+w.x+'</td>';
+  tbody.appendChild(tr);
+});
+function revealAll(on){ document.querySelectorAll('.card').forEach(c=>c.classList.toggle('open', on)); }
+</script>
+</body>
+</html>
