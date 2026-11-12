@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 토론의 절차</title>
+<title>&lt;em&gt;토론&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 3단원 절차를 지키며 토론해요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 6-1 · 3단원 · 토론이란 무엇일까 · 어휘 카드 8장</p>
     <h1><em>토론</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "⚖️", "w": "토론", "m": "찬반으로 나뉘어 근거로 겨루는 말하기", "x": "학급 문제로 토론했어요."},
-  {"e": "📢", "w": "주장", "m": "내세우는 생각", "x": "자신의 주장을 또렷이 말했어요."},
-  {"e": "📌", "w": "근거", "m": "주장을 뒷받침하는 까닭", "x": "근거를 들어 말했어요."},
-  {"e": "↩️", "w": "반론", "m": "상대 주장에 맞서 반박함", "x": "상대 주장에 반론했어요."},
-  {"e": "🪜", "w": "절차", "m": "일을 하는 정해진 차례", "x": "토론 절차를 지켰어요."},
-  {"e": "🙆", "w": "찬성", "m": "옳다고 뜻을 같이함", "x": "공사에 찬성했어요."},
-  {"e": "🙅", "w": "반대", "m": "옳지 않다고 맞섬", "x": "공사에 반대했어요."},
-  {"e": "📐", "w": "규칙", "m": "지켜야 할 약속", "x": "토론 규칙을 지켰어요."}
+  {"e": "🗣️", "w": "토론", "m": "찬반으로 나뉘어 설득하는 말하기", "x": "토론을 해요."},
+  {"e": "🤝", "w": "토의", "m": "함께 좋은 방법을 찾는 말하기", "x": "토의를 해요."},
+  {"e": "⚔️", "w": "대립", "m": "서로 맞서는 것", "x": "의견이 대립해요."},
+  {"e": "✅", "w": "타당하다", "m": "옳고 이치에 맞다", "x": "타당한 근거"},
+  {"e": "🚲", "w": "통학", "m": "학교에 다님", "x": "자전거 통학"},
+  {"e": "🌳", "w": "생태계", "m": "생물과 환경의 세계", "x": "생태계를 지켜요."},
+  {"e": "🦉", "w": "천연기념물", "m": "나라가 보호하는 동식물", "x": "천연기념물 수리부엉이"},
+  {"e": "🚇", "w": "터널", "m": "산을 뚫어 만든 길", "x": "터널 공사"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
