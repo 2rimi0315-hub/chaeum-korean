@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 십장생 / 글의 구조</title>
+<title>&lt;em&gt;열거 구조&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 4단원 대상을 설명해요 · 어휘 카드 8장</p>
-    <h1><em>십장생·구조</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 4단원 · 십장생 · 어휘 카드 8장</p>
+    <h1><em>열거 구조</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🕰️", "w": "장수", "m": "오래도록 삶", "x": "할아버지께서 장수하시길 빌었어요."},
-  {"e": "🙏", "w": "기원", "m": "바라는 일이 이루어지길 빎", "x": "건강을 기원하는 마음을 담았어요."},
-  {"e": "🕊️", "w": "상징", "m": "어떤 뜻을 다른 것으로 나타냄", "x": "비둘기는 평화의 상징이에요."},
-  {"e": "🌿", "w": "불로초", "m": "먹으면 늙지 않는다는 풀", "x": "불로초는 장수를 상징해요."},
-  {"e": "🖼️", "w": "병풍", "m": "그림을 그려 방에 치는 물건", "x": "병풍에 십장생을 그렸어요."},
-  {"e": "📋", "w": "열거", "m": "여러 가지를 죽 늘어놓음", "x": "좋아하는 과일을 열거했어요."},
-  {"e": "✂️", "w": "요약", "m": "중요한 내용만 간추림", "x": "긴 글을 세 문장으로 요약했어요."},
-  {"e": "🏗️", "w": "구조", "m": "글이 짜인 짜임새", "x": "설명하는 글의 구조를 알아봤어요."}
+  {"e": "🏗️", "w": "구조", "m": "부분들이 짜인 얼개", "x": "글의 구조"},
+  {"e": "📋", "w": "열거하다", "m": "하나하나 늘어놓다", "x": "특징을 열거해요."},
+  {"e": "✂️", "w": "요약하다", "m": "중요한 것만 줄이다", "x": "글을 요약해요."},
+  {"e": "🐢", "w": "장수", "m": "오래 삶", "x": "장수를 빌어요."},
+  {"e": "🕊️", "w": "상징하다", "m": "뜻을 사물로 나타내다", "x": "학은 장수를 상징해요."},
+  {"e": "🖼️", "w": "병풍", "m": "접어 세우는 가리개", "x": "십장생 병풍"},
+  {"e": "🌿", "w": "불로초", "m": "먹으면 늙지 않는다는 풀", "x": "전설 속 불로초"},
+  {"e": "☀️", "w": "태양", "m": "해", "x": "태양 에너지"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

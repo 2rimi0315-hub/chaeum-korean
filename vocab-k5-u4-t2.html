@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 자연재해, 알고 대처해요</title>
+<title>&lt;em&gt;구조&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 4단원 대상을 설명해요 · 어휘 카드 8장</p>
-    <h1><em>자연재해</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 4단원 · 순서 구조와 비교·대조 구조 · 어휘 카드 8장</p>
+    <h1><em>구조</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🌪️", "w": "자연재해", "m": "자연 현상으로 생기는 피해", "x": "지진은 무서운 자연재해예요."},
-  {"e": "🧯", "w": "대처", "m": "어떤 일에 알맞게 행동함", "x": "불이 나면 빠르게 대처해요."},
-  {"e": "🏃", "w": "대피", "m": "위험을 피해 안전한 곳으로 옮김", "x": "지진이 나서 운동장으로 대피했어요."},
-  {"e": "🥵", "w": "폭염", "m": "매우 심한 더위", "x": "폭염에는 물을 자주 마셔요."},
-  {"e": "📢", "w": "특보", "m": "위험한 날씨를 미리 알리는 방송", "x": "태풍 특보가 방송되었어요."},
-  {"e": "🌊", "w": "홍수", "m": "비가 많이 와서 물이 넘침", "x": "홍수로 도로가 잠겼어요."},
-  {"e": "⛰️", "w": "산사태", "m": "산비탈의 흙과 돌이 무너져 내림", "x": "큰비에 산사태가 났어요."},
-  {"e": "🦺", "w": "안전", "m": "위험이 없이 편안함", "x": "안전을 위해 규칙을 지켜요."}
+  {"e": "🔢", "w": "절차", "m": "일의 차례", "x": "만드는 절차"},
+  {"e": "🤝", "w": "공통점", "m": "같은 점", "x": "두 나무의 공통점"},
+  {"e": "↔️", "w": "차이점", "m": "다른 점", "x": "차이점을 찾아요."},
+  {"e": "🔄", "w": "반면에", "m": "앞과 반대로", "x": "반면에 잣나무는"},
+  {"e": "🪧", "w": "폐현수막", "m": "버리는 현수막", "x": "폐현수막 가방"},
+  {"e": "🧼", "w": "세척하다", "m": "깨끗이 씻다", "x": "현수막을 세척해요."},
+  {"e": "🌲", "w": "침엽수", "m": "바늘잎나무", "x": "소나무는 침엽수"},
+  {"e": "🪡", "w": "바느질하다", "m": "바늘로 꿰매다", "x": "가방을 바느질해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
