@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 독서 감상문 쓰기</title>
+<title>&lt;em&gt;가치 파악&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 1단원 자신의 삶과 관련지어 읽어요 · 어휘 카드 8장</p>
-    <h1><em>독서 감상문</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-1 · 1단원 · 의병장 윤희순 ② · 어휘 카드 8장</p>
+    <h1><em>가치 파악</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💗", "w": "감상", "m": "읽고 느낀 생각·마음", "x": "책을 읽고 감상을 나눴어요."},
-  {"e": "📝", "w": "독서 감상문", "m": "책을 읽고 든 생각을 쓴 글", "x": "독서 감상문을 정성껏 썼어요."},
-  {"e": "🔗", "w": "관련짓다", "m": "서로 이어서 생각함", "x": "인물의 삶을 내 삶과 관련지었어요."},
-  {"e": "🤞", "w": "다짐", "m": "마음을 굳게 정함", "x": "열심히 하겠다고 다짐했어요."},
-  {"e": "🌟", "w": "본받다", "m": "좋은 점을 배워 따라 함", "x": "용기를 본받고 싶어요."},
-  {"e": "💫", "w": "인상적", "m": "마음에 강하게 남는", "x": "가장 인상적인 장면이에요."},
-  {"e": "🏃", "w": "실천", "m": "실제로 행동에 옮김", "x": "다짐을 실천했어요."},
-  {"e": "🙇", "w": "존경", "m": "훌륭히 여겨 우러러봄", "x": "윤희순을 존경해요."}
+  {"e": "🕰️", "w": "시대 상황", "m": "그때의 형편", "x": "시대 상황을 이해해요."},
+  {"e": "🤝", "w": "뭉치다", "m": "하나로 합치다", "x": "힘을 뭉쳐요."},
+  {"e": "🪞", "w": "성찰하다", "m": "자신을 돌아보다", "x": "삶을 성찰해요."},
+  {"e": "💗", "w": "공감하다", "m": "같은 느낌을 갖다", "x": "노래에 공감해요."},
+  {"e": "💪", "w": "용기", "m": "씩씩한 마음", "x": "용기를 내요."},
+  {"e": "🇰🇷", "w": "나라 사랑", "m": "나라를 아끼는 마음", "x": "나라 사랑의 마음"},
+  {"e": "👩", "w": "아낙네", "m": "남의 집 부녀자", "x": "마을 아낙네들"},
+  {"e": "🙋", "w": "나서다", "m": "앞으로 나와 일을 맡다", "x": "함께 나서요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>활동지 — 설명하는 글의 구조를 알고 내용 요약하기 (국어 5-1)</title>
+<title>활동지 — 의병장 윤희순 ① (국어 6-1)</title>
 <style>
   :root{
     --ink:#2E2B26;
@@ -22,6 +22,7 @@
     background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
   }
   .wrap{max-width:780px; margin:0 auto;}
+
   .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
   .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
@@ -29,35 +30,63 @@
   .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
   .idrow span{display:flex; align-items:center; gap:8px;}
   .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
   section{margin-top:44px;}
   .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
-  .stage .badge{font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff; padding:5px 14px; border-radius:999px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
   .stage h2{font-size:20px; font-weight:800;}
   .s-intro .badge{background:var(--purple);}
   .s-main .badge{background:var(--teal);}
   .s-wrap .badge{background:var(--tangerine);}
   .s-review .badge{background:#5F5E5A;}
+
   .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
   .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
-  .task .no{flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-size:14px; font-weight:700; display:flex; align-items:center; justify-content:center; transform:translateY(4px);}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
   .task p{font-size:16px; font-weight:600;}
   .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
-  .writeline{width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line); background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
   .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
   .comic{margin-bottom:22px;}
   .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
   .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
   .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
   .cowrap img{width:100%; display:block;}
-  .say{background:var(--purple-bg); color:var(--purple-dark); border-radius:12px; padding:12px 16px; font-size:15px; margin:8px 0 14px;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
   .say b{font-weight:800;}
+
   .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
-  .marktools button{font-family:inherit; font-size:14px; font-weight:700; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
   .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
   .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
   .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
   .marktools button.erase.active-erase{background:#EDEAE1;}
-  .ptitle{text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em; margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
   .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
   .passage{font-size:17px; line-height:2.1;}
   .passage p{margin-bottom:14px;}
@@ -67,44 +96,100 @@
   .passage .w.env{background:var(--mark-env);}
   .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
   .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
   table{width:100%; border-collapse:collapse; font-size:15px;}
   th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
   td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
-  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:120px;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
   td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
   td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
-  .structbox{border:2px solid var(--ink); border-radius:14px; overflow:hidden; margin-bottom:12px;}
-  .structbox h3{font-size:15px; font-weight:800; padding:10px 14px; color:#fff;}
-  .structbox.s1 h3{background:var(--teal);}
-  .structbox.s2 h3{background:var(--purple);}
-  .structbox.s3 h3{background:var(--tangerine);}
-  .structbox .body{padding:14px; font-size:14.5px; line-height:1.7;}
-  .structbox .body b{color:var(--ink);}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
   .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
   .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
   .faces{display:flex; gap:10px;}
-  .faces button{width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff; font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; font-family:inherit;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
   .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
   .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
   .quiz{margin-bottom:20px;}
   .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
   .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
-  .mc button{font-family:inherit; font-size:15px; cursor:pointer; text-align:left; padding:9px 16px; border-radius:12px; border:2px solid var(--line); background:#fff;}
+  .mc button{border-radius:12px;}
   .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
   .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
   .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
   .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
   .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
   .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
-  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px; border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0; vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
   .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
-  .checkbtn{font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff; background:var(--ink); border:none; border-radius:999px; padding:12px 26px;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
   #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
   .rv{margin-bottom:14px;}
   .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
   .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
   .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
-  .rvgroup button{font-family:inherit; font-size:15px; cursor:pointer; padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
   @media print{
     body{padding:0; background:#fff;}
     .marktools, .checkbtn, #result{display:none !important;}
@@ -116,19 +201,20 @@
 </head>
 <body>
 <div class="wrap">
+
   <header class="top">
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 1단원 자신의 삶과 관련지어 읽어요</p>
-    <h1>인물이 추구하는 <em>가치</em>를 파악해요</h1>
+    <p class="eyebrow">국어 6-1 · 1단원</p>
+    <h1>인물이 <em>추구하는 가치</em>를 알아요</h1>
     <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
   </header>
 
   <section class="s-review">
     <div class="stage"><span class="badge">복습</span><h2>새 단원을 시작해요</h2></div>
     <div class="box">
-      <div class="say">🔔 1단원에서는 인물의 삶을 <b>자신과 관련지어</b> 읽어요. 오늘은 인물이 추구하는 <b>가치</b>를 파악해요!</div>
-      <div class="rv"><p class="q">위인의 삶을 사실대로 쓴 글을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="전기문"><button data-v="전기문">전기문</button><button data-v="기행문"></button></div></div>
-      <div class="rv"><p class="q">사람이 자신의 삶에서 소중하게 여기는 것을 무엇이라 할까요?</p><div class="rvgroup" data-ranswer="가치"><button data-v="가치">가치</button><button data-v="관점">관점</button></div></div>
+      <div class="say">🔔 1단원에서는 인물이 추구하는 가치를 파악하고, 자신의 삶과 관련지어 독서 감상문을 써요!</div>
+      <div class="rv"><p class="q">'가치'는 무엇일까요?</p><div class="rvgroup" data-ranswer="사람이 중요하게 여기는 것"><button data-v="사람이 중요하게 여기는 것">사람이 중요하게 여기는 것</button><button data-v="물건의 무게">물건의 무게</button></div></div>
+      <div class="rv"><p class="q">인물의 말과 행동을 보면 그 인물이 중요하게 여기는 것을 알 수 있어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
     </div>
   </section>
 
@@ -136,106 +222,98 @@
     <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
     <div class="box">
       <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k6-u1-t1.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k6-u1-t1.png 파일을 넣어 주세요)</div>';}"></div></div>
-      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <div class="task"><span class="no">1</span><p>단원 이름을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
       <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
         <input type="checkbox" style="width:22px; height:22px;">
-        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 자신의 삶과 관련지어 읽어요</small>인물이 추구하는 가치 파악하기</span>
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">1. 자신의 삶과 관련지어 읽어요</small>1) 전기문을 읽고 인물이 추구하는 가치 알기</span>
       </label>
-      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>내가 소중하게 생각하는 것(가치)은 무엇인가요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="나는 ..... 을(를) 소중하게 생각해요."></textarea>
-      <div class="task" style="margin-top:20px;"><span class="no">3</span><p>인물이 한 일을 보면 그 사람이 무엇을 소중히 여겼는지 알 수 있어요. 왜 그럴까요?</p></div>
-      <textarea class="writeline" rows="1" placeholder="한 일에 그 사람의 ..... 이(가) 담겨 있어서요."></textarea>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>이야기 속 인물에게 영향을 받은 적이 있나요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="「.....」의 ..... 을/를 보고 ....."></textarea>
     </div>
-    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">인물이 <b>한 일</b>과 <b>한 말</b>, 그렇게 한 <b>까닭</b>을 살펴보면 그 인물이 추구하는 <b>가치</b>를 알 수 있어요.</p></div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">인물이 추구하는 가치를 파악하려면 ① 인물이 처한 <b>시대 상황</b>을 이해하고 ② 인물의 <b>말이나 행동</b>을 살펴보고 ③ 인물이 무엇을 중요하게 여기는지 생각해요.</p></div>
   </section>
 
   <section class="s-main">
-    <div class="stage"><span class="badge">전개 1</span><h2>「의병장 윤희순」을 읽어요</h2></div>
+    <div class="stage"><span class="badge">전개 1</span><h2>인물의 말과 행동을 살피며 읽어요</h2></div>
     <div class="box">
-      <div class="box" style="background:#FBF3DC; border:2px solid #E8C56A; margin:0 0 14px; padding:16px 18px;"><p style="font-size:15px; line-height:1.7;">📖 오늘 읽을 전기문은 <b style="color:#7A3A0E;">「의병장 윤희순」 (글: 정종숙)</b>이에요. <b style="color:#7A3A0E;">교과서 6-1 가 39~55쪽</b>을 펴서 이야기를 읽어 봐요. 아래 글은 윤희순이 실제로 어떤 삶을 살았는지 사실을 간추린 것이에요.</p></div>
-      <div class="say">👀 먼저 눈으로 읽어요. 그다음 <b>윤희순이 한 일은 노랑</b>으로, 모르는 낱말은 분홍으로 표시해요.</div>
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 38~43쪽</b>을 펴서 「의병장 윤희순」을 읽어요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 이야기를 간추린 글이에요. <b>시대 상황은 파랑</b>, <b>윤희순의 말과 행동은 노랑</b>으로 표시해요.</div>
       <div class="marktools">
-        <button id="btn-env" onclick="setMode('env')">🩵 인물·시대</button>
-        <button id="btn-important" onclick="setMode('important')">💛 윤희순이 한 일</button>
+        <button id="btn-env" onclick="setMode('env')">🩵 시대 상황</button>
+        <button id="btn-important" onclick="setMode('important')">💛 말과 행동</button>
         <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
         <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
       </div>
-      <p class="ptitle"><small>인물 이야기</small>윤희순은 어떤 사람일까요<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">국어 6-1 가 · 1단원 · 사실을 간추린 글</span></p>
+      <p class="ptitle"><small>이야기 간추리기</small>「의병장 윤희순」<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 간추린 글 · 원문은 국어 6-1 가 38~43쪽</span></p>
       <div class="passage" id="passage">
-        <p>윤희순은 우리나라 최초의 여성 의병 지도자로 알려진 인물입니다. 을미사변과 단발령에 항거해 일어난 의병 활동에 참여하며 나라를 지키는 일에 앞장섰습니다.</p>
-        <p>윤희순은 여자도 나라를 지키는 일에 나설 수 있다고 생각했습니다. 그래서 의병들에게 식량을 지원하고 군자금을 모았으며, 군사 훈련을 돕고 무기와 화약을 만드는 일에도 참여했습니다. 또 의병가를 지어 의병들의 사기를 북돋우고, 마을 사람들의 마음을 하나로 모았습니다.</p>
-        <p>나라의 주권을 빼앗기자 윤희순은 가족과 함께 중국으로 망명해 독립운동을 이어 갔습니다. 그곳에서 학교를 세우는 일에 참여해 독립운동가를 길러 내는 데 힘썼습니다.</p>
-        <p>윤희순은 어려운 시대 속에서도 나라를 사랑하는 마음과 용기를 잃지 않았습니다. 남녀를 가리지 않고 모두가 힘을 모아야 한다고 믿으며, 평생 나라의 독립을 위해 애썼습니다.</p>
+        <p>일본이 우리나라를 빼앗으려 하자, 윤희순의 시아버지와 남편은 의병 활동에 나섰어요.</p>
+        <p>윤희순은 집 안의 곡식을 모두 내주고, 의병에게 줄 곡식을 마련하려고 양반집 며느리이면서도 숯을 구워 팔았어요.</p>
+        <p>담비의 노래 솜씨를 보고, 윤희순은 여자들도 나라를 지키자는 뜻을 담은 「안사람 의병가」를 함께 퍼뜨렸어요.</p>
+        <p>"우리 같은 여자들이 나선다고 뭐가 달라지겠소?" 하는 사람도 있었지만, 윤희순은 함께 나서자고 설득했어요.</p>
+        <p>노래는 흩어졌던 마음을 하나로 모았고, 윤희순은 마을 여성들과 '안사람 의병대'를 만들었어요.</p>
       </div>
+      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>의병</b> 나라를 지키려고 스스로 일어난 군사 · <b>군자금</b> 전쟁에 필요한 돈 · <b>포악하다</b> 사납고 악하다</div>
       <div class="legendline">
-        <span><i style="background:var(--mark-env)"></i>인물·시대</span><span><i style="background:var(--mark-important)"></i>윤희순이 한 일</span><span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span><i style="background:var(--mark-env)"></i>시대 상황</span>
+        <span><i style="background:var(--mark-important)"></i>말과 행동</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
         <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
       </div>
-      <div class="say" style="margin-top:14px; background:#FBFAF5; color:#5F5E5A;">📖 낱말 도움: <b>의병</b> 나라를 지키려고 백성이 스스로 일으킨 군대 · <b>항거</b> 맞서 싸움 · <b>군자금</b> 군대를 움직이는 데 드는 돈 · <b>망명</b> 위험을 피해 다른 나라로 몸을 옮김 · <b>주권</b> 나라를 다스리는 권리</div>
     </div>
     <div class="box">
-      <div class="say">💬 윤희순이 한 일과 추구한 가치를 정리해요. 알맞은 답을 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 윤희순은 의병들에게 무엇을 지원했나요?</p><div class="rvgroup" data-ranswer="식량과 군자금"><button data-v="식량과 군자금">식량과 군자금</button><button data-v="비행기"></button></div></div>
-      <div class="rv"><p class="q">② 나라의 주권을 빼앗기자 윤희순은 어디로 갔나요?</p><div class="rvgroup" data-ranswer="중국(망명)"><button data-v="중국(망명)">중국(망명)</button><button data-v="일본">일본</button></div></div>
-      <div class="rv"><p class="q">③ 윤희순이 가장 소중히 여긴 가치는 무엇일까요?</p><div class="rvgroup" data-ranswer="나라 사랑과 용기"><button data-v="나라 사랑과 용기">나라 사랑과 용기</button><button data-v="돈과 명예"></button></div></div>
+      <div class="say">💬 알맞은 답을 골라 누르세요. (교과서 44쪽)</div>
+      <div class="rv"><p class="q">① 윤희순이 숯을 구워 판 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="의병에게 줄 곡식을 마련하려고"><button data-v="의병에게 줄 곡식을 마련하려고">의병에게 줄 곡식을 마련하려고</button><button data-v="부자가 되려고">부자가 되려고</button></div></div>
+      <div class="rv"><p class="q">② 「안사람 의병가」가 사람들에게 준 영향은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="흩어진 마음을 하나로 모았다"><button data-v="흩어진 마음을 하나로 모았다">흩어진 마음을 하나로 모았다</button><button data-v="사람들을 겁먹게 했다">사람들을 겁먹게 했다</button></div></div>
     </div>
   </section>
 
   <section class="s-main">
-    <div class="stage"><span class="badge">전개 2</span><h2>인물이 추구하는 가치를 정리해요</h2></div>
+    <div class="stage"><span class="badge">전개 2</span><h2>역사 낱말</h2></div>
     <div class="box">
-      <div class="say">📝 인물이 한 일을 보고, 그 속에 담긴 가치를 찾아 정리해 봐요.</div>
-      <table>
-        <thead><tr><th style="width:180px;">윤희순이 한 일</th><th>담긴 가치(내 생각)</th></tr></thead>
-        <tbody>
-          <tr><td class="word">의병에게 식량·군자금 지원</td><td><input type="text" placeholder="예) 나라 사랑, 헌신"></td></tr>
-          <tr><td class="word">의병가를 지어 사기를 북돋움</td><td><input type="text" placeholder="예) 용기, 함께하는 마음"></td></tr>
-          <tr><td class="word">중국으로 망명해 독립운동</td><td><input type="text" placeholder="예) 끈기, 나라 사랑"></td></tr>
-        </tbody>
-      </table>
-      <div class="task" style="margin-top:20px;"><span class="no">✏️</span><p>윤희순이 추구한 가치를 한 문장으로 정리해 보세요.</p></div>
-      <textarea class="writeline" rows="2" placeholder="윤희순은 ..... 을(를) 가장 소중히 여기며 살았다."></textarea>
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전</b>에서 찾아 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">가치</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">추구하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">의병</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">설득하다</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>인물에게 질문하기! <small>윤희순에게 하고 싶은 질문을 써 보세요. (교과서 46쪽)</small></p></div>
+      <div class="combine"><div class="chip"><small>숯 장사를 할 때</small><b>→</b><input type="text" placeholder="&quot;어떤 마음이 들었나요?&quot;"></div><div class="chip"><small>의병대를 만들 때</small><b>→</b><input type="text" placeholder="&quot;.....&quot;"></div></div>
     </div>
   </section>
 
   <section class="s-main">
-    <div class="stage"><span class="badge">해 보기</span><h2>인물의 가치를 알맞게 골라요</h2></div>
+    <div class="stage"><span class="badge">전개 3</span><h2>말과 행동으로 가치를 파악해요</h2></div>
     <div class="box">
-      <div class="say">🔎 인물이 한 일에 담긴 가치로 알맞으면 ⭕, 아니면 ❌를 골라 누르세요.</div>
-      <div class="rv"><p class="q">① 위험을 무릅쓰고 나라를 위해 싸웠다 → 용기</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">② 어려운 사람을 끝까지 도왔다 → 게으름</p><div class="rvgroup" data-ranswer="❌ 아니에요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">③ 남녀 구분 없이 함께하자고 했다 → 평등</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
-      <div class="rv"><p class="q">④ 포기하지 않고 독립운동을 이어 갔다 → 끈기</p><div class="rvgroup" data-ranswer="⭕ 알맞아요"><button data-v="⭕ 알맞아요">⭕ 알맞아요</button><button data-v="❌ 아니에요">❌ 아니에요</button></div></div>
+      <div class="task"><span class="no">1</span><p>윤희순의 말과 행동, 추구하는 가치를 정리해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 46~47쪽)</small></p></div>
+      <table><thead><tr><th>시대 상황</th><th>말이나 행동</th><th>추구하는 가치</th></tr></thead><tbody><tr><td class="word">일본이 나라를 빼앗으려 했다.</td><td style="background:#FBF3DC;">집 안의 곡식을 의병에게 모두 내주었다.</td><td style="background:#FBF3DC;">나라 사랑</td></tr><tr><td class="word">의병에게 곡식이 부족했다.</td><td><input type="text" placeholder="양반집 며느리이면서도 ....."></td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">여자들은 나설 수 없다는 생각이 많았다.</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>표를 보면서 윤희순이 추구한 가치를 말하고, 다음에는 보지 않고 말해 보세요.</p></div>
+      <div class="rv"><p class="q">보지 않고 말할 수 있었나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 다 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 말했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 해 볼래요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>가치를 찾아요</h2></div>
+    <div class="box">
+      <div class="say">🔎 맞으면 ⭕, 틀리면 ❌를 누르세요.</div>
+      <div class="rv"><p class="q">① 윤희순은 여자도 나라를 지킬 수 있다고 생각했다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">② 윤희순은 의병 활동을 반대했다.</p><div class="rvgroup" data-ranswer="X"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+      <div class="rv"><p class="q">③ 인물의 가치를 알려면 시대 상황을 함께 생각해야 한다.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
     </div>
   </section>
 
   <section class="s-wrap">
     <div class="stage"><span class="badge">정리</span><h2>스스로 확인해요</h2></div>
     <div class="box">
-      <div class="selfcheck"><p>💪 인물이 한 일에서 추구하는 가치를 찾을 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-      <div class="selfcheck"><p>💪 윤희순이 추구한 가치를 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
-    </div>
-    <div class="box">
-      <div class="task"><span class="no">✏️</span><p>배운 내용을 다시 정리해요.</p></div>
-      <p style="font-size:16px; line-height:2.6;">사람이 자신의 삶에서 소중하게 여기는 것을
-        <input type="text" style="border:none; border-bottom:2px solid var(--tangerine); width:120px; font-size:17px; font-weight:800; text-align:center; font-family:inherit; background:transparent;" maxlength="6" aria-label="빈칸">
-        (이)라고 한다.
-      </p>
-      <p style="font-size:12.5px; color:#9A937F; margin-top:6px;">힌트: 가치</p>
+      <div class="selfcheck"><p>💪 인물이 추구하는 가치를 파악하는 방법을 말할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 윤희순이 추구한 가치를 말과 행동으로 설명할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
     </div>
     <div class="box">
       <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
-      <div class="quiz"><p class="qtitle">1. 윤희순에 대한 설명으로 <u>알맞은</u> 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#5F5E5A; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">사실 확인</span></p><div class="mc" data-q="f0" data-answer="2"><button>① 윤희순은 비행기를 만든 과학자이다.</button><button>② 윤희순은 의병 활동에 참여한 여성 의병이다.</button><button>③ 윤희순은 나라를 버리고 떠났다.</button><button>④ 윤희순은 아무 일도 하지 않았다.</button></div></div>
-      <div class="quiz"><p class="qtitle">2. &lt;보기&gt;를 읽고, 알맞지 <u>않은</u> 설명을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="boki">인물이 <b>한 일</b>과 <b>한 말</b>을 살펴보면 그 인물이 무엇을 소중히 여기는지, 곧 어떤 <b>가치</b>를 추구하는지 알 수 있어요. 윤희순의 삶에서는 나라 사랑과 용기가 잘 드러나요.</div><div class="mc" data-q="q3" data-answer="3"><button>① 한 일을 보면 인물의 가치를 알 수 있다.</button><button>② 윤희순은 나라 사랑을 추구했다.</button><button>③ 인물의 가치는 겉모습만 보면 알 수 있다.</button><button>④ 윤희순의 삶에는 용기가 드러난다.</button></div>
-      <div class="fixline"><p>✏️ 고른 문장을 <b>바르게 고쳐</b> 써 보세요.</p><textarea class="writeline" rows="1" placeholder="바르게 고치면: "></textarea></div></div>
-      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">내가 존경하는 인물 한 명과, 그 인물이 추구하는 가치를 한 문장으로 쓰세요.</p><textarea class="writeline" rows="1" placeholder="예) 나는 ..... 을(를) 존경한다. 그 사람은 ..... 을(를) 소중히 여겼다."></textarea></div>
+      <div class="quiz"><p class="qtitle">1. 윤희순이 만든 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="1"><button>① 안사람 의병대</button><button>② 학교</button><button>③ 신문사</button><button>④ 병원</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 윤희순이 추구한 가치로 가장 알맞은 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="mc" data-q="q2" data-answer="1"><button>① 나라 사랑과 용기</button><button>② 돈과 명예</button><button>③ 편안함</button><button>④ 혼자만의 행복</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">윤희순의 삶에서 본받고 싶은 점을 써 보세요.</p><textarea class="writeline" rows="1" placeholder="나는 윤희순의 ..... 을/를 본받고 싶어요."></textarea></div>
       <button class="checkbtn" onclick="grade()">정답 확인하기</button>
       <p id="result"></p>
     </div>
     <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
       <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
-      <p style="font-size:15px; margin-top:4px;">우리 가족 한 사람이 소중히 여기는 가치가 무엇인지, 그렇게 생각한 까닭과 함께 써 오세요.</p>
-      <textarea class="writeline" rows="2" placeholder="우리 ..... 은(는) ..... 을(를) 소중히 여긴다. 왜냐하면 ....."></textarea>
+      <p style="font-size:15px; margin-top:4px;">나에게 영향을 준 이야기 속 인물 한 명과 그 까닭을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="인물: ..... / 까닭: ....."></textarea>
     </div>
   </section>
 </div>
@@ -263,10 +341,12 @@ function setMode(m){
     if(b) b.classList.toggle('active-'+x, mode===x);
   });
 }
+
 function pickFace(btn){
   btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
 }
+
 document.querySelectorAll('.choicepair, .mc').forEach(group=>{
   group.querySelectorAll('button').forEach(btn=>{
     btn.onclick = ()=>{
@@ -275,6 +355,7 @@ document.querySelectorAll('.choicepair, .mc').forEach(group=>{
     };
   });
 });
+
 function grade(){
   let total=0, ok=0;
   document.querySelectorAll('[data-q]').forEach(group=>{
@@ -295,8 +376,9 @@ function grade(){
   });
   const r = document.getElementById('result');
   if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
-  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 글을 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
 }
+
 document.querySelectorAll('.rvgroup').forEach(group=>{
   const ans = group.dataset.ranswer;
   group.querySelectorAll('button').forEach(btn=>{
@@ -310,6 +392,8 @@ document.querySelectorAll('.rvgroup').forEach(group=>{
     };
   });
 });
+
+/* 문제 표시(△/☆) 버튼 */
 function addQmark(p){
   const b = document.createElement('button');
   b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
@@ -318,6 +402,10 @@ function addQmark(p){
   b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
   p.appendChild(b);
 }
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
 document.querySelectorAll('.quiz .qtitle').forEach(p=>{
   if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
 });

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 인물이 추구하는 가치</title>
+<title>&lt;em&gt;가치&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 1단원 자신의 삶과 관련지어 읽어요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 6-1 · 1단원 · 의병장 윤희순 ① · 어휘 카드 8장</p>
     <h1><em>가치</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📖", "w": "전기문", "m": "한 사람의 삶을 사실대로 쓴 글", "x": "위인의 전기문을 읽었어요."},
-  {"e": "💎", "w": "가치", "m": "삶에서 소중하게 여기는 것", "x": "나라 사랑은 소중한 가치예요."},
-  {"e": "⚔️", "w": "의병", "m": "백성이 스스로 일으킨 군대", "x": "의병이 나라를 지켰어요."},
-  {"e": "✊", "w": "항거", "m": "맞서 싸움", "x": "불의에 항거했어요."},
-  {"e": "💰", "w": "군자금", "m": "군대를 움직이는 데 드는 돈", "x": "군자금을 몰래 모았어요."},
-  {"e": "✈️", "w": "망명", "m": "위험을 피해 다른 나라로 감", "x": "중국으로 망명했어요."},
-  {"e": "🏛️", "w": "주권", "m": "나라를 다스리는 권리", "x": "주권을 지키려 애썼어요."},
-  {"e": "🦁", "w": "용기", "m": "두려움을 이기는 굳센 마음", "x": "용기를 내어 앞장섰어요."}
+  {"e": "💎", "w": "가치", "m": "중요하게 여기는 것", "x": "인물이 추구하는 가치"},
+  {"e": "🏃", "w": "추구하다", "m": "뒤좇아 구하다", "x": "행복을 추구해요."},
+  {"e": "⚔️", "w": "의병", "m": "스스로 일어난 군사", "x": "의병 활동"},
+  {"e": "🗣️", "w": "설득하다", "m": "말로 따르게 하다", "x": "사람들을 설득해요."},
+  {"e": "🔥", "w": "숯", "m": "나무를 구워 만든 연료", "x": "숯을 구워 팔아요."},
+  {"e": "💰", "w": "군자금", "m": "전쟁에 쓰는 돈", "x": "군자금을 모아요."},
+  {"e": "🎶", "w": "의병가", "m": "의병을 위한 노래", "x": "안사람 의병가"},
+  {"e": "😠", "w": "포악하다", "m": "사납고 악하다", "x": "포악한 적"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
