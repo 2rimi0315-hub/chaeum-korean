@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 비유적 표현</title>
+<title>&lt;em&gt;비유&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 6단원 작품을 즐겨요 · 어휘 카드 8장</p>
+    <p class="eyebrow">국어 5-1 · 6단원 · 딱지 · 어휘 카드 8장</p>
     <h1><em>비유</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🎭", "w": "비유", "m": "어떤 것을 다른 것에 빗대어 나타냄", "x": "비유를 쓰면 장면이 생생해요."},
-  {"e": "🔗", "w": "직유", "m": "'같은·처럼'을 써서 빗댐", "x": "'솜사탕 같은 구름'은 직유예요."},
-  {"e": "🟰", "w": "은유", "m": "'무엇은 무엇이다'로 빗댐", "x": "'내 마음은 바다다'는 은유예요."},
-  {"e": "🎙️", "w": "낭송", "m": "시를 소리 내어 읽음", "x": "시를 실감 나게 낭송했어요."},
-  {"e": "✨", "w": "표현", "m": "생각·느낌을 드러냄", "x": "멋진 표현으로 시를 지었어요."},
-  {"e": "🖌️", "w": "빗대다", "m": "비슷한 것에 견주어 말함", "x": "구름을 솜사탕에 빗댔어요."},
-  {"e": "🌈", "w": "생생하다", "m": "눈앞에 보이듯 또렷하다", "x": "비유 덕분에 생생하게 떠올라요."},
-  {"e": "📜", "w": "시", "m": "마음을 짧고 리듬 있게 쓴 글", "x": "시를 읽으며 마음을 느껴요."}
+  {"e": "🪲", "w": "딱정벌레", "m": "단단한 껍데기를 가진 곤충", "x": "딱정벌레가 기어가요."},
+  {"e": "🩹", "w": "딱지", "m": "상처에 생긴 굳은 껍질", "x": "무릎에 딱지가 생겼어요."},
+  {"e": "🔗", "w": "비유", "m": "비슷한 것에 빗대어 나타냄", "x": "비유적 표현"},
+  {"e": "👉", "w": "빗대다", "m": "곧바로 말하지 않고 견주어 말하다", "x": "구름에 빗대요."},
+  {"e": "🌈", "w": "생생하다", "m": "눈앞에 보이는 듯 뚜렷하다", "x": "생생한 장면"},
+  {"e": "🎤", "w": "낭송하다", "m": "소리 내어 읽거나 외다", "x": "시를 낭송해요."},
+  {"e": "🦵", "w": "살갗", "m": "몸을 싸고 있는 겉", "x": "살갗이 따가워요."},
+  {"e": "🖐️", "w": "건드리다", "m": "손으로 만지거나 대다", "x": "딱지를 건드려요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

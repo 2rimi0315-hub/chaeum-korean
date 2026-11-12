@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 인상적인 부분 감상</title>
+<title>&lt;em&gt;비유법&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 6단원 작품을 즐겨요 · 어휘 카드 8장</p>
-    <h1><em>인상적</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 6단원 · 은유법과 직유법 · 어휘 카드 8장</p>
+    <h1><em>비유법</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💫", "w": "인상적", "m": "마음에 강하게 남는", "x": "가장 인상적인 장면을 골랐어요."},
-  {"e": "💗", "w": "감상", "m": "작품을 읽고 느낀 생각·마음", "x": "책을 읽고 감상을 나눴어요."},
-  {"e": "📚", "w": "작품", "m": "시·이야기 같은 예술 글", "x": "좋아하는 작품을 소개했어요."},
-  {"e": "🎬", "w": "장면", "m": "이야기 속 한 모습", "x": "가장 기억에 남는 장면이에요."},
-  {"e": "💭", "w": "상상", "m": "머릿속에 그려 봄", "x": "장면을 상상하며 읽었어요."},
-  {"e": "❓", "w": "까닭", "m": "그렇게 된 이유", "x": "좋아하는 까닭을 말했어요."},
-  {"e": "🫀", "w": "마음", "m": "느끼는 생각이나 감정", "x": "'나'의 마음이 느껴졌어요."},
-  {"e": "📖", "w": "이야기", "m": "일이 벌어지는 글", "x": "재미있는 이야기를 읽었어요."}
+  {"e": "🟰", "w": "은유법", "m": "~은 ~이다로 빗대는 방법", "x": "내 마음은 저울"},
+  {"e": "🔗", "w": "직유법", "m": "~처럼, ~같이로 빗대는 방법", "x": "바람 같은 친구"},
+  {"e": "⚖️", "w": "양팔저울", "m": "양쪽 접시로 무게를 견주는 저울", "x": "양팔저울이 기울어요."},
+  {"e": "↘️", "w": "기울다", "m": "한쪽으로 쏠리다", "x": "저울이 기울어요."},
+  {"e": "🤼", "w": "견주다", "m": "서로 대어 비교하다", "x": "두 대상을 견주어요."},
+  {"e": "🌿", "w": "풀잎", "m": "풀의 잎", "x": "풀잎이 흔들려요."},
+  {"e": "🫂", "w": "얼싸안다", "m": "두 팔을 벌려 껴안다", "x": "친구를 얼싸안아요."},
+  {"e": "👋", "w": "헤지다", "m": "헤어지다의 준말", "x": "헤졌다가 만나요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
