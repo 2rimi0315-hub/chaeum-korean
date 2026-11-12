@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 추론하며 읽기</title>
+<title>&lt;em&gt;구성 요소&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 6단원 추론하며 읽어요 · 어휘 카드 8장</p>
-    <h1><em>추론</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 6단원 · 엄마에게 · 어휘 카드 8장</p>
+    <h1><em>구성 요소</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🕵️", "w": "추론", "m": "미루어 헤아려 앎", "x": "추론하며 읽어요."},
-  {"e": "🧠", "w": "지식", "m": "배워서 아는 것", "x": "지식을 활용해요."},
-  {"e": "🎒", "w": "경험", "m": "실제로 겪은 일", "x": "경험을 떠올려요."},
-  {"e": "🔎", "w": "단서", "m": "실마리가 되는 것", "x": "단서를 찾아요."},
-  {"e": "💭", "w": "짐작", "m": "미루어 헤아림", "x": "뜻을 짐작해요."},
-  {"e": "📖", "w": "문맥", "m": "글의 앞뒤 흐름", "x": "문맥을 살펴요."},
-  {"e": "🌊", "w": "깊이 읽기", "m": "뜻을 새기며 읽음", "x": "깊이 읽어요."},
-  {"e": "✅", "w": "확인", "m": "맞는지 되짚어 봄", "x": "추론을 확인해요."}
+  {"e": "🧩", "w": "구성 요소", "m": "전체를 이루는 부분", "x": "이야기의 구성 요소"},
+  {"e": "🧑", "w": "인물", "m": "이야기에 나오는 사람", "x": "주인공 인물"},
+  {"e": "⚡", "w": "사건", "m": "일어나는 일", "x": "중요한 사건"},
+  {"e": "🏞️", "w": "배경", "m": "시간과 장소", "x": "이야기의 배경"},
+  {"e": "🎒", "w": "피난", "m": "재난을 피해 옮겨 감", "x": "피난을 떠났어요."},
+  {"e": "🤝", "w": "휴전", "m": "전쟁을 잠시 멈춤", "x": "휴전 협정"},
+  {"e": "📦", "w": "소포", "m": "우편으로 보내는 꾸러미", "x": "소포가 왔어요."},
+  {"e": "🌺", "w": "봉선화", "m": "여름에 피는 꽃", "x": "봉선화 씨앗"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
