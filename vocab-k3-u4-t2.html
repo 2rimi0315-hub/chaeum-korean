@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 마음을 담은 글</title>
+<title>&lt;em&gt;높임 낱말&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 4단원 마음을 담아 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>마음</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 4단원 · 높임 표현 바르게 쓰기 · 어휘 카드 8장</p>
+    <h1><em>높임 낱말</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🫀", "w": "마음", "m": "느끼는 생각·감정", "x": "마음을 담아 썼어요."},
-  {"e": "💬", "w": "댓글", "m": "인터넷 글에 남기는 짧은 글", "x": "고운 댓글을 남겼어요."},
-  {"e": "🎀", "w": "예의", "m": "지켜야 할 바른 태도", "x": "예의 있게 말해요."},
-  {"e": "💖", "w": "진심", "m": "참된 마음", "x": "진심으로 고마워요."},
-  {"e": "✉️", "w": "편지", "m": "마음을 적어 보내는 글", "x": "편지를 썼어요."},
-  {"e": "🙏", "w": "고마움", "m": "감사한 마음", "x": "고마움을 전했어요."},
-  {"e": "😢", "w": "미안함", "m": "잘못해 부끄러운 마음", "x": "미안함을 표현했어요."},
-  {"e": "🎉", "w": "축하", "m": "기쁜 일을 함께 기뻐함", "x": "생일을 축하해요."}
+  {"e": "❓", "w": "여쭈다", "m": "'묻다'의 높임말", "x": "선생님께 여쭈어요."},
+  {"e": "🍚", "w": "진지", "m": "'밥'의 높임말", "x": "진지 드세요."},
+  {"e": "🏠", "w": "계시다", "m": "'있다'의 높임말", "x": "할머니가 집에 계세요."},
+  {"e": "🚗", "w": "모시다", "m": "웃어른을 데리고 가다", "x": "할아버지를 모셔요."},
+  {"e": "😴", "w": "주무시다", "m": "'자다'의 높임말", "x": "할머니께서 주무세요."},
+  {"e": "🍽️", "w": "잡수시다", "m": "'먹다'의 높임말", "x": "많이 잡수세요."},
+  {"e": "🔢", "w": "연세", "m": "'나이'의 높임말", "x": "연세가 많으세요."},
+  {"e": "🏡", "w": "댁", "m": "'집'의 높임말", "x": "할머니 댁"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

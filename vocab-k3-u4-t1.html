@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 높임 표현</title>
+<title>&lt;em&gt;높임 표현&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 4단원 마음을 담아 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>높임말</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 4단원 · 높임 표현을 쓰는 상황 · 어휘 카드 8장</p>
+    <h1><em>높임 표현</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🙇", "w": "높임말", "m": "웃어른을 높여 부르는 말", "x": "할머니께 높임말을 써요."},
-  {"e": "😀", "w": "반말", "m": "친한 사이에 쓰는 말", "x": "친구와 반말로 이야기해요."},
-  {"e": "🎎", "w": "예절", "m": "지켜야 할 바른 행동", "x": "예절을 지켜요."},
-  {"e": "🍚", "w": "진지", "m": "'밥'의 높임말", "x": "진지 잡수세요."},
-  {"e": "🙌", "w": "존중", "m": "소중히 여겨 높임", "x": "어른을 존중해요."},
-  {"e": "🎬", "w": "상황", "m": "일이 벌어지는 형편", "x": "상황에 맞게 말해요."},
-  {"e": "👋", "w": "인사", "m": "만나거나 헤어질 때 하는 말", "x": "공손히 인사했어요."},
-  {"e": "👵", "w": "웃어른", "m": "나이가 많은 어른", "x": "웃어른을 공경해요."}
+  {"e": "👴", "w": "웃어른", "m": "나이나 지위가 높은 어른", "x": "웃어른께 인사해요."},
+  {"e": "🎂", "w": "생신", "m": "'생일'의 높임말", "x": "할아버지 생신"},
+  {"e": "🎁", "w": "드리다", "m": "'주다'의 높임말", "x": "선물을 드려요."},
+  {"e": "🙇", "w": "공경", "m": "공손히 받들어 모심", "x": "어른을 공경해요."},
+  {"e": "🤝", "w": "존중", "m": "높이어 귀하게 대함", "x": "서로 존중해요."},
+  {"e": "📋", "w": "공식적", "m": "여러 사람이 정한 대로 하는", "x": "공식적인 회의"},
+  {"e": "🗳️", "w": "회의", "m": "모여 의논함", "x": "학급 회의를 해요."},
+  {"e": "👋", "w": "전학", "m": "다른 학교로 옮김", "x": "전학 온 친구"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

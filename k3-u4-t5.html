@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>활동지 — 전화 대화 예절과 역할놀이 (국어 3-2)</title>
+<style>
+  :root{
+    --ink:#2E2B26;
+    --paper:#FFFDF8;
+    --tangerine:#E8762C; --tangerine-bg:#FBEEE2; --tangerine-dark:#7A3A0E;
+    --teal:#1D9E75; --teal-bg:#E1F5EE; --teal-dark:#085041;
+    --purple:#7F77DD; --purple-bg:#EEEDFE; --purple-dark:#3C3489;
+    --line:#E3DDD0;
+    --mark-unknown:#F4C0D1;
+    --mark-env:#BFE3F7;
+    --mark-important:#FAE28A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--paper); color:var(--ink); line-height:1.7; padding:28px 18px 80px;
+  }
+  .wrap{max-width:780px; margin:0 auto;}
+
+  .top{border-bottom:3px solid var(--ink); padding-bottom:16px; margin-bottom:8px;}
+  .eyebrow{font-size:13px; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  h1{font-size:27px; font-weight:800; letter-spacing:-0.02em; line-height:1.35;}
+  h1 em{font-style:normal; color:var(--purple);}
+  .idrow{display:flex; gap:20px; margin-top:12px; font-size:14px; flex-wrap:wrap;}
+  .idrow span{display:flex; align-items:center; gap:8px;}
+  .idrow input{border:none; border-bottom:2px solid var(--line); background:transparent; width:110px; font-size:15px; font-family:inherit; padding:2px 4px;}
+
+  section{margin-top:44px;}
+  .stage{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .stage .badge{
+    font-size:13px; font-weight:800; letter-spacing:0.1em; color:#fff;
+    padding:5px 14px; border-radius:999px;
+  }
+  .stage h2{font-size:20px; font-weight:800;}
+  .s-intro .badge{background:var(--purple);}
+  .s-main .badge{background:var(--teal);}
+  .s-wrap .badge{background:var(--tangerine);}
+  .s-review .badge{background:#5F5E5A;}
+
+  .box{background:#fff; border:2px solid var(--ink); border-radius:16px; padding:22px; margin-bottom:16px;}
+  .task{display:flex; gap:10px; align-items:baseline; margin-bottom:10px;}
+  .task .no{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:14px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; transform:translateY(4px);
+  }
+  .task p{font-size:16px; font-weight:600;}
+  .task p small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+
+  .writeline{
+    width:100%; min-height:44px; border:none; border-bottom:2px dashed var(--line);
+    background:transparent; font-family:inherit; font-size:16px; padding:8px 4px; resize:vertical; line-height:1.7;
+  }
+  .writeline:focus{outline:none; border-bottom-color:var(--teal);}
+
+  .comic{margin-bottom:22px;}
+  .comic .clabel{font-size:15px; font-weight:800; margin-bottom:8px;}
+  .comic .clabel small{display:block; font-weight:400; font-size:13px; color:#8A8271;}
+  .cowrap{border:2.5px solid var(--ink); border-radius:16px; overflow:hidden; background:#fff;}
+  .cowrap img{width:100%; display:block;}
+  .cocap{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); border-top:2.5px solid var(--ink); background:#FBFAF5;}
+  .cocap span{padding:10px 12px; font-size:13.5px; font-weight:600; line-height:1.5; border-left:1.5px solid var(--line);}
+  .cocap span:first-child{border-left:none;}
+  .cocap span b{color:#E8762C; margin-right:4px;}
+  .say{
+    background:var(--purple-bg); color:var(--purple-dark); border-radius:12px;
+    padding:12px 16px; font-size:15px; margin:8px 0 14px;
+  }
+  .say b{font-weight:800;}
+
+  .marktools{display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;}
+  .marktools button{
+    font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--ink); background:#fff; color:var(--ink);
+  }
+  .marktools button.active-unknown{background:var(--mark-unknown); border-color:#D4537E;}
+  .marktools button.active-important{background:var(--mark-important); border-color:#BA7517;}
+  .marktools button.active-env{background:var(--mark-env); border-color:#2B7DB0;}
+  .marktools button.erase.active-erase{background:#EDEAE1;}
+  .ptitle{
+    text-align:center; font-size:19px; font-weight:800; letter-spacing:-0.01em;
+    margin:6px 0 18px; padding-bottom:12px; border-bottom:2px solid var(--line);
+  }
+  .ptitle small{display:block; font-size:12px; font-weight:700; letter-spacing:0.14em; color:#9A937F; margin-bottom:4px;}
+  .passage{font-size:17px; line-height:2.1;}
+  .passage p{margin-bottom:14px;}
+  .passage .w{cursor:pointer; border-radius:4px; padding:1px 1px;}
+  .passage .w.unknown{background:var(--mark-unknown);}
+  .passage .w.important{background:var(--mark-important);}
+  .passage .w.env{background:var(--mark-env);}
+  .legendline{display:flex; gap:16px; font-size:13px; color:#8A8271; margin-top:10px; flex-wrap:wrap;}
+  .legendline i{display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:5px; vertical-align:-2px;}
+
+  table{width:100%; border-collapse:collapse; font-size:15px;}
+  th{background:var(--teal-bg); color:var(--teal-dark); font-size:13px; letter-spacing:0.06em; padding:10px; border:1.5px solid var(--ink); font-weight:800;}
+  td{border:1.5px solid var(--ink); padding:8px 10px; vertical-align:middle;}
+  td.word{font-weight:800; font-size:16px; text-align:center; background:#FBFAF5; width:96px;}
+  td input{width:100%; border:none; background:transparent; font-family:inherit; font-size:15px; padding:4px;}
+  td input:focus{outline:2px solid var(--teal-bg); border-radius:4px;}
+
+  .combine{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:16px;}
+  .combine .chip{
+    border:2px solid var(--teal); border-radius:12px; padding:10px 12px; text-align:center;
+    background:var(--teal-bg); color:var(--teal-dark); font-size:15px;
+  }
+  .combine .chip b{font-size:16px;}
+  .combine .chip small{display:block; font-size:12px; color:#4E8E77; font-weight:700;}
+  .combine .chip input{width:100%; border:none; border-top:1.5px dashed var(--teal); margin-top:6px; padding-top:6px; text-align:center; background:transparent; font-family:inherit; font-size:15px; font-weight:700; color:var(--teal-dark);}
+
+  .mapwrap{display:flex; flex-direction:column; align-items:center; gap:0; padding:8px 0;}
+  .center-node{
+    width:120px; height:120px; border-radius:50%; background:var(--tangerine); color:#fff;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-size:15px; font-weight:800; padding:10px; position:relative; z-index:1;
+  }
+  .stem{width:3px; height:26px; background:var(--ink);}
+  .branches{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; width:100%; position:relative; padding-top:26px;}
+  .branches::before{content:""; position:absolute; top:0; left:16.6%; right:16.6%; height:3px; background:var(--ink);}
+  .branch{position:relative;}
+  .branch::before{content:""; position:absolute; top:-26px; left:50%; width:3px; height:26px; background:var(--ink);}
+  .bcard{border:2px solid var(--ink); border-radius:14px; background:#fff; overflow:hidden;}
+  .bcard h3{font-size:15px; font-weight:800; text-align:center; padding:9px;}
+  .bcard.b1 h3{background:var(--teal-bg); color:var(--teal-dark);}
+  .bcard.b2 h3{background:var(--purple-bg); color:var(--purple-dark);}
+  .bcard.b3 h3{background:var(--tangerine-bg); color:var(--tangerine-dark);}
+  .bcard textarea{width:100%; border:none; min-height:88px; padding:10px; font-family:inherit; font-size:14px; resize:vertical; background:transparent; line-height:1.6;}
+  .bcard textarea:focus{outline:none; background:#FBFAF5;}
+  .bcard .lab{font-size:12px; color:#9A937F; padding:0 10px;}
+
+  .flowlist{margin-top:20px;}
+  .flowrow{display:flex; gap:10px; align-items:baseline; margin-bottom:6px;}
+  .flowrow .fno{
+    flex:none; width:30px; height:30px; border-radius:50%; background:var(--skyblue,#2E86C1); color:#fff;
+    font-size:14px; font-weight:800; display:flex; align-items:center; justify-content:center; transform:translateY(6px);
+    background:#2E86C1;
+  }
+  .flowrow textarea{flex:1;}
+  .flowrow .fixed{flex:1; background:#FBF3DC; border:1.5px solid #E8C56A; border-radius:10px; padding:10px 14px; font-size:15px; line-height:1.7;}
+  .flowarrow{text-align:center; color:#B4AE9D; font-size:16px; margin:-2px 0 4px; font-weight:800;}
+
+  .selfcheck{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:6px;}
+  .selfcheck p{flex:1 1 260px; font-size:15px; font-weight:600;}
+  .faces{display:flex; gap:10px;}
+  .faces button{
+    width:64px; height:64px; border-radius:16px; border:2px solid var(--line); background:#fff;
+    font-size:26px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    font-family:inherit;
+  }
+  .faces button small{font-size:11px; color:#8A8271; font-weight:700;}
+  .faces button.sel{border-color:var(--tangerine); background:var(--tangerine-bg); transform:scale(1.06);}
+
+  .quiz{margin-bottom:20px;}
+  .quiz .qtitle{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .choicepair{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 10px;}
+  .choicepair button, .mc button{
+    font-family:inherit; font-size:15px; cursor:pointer; text-align:left;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+  .mc{display:flex; flex-direction:column; gap:8px; margin-top:8px;}
+  .mc button{border-radius:12px;}
+  .picked{border-color:var(--ink) !important; background:#F3F0E7 !important; font-weight:700;}
+  .correct{border-color:var(--teal) !important; background:var(--teal-bg) !important; font-weight:700;}
+  .wrong{border-color:#E24B4A !important; background:#FCEBEB !important;}
+  .boki{background:#FBFAF5; border:1.5px dashed var(--ink); border-radius:12px; padding:14px 16px; font-size:14.5px; margin:8px 0 10px;}
+  .fixline{margin-top:12px; background:#FBFAF5; border:1.5px dashed var(--line); border-radius:10px; padding:12px 14px;}
+  .fixline p{font-size:14px; font-weight:600; margin-bottom:2px;}
+  .fixline p small{font-weight:400; color:#8A8271;}
+  .qmark{margin-left:8px; font-size:15px; width:32px; height:32px; border-radius:8px;
+    border:1.5px dashed var(--line); background:#fff; cursor:pointer; padding:0;
+    vertical-align:-4px; font-family:inherit; color:#B4AE9D;}
+  .qmark.marked{border-style:solid; border-color:#BA7517; color:#7A3A0E; background:#FAEEDA; font-weight:800;}
+  .checkbtn{
+    font-family:inherit; font-size:15px; font-weight:800; cursor:pointer; color:#fff;
+    background:var(--ink); border:none; border-radius:999px; padding:12px 26px;
+  }
+  #result{font-size:16px; font-weight:800; margin-top:12px; min-height:24px;}
+
+  .rv{margin-bottom:14px;}
+  .rv p.q{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .rv p.q i{font-style:normal; color:#6B6858; font-weight:400;}
+  .rvgroup{display:flex; gap:8px; flex-wrap:wrap;}
+  .rvgroup button{
+    font-family:inherit; font-size:15px; cursor:pointer;
+    padding:9px 16px; border-radius:999px; border:2px solid var(--line); background:#fff;
+  }
+
+  @media print{
+    body{padding:0; background:#fff;}
+    .marktools, .checkbtn, #result{display:none !important;}
+    section{break-inside:avoid; margin-top:24px;}
+    .box{border-width:1.5px;}
+    .writeline{border-bottom:1.5px dashed #999;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
+    <p class="eyebrow">국어 3-2 · 4단원</p>
+    <h1>대화 예절을 지키며 <em>역할놀이</em>를 해요</h1>
+    <div class="idrow"><span>이름 <input type="text"></span><span>날짜 <input type="text" placeholder="    월    일"></span></div>
+  </header>
+
+  <section class="s-review">
+    <div class="stage"><span class="badge">복습</span><h2>지난 시간을 떠올려요</h2></div>
+    <div class="box">
+      <div class="say">🔔 지난 시간에는 상황에 알맞은 대화 예절을 알아보았어요.</div>
+      <div class="rv"><p class="q">공공장소에서 지켜야 할 대화 예절은?</p><div class="rvgroup" data-ranswer="조용히 대화하기"><button data-v="조용히 대화하기">조용히 대화하기</button><button data-v="크게 웃기">크게 웃기</button></div></div>
+      <div class="rv"><p class="q">전화 대화에서는 상대의 상황을 눈으로 볼 수 없어요.</p><div class="rvgroup" data-ranswer="O"><button data-v="O">⭕ 맞아요</button><button data-v="X">❌ 아니에요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-intro">
+    <div class="stage"><span class="badge">도입</span><h2>오늘 배울 것을 살펴봐요</h2></div>
+    <div class="box">
+      <div class="comic"><p class="clabel">🖼️ 그림으로 생각 열기 <small>그림을 보고, 오늘 무엇을 배울지 이야기해 보세요.</small></p><div class="cowrap"><img src="comics/k3-u4-t5.png" alt="생각 열기 그림" style="width:100%; display:block;" onerror="if(!this.dataset.j){this.dataset.j=1;this.src=this.src.replace('.png','.jpg');}else{this.parentElement.innerHTML='<div style=&quot;padding:48px 20px; text-align:center; color:#B4AE9D; font-size:14.5px; background:#FBFAF5; line-height:1.8;&quot;>🖼️ 여기에 그림이 들어가요<br>(comics/k3-u4-t5.png 파일을 넣어 주세요)</div>';}"></div></div>
+      <div class="task"><span class="no">1</span><p>오늘 배울 내용을 소리 내어 읽고, 다 읽으면 네모에 표시해요.</p></div>
+      <label style="display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; background:#FBFAF5; border-radius:12px; padding:12px 16px;">
+        <input type="checkbox" style="width:22px; height:22px;">
+        <span style="line-height:1.5;"><small style="display:block; font-size:13px; font-weight:600; color:#8A8271;">4. 서로 존중하며 대화해요</small>2) 상황에 알맞은 대화 예절을 지키며 대화하기</span>
+      </label>
+      <div class="task" style="margin-top:20px;"><span class="no">2</span><p>전화를 걸 때 맨 처음 어떤 말을 하나요?</p></div>
+      <textarea class="writeline" rows="1" placeholder="&quot;여보세요? .....&quot;"></textarea>
+    </div>
+    <div class="box" style="background:var(--purple-bg); border-color:var(--purple);"><p style="font-size:13px; font-weight:800; color:var(--purple-dark); letter-spacing:0.08em;">🔑 오늘의 핵심 개념 <small style="font-weight:600; color:#8A8271; letter-spacing:0;">— 한 문장으로 기억해요</small></p><p style="font-size:17px; font-weight:800; margin-top:8px; line-height:1.6; color:var(--ink);">전화 대화 예절: ① 내가 누구인지 밝히고 상대를 확인해요. ② 상대가 통화하기 괜찮은지 물어요. ③ 또박또박 말하고, 끝인사를 하고 끊어요. ④ 공공장소에서는 작은 목소리로 통화해요.</p></div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 1</span><h2>전화 대화를 살펴봐요</h2></div>
+    <div class="box">
+      <div class="say" style="background:#FFF6D6; color:#6B5A1E;">📕 <b>교과서 204~205쪽</b>을 펴서 인영이의 전화 대화를 살펴봐요.</div>
+      <div class="say" style="margin-top:12px;">👀 아래는 인영이의 전화 대화를 간추린 것이에요. <b>전화 예절을 지킨 말은 파랑</b>, <b>끝인사는 노랑</b>으로 표시해요.</div>
+      <div class="marktools">
+        <button id="btn-env" onclick="setMode('env')">🩵 전화 예절</button>
+        <button id="btn-important" onclick="setMode('important')">💛 끝인사</button>
+        <button id="btn-unknown" onclick="setMode('unknown')">🩷 모르는 낱말</button>
+        <button id="btn-erase" class="erase" onclick="setMode('erase')">지우개</button>
+      </div>
+      <p class="ptitle"><small>전화 대화 간추리기</small>인영이의 전화<span style="display:block; font-size:12.5px; font-weight:600; color:#9A937F; margin-top:4px;">채움 국어 교실이 간추린 대화 · 교과서 204쪽 관련</span></p>
+      <div class="passage" id="passage">
+        <p class="할머니">"여보세요?"</p>
+        <p class="인영">"할머니, 저 인영이에요."</p>
+        <p class="인영">(친구에게) "지금 통화하기 괜찮아?"</p>
+        <p class="친구">"지금 저녁 먹는 중이라 어려워. 이따가 다시 연락할게."</p>
+        <p class="인영">"준비물 알려 줘서 고마워. 그럼 내일 보자. 안녕."</p>
+      </div>
+      <div class="legendline">
+        <span><i style="background:var(--mark-env)"></i>전화 예절</span>
+        <span><i style="background:var(--mark-important)"></i>끝인사</span>
+        <span><i style="background:var(--mark-unknown)"></i>모르는 낱말</span>
+        <span>💡 인쇄해서 쓸 때는 ○, 밑줄, △로 직접 표시해요.</span>
+      </div>
+    </div>
+    <div class="box">
+      <div class="say">💬 알맞은 답을 골라 누르세요. (교과서 205쪽)</div>
+      <div class="rv"><p class="q">① 인영이가 "저 인영이에요."라고 말한 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="전화로는 얼굴이 안 보여서 누구인지 밝히려고"><button data-v="전화로는 얼굴이 안 보여서 누구인지 밝히려고">전화로는 얼굴이 안 보여서 누구인지 밝히려고</button><button data-v="할머니가 이름을 잊어서">할머니가 이름을 잊어서</button></div></div>
+      <div class="rv"><p class="q">② "지금 통화하기 괜찮아?"라고 물은 까닭은?</p><div class="rvgroup" style="flex-direction:column; align-items:flex-start;" data-ranswer="상대의 상황을 알 수 없어서"><button data-v="상대의 상황을 알 수 없어서">상대의 상황을 알 수 없어서</button><button data-v="전화를 빨리 끊으려고">전화를 빨리 끊으려고</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 2</span><h2>전화와 대화 낱말</h2></div>
+    <div class="box">
+      <div class="say">🔍 먼저 <b>내가 생각한 뜻</b>을 쓰세요. 그다음 <b>국어사전</b>에서 찾아 써 보세요.</div>
+      <table><thead><tr><th>낱말</th><th>내가 생각한 뜻</th><th>사전에서 찾은 뜻</th></tr></thead><tbody><tr><td class="word">통화</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">끝인사</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">거절하다</td><td><input type="text"></td><td><input type="text"></td></tr><tr><td class="word">말투</td><td><input type="text"></td><td><input type="text"></td></tr></tbody></table>
+      <div class="task" style="margin-top:26px;"><span class="no">＋</span><p>공손하게 거절하기! <small>부탁을 거절할 때 쓸 수 있는 말을 써 보세요.</small></p></div>
+      <div class="combine"><div class="chip"><small>죄송한 마음</small><b>"죄송하지만 ....."</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>까닭 말하기</small><b>"왜냐하면 ....."</b><input type="text" placeholder="쓰기"></div><div class="chip"><small>다른 방법</small><b>"대신에 ....."</b><input type="text" placeholder="쓰기"></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">전개 3</span><h2>역할놀이 대본을 쓰고 대화해요</h2></div>
+    <div class="box">
+      <div class="task"><span class="no">1</span><p>대화 상황을 정리해요. <small>노란 칸을 읽고, 빈칸을 채워 보세요. (교과서 206쪽)</small></p></div>
+      <table><thead><tr><th style="width:120px;"></th><th>상황 가</th><th>상황 나</th></tr></thead><tbody><tr><td class="word">대화 상대</td><td style="background:#FBF3DC;">친구</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">대화 목적</td><td style="background:#FBF3DC;">만날 약속을 하려고</td><td><input type="text" placeholder="....."></td></tr><tr><td class="word">대화 방식</td><td><input type="text" placeholder="....."></td><td style="background:#FBF3DC;">직접 만나서 대화</td></tr><tr><td class="word">지켜야 할 예절</td><td><input type="text" placeholder="....."></td><td><input type="text" placeholder="....."></td></tr></tbody></table>
+      <div class="task" style="margin-top:22px;"><span class="no">2</span><p>하나를 골라 역할놀이 대본을 써요. <small>(교과서 207쪽)</small></p></div>
+      <div class="rv"><p class="q">고른 상황</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">📞 가: 친구와 전화로 약속 정하기</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🙇 나: 어머니의 부탁 공손하게 거절하기</button></div></div>
+      <div class="flowlist"><div class="flowrow"><span class="fno">1</span><textarea class="writeline" rows="1" placeholder="나: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">2</span><textarea class="writeline" rows="1" placeholder="상대: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">3</span><textarea class="writeline" rows="1" placeholder="나: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">4</span><textarea class="writeline" rows="1" placeholder="상대: ....."></textarea></div>
+<p class="flowarrow">▼</p>
+<div class="flowrow"><span class="fno">5</span><textarea class="writeline" rows="1" placeholder="나 (끝인사): ....."></textarea></div></div>
+      <div class="task" style="margin-top:22px;"><span class="no">3</span><p>대본을 보면서 역할놀이를 하고, 다음에는 대본을 보지 않고 해 보세요. <small>표정, 몸짓, 말투에도 주의해요.</small></p></div>
+      <div class="rv"><p class="q">대본을 보지 않고 할 수 있었나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 다 했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 해 볼래요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-main">
+    <div class="stage"><span class="badge">해 보기</span><h2>역할놀이를 점검해요</h2></div>
+    <div class="box">
+      <div class="say">🔎 역할놀이를 하고 스스로 점검해요. (교과서 209쪽)</div>
+      <div class="rv"><p class="q">① 대화 상대에 알맞은 예절을 지켰나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 잘했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 할래요</button></div></div>
+      <div class="rv"><p class="q">② 대화 목적에 알맞은 예절을 지켰나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 잘했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 할래요</button></div></div>
+      <div class="rv"><p class="q">③ 대화 방식(전화/직접)에 알맞은 예절을 지켰나요?</p><div class="faces" style="flex-wrap:wrap;"><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">⭕ 잘했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">🔺 조금 했어요</button><button onclick="pickFace(this)" style="padding:8px 14px; font-size:15px;">❌ 다시 할래요</button></div></div>
+    </div>
+  </section>
+
+  <section class="s-wrap">
+    <div class="stage"><span class="badge">정리</span><h2>스스로 확인하고, 단원을 마무리해요</h2></div>
+    <div class="box">
+      <div class="selfcheck"><p>💪 전화로 대화할 때 지켜야 할 예절을 알고 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div><div class="selfcheck"><p>💪 상황에 알맞은 대화 예절을 지키며 대화할 수 있나요?</p><div class="faces"><button onclick="pickFace(this)">⭕<small>잘해요</small></button><button onclick="pickFace(this)">🔺<small>조금 자신 없어요</small></button><button onclick="pickFace(this)">❌<small>어려워요</small></button></div></div>
+    </div>
+    <div class="box">
+      <div class="task"><span class="no">🏆</span><p>문제를 풀어 봐요. <small>헷갈리면 △, 모르면 ☆ — 문제 옆의 ◻ 버튼을 눌러 표시해요.</small></p></div>
+      <div class="quiz"><p class="qtitle">1. 전화 대화 예절로 알맞은 것을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#1D9E75; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">내용</span></p><div class="mc" data-q="q1" data-answer="2"><button>① 하고 싶은 말만 하고 바로 끊는다.</button><button>② 내가 누구인지 밝히고 상대를 확인한다.</button><button>③ 상대가 받을 때까지 계속 건다.</button><button>④ 공공장소에서 큰 소리로 통화한다.</button></div></div>
+      <div class="quiz"><p class="qtitle">2. 어머니의 부탁을 공손하게 거절한 말을 고르세요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#E8762C; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">추론</span></p><div class="mc" data-q="q2" data-answer="2"><button>① 싫어, 안 해.</button><button>② 죄송해요, 지금 숙제 중이라서요. 숙제 끝나고 도와드릴게요.</button><button>③ 몰라.</button><button>④ 엄마가 해.</button></div></div>
+      <div class="quiz"><p class="qtitle">3. 생각을 써 봐요.<span style="font-size:11.5px; font-weight:800; color:#fff; background:#7F77DD; border-radius:999px; padding:3px 10px; margin-left:6px; vertical-align:2px;">서술형</span></p><p style="font-size:15px;">이 단원을 공부하고 대화할 때 달라지고 싶은 점을 써 보세요.</p><textarea class="writeline" rows="1" placeholder="나는 앞으로 대화할 때 ....."></textarea></div>
+      <button class="checkbtn" onclick="grade()">정답 확인하기</button>
+      <p id="result"></p>
+    </div>
+    <div class="box" style="background:var(--tangerine-bg); border-style:dashed;">
+      <p style="font-size:15px; font-weight:700; color:var(--tangerine-dark);">🏠 오늘의 숙제</p>
+      <p style="font-size:15px; margin-top:4px;">가족이나 친구에게 전화를 걸어 오늘 배운 전화 예절을 지키며 통화하고, 지킨 예절을 써 오세요.</p>
+      <textarea class="writeline" rows="1" placeholder="지킨 예절: ....."></textarea>
+    </div>
+  </section>
+</div>
+</body>
+<script>
+let mode = null;
+const passage = document.getElementById('passage');
+if(passage){
+passage.querySelectorAll('p').forEach(p=>{
+  p.innerHTML = p.textContent.split(/(\s+)/).map(t=>
+    t.trim() ? '<span class="w">'+t+'</span>' : t
+  ).join('');
+});
+passage.addEventListener('click', e=>{
+  if(!e.target.classList.contains('w') || !mode) return;
+  if(mode==='erase'){ e.target.classList.remove('unknown','important','env'); return; }
+  ['unknown','important','env'].forEach(c=>{ if(c!==mode) e.target.classList.remove(c); });
+  e.target.classList.toggle(mode);
+});
+}
+function setMode(m){
+  mode = (mode===m) ? null : m;
+  ['unknown','important','env','erase'].forEach(x=>{
+    const b = document.getElementById('btn-'+x);
+    if(b) b.classList.toggle('active-'+x, mode===x);
+  });
+}
+
+function pickFace(btn){
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+document.querySelectorAll('.choicepair, .mc').forEach(group=>{
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('picked','correct','wrong'));
+      btn.classList.add('picked');
+    };
+  });
+});
+
+function grade(){
+  let total=0, ok=0;
+  document.querySelectorAll('[data-q]').forEach(group=>{
+    total++;
+    const ans = group.dataset.answer;
+    const picked = group.querySelector('.picked, .correct, .wrong');
+    const btns = [...group.querySelectorAll('button')];
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(!picked) return;
+    const val = group.classList.contains('mc') ? String(btns.indexOf(picked)+1) : picked.textContent.trim();
+    if(val===ans){ picked.classList.add('correct'); ok++; }
+    else{
+      picked.classList.add('wrong');
+      const right = group.classList.contains('mc') ? btns[Number(ans)-1] : btns.find(b=>b.textContent.trim()===ans);
+      if(right) right.classList.add('correct');
+    }
+    picked.classList.remove('picked');
+  });
+  const r = document.getElementById('result');
+  if(ok===total){ r.textContent = '🎉 모두 맞았어요! 정말 잘했어요!'; r.style.color = 'var(--teal)'; }
+  else{ r.textContent = ok+' / '+total+' 맞았어요. 틀린 문제는 이야기를 다시 읽고 도전해 보세요!'; r.style.color = 'var(--tangerine-dark)'; }
+}
+
+document.querySelectorAll('.rvgroup').forEach(group=>{
+  const ans = group.dataset.ranswer;
+  group.querySelectorAll('button').forEach(btn=>{
+    btn.onclick = ()=>{
+      group.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){ btn.classList.add('correct'); }
+      else{
+        btn.classList.add('wrong');
+        group.querySelectorAll('button').forEach(b=>{ if(b.dataset.v===ans) b.classList.add('correct'); });
+      }
+    };
+  });
+});
+
+/* 문제 표시(△/☆) 버튼 */
+function addQmark(p){
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'qmark'; b.textContent = '◻';
+  b.setAttribute('aria-label', '문제 표시: 누를 때마다 빈칸, 세모, 별로 바뀜');
+  const states = ['◻','△','☆']; let i = 0;
+  b.onclick = ()=>{ i = (i+1)%3; b.textContent = states[i]; b.classList.toggle('marked', i>0); };
+  p.appendChild(b);
+}
+document.querySelectorAll('.choicepair').forEach(g=>{
+  const p = g.previousElementSibling;
+  if(p && p.tagName === 'P') addQmark(p);
+});
+document.querySelectorAll('.quiz .qtitle').forEach(p=>{
+  if(p.closest('.quiz').querySelector('.mc')) addQmark(p);
+});
+</script>
+</html>
