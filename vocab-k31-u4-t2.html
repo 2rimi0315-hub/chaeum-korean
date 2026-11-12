@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 이야기의 일어난 일</title>
+<title>&lt;em&gt;바다의 날&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 4단원 중요한 내용을 찾아요 · 어휘 카드 8장</p>
-    <h1><em>일어난 일</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-1 · 4단원 · 바다의 날 · 어휘 카드 8장</p>
+    <h1><em>바다의 날</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📅", "w": "일어난 일", "m": "이야기 속에서 벌어진 일", "x": "일어난 일을 찾아요."},
-  {"e": "⚡", "w": "사건", "m": "이야기 속에서 벌어진 일", "x": "사건을 정리해요."},
-  {"e": "📐", "w": "차례", "m": "일의 순서", "x": "차례대로 정리해요."},
-  {"e": "🧍", "w": "인물", "m": "이야기 속 사람·동물", "x": "인물을 살펴요."},
-  {"e": "✂️", "w": "간추리기", "m": "짧게 정리하다", "x": "이야기를 간추려요."},
-  {"e": "🥔", "w": "감자", "m": "밭에서 캐는 뿌리 먹거리", "x": "솔이가 감자를 캐요."},
-  {"e": "👵", "w": "시골", "m": "도시에서 떨어진 마을", "x": "시골 할머니 집에 가요."},
-  {"e": "🤝", "w": "또래", "m": "나이가 비슷한 사람", "x": "또래 친구 상구예요."}
+  {"e": "🌊", "w": "바다의 날", "m": "바다의 소중함을 생각하는 날", "x": "5월 31일은 바다의 날이에요."},
+  {"e": "💎", "w": "가치", "m": "쓸모나 중요성", "x": "바다의 가치를 알아요."},
+  {"e": "🚢", "w": "무역", "m": "나라끼리 물건을 사고파는 일", "x": "바닷길로 무역을 했어요."},
+  {"e": "👀", "w": "인식", "m": "보고 듣고 느껴서 앎", "x": "바다에 대한 인식이 바뀌었어요."},
+  {"e": "📅", "w": "기념일", "m": "특별한 일을 기억하려고 정한 날", "x": "5월에는 기념일이 많아요."},
+  {"e": "🏯", "w": "청해진", "m": "장보고가 세운 바다 기지", "x": "장보고가 청해진을 세웠어요."},
+  {"e": "🏴‍☠️", "w": "해적", "m": "바다의 도둑", "x": "해적을 물리쳤어요."},
+  {"e": "🐬", "w": "보호하다", "m": "위험하지 않게 지키다", "x": "바다 생물을 보호해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

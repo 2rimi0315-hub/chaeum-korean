@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 중요한 내용 간추리기</title>
+<title>&lt;em&gt;메모&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-1 · 4단원 중요한 내용을 찾아요 · 어휘 카드 8장</p>
-    <h1><em>간추리기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-1 · 4단원 · 설명을 듣고 메모하기 · 어휘 카드 8장</p>
+    <h1><em>메모</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📌", "w": "중요", "m": "꼭 알아야 함", "x": "중요한 내용이에요."},
-  {"e": "✂️", "w": "간추리기", "m": "짧게 줄여 정리함", "x": "내용을 간추려요."},
-  {"e": "⭐", "w": "중심 문장", "m": "가장 중요한 문장", "x": "중심 문장을 찾아요."},
-  {"e": "🏷️", "w": "제목", "m": "글의 이름", "x": "제목을 살펴요."},
-  {"e": "🧾", "w": "내용", "m": "글에 담긴 이야기", "x": "내용을 찾아요."},
-  {"e": "🔎", "w": "찾다", "m": "살펴 알아냄", "x": "내용을 찾아요."},
-  {"e": "💭", "w": "짐작", "m": "헤아려 생각함", "x": "제목으로 짐작해요."},
-  {"e": "📋", "w": "정리", "m": "가지런히 모음", "x": "내용을 정리해요."}
+  {"e": "📝", "w": "메모", "m": "중요한 내용을 간단히 적은 글", "x": "메모를 했어요."},
+  {"e": "💧", "w": "액체", "m": "물처럼 흐르는 것", "x": "매미가 액체를 내뿜어요."},
+  {"e": "🦅", "w": "천적", "m": "잡아먹는 동물", "x": "매미의 천적은 새예요."},
+  {"e": "📋", "w": "수칙", "m": "지켜야 할 규칙", "x": "안전 수칙을 지켜요."},
+  {"e": "🚌", "w": "탑승", "m": "차나 배에 올라탐", "x": "버스에 탑승해요."},
+  {"e": "🔢", "w": "숫자", "m": "수를 나타내는 글자", "x": "숫자를 붙여 정리해요."},
+  {"e": "⭐", "w": "기호", "m": "뜻을 나타내는 표시", "x": "중요한 것에 기호를 붙여요."},
+  {"e": "🏷️", "w": "제목", "m": "글의 이름", "x": "메모에 제목을 써요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
