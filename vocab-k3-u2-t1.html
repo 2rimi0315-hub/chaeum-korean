@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 유창하게 읽기</title>
+<title>&lt;em&gt;나무&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 2단원 유창하게 읽고 발표해요 · 어휘 카드 8장</p>
-    <h1><em>유창하게</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 2단원 · 나무 · 어휘 카드 8장</p>
+    <h1><em>나무</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🗣️", "w": "유창하게", "m": "막힘없이 술술", "x": "글을 유창하게 읽어요."},
-  {"e": "↔️", "w": "띄어 읽기", "m": "알맞게 쉬며 읽기", "x": "띄어 읽기를 했어요."},
-  {"e": "🎬", "w": "장면", "m": "이야기 속 한 모습", "x": "장면을 떠올렸어요."},
-  {"e": "🌈", "w": "분위기", "m": "느껴지는 기운", "x": "글의 분위기를 느껴요."},
-  {"e": "🩺", "w": "의사", "m": "병을 치료하는 사람", "x": "박에스더는 의사예요."},
-  {"e": "💊", "w": "치료", "m": "병을 낫게 함", "x": "아픈 사람을 치료했어요."},
-  {"e": "🦁", "w": "용기", "m": "두려움을 이기는 마음", "x": "용기를 냈어요."},
-  {"e": "🙏", "w": "정성", "m": "온 마음을 다함", "x": "정성껏 돌봤어요."}
+  {"e": "🌳", "w": "나무", "m": "줄기가 단단한 식물", "x": "나무를 심어요."},
+  {"e": "🪵", "w": "통나무", "m": "자르지 않은 굵은 나무", "x": "통나무 집"},
+  {"e": "🏠", "w": "대들보", "m": "지붕을 받치는 큰 나무", "x": "대들보가 튼튼해요."},
+  {"e": "🌲", "w": "가로수", "m": "길가에 심은 나무", "x": "가로수가 줄지어 있어요."},
+  {"e": "🍎", "w": "과일", "m": "먹는 나무 열매", "x": "과일을 먹어요."},
+  {"e": "🏞️", "w": "숲", "m": "나무가 우거진 곳", "x": "숲을 걸어요."},
+  {"e": "🗣️", "w": "유창하다", "m": "막힘이 없이 술술 하다", "x": "유창하게 읽어요."},
+  {"e": "🤲", "w": "어우러지다", "m": "여럿이 잘 어울리다", "x": "함께 어우러져요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

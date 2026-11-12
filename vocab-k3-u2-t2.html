@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 글과 그림으로 표현</title>
+<title>&lt;em&gt;신기한 구슬&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 2단원 유창하게 읽고 발표해요 · 어휘 카드 8장</p>
-    <h1><em>발표</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 2단원 · 신기한 구슬 · 어휘 카드 8장</p>
+    <h1><em>신기한 구슬</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📢", "w": "발표", "m": "여러 사람 앞에서 알림", "x": "친구들에게 발표했어요."},
-  {"e": "🗂️", "w": "자료", "m": "발표를 돕는 그림·사진", "x": "발표 자료를 준비했어요."},
-  {"e": "✨", "w": "표현", "m": "생각을 드러냄", "x": "그림으로 표현했어요."},
-  {"e": "🎯", "w": "주제", "m": "이야기의 중심 내용", "x": "발표 주제를 정했어요."},
-  {"e": "🗣️", "w": "또박또박", "m": "분명하고 정확하게", "x": "또박또박 말했어요."},
-  {"e": "🙋", "w": "소개", "m": "알려서 보여 줌", "x": "좋아하는 것을 소개했어요."},
-  {"e": "🔊", "w": "목소리", "m": "말할 때 나는 소리", "x": "알맞은 목소리로 말해요."},
-  {"e": "🎒", "w": "준비", "m": "미리 마련함", "x": "발표를 준비했어요."}
+  {"e": "🔮", "w": "구슬", "m": "둥근 작은 물건", "x": "구슬이 반짝여요."},
+  {"e": "🎂", "w": "생일", "m": "태어난 날", "x": "생일을 축하해요."},
+  {"e": "🍲", "w": "미역국", "m": "생일에 먹는 국", "x": "미역국을 끓여요."},
+  {"e": "😔", "w": "서운하다", "m": "마음이 아쉽고 섭섭하다", "x": "서운한 마음"},
+  {"e": "🌫️", "w": "분위기", "m": "장면에서 느껴지는 기분", "x": "분위기가 무거워요."},
+  {"e": "⚡", "w": "삽시간", "m": "매우 짧은 시간", "x": "삽시간에 끝났어요."},
+  {"e": "😠", "w": "부아", "m": "분한 마음", "x": "부아가 치밀었어요."},
+  {"e": "✨", "w": "영롱하다", "m": "맑고 아름답다", "x": "영롱한 소리"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
