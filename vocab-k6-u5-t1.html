@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 근거와 인용 출처</title>
+<title>&lt;em&gt;주장하는 글&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-1 · 5단원 자신의 글쓰기 과정을 살펴봐요 · 어휘 카드 8장</p>
-    <h1><em>근거·인용</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-1 · 5단원 · 주장하는 글의 짜임 · 어휘 카드 8장</p>
+    <h1><em>주장하는 글</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "📢", "w": "주장", "m": "내세우는 생각", "x": "주장을 또렷이 밝혔어요."},
-  {"e": "📌", "w": "근거", "m": "주장을 뒷받침하는 까닭", "x": "적절한 근거를 들었어요."},
-  {"e": "📥", "w": "인용", "m": "남의 말·글을 끌어다 씀", "x": "전문가 말을 인용했어요."},
-  {"e": "🔖", "w": "출처", "m": "자료가 나온 곳", "x": "출처를 꼭 밝혔어요."},
-  {"e": "👉", "w": "제시", "m": "드러내어 보임", "x": "근거를 제시했어요."},
-  {"e": "🎯", "w": "설득", "m": "이유를 들어 마음을 움직임", "x": "글로 사람들을 설득해요."},
-  {"e": "🗂️", "w": "자료", "m": "뒷받침이 되는 정보", "x": "믿을 만한 자료를 찾았어요."},
-  {"e": "✅", "w": "적절", "m": "꼭 알맞음", "x": "적절한 예를 들었어요."}
+  {"e": "🚪", "w": "서론", "m": "문제와 주장을 밝히는 부분", "x": "서론에서 주장해요."},
+  {"e": "📚", "w": "본론", "m": "이유와 근거를 쓰는 부분", "x": "본론을 써요."},
+  {"e": "🏁", "w": "결론", "m": "요약하고 강조하는 부분", "x": "결론으로 마무리해요."},
+  {"e": "↔️", "w": "격차", "m": "서로 벌어진 차이", "x": "디지털 격차"},
+  {"e": "💻", "w": "디지털", "m": "컴퓨터 기술을 쓰는 것", "x": "디지털 기기"},
+  {"e": "😔", "w": "소외", "m": "따돌려짐", "x": "소외 계층"},
+  {"e": "⚖️", "w": "불평등", "m": "고르지 않음", "x": "교육 불평등"},
+  {"e": "🏧", "w": "무인 주문기", "m": "사람 없이 주문하는 기계", "x": "무인 주문기를 써요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
