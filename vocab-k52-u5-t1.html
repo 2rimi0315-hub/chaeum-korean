@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 의견을 조정하며 토의</title>
+<title>&lt;em&gt;추론&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 5단원 의견을 조정해요 · 어휘 카드 8장</p>
-    <h1><em>토의</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 5단원 · 현미경으로 세포를 발견하다 · 어휘 카드 8장</p>
+    <h1><em>추론</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💬", "w": "토의", "m": "의견을 나누어 문제 해결", "x": "반 문제를 토의해요."},
-  {"e": "🔧", "w": "조정", "m": "알맞게 다듬어 맞춤", "x": "의견을 조정해요."},
-  {"e": "💭", "w": "의견", "m": "자기 생각", "x": "의견을 냈어요."},
-  {"e": "📌", "w": "근거", "m": "의견을 뒷받침하는 까닭", "x": "근거를 들었어요."},
-  {"e": "✅", "w": "결정", "m": "어떻게 할지 정함", "x": "함께 결정해요."},
-  {"e": "🙌", "w": "존중", "m": "소중히 여겨 높임", "x": "의견을 존중해요."},
-  {"e": "🎯", "w": "주제", "m": "이야기할 중심 문제", "x": "토의 주제를 정해요."},
-  {"e": "🤝", "w": "협력", "m": "힘을 모아 함께함", "x": "협력해요."}
+  {"e": "🔍", "w": "추론하다", "m": "단서로 짐작해 알아내다", "x": "내용을 추론해요."},
+  {"e": "🧩", "w": "단서", "m": "문제를 푸는 실마리", "x": "글에서 단서를 찾아요."},
+  {"e": "🦠", "w": "미생물", "m": "아주 작은 생물", "x": "물속 미생물"},
+  {"e": "👀", "w": "관찰하다", "m": "자세히 살펴보다", "x": "현미경으로 관찰해요."},
+  {"e": "🔬", "w": "현미경", "m": "작은 것을 크게 보는 기구", "x": "현미경을 들여다봐요."},
+  {"e": "🦟", "w": "벼룩", "m": "아주 작은 곤충", "x": "벼룩 그림"},
+  {"e": "🧫", "w": "세포", "m": "생물을 이루는 기본 단위", "x": "세포를 발견했어요."},
+  {"e": "🗳️", "w": "선출되다", "m": "골라지다", "x": "회원으로 선출됐어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

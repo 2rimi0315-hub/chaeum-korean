@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 토의로 문제 해결</title>
+<title>&lt;em&gt;녹색 화폐&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-2 · 5단원 의견을 조정해요 · 어휘 카드 8장</p>
-    <h1><em>실천</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-2 · 5단원 · 녹색 화폐 · 어휘 카드 8장</p>
+    <h1><em>녹색 화폐</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🏃", "w": "실천", "m": "실제로 행동함", "x": "다짐을 실천해요."},
-  {"e": "🗺️", "w": "계획", "m": "미리 세우는 생각", "x": "실천 계획을 세워요."},
-  {"e": "✅", "w": "결정", "m": "어떻게 할지 정함", "x": "함께 결정해요."},
-  {"e": "🤝", "w": "협력", "m": "힘을 모아 함께함", "x": "협력해 실천해요."},
-  {"e": "🔄", "w": "돌아보기", "m": "지난 일을 되짚어 봄", "x": "실천을 돌아봐요."},
-  {"e": "🤞", "w": "다짐", "m": "마음을 굳게 정함", "x": "실천을 다짐해요."},
-  {"e": "📥", "w": "모으다", "m": "한데 합치다", "x": "의견을 모아요."},
-  {"e": "📆", "w": "꾸준히", "m": "끊임없이 계속", "x": "꾸준히 실천해요."}
+  {"e": "💵", "w": "화폐", "m": "물건을 사고팔 때 쓰는 돈", "x": "새로운 화폐"},
+  {"e": "🔄", "w": "교환하다", "m": "서로 바꾸다", "x": "물건을 교환해요."},
+  {"e": "🍞", "w": "생계", "m": "살림을 꾸려 가는 방법", "x": "생계를 이어 가요."},
+  {"e": "🧺", "w": "풍족하다", "m": "매우 넉넉하다", "x": "풍족한 생활"},
+  {"e": "🪵", "w": "목재", "m": "나무로 된 재료", "x": "목재 산업"},
+  {"e": "🪟", "w": "투명하다", "m": "숨김없이 드러나다", "x": "기록이 투명해요."},
+  {"e": "🛠️", "w": "수리하다", "m": "고치다", "x": "컴퓨터를 수리해요."},
+  {"e": "🏘️", "w": "주민", "m": "그곳에 사는 사람", "x": "마을 주민"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
