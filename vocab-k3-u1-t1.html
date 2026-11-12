@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 경험을 떠올리며 감상</title>
+<title>&lt;em&gt;은행잎 편지&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 1단원 작품을 감상하고 간추려요 · 어휘 카드 8장</p>
-    <h1><em>경험·감상</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 1단원 · 은행잎 편지 · 어휘 카드 8장</p>
+    <h1><em>은행잎 편지</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🧠", "w": "경험", "m": "예전에 겪은 일", "x": "내 경험을 떠올렸어요."},
-  {"e": "💗", "w": "감상", "m": "작품을 읽고 느낀 마음", "x": "시를 읽고 감상을 나눴어요."},
-  {"e": "📜", "w": "시", "m": "마음을 짧게 쓴 글", "x": "시를 소리 내어 읽었어요."},
-  {"e": "🫀", "w": "마음", "m": "느끼는 생각·감정", "x": "시 속 마음이 느껴져요."},
-  {"e": "🥹", "w": "그리움", "m": "보고 싶어 하는 마음", "x": "친구가 그리웠어요."},
-  {"e": "💭", "w": "떠올리다", "m": "생각이 나게 하다", "x": "비슷한 일을 떠올렸어요."},
-  {"e": "✉️", "w": "편지", "m": "마음을 적어 보내는 글", "x": "친구에게 편지를 썼어요."},
-  {"e": "📚", "w": "작품", "m": "시·이야기 같은 글", "x": "작품을 감상했어요."}
+  {"e": "🍂", "w": "은행잎", "m": "은행나무의 노란 잎", "x": "은행잎이 떨어져요."},
+  {"e": "💌", "w": "편지", "m": "하고 싶은 말을 적어 보내는 글", "x": "편지를 써요."},
+  {"e": "🚚", "w": "이사", "m": "사는 곳을 옮김", "x": "친구가 이사를 갔어요."},
+  {"e": "🥺", "w": "그립다", "m": "보고 싶은 마음이 간절하다", "x": "친구가 그리워요."},
+  {"e": "⛵", "w": "띄우다", "m": "물 위에 뜨게 하다", "x": "종이배를 띄워요."},
+  {"e": "🗣️", "w": "말하는 이", "m": "시 속에서 이야기하는 사람", "x": "말하는 이의 마음"},
+  {"e": "🏫", "w": "방학", "m": "학교를 쉬는 기간", "x": "방학이 시작돼요."},
+  {"e": "💭", "w": "떠올리다", "m": "기억해 내다", "x": "친구 얼굴을 떠올려요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

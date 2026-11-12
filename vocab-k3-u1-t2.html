@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 중요한 내용 간추리기</title>
+<title>&lt;em&gt;벽 부수기&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 3-2 · 1단원 작품을 감상하고 간추려요 · 어휘 카드 8장</p>
-    <h1><em>간추리기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 3-2 · 1단원 · 벽 부수기 · 어휘 카드 8장</p>
+    <h1><em>벽 부수기</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✂️", "w": "간추리기", "m": "중요한 내용만 짧게 정리함", "x": "글을 간추렸어요."},
-  {"e": "🎯", "w": "중요한 내용", "m": "꼭 필요한 핵심", "x": "중요한 내용을 골랐어요."},
-  {"e": "🌽", "w": "특산물", "m": "그 고장에서 나는 것", "x": "우리 고장의 특산물이에요."},
-  {"e": "🎪", "w": "축제", "m": "즐겁게 벌이는 행사", "x": "옥수수 축제가 열렸어요."},
-  {"e": "🌡️", "w": "기온", "m": "공기의 따뜻하고 찬 정도", "x": "기온 차가 커요."},
-  {"e": "🏅", "w": "자랑거리", "m": "자랑스러운 것", "x": "우리 고장의 자랑거리예요."},
-  {"e": "📄", "w": "문단", "m": "내용이 묶인 글의 덩어리", "x": "문단마다 핵심을 찾아요."},
-  {"e": "🗂️", "w": "정리", "m": "가지런히 간추림", "x": "내용을 정리했어요."}
+  {"e": "🧱", "w": "벽", "m": "막혀 있는 것", "x": "마음에 벽이 생겼어요."},
+  {"e": "😤", "w": "답답하다", "m": "숨이 막힐 듯 갑갑하다", "x": "마음이 답답해요."},
+  {"e": "🔄", "w": "입장", "m": "처해 있는 자리", "x": "입장을 바꿔 생각해요."},
+  {"e": "🔨", "w": "부수다", "m": "깨뜨려 못 쓰게 하다", "x": "벽을 부숴요."},
+  {"e": "🤝", "w": "화해하다", "m": "다툼을 멈추고 풀다", "x": "친구와 화해했어요."},
+  {"e": "😠", "w": "화나다", "m": "성이 나다", "x": "화가 났어요."},
+  {"e": "😏", "w": "피식", "m": "힘없이 웃는 모양", "x": "피식 웃었어요."},
+  {"e": "💊", "w": "약", "m": "병을 고치는 것", "x": "약을 먹어요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
