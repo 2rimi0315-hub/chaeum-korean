@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 생략된 내용 짐작하기</title>
+<title>&lt;em&gt;대화&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 1단원 대화를 나누어요 · 어휘 카드 8장</p>
-    <h1><em>생략된 내용 짐작하기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 1단원 · 배려하며 대화하기 · 어휘 카드 8장</p>
+    <h1><em>대화</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "✂️", "w": "생략", "m": "말이나 글에서 일부를 줄이거나 빼는 것", "x": "서로 아는 내용은 생략해요."},
-  {"e": "🔮", "w": "짐작", "m": "미루어 헤아려 생각하는 것", "x": "생략된 내용을 짐작해요."},
-  {"e": "🔄", "w": "상황", "m": "일이 되어 가는 형편이나 모양", "x": "앞뒤 상황을 살펴요."},
-  {"e": "😮", "w": "오해", "m": "잘못 이해하거나 생각하는 것", "x": "휴대 전화 때문에 오해했어요."},
-  {"e": "🏃", "w": "심부름", "m": "남이 시키는 일을 대신 해 주는 것", "x": "선생님 심부름을 해요."},
-  {"e": "😊", "w": "표정", "m": "마음이 얼굴에 드러난 모습", "x": "표정을 보고 마음을 짐작해요."},
-  {"e": "👉", "w": "가리키다", "m": "무엇을 집어서 알려 주다", "x": "'그거'가 무엇을 가리키는지 살펴요."},
-  {"e": "🤝", "w": "전하다", "m": "말이나 물건을 남에게 옮겨 주다", "x": "우민이에게 말을 전해요."}
+  {"e": "🫂", "w": "공감하다", "m": "남의 마음을 함께 느끼다", "x": "친구 마음에 공감해요."},
+  {"e": "📌", "w": "주제", "m": "이야기의 중심 내용", "x": "대화 주제를 정해요."},
+  {"e": "🧳", "w": "경험", "m": "직접 해 보거나 겪음", "x": "여행 경험"},
+  {"e": "🪢", "w": "이중뛰기", "m": "한 번 뛸 때 줄을 두 번 돌리기", "x": "이중뛰기에 성공했어요."},
+  {"e": "🏆", "w": "성공하다", "m": "목적을 이루다", "x": "연습해서 성공했어요."},
+  {"e": "🗒️", "w": "정리하다", "m": "내용을 가지런히 모으다", "x": "할 말을 정리해요."},
+  {"e": "👥", "w": "모둠", "m": "함께 활동하는 작은 무리", "x": "모둠 친구들"},
+  {"e": "✅", "w": "점검하다", "m": "하나하나 살피다", "x": "대화를 점검해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
