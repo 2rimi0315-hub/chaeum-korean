@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 독자를 고려한 글쓰기</title>
+<title>&lt;em&gt;시&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 6단원 독자를 고려하며 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>독자</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 6단원 · 경험을 시로 표현하기 · 어휘 카드 8장</p>
+    <h1><em>시</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "👀", "w": "독자", "m": "글을 읽는 사람", "x": "독자를 생각해요."},
-  {"e": "✍️", "w": "글쓴이", "m": "글을 쓰는 사람", "x": "글쓴이의 마음이에요."},
-  {"e": "🎯", "w": "목적", "m": "글을 쓰는 까닭", "x": "목적을 정해요."},
-  {"e": "💭", "w": "고려", "m": "생각해 헤아림", "x": "독자를 고려해요."},
-  {"e": "🗨️", "w": "표현", "m": "생각을 나타냄", "x": "쉬운 표현을 골라요."},
-  {"e": "📝", "w": "계획하기", "m": "쓸 내용을 미리 정함", "x": "글을 계획해요."},
-  {"e": "🧩", "w": "내용 마련", "m": "쓸 거리를 모음", "x": "내용을 마련해요."},
-  {"e": "😊", "w": "쉬운 말", "m": "알기 쉬운 낱말", "x": "쉬운 말로 써요."}
+  {"e": "✂️", "w": "간결하다", "m": "짧고 깔끔하다", "x": "간결하게 써요."},
+  {"e": "⛰️", "w": "수북이", "m": "많이 쌓여 불룩하게", "x": "수북이 쌓였어요."},
+  {"e": "📑", "w": "연", "m": "시에서 몇 행을 묶은 덩어리", "x": "1연, 2연"},
+  {"e": "📏", "w": "행", "m": "시의 한 줄", "x": "시의 행"},
+  {"e": "⚽", "w": "축구공", "m": "축구할 때 차는 공", "x": "축구공이 굴러와요."},
+  {"e": "😴", "w": "눈꺼풀", "m": "눈을 덮는 살갗", "x": "눈꺼풀이 무거워요."},
+  {"e": "🌀", "w": "데굴데굴", "m": "굴러가는 모양", "x": "데굴데굴 굴러가요."},
+  {"e": "😪", "w": "꾸벅", "m": "조는 모양", "x": "꾸벅꾸벅 졸아요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');

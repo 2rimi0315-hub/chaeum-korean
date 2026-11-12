@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 쓰고 고쳐 쓰기</title>
+<title>&lt;em&gt;비유&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 6단원 독자를 고려하며 글을 써요 · 어휘 카드 8장</p>
-    <h1><em>고쳐쓰기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 6단원 · 비유적 표현으로 시 쓰기 · 어휘 카드 8장</p>
+    <h1><em>비유</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "🔧", "w": "고쳐쓰기", "m": "다시 읽고 바르게 다듬음", "x": "글을 고쳐 써요."},
-  {"e": "🧍", "w": "처지", "m": "놓인 상황", "x": "독자 처지에서 읽어요."},
-  {"e": "📐", "w": "차례", "m": "일의 순서", "x": "글쓰기 차례를 지켜요."},
-  {"e": "🔍", "w": "다시 읽기", "m": "쓴 글을 되짚어 읽음", "x": "다시 읽고 고쳐요."},
-  {"e": "✏️", "w": "다듬다", "m": "어색한 곳을 손봄", "x": "문장을 다듬어요."},
-  {"e": "💡", "w": "분명", "m": "뚜렷하고 확실함", "x": "뜻이 분명해요."},
-  {"e": "🧾", "w": "내용", "m": "글에 담긴 이야기", "x": "내용을 더해요."},
-  {"e": "📄", "w": "문장", "m": "생각을 나타낸 한 마디", "x": "문장을 짧게 써요."}
+  {"e": "🔁", "w": "비유적 표현", "m": "다른 것에 빗댄 표현", "x": "비유적 표현을 써요."},
+  {"e": "🟰", "w": "직유법", "m": "처럼·같이로 비교", "x": "꽃처럼 웃어요."},
+  {"e": "🎭", "w": "은유법", "m": "…은 …이다로 빗댐", "x": "내 마음은 호수다."},
+  {"e": "🐈", "w": "주저하다", "m": "머뭇거리며 망설이다", "x": "주저하다 숨어요."},
+  {"e": "🌧️", "w": "소나기", "m": "갑자기 쏟아지는 비", "x": "수다스러운 소나기"},
+  {"e": "❄️", "w": "첫눈", "m": "그해 처음 내리는 눈", "x": "수줍은 첫눈"},
+  {"e": "⚡", "w": "번개", "m": "번쩍이는 빛", "x": "장난꾸러기 번개"},
+  {"e": "🥁", "w": "천둥", "m": "하늘의 큰 소리", "x": "목소리 큰 천둥"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
