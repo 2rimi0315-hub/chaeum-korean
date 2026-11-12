@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 인물의 삶과 가치</title>
+<title>&lt;em&gt;시조&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 6-2 · 1단원 작품 속 인물과 생각을 나눠요 · 어휘 카드 8장</p>
-    <h1><em>가치</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 6-2 · 1단원 · 하여가와 단심가 · 어휘 카드 8장</p>
+    <h1><em>시조</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💎", "w": "가치", "m": "소중히 여기는 것", "x": "가치를 찾아요."},
-  {"e": "🎯", "w": "추구", "m": "목표를 좇음", "x": "꿈을 추구해요."},
-  {"e": "🔗", "w": "관련짓다", "m": "서로 이어 생각함", "x": "내 삶과 관련지어요."},
-  {"e": "🎭", "w": "감상", "m": "읽고 느낀 마음", "x": "감상을 나눠요."},
-  {"e": "🌟", "w": "본받다", "m": "좋은 점을 배워 따름", "x": "용기를 본받아요."},
-  {"e": "👤", "w": "인물", "m": "이야기 속 사람", "x": "인물을 살펴요."},
-  {"e": "🌿", "w": "삶", "m": "살아가는 일", "x": "인물의 삶을 봐요."},
-  {"e": "🙇", "w": "존경", "m": "우러러봄", "x": "존경하는 인물이에요."}
+  {"e": "📜", "w": "시조", "m": "세 줄로 된 우리 고유의 시", "x": "시조를 읽어요."},
+  {"e": "❤️", "w": "일편단심", "m": "변하지 않는 마음", "x": "일편단심"},
+  {"e": "🛡️", "w": "충절", "m": "굳은 충성", "x": "고려에 대한 충절"},
+  {"e": "🔧", "w": "개혁", "m": "제도를 새롭게 고침", "x": "사회를 개혁해요."},
+  {"e": "🌿", "w": "칡", "m": "덩굴로 뻗는 식물", "x": "칡덩굴이 얽혀요."},
+  {"e": "👑", "w": "왕조", "m": "한 왕가가 다스리는 시대", "x": "새 왕조"},
+  {"e": "🗣️", "w": "설득", "m": "말로 따르게 함", "x": "부드럽게 설득해요."},
+  {"e": "🎙️", "w": "낭송", "m": "소리 내어 읽음", "x": "시조를 낭송해요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
