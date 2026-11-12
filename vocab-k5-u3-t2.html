@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 궁금한 내용 질문하기</title>
+<title>&lt;em&gt;발표&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 3단원 발표하고 질문해요 · 어휘 카드 8장</p>
-    <h1><em>궁금한 내용 질문하기</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 3단원 · 자료를 선별해 발표하기 · 어휘 카드 8장</p>
+    <h1><em>발표</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "❓", "w": "질문", "m": "모르거나 궁금한 것을 묻는 것", "x": "발표를 들으며 질문해요."},
-  {"e": "🎯", "w": "의도", "m": "무엇을 하려고 하는 속마음", "x": "질문으로 의도를 파악해요."},
-  {"e": "💡", "w": "대안", "m": "어떤 것을 대신할 다른 방법", "x": "질문으로 대안을 찾아요."},
-  {"e": "🔎", "w": "명료", "m": "뚜렷하고 분명한 것", "x": "명료하게 이해하려고 질문해요."},
-  {"e": "🙋", "w": "제안", "m": "의견이나 안건을 내놓는 것", "x": "학급 규칙을 제안해요."},
-  {"e": "📋", "w": "규칙", "m": "여럿이 지키기로 정한 약속", "x": "학급 규칙을 정해요."},
-  {"e": "🙏", "w": "예의", "m": "지켜야 할 바른 태도", "x": "예의를 갖추어 질문해요."},
-  {"e": "👂", "w": "경청", "m": "귀 기울여 잘 듣는 것", "x": "발표를 경청하며 질문을 준비해요."}
+  {"e": "📋", "w": "개요", "m": "중요한 내용을 간추린 틀", "x": "발표 개요"},
+  {"e": "✂️", "w": "요약하다", "m": "중요한 것만 줄이다", "x": "내용을 요약해요."},
+  {"e": "🧐", "w": "검토하다", "m": "자세히 따져 보다", "x": "자료를 검토해요."},
+  {"e": "📌", "w": "출처", "m": "자료가 나온 곳", "x": "출처를 밝혀요."},
+  {"e": "♨️", "w": "온천", "m": "따뜻한 물이 솟는 곳", "x": "온천에 가요."},
+  {"e": "🌾", "w": "기름지다", "m": "땅이 양분이 많다", "x": "기름진 땅"},
+  {"e": "🔥", "w": "마그마", "m": "땅속의 녹은 돌", "x": "마그마가 솟아요."},
+  {"e": "🏛️", "w": "공공 기관", "m": "나라나 지역의 기관", "x": "공공 기관 누리집"}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
