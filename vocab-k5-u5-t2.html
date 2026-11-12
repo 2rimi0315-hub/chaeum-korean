@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>어휘 카드 — 협력하며 토의해요</title>
+<title>&lt;em&gt;공공 자전거&lt;/em&gt; 낱말 카드 — 낱말 카드</title>
 <style>
   :root{
     --ink:#2E2B26; --paper:#FFFDF8;
@@ -60,20 +60,17 @@
 <div class="wrap">
   <header>
     <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display='none'">
-    <p class="eyebrow">국어 5-1 · 5단원 의논하며 토의해요 · 어휘 카드 8장</p>
-    <h1><em>토의</em> 낱말 카드</h1>
+    <p class="eyebrow">국어 5-1 · 5단원 · 공공 자전거 · 어휘 카드 8장</p>
+    <h1><em>공공 자전거</em> 낱말 카드</h1>
     <p class="sub">카드를 눌러 낱말의 뜻을 확인해요 · 소리 내어 따라 읽으면 더 좋아요!</p>
   </header>
-
   <div class="toolbar">
     <button class="primary" onclick="window.print()">🖨 인쇄하기 (카드 + 뜻 정리표)</button>
     <button onclick="revealAll(true)">뜻 모두 보기</button>
     <button onclick="revealAll(false)">뜻 모두 숨기기</button>
   </div>
   <p class="hint">💡 화면에서는 카드를 누르면 뜻이 나타나요. 인쇄하면 카드에는 낱말만 나오고, 두 번째 장에 뜻 정리표가 나옵니다.</p>
-
   <div class="grid" id="grid"></div>
-
   <section class="answers">
     <h2>낱말 뜻 정리표</h2>
     <table>
@@ -81,20 +78,18 @@
       <tbody id="tbody"></tbody>
     </table>
   </section>
-
   <a class="back" href="index.html">‹ 첫 화면으로 돌아가기</a>
 </div>
-
 <script>
 const WORDS = [
-  {"e": "💬", "w": "토의", "m": "의견을 나누어 문제를 해결함", "x": "반 규칙을 토의로 정했어요."},
-  {"e": "🤝", "w": "협력", "m": "힘을 모아 함께함", "x": "친구와 협력해 청소했어요."},
-  {"e": "🧠", "w": "의견", "m": "어떤 일에 대한 생각", "x": "내 의견을 또박또박 말했어요."},
-  {"e": "📌", "w": "근거", "m": "의견을 뒷받침하는 까닭", "x": "근거를 들어 말했어요."},
-  {"e": "✅", "w": "결정", "m": "어떻게 할지 정함", "x": "모두가 함께 결정했어요."},
-  {"e": "👂", "w": "경청", "m": "귀 기울여 잘 들음", "x": "친구 말을 경청했어요."},
-  {"e": "🎯", "w": "주제", "m": "이야기할 중심 내용", "x": "토의 주제를 먼저 정해요."},
-  {"e": "🙋", "w": "제안", "m": "의견이나 방법을 내놓음", "x": "좋은 방법을 제안했어요."}
+  {"e": "🚲", "w": "공공 자전거", "m": "누구나 빌려 타는 자전거", "x": "공공 자전거를 타요."},
+  {"e": "🏪", "w": "대여소", "m": "물건을 빌려주는 곳", "x": "대여소에서 빌려요."},
+  {"e": "↩️", "w": "반납하다", "m": "빌린 것을 돌려주다", "x": "자전거를 반납해요."},
+  {"e": "💪", "w": "책임감", "m": "맡은 일을 다하려는 마음", "x": "책임감 있게 써요."},
+  {"e": "♻️", "w": "지속 가능하다", "m": "오래 이어 갈 수 있다", "x": "지속 가능한 교통"},
+  {"e": "📥", "w": "도입하다", "m": "새로 들여오다", "x": "제도를 도입해요."},
+  {"e": "🛣️", "w": "전용 도로", "m": "한 가지만 다니는 길", "x": "자전거 전용 도로"},
+  {"e": "🚇", "w": "대중교통", "m": "여럿이 타는 교통수단", "x": "대중교통이 붐벼요."}
 ];
 const grid = document.getElementById('grid');
 const tbody = document.getElementById('tbody');
