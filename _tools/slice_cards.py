@@ -31,6 +31,14 @@ for idx in sys.argv[1:]:
         r,c=divmod(j,3)
         x0=xb[c][1]+4;x1=xb[c+1][0]-4;y0=yb[r][1]+4;y1=yb[r+1][0]-4
         cell=im.crop((x0,y0,x1,y1))
+        if cell.width>cell.height*1.15:
+            cw=min(cell.width,int(cell.height*1.3));cx=cell.width//2
+            cell=cell.crop((cx-cw//2,0,cx-cw//2+cw,cell.height))
+            pad=(cw-cell.height)//2
+            from PIL import ImageFilter
+            inner=cell.crop((6,6,cw-6,cell.height-6))
+            sq=inner.resize((cw,cw)).filter(ImageFilter.GaussianBlur(28))
+            sq.paste(cell,(0,pad));cell=sq
         s=min(cell.size);cx,cy=cell.width//2,cell.height//2
         cell=cell.crop((cx-s//2,cy-s//2,cx-s//2+s,cy-s//2+s))
         for ext in ('.png','.jpg'):
