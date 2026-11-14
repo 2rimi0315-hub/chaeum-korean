@@ -161,7 +161,7 @@ def page(lid, title_tag, eyebrow, h1, sections):
     _qn[0] = 0
     head = HEAD
     import re
-    head = re.sub(r'<title>.*?</title>', f'<title>{e(title_tag)}</title>', head, flags=re.S)
+    head = re.sub(r'<title>.*?</title>', f'<title>{e(re.sub(r"<[^>]+>","",title_tag))}</title>', head, flags=re.S)
     body = ('<body>\n<div class="wrap">\n\n  <header class="top">\n'
             '    <img src="logo.png" alt="채움언어학습연구소" style="height:36px; width:auto; display:block; margin-bottom:14px;" onerror="this.style.display=\'none\'">\n'
             f'    <p class="eyebrow">{eyebrow}</p>\n    <h1>{h1}</h1>\n'
@@ -203,7 +203,7 @@ function revealAll(on){ document.querySelectorAll('.card').forEach(c=>c.classLis
 </html>
 """
     import re
-    vh = re.sub(r'<title>.*?</title>', f'<title>{e(h1)} — 낱말 카드</title>', VHEAD, flags=re.S)
+    vh = re.sub(r'<title>.*?</title>', f'<title>{e(re.sub(r"<[^>]+>","",h1))} — 낱말 카드</title>', VHEAD, flags=re.S)
     return vh + body + tail
 
 def pick(q, opts):
